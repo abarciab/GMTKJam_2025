@@ -1,8 +1,9 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
-[RequireComponent (typeof(Rigidbody))]
+[RequireComponent (typeof(Rigidbody), typeof(PlayerInventory))]
 public class Player : MonoBehaviour
 {
     [Header("Movement")]
@@ -13,10 +14,10 @@ public class Player : MonoBehaviour
 
     [Header("Collecting")]
     [SerializeField] private float _collectionRange = 10;
-    [SerializeField] private int _numRocks;
     [SerializeField] private Sound _collectSound;
 
     private Rigidbody _rb;
+    private PlayerInventory _inventory;
     private Collectable _hoveredCollectible;
     private Car _hoveredCar;
     private bool _dead;
@@ -28,9 +29,9 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         _rb = GetComponent<Rigidbody>();
+        _inventory = GetComponent<PlayerInventory>();
         _collectSound = Instantiate(_collectSound);
     }
-
 
     void Update()
     {
@@ -57,6 +58,12 @@ public class Player : MonoBehaviour
 
         _timeBreaking += Time.deltaTime;
         UIManager.i.Do(UIAction.SHOW_BREAK_PROGRESS, _timeBreaking / _hoveredCollectible.BreakTime);
+
+        if (_timeBreaking >= _hoveredCollectible.BreakTime) {
+            CollectCurrent();
+            _breaking = false;
+            UIManager.i.Do(UIAction.SHOW_BREAK_PROGRESS, 0);
+        }
     }
 
     private void CarInteract()
@@ -77,16 +84,22 @@ public class Player : MonoBehaviour
 
     private void DepositRocks()
     {
-        var numDonated = _hoveredCar.DepositRocks(_numRocks);
-        _numRocks -= numDonated;
+        var requiredItems = _hoveredCar.GetRemainingRequiredItems();
+        var ItemsToDeposit = _inventory.Inventory.GetOverlap(requiredItems);
 
-        UIManager.i.Do(UIAction.DISPLAY_ROCK_TOTAL, _numRocks);
-        UIManager.i.Do(UIAction.DISPLAY_COLLECTABLE, _hoveredCar.GetDisplayString(_numRocks));
+        _hoveredCar.DepositItems(ItemsToDeposit);
+
+        _inventory.RemoveItems(ItemsToDeposit);
+
+        UIManager.i.Do(UIAction.DISPLAY_COLLECTABLE, _hoveredCar.GetDisplayString(_inventory.Inventory));
     }
 
     private void CollectableInteract()
     {
-        if (_hoveredCollectible.Breakable) _breaking = true;
+        if (_hoveredCollectible.Breakable) {
+            _breaking = true;
+            _timeBreaking = 0;
+        }
         else CollectCurrent();
     }
 
@@ -95,8 +108,9 @@ public class Player : MonoBehaviour
         if (_hoveredCollectible == null) return;
 
         _collectSound.Play();
-        _numRocks += 1;
-        UIManager.i.Do(UIAction.DISPLAY_ROCK_TOTAL, _numRocks);
+        
+        _inventory.Additems(_hoveredCollectible.Drop);
+
         Destroy(_hoveredCollectible.gameObject);
         _hoveredCollectible = null;
     }
@@ -116,7 +130,7 @@ public class Player : MonoBehaviour
 
         if (_hoveredCollectible) UIManager.i.Do(UIAction.DISPLAY_COLLECTABLE, _hoveredCollectible.DisplayName);
         else if (_hoveredCar) {
-            UIManager.i.Do(UIAction.DISPLAY_COLLECTABLE, _hoveredCar.GetDisplayString(_numRocks));
+            UIManager.i.Do(UIAction.DISPLAY_COLLECTABLE, _hoveredCar.GetDisplayString(_inventory.Inventory));
         }
         else UIManager.i.Do(UIAction.DISPLAY_COLLECTABLE, "");
     }
