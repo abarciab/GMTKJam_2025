@@ -6,6 +6,8 @@ using UnityEngine.UIElements;
 [RequireComponent (typeof(Rigidbody), typeof(PlayerInventory))]
 public class Player : MonoBehaviour
 {
+    [SerializeField] private CameraController _camera;
+
     [Header("Movement")]
     [SerializeField] private float _walkSpeed = 5;
     [SerializeField] private float _runSpeed = 10;
@@ -68,13 +70,14 @@ public class Player : MonoBehaviour
 
     private void CarInteract()
     {
-        if (_hoveredCar.ReadyToGo) LeaveArea();
+        if (_hoveredCar.ReadyToGo) GetInCar();
         else DepositRocks();
     }
 
-    private void LeaveArea()
+    private void GetInCar()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        _camera.FollowCar();
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void Die()

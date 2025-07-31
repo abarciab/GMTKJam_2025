@@ -153,7 +153,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fc805b3a038c0574696683b7ceda336c, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fc805b3a038c0574696683b7ceda336c, type: 3}
       propertyPath: m_LocalRotation.x
@@ -161,11 +161,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fc805b3a038c0574696683b7ceda336c, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fc805b3a038c0574696683b7ceda336c, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fc805b3a038c0574696683b7ceda336c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -173,7 +173,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fc805b3a038c0574696683b7ceda336c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fc805b3a038c0574696683b7ceda336c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -564,8 +564,14 @@ MonoBehaviour:
   _positionOffset: {x: 0, y: 0.6, z: 0}
   _targetPosition: {x: 0, y: 0.6, z: 0.84}
   _rotateSpeed: 2
+  _car: {fileID: 1689964441}
+  _carPositionOffset: {x: 0, y: 6.08, z: -5.65}
+  _carTargetPosition: {x: 0, y: 1.59, z: 5.48}
+  _posLerpFactor: 8
+  _rotLerpFactor: 10
   _camera: {fileID: 963194228}
   _lookLimits: {x: -25, y: 80}
+  _followCar: 0
 --- !u!1 &416994776
 GameObject:
   m_ObjectHideFlags: 0
@@ -2190,6 +2196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35ea0e9f5d1b1bd469688a3c93729962, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _camera: {fileID: 331635239}
   _walkSpeed: 4
   _runSpeed: 10
   _strafeSpeed: 5
@@ -2831,14 +2838,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1689964440}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0.98014194, z: -0, w: 0.19829753}
   m_LocalPosition: {x: -0.83, y: 0, z: 5.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 28533766}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -157.125, z: 0}
 --- !u!114 &1689964442
 MonoBehaviour:
   m_ObjectHideFlags: 0
