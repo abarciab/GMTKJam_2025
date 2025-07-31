@@ -11,7 +11,7 @@ public class CameraController : MonoBehaviour
     [SerializeField] private float _rotateSpeed;
 
     [Header("Car")]
-    [SerializeField] private Transform _car;
+    [SerializeField] private Rigidbody _car;
     [SerializeField] private Vector3 _carPositionOffset;
     [SerializeField] private Vector3 _carTargetPosition;
     [SerializeField] private float _posLerpFactor;
@@ -24,12 +24,12 @@ public class CameraController : MonoBehaviour
     private float _currentLook = 0;
     [SerializeField] private bool _followCar;
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (_followCar) {
-            transform.position = Vector3.Lerp(transform.position, _car.TransformPoint(_carPositionOffset), _posLerpFactor * Time.deltaTime);
+            transform.position = Vector3.Lerp(transform.position, _car.transform.TransformPoint(_carPositionOffset), _posLerpFactor * Time.deltaTime);
             var oldRot = transform.rotation;
-            transform.LookAt(_car.TransformPoint(_carTargetPosition));
+            transform.LookAt(_car.transform.TransformPoint(_carTargetPosition));
             transform.rotation = Quaternion.Lerp(oldRot, transform.rotation, _rotLerpFactor * Time.deltaTime);
         }
         else {

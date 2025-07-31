@@ -77,7 +77,9 @@ public class Player : MonoBehaviour
     private void GetInCar()
     {
         _camera.FollowCar();
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        _hoveredCar.StartDriving();
+        gameObject.SetActive(false);
+        UIManager.i.Do(UIAction.DISPLAY_COLLECTABLE, "");
     }
 
     public void Die()
