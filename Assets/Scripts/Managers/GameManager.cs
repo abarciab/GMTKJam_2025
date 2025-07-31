@@ -10,9 +10,11 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private float _totalTime;
     [SerializeField] private Player _player;
+    [SerializeField] private List<ItemData> _allItems = new List<ItemData>();
 
     private float _timeLeft;
 
+    public List<ItemData> AllItems => _allItems;
     public void LoadMenu() => Utils.TransitionToScene(0);
     public void EndGame() => Utils.TransitionToScene(2);
     public Transform Player => _player.transform;

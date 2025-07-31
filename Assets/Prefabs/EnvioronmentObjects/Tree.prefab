@@ -68,8 +68,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _displayname: Tree
+  _drop:
+    Name: 
+    Data: {fileID: 11400000, guid: 0f82e34ea8fc56344878435e9ec4c74b, type: 2}
+    Quantity: 2
   _breakable: 1
-  _breakTime: 0
+  _breakTime: 1.2
 --- !u!1001 &7465842431022482834
 PrefabInstance:
   m_ObjectHideFlags: 0

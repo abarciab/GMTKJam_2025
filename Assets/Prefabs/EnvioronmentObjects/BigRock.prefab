@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2383871527285694290}
   - component: {fileID: 3880020399850957032}
   m_Layer: 0
-  m_Name: Rock
+  m_Name: BigRock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -53,8 +53,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0.5, z: 0}
+  m_Size: {x: 2.272734, y: 2.1978574, z: 2.272734}
+  m_Center: {x: 0, y: 0.82414293, z: 0}
 --- !u!114 &3880020399850957032
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -71,9 +71,9 @@ MonoBehaviour:
   _drop:
     Name: 
     Data: {fileID: 11400000, guid: 1202a0ccc9c55974f99a44fdcc69af66, type: 2}
-    Quantity: 1
-  _breakable: 0
-  _breakTime: 0
+    Quantity: 5
+  _breakable: 1
+  _breakTime: 2
 --- !u!1 &8740057436935904112
 GameObject:
   m_ObjectHideFlags: 0
@@ -101,8 +101,8 @@ Transform:
   m_GameObject: {fileID: 8740057436935904112}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0.856, z: 0}
+  m_LocalScale: {x: 2.2198, y: 2.2198, z: 2.2198}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1690646424772896193}
