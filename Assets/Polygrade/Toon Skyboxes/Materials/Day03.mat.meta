@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: ff842630219f3b341a44aaa1835394f5
+timeCreated: 1496666140
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93124
+  packageName: Toon Skyboxes
+  packageVersion: 1.0
+  assetPath: Assets/Polygrade/Toon Skyboxes/Materials/Day03.mat
+  uploadId: 185741

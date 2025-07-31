@@ -18,10 +18,10 @@ MonoBehaviour:
     Key: 27
   - DisplayName: Walk Forward
     Control: 2
-    Key: 273
+    Key: 119
   - DisplayName: Walk Backward
     Control: 3
-    Key: 274
+    Key: 115
   - DisplayName: Walk Left
     Control: 4
     Key: 97
@@ -31,3 +31,6 @@ MonoBehaviour:
   - DisplayName: Interact
     Control: 6
     Key: 101
+  - DisplayName: Sprint
+    Control: 7
+    Key: 304

@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 7422966fc66e3084ba3c56de0992f02f
+timeCreated: 1496666265
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93124
+  packageName: Toon Skyboxes
+  packageVersion: 1.0
+  assetPath: Assets/Polygrade/Toon Skyboxes/Materials/Night02.mat
+  uploadId: 185741

@@ -13,6 +13,15 @@ public class pauseMenuController : UIController
     private void OnEnable()
     {
         _settings.SetActive(false);
+
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = true;
+    }
+
+    private void OnDisable()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     private void Start()

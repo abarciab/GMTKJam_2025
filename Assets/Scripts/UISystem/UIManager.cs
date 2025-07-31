@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public enum UIAction { PAUSE, RESUME, TOGGLE_PAUSE, FADE_TO_BLACK, FADE_FROM_BLACK};
+public enum UIAction { PAUSE, RESUME, TOGGLE_PAUSE, FADE_TO_BLACK, FADE_FROM_BLACK, DISPLAY_COLLECTABLE, DISPLAY_ROCK_TOTAL, DISPLAY_CAR_ROCKS, UPDATE_TIMER, SHOW_DEATH_SCREEN, SHOW_BREAK_PROGRESS};
 public enum UIResult { };
 
 public class UIManager : MonoBehaviour

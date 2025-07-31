@@ -187,10 +187,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _clickBehavior: 1
+  _selectOnMouseDown: 0
+  _canToggleOff: 1
   _hoverBehavior: 0
   _hasHoverCooldown: 0
   _hoverCooldown: 0.05
   _hoverWhenSelected: 1
+  _deHoverOnEnable: 0
   _data:
   - Name: backing
     _type: 0
@@ -266,12 +269,16 @@ MonoBehaviour:
     _showGOSettings: 0
     _showGroupSettings: 0
     _showSpriteSettings: 0
+  _scaleWhenHovered: 1
+  _scaleDefaultHovered: {x: 1, y: 1.1}
+  _hoverScaleLerp: 0.2
   _hasAnimation: 0
   _animator: {fileID: 0}
   _animationSelectedBool: Selected
   _animationHoveredBool: Hovered
   _animationDisabledBool: Disabled
   _hoverSound: {fileID: 11400000, guid: 4ba078087b4262248a49dc212ae8bee6, type: 2}
+  _mouseDownSound: {fileID: 0}
   _selectSound: {fileID: 11400000, guid: 937ddfdca0a09a343831e509caa6a123, type: 2}
   _deselectSound: {fileID: 11400000, guid: c7bfd0188de1bdf4e8772c815f9cca62, type: 2}
   OnSelect:
