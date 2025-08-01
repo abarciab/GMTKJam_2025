@@ -11,22 +11,31 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private float _totalTime;
     [SerializeField] private Player _player;
+    [SerializeField] private Car _car;
+    [SerializeField] private CameraController _camera;
     [SerializeField] private List<ItemData> _allItems = new List<ItemData>();
     [SerializeField] private GameObject _environment;
+    [SerializeField] private AreaController _areaController;
+    [SerializeField] private List<GameObject> _areaPrefabs = new List<GameObject>();
 
     private float _timeLeft;
+    private bool _timerPaused;
 
     public List<ItemData> AllItems => _allItems;
     public void LoadMenu() => Utils.TransitionToScene(0);
     public void EndGame() => Utils.TransitionToScene(2);
     public Transform Player => _player.transform;
-    public Transform Camera => null;
+    public Transform Camera => _camera.transform;
+    public void ResumeTimer() => _timerPaused = false;
+    public void PauseTimer() => _timerPaused = true;
 
     private void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        Utils.SetCursor(false);
         _timeLeft = _totalTime;
+
+        if (_areaController) _areaController.InitializeArea(_car);
+        else EnterNewArea();
     }
 
     private void Awake()
@@ -39,7 +48,7 @@ public class GameManager : MonoBehaviour
     {
         if (_player.Dead) return;
 
-        _timeLeft -= Time.deltaTime;
+        if (!_timerPaused) _timeLeft -= Time.deltaTime;
         UIManager.i.Do(UIAction.UPDATE_TIMER, _timeLeft / _totalTime);
 
         if (_timeLeft <= 0) LoseGame();
@@ -47,7 +56,19 @@ public class GameManager : MonoBehaviour
 
     public void EnterNewArea()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        if (_areaController) Destroy(_areaController.gameObject);
+
+        var selectedArea = _areaPrefabs[Random.Range(0, _areaPrefabs.Count)];
+        _areaController = Instantiate(selectedArea, _environment.transform).GetComponent<AreaController>();
+
+        _player.gameObject.SetActive(false);
+        _camera.FollowCar();
+        _car.StartDriving();
+
+        _areaController.EnterArea(_car, _camera);
+        _environment.SetActive(true);
+
+        _timeLeft = _totalTime;
     }
 
     public void Transition()

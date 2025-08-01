@@ -10,11 +10,11 @@ public class HUDController : UIController
     private void Start()
     {
         DisplayCollectible("");
-    }
+    }    
 
     protected override void UpdateUI(UIAction action, object arg)
     {
-        if (action == UIAction.DISPLAY_COLLECTABLE && arg is string collectableName) DisplayCollectible(collectableName);
+        if (action == UIAction.DISPLAY_HOVERED && arg is string collectableName) DisplayCollectible(collectableName);
         if (action == UIAction.SHOW_BREAK_PROGRESS && arg is float breakProgress) DisplayBreakProgress(breakProgress);
     }
 

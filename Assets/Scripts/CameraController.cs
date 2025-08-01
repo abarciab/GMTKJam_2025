@@ -23,19 +23,25 @@ public class CameraController : MonoBehaviour
     [SerializeField] private Transform _camera;
 
     private float _currentLook = 0;
-    [SerializeField] private bool _followCar;
+    private bool _followCar;
+    private bool _inConversation;
+
+    public void StartConversation() => _inConversation = true;
+    public void EndConversation() => _inConversation = false;
+    public void FollowPlayer() => _followCar = false;
+    public void FollowCar() => _followCar = true;
 
     private void Update()
     {
-        if (_followCar) {
-        }
-        else {
+        if (!_followCar && !_inConversation) {
             Turn();
         }
     }
 
     private void FixedUpdate()
     {
+        if (_inConversation) return;
+
         if (_followCar) {
             transform.position = Vector3.Lerp(transform.position, _car.transform.TransformPoint(_carPositionOffset), _posLerpFactor * Time.deltaTime);
             var oldRot = transform.rotation;
@@ -52,20 +58,17 @@ public class CameraController : MonoBehaviour
         }
     }
 
-    public void FollowCar()
+    public void SnapToCar()
     {
-        _followCar = true;
+        transform.position = _car.transform.TransformPoint(_carPositionOffset);
+        transform.LookAt(_car.transform.TransformPoint(_carTargetPosition));
+        transform.localEulerAngles += Vector3.up * _car.angularVelocity.y * _turnLookAheadFactor;
+        _camera.localRotation = Quaternion.identity;
     }
-
-    public void FollowPlayer()
-    {
-        _followCar = false;
-    }
-
+    
     private void Turn()
     {
         var mouseDelta = -Input.mousePositionDelta.y;
-        //mouseDelta = Mathf.Clamp(mouseDelta, -50, 50);
         var rotDelta = mouseDelta * _rotateSpeed * Time.deltaTime * 100;
         if (rotDelta > 0) rotDelta = Mathf.Min(rotDelta, _lookLimits.y - _currentLook);
         if (rotDelta < 0) rotDelta = Mathf.Max(rotDelta, _lookLimits.x - _currentLook);

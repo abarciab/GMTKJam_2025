@@ -13,6 +13,21 @@ public static class Utils
 
     public static float Rand(Vector2 range) => Random.Range(range.x, range.y);
 
+    private static int numMenusOpen = 0;
+
+    public static void SetCursor(bool visible)
+    {
+        if (visible) numMenusOpen += 1;
+        else numMenusOpen -= 1;
+
+        numMenusOpen = Mathf.Max(numMenusOpen, 0);
+
+        if (numMenusOpen > 0) visible = true;
+
+        Cursor.lockState = visible ? CursorLockMode.Confined : CursorLockMode.Locked;
+        Cursor.visible = visible;
+    }
+
     public static List<T> EnumToList<T>()
     {
         var array = System.Enum.GetValues(typeof(T));

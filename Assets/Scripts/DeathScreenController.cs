@@ -10,8 +10,7 @@ public class DeathScreenController : UIController
 
     private void OnEnable()
     {
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.Confined;
+        Utils.SetCursor(true);
     }
 
     public void Restart()

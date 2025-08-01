@@ -1,5 +1,6 @@
 using MyBox;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -10,6 +11,7 @@ public class ScatterObjects : MonoBehaviour
     [SerializeField] private float _radius = 50;
     [SerializeField] private Vector2 _scaleLimits = new Vector2(0.4f, 1.6f);
     [SerializeField] private LayerMask _groundLayer;
+    [SerializeField] private Transform _permantentParent;
 
     private List<GameObject> _spawnedObjects = new List<GameObject>();
 
@@ -29,14 +31,41 @@ public class ScatterObjects : MonoBehaviour
     public void DestroyObjects()
     {
         foreach (var obj in _spawnedObjects) DestroyImmediate(obj);
+        for (var i = transform.childCount - 1; i >= 0; i--) {
+            DestroyImmediate(transform.GetChild(i).gameObject);
+        }
         _spawnedObjects.Clear();
         Utils.SetDirty(this);
+    }
+
+    [ButtonMethod]
+    public void Confirm()
+    {
+        for (var i = transform.childCount - 1; i >= 0; i--) {
+            var child = transform.GetChild(i);
+            child.SetParent(_permantentParent);
+            Utils.SetDirty(child.gameObject);   
+        }
+        _spawnedObjects.Clear();
+        Utils.SetDirty(this);
+        Utils.SetDirty(_permantentParent.gameObject);
+    }
+
+    [ButtonMethod]
+    public void DestroyAll()
+    {
+        DestroyObjects();
+        for (var i = _permantentParent.childCount - 1; i >= 0; i--) {
+            DestroyImmediate(_permantentParent.GetChild(i).gameObject);
+        }
+        Utils.SetDirty(this);
+        Utils.SetDirty(_permantentParent.gameObject);
     }
 
     private void TrySpawnObject()
     {
         var circlePos = Random.insideUnitCircle * _radius;
-        var pos = new Vector3(circlePos.x, transform.position.y, circlePos.y);
+        var pos = new Vector3(circlePos.x + transform.position.x, transform.position.y, circlePos.y + transform.position.z);
 
         var didHit = Physics.Raycast(pos, Vector3.down, out var hitInfo, 10000, _groundLayer);
         if (didHit) {
@@ -47,9 +76,9 @@ public class ScatterObjects : MonoBehaviour
             Utils.SetDirty(newObject);
         }
         else {
-            var selectedObject = _prefabs[Random.Range(0, _prefabs.Count)];
-            var newObject = Instantiate(selectedObject, pos, Quaternion.identity, transform);
-            Utils.SetDirty(newObject);
+            //var selectedObject = _prefabs[Random.Range(0, _prefabs.Count)];
+            //var newObject = Instantiate(selectedObject, pos, Quaternion.identity, transform);
+            //Utils.SetDirty(newObject);
         }
     }
 
