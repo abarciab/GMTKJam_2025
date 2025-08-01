@@ -190,7 +190,7 @@ public class Player : MonoBehaviour
                 UIManager.i.Do(UIAction.DISPLAY_HOVERED, _hoveredCarPart.Car.GetDisplayString(_inventory.Inventory));
             }
         }
-        if (_hoveredNPC) UIManager.i.Do(UIAction.DISPLAY_HOVERED, _hoveredNPC.Name);
+        else if (_hoveredNPC) UIManager.i.Do(UIAction.DISPLAY_HOVERED, _hoveredNPC.Name);
         else UIManager.i.Do(UIAction.DISPLAY_HOVERED, "");
     }
 

@@ -38,6 +38,8 @@ public class UIManager : MonoBehaviour
 
     public void Do<T>(UIAction type, T parameter = default)
     {
+        //if (type != UIAction.UPDATE_TIMER) print("do: " +  type + ", arg: " + parameter);
+
         CheckParameter(parameter);
         OnUpdateUI?.Invoke(type, parameter);
     }
