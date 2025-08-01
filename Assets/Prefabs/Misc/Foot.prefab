@@ -158,7 +158,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  _rising: 0
+  _xRotLimits: {x: -30, y: 20}
+  _rising: 1
   _riseSpeed: 150
   _fallSpeed: 80
   _maxY: 120
@@ -169,7 +170,7 @@ MonoBehaviour:
   _stepSound: {fileID: 11400000, guid: bc8974de49ef52f4d9a61838559a8ff1, type: 2}
   _stepSoundLocal: {fileID: 11400000, guid: bc8974de49ef52f4d9a61838559a8ff1, type: 2}
   _forwardSpeed: 2
-  InitialWaitTime: 5
+  InitialWaitTime: 0
 --- !u!136 &1155912201902623210
 CapsuleCollider:
   m_ObjectHideFlags: 0

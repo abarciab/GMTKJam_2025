@@ -1,3 +1,4 @@
+using MyBox;
 using UnityEngine;
 
 [RequireComponent (typeof(Collider))]
@@ -6,6 +7,7 @@ public class Foot : MonoBehaviour
 {
     [SerializeField] private Transform _shadowCaster;
     [SerializeField] private AnimationCurve _speedCurve;
+    [SerializeField] private Vector2 _xRotLimits;
     [SerializeField] private bool _rising = true;
     [SerializeField] private float _riseSpeed;
     [SerializeField] private float _fallSpeed;
@@ -21,10 +23,13 @@ public class Foot : MonoBehaviour
     private Collider _collider;
     private Vector3 _shadowOriginalScale;
     private float _waitTimeLeft;
+    Quaternion _originalLocalRot;
+    Quaternion _targetRot;
 
 
     private void Start()
     {
+        _originalLocalRot = transform.localRotation;
         _collider = GetComponent<Collider>();
         _stepSound = Instantiate(_stepSound);
         _stepSoundLocal = Instantiate(_stepSoundLocal);
@@ -45,12 +50,29 @@ public class Foot : MonoBehaviour
     {
         _collider.isTrigger = !_rising;
 
+        transform.localRotation = Quaternion.Lerp(transform.localRotation, _targetRot, 2 * Time.deltaTime);
+
         if (InitialWaitTime <= 0 && _waitTimeLeft > 0) {
             _waitTimeLeft -= Time.deltaTime;
+
+            _targetRot = _originalLocalRot;
             return;
         }
 
         var progressUp = (transform.position.y - _groundY) / (_maxY - _groundY);
+
+        
+        if (_rising) {
+            var targetEuler = transform.localEulerAngles;
+            targetEuler.x = _xRotLimits.x;
+            _targetRot = Quaternion.Lerp(_originalLocalRot, Quaternion.Euler(targetEuler), 1 - progressUp);
+        }
+        else {
+            var targetEuler = transform.localEulerAngles;
+            targetEuler.x = _xRotLimits.y;
+            _targetRot = Quaternion.Lerp(_originalLocalRot, Quaternion.Euler(targetEuler), progressUp);
+        }
+
         if (progressUp > 0.1f) transform.position += transform.forward * _forwardSpeed * Time.deltaTime;
 
         if (InitialWaitTime > 0) {
