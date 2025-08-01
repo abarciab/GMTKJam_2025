@@ -8,39 +8,88 @@ public class Car : MonoBehaviour
     [Header("Driving")]
     [SerializeField] private float _maxSpeed = 20;
     [SerializeField] private float _forwardAccel = 1;
-    [SerializeField] private float _turnSpeed = 1;
-    [SerializeField] private float _turnSpeedMax = 1;
+    [SerializeField] private float _wheelTurnSpeed = 25;
+    [SerializeField] private float _carTurnSpeed = 8;
+    [SerializeField] private float _wheelTurnLimit = 22;
+    [SerializeField] private Vector2 _throttleLimits = new Vector2(-3, 3);
+    [SerializeField] private float _wheelStraightenLerpFactor = 22;
     [SerializeField] private Transform _leftTire;
     [SerializeField] private Transform _rightTire;
-    [SerializeField] private float _maxTireRot = 35;
-    [SerializeField] private float _turnLerp = 10;
+    [SerializeField, ReadOnly] private float _wheelAngle;
+
+    [Header("Sounds")]
+    [SerializeField] private Sound _engineLoop;
 
     [Header("Broken Behavior")]
     [SerializeField] private Inventory _currentInventory;
     [SerializeField] private Inventory _requiredInventory;
     [SerializeField] private Sound _depositSound;
 
-
     private Rigidbody _rb;
     private bool _driving;
-    [SerializeField, ReadOnly] private float _rightSteerAmount;
-    [SerializeField, ReadOnly] private float _leftSteerAmount;
+    [SerializeField, ReadOnly] private float _throttle;
+    private float _forwardSpeedPercent;
 
     public bool ReadyToGo => _currentInventory.Contains(_requiredInventory);
 
     private void Awake()
     {
         _depositSound = Instantiate(_depositSound);
+        _engineLoop = Instantiate(_engineLoop);
         _rb = GetComponent<Rigidbody>();
     }
 
     private void Start()
     {
+        _engineLoop.PlaySilent();
         UpdateUI();
         _rb.isKinematic = true;
     }
 
     private void Update()
+    {
+        if (!_driving) return;
+
+        var forwardSpeed = Vector3.Dot(_rb.linearVelocity, transform.forward);
+        _forwardSpeedPercent = forwardSpeed / _maxSpeed;
+
+        HandleThrottle();
+        HandleTurning();       
+    }
+
+    private void HandleThrottle()
+    {
+        if (InputController.Get(Control.MOVE_FORWARD)) {
+            _throttle += _forwardAccel * Time.deltaTime;
+        }
+        else if (InputController.Get(Control.MOVE_BACK)) {
+                _throttle -= _forwardAccel * Time.deltaTime;
+        }
+        else {
+            if (_throttle > 0) _throttle -= _forwardAccel * Time.deltaTime;
+            else if (_throttle < 0) _throttle += _forwardAccel * Time.deltaTime;
+        }
+        _throttle = Mathf.Clamp(_throttle, _throttleLimits.x, _throttleLimits.y);
+
+        _engineLoop.SetPercentVolume(Mathf.Max(0.3f, Mathf.Abs(_throttle / _throttleLimits.y)));
+    }
+
+    private void HandleTurning()
+    {
+        if (InputController.Get(Control.MOVE_RIGHT)) {
+            _wheelAngle += (_wheelAngle < 0 ? 2 : 1) * _wheelTurnSpeed * Time.deltaTime;
+        }
+        else if (InputController.Get(Control.MOVE_LEFT)) {
+            _wheelAngle -= (_wheelAngle > 0 ? 2 : 1) * _wheelTurnSpeed * Time.deltaTime;
+        }
+        else {
+            _wheelAngle = Mathf.Lerp(_wheelAngle, 0, _forwardSpeedPercent * Time.deltaTime * _wheelStraightenLerpFactor);
+        }
+
+        _wheelAngle = Mathf.Clamp(_wheelAngle, -_wheelTurnLimit, _wheelTurnLimit);
+    }
+
+    private void FixedUpdate()
     {
         if (_driving) Drive();
     }
@@ -48,47 +97,19 @@ public class Car : MonoBehaviour
     private void Drive()
     {
         MoveCar();
-
         TurnTires();
     }
 
     private void TurnTires()
     {
-        var rightTurnSpeedPercent = Vector3.Dot(_rb.angularVelocity, transform.up) / _turnSpeedMax;
-        //rightTurnSpeedPercent *= 2;
-        //rightTurnSpeedPercent -= 1;
-
-        _leftTire.transform.localEulerAngles = new Vector3(0, rightTurnSpeedPercent * _maxTireRot, 0);
-        _rightTire.transform.localEulerAngles = new Vector3(0, rightTurnSpeedPercent * _maxTireRot, 180);
+        _leftTire.transform.localEulerAngles = new Vector3(0, 0, _wheelAngle);
+        _rightTire.transform.localEulerAngles = new Vector3(0, 0, _wheelAngle);
     }
 
     private void MoveCar()
     {
-        var forwardSpeed = Vector3.Dot(_rb.linearVelocity, transform.forward);
-        var speedPercent = forwardSpeed / _maxSpeed;
-        if (InputController.Get(Control.MOVE_FORWARD)) {
-            if (forwardSpeed < _maxSpeed) {
-                _rb.linearVelocity += _forwardAccel * 10 * Time.deltaTime * transform.forward;
-            }
-        }
-
-        var targetRightTurn = 0;
-        if (InputController.Get(Control.MOVE_RIGHT)) targetRightTurn = 1;
-        _rightSteerAmount = Mathf.Lerp(_rightSteerAmount, targetRightTurn, _turnLerp * Time.deltaTime);
-        
-        var rightTurnSpeed = Vector3.Dot(_rb.angularVelocity, transform.up);
-        if (rightTurnSpeed < _turnSpeedMax) {
-            _rb.angularVelocity += _rightSteerAmount * _turnSpeed * 10 * speedPercent * Time.deltaTime * transform.up;
-        }
-
-        var targetLeftTurn = 0;
-        if (InputController.Get(Control.MOVE_LEFT)) targetLeftTurn = 1;
-        _leftSteerAmount = Mathf.Lerp(_leftSteerAmount, targetLeftTurn, _turnLerp * Time.deltaTime);
-
-        var leftTurnSpeed = Vector3.Dot(_rb.angularVelocity, transform.up * -1);
-        if (leftTurnSpeed < _turnSpeedMax) {
-            _rb.angularVelocity += _leftSteerAmount * -_turnSpeed * 10 * speedPercent * Time.deltaTime * transform.up;
-        }
+        _rb.linearVelocity = _throttle * _forwardAccel * 10 * Time.deltaTime * transform.forward;
+        _rb.angularVelocity = _forwardSpeedPercent * _carTurnSpeed * (_wheelAngle / _wheelTurnLimit) * Vector3.up;
     }
 
     public void StartDriving()
