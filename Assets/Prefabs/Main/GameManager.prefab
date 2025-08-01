@@ -182,6 +182,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e44d7ef2bdf6f15448286ada8073beff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _totalTime: 120
+  _player: {fileID: 0}
+  _allItems:
+  - {fileID: 11400000, guid: 1202a0ccc9c55974f99a44fdcc69af66, type: 2}
+  - {fileID: 11400000, guid: 0f82e34ea8fc56344878435e9ec4c74b, type: 2}
+  _environment: {fileID: 0}
 --- !u!114 &5122873462977973251
 MonoBehaviour:
   m_ObjectHideFlags: 0

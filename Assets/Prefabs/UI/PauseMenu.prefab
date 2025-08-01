@@ -1101,6 +1101,10 @@ PrefabInstance:
       propertyPath: OnSelect.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 4098930980363182124}
+    - target: {fileID: 836067978152481840, guid: e10e0a3ef3584cb46a1f910213fb6a3e, type: 3}
+      propertyPath: OnSelect.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Resume
+      objectReference: {fileID: 0}
     - target: {fileID: 3034288327048407718, guid: e10e0a3ef3584cb46a1f910213fb6a3e, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

@@ -6,4 +6,15 @@ public class TransitionScreenController : UIController
     {
         if (action == UIAction.SHOW_TRANSITION) gameObject.SetActive(true);
     }
+
+    private void OnEnable()
+    {
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = true;
+    }
+
+    public void Continue()
+    {
+        GameManager.i.EnterNewArea();
+    }
 }
