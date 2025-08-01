@@ -1,3 +1,4 @@
+using MyBox;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -12,19 +13,24 @@ public class ScatterObjects : MonoBehaviour
 
     private List<GameObject> _spawnedObjects = new List<GameObject>();
 
-    private void Start()
+    [ButtonMethod]
+    public void GenerateObjects()
     {
-        GenerateObjects();
-    }
-
-    private void GenerateObjects()
-    {
-        foreach (var obj in _spawnedObjects) Destroy(obj);
-        _spawnedObjects.Clear();
+        DestroyObjects();
 
         for (int i = 0; i < _numObjects; i++) {
             TrySpawnObject();
         }
+        
+        Utils.SetDirty(this);
+    }
+
+    [ButtonMethod]
+    public void DestroyObjects()
+    {
+        foreach (var obj in _spawnedObjects) DestroyImmediate(obj);
+        _spawnedObjects.Clear();
+        Utils.SetDirty(this);
     }
 
     private void TrySpawnObject()
@@ -38,10 +44,12 @@ public class ScatterObjects : MonoBehaviour
             var newObject = Instantiate(selectedObject, hitInfo.point,Quaternion.Euler(0, Random.Range(0, 360), 0), transform);
             newObject.transform.localScale = Vector3.one * Random.Range(_scaleLimits.x, _scaleLimits.y);
             _spawnedObjects.Add(newObject);
+            Utils.SetDirty(newObject);
         }
         else {
             var selectedObject = _prefabs[Random.Range(0, _prefabs.Count)];
             var newObject = Instantiate(selectedObject, pos, Quaternion.identity, transform);
+            Utils.SetDirty(newObject);
         }
     }
 

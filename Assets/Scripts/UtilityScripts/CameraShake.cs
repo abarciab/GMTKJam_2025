@@ -20,7 +20,7 @@ public class CameraShake: MonoBehaviour
     private float _speedMod = 10;
     private float _amplitudeMod = 0.1f;
 
-
+    [ButtonMethod]
     public void ShakeDefault() => CallShake(_defaultspeed, _defaultAmplitude, _defaultDuration);
     public void ShakeUnrestricted(float speed, float amplitude, float duration) => CallShake(speed, amplitude, duration);
     public void ShakeManual(float speedMod, float amplitudeMod, float duration)

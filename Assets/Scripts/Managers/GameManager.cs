@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
         if (_timeLeft <= 0) LoseGame();
     }
 
-    private void LoseGame()
+    public void LoseGame()
     {
         _player.Die();
         UIManager.i.Do(UIAction.SHOW_DEATH_SCREEN);
