@@ -1,9 +1,11 @@
 using MyBox;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Collectable : MonoBehaviour
 {
     [SerializeField] private Animator _blockAnimator;
+    [SerializeField] private List<GameObject> _modelVariants = new List<GameObject>();
     [SerializeField] private string _displayname;
     [SerializeField] private Item _drop;
     [SerializeField] private bool _breakable;
@@ -21,6 +23,8 @@ public class Collectable : MonoBehaviour
     private void Start()
     {
         if (_breakSound) _breakSound = Instantiate(_breakSound);
+
+        SetRandomModelVariantActive();
     }
 
     private void Update()
@@ -43,5 +47,18 @@ public class Collectable : MonoBehaviour
         }
 
         _blockAnimator.SetBool("Breaking", progress > 0);
+    }
+
+    private void SetRandomModelVariantActive()
+    {
+        if (_modelVariants == null || _modelVariants.Count == 1) return;
+
+        foreach (var variant in _modelVariants)
+        {
+            variant.SetActive(false);
+        }
+
+        int randomIndex = Random.Range(0, _modelVariants.Count);
+        _modelVariants[randomIndex].SetActive(true);
     }
 }
