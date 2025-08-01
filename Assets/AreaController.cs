@@ -12,7 +12,7 @@ public class AreaController : MonoBehaviour
 
     private void Start()
     {
-        ParseTextFile();
+        if (_textFile) ParseTextFile();
     }
 
     private void ParseTextFile()

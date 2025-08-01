@@ -66,7 +66,7 @@ public class Car : MonoBehaviour
         _worldUI.gameObject.SetActive(_driving);
 
         if (!_driving) {
-            _engineLoop.SetPercentVolume(0, 2 * Time.deltaTime);
+            _engineLoop.SetPercentVolume(0, 0.5f * Time.deltaTime);
             return;
         }
         else {

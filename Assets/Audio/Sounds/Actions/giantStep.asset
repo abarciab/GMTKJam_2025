@@ -18,7 +18,7 @@ MonoBehaviour:
   - Name: giantFootstep
     Clip: {fileID: 8300000, guid: d133d910f6e863343a614f1fae9c750e, type: 3}
     Looping: 0
-  _volume: 0.933
+  _volume: 1
   _pitch: 1
   _randomizePitch: 1
   _pitchRandomizeAmount: 0.089
