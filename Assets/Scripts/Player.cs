@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float _maxArrowHoldTime = 3;
     [SerializeField] private float _arrowForce = 10;
     [SerializeField] private Vector3 _arrowSpawnPos;
+    [SerializeField] private Sound _bowShotSound;
 
     [Header("Movement")]
     [SerializeField] private float _walkSpeed = 5;
@@ -40,6 +41,7 @@ public class Player : MonoBehaviour
         _rb = GetComponent<Rigidbody>();
         _inventory = GetComponent<PlayerInventory>();
         _collectSound = Instantiate(_collectSound);
+        _bowShotSound = Instantiate(_bowShotSound);
     }
 
     void Update()
@@ -62,6 +64,7 @@ public class Player : MonoBehaviour
 
     private void FireArrow()
     {
+        _bowShotSound.Play();
         var cam = Camera.main.transform;
         var arrow = Instantiate(_arrowPrefab, cam.position, cam.rotation);
         var force = Mathf.Clamp01(_timeHoldingArrow / _maxArrowHoldTime) * _arrowForce;

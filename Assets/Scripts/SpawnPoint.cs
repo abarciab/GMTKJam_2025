@@ -2,6 +2,7 @@ using MyBox;
 using System.Collections.Generic;
 using UnityEngine;
 
+[SelectionBase]
 public class SpawnPoint : MonoBehaviour
 {
     [SerializeField] private List<GameObject> _options = new List<GameObject>();

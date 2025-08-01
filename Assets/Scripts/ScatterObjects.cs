@@ -29,6 +29,9 @@ public class ScatterObjects : MonoBehaviour
     public void DestroyObjects()
     {
         foreach (var obj in _spawnedObjects) DestroyImmediate(obj);
+        for (var i = transform.childCount - 1; i >= 0; i--) {
+            DestroyImmediate(transform.GetChild(i).gameObject);
+        }
         _spawnedObjects.Clear();
         Utils.SetDirty(this);
     }
