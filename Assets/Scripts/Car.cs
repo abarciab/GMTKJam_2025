@@ -11,6 +11,7 @@ public class Car : MonoBehaviour
     [SerializeField] private GameObject _carWorldUI;
 
     [Header("Driving Mechanics")]
+    [SerializeField] private Animator _carAnimator;
     [SerializeField] private float _maxSpeed = 20;
     [SerializeField] private float _forwardAccel = 1;
     [SerializeField] private float _wheelTurnSpeed = 25;
@@ -57,8 +58,13 @@ public class Car : MonoBehaviour
 
     private void Update()
     {
+        _carAnimator.speed = _driving ? Mathf.Min(_currentFuel/2, 1) : 0;
         _carWorldUI.gameObject.SetActive(_driving);
-        if (!_driving) return;
+
+        if (!_driving) {
+            _engineLoop.SetPercentVolume(0, 2 * Time.deltaTime);
+            return;
+        }
 
         if (InputController.GetDown(Control.INTERACT)) {
             LeaveCar();

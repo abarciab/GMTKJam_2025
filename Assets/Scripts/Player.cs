@@ -8,6 +8,12 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private CameraController _camera;
 
+    [Header("Bow")]
+    [SerializeField] private GameObject _arrowPrefab;
+    [SerializeField] private float _maxArrowHoldTime = 3;
+    [SerializeField] private float _arrowForce = 10;
+    [SerializeField] private Vector3 _arrowSpawnPos;
+
     [Header("Movement")]
     [SerializeField] private float _walkSpeed = 5;
     [SerializeField] private float _runSpeed = 10;
@@ -25,6 +31,7 @@ public class Player : MonoBehaviour
     private bool _dead;
     private bool _breaking;
     private float _timeBreaking;
+    private float _timeHoldingArrow;
 
     public bool Dead => _dead;
 
@@ -39,6 +46,9 @@ public class Player : MonoBehaviour
     {
         if (_dead) return;
 
+        if (Input.GetMouseButton(1)) _timeHoldingArrow += Time.deltaTime;
+        if (Input.GetMouseButtonUp(1)) FireArrow();
+
         Move();
         CollectableRaycast();
 
@@ -48,6 +58,22 @@ public class Player : MonoBehaviour
             if (_hoveredCollectible != null) CollectableInteract();
             if (_hoveredCarPart != null) CarInteract(); 
         }
+    }
+
+    private void FireArrow()
+    {
+        var cam = Camera.main.transform;
+        var arrow = Instantiate(_arrowPrefab, cam.position, cam.rotation);
+        var force = Mathf.Clamp01(_timeHoldingArrow / _maxArrowHoldTime) * _arrowForce;
+        arrow.GetComponent<Rigidbody>().AddForce(arrow.transform.forward * force);
+
+        _timeHoldingArrow = 0;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.TransformPoint(_arrowSpawnPos), 0.25f);
     }
 
     private void ProgressBreak()

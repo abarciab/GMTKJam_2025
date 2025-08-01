@@ -1623,6 +1623,11 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 4.6647043, z: 1}
   m_Center: {x: 0, y: 2.3323522, z: 0}
+--- !u!95 &1332508148 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3537585820180574265, guid: 1044878102599464ca6edfdd80612ffd, type: 3}
+  m_PrefabInstance: {fileID: 3155108882432847177}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1424120258
 GameObject:
   m_ObjectHideFlags: 0
@@ -2305,7 +2310,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8810189027069855230, guid: bcfe1ae4f8277c64f87feee9336c52ed, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8960934839063087812, guid: bcfe1ae4f8277c64f87feee9336c52ed, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2368,10 +2373,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Truck
       objectReference: {fileID: 0}
+    - target: {fileID: 1941976353093665096, guid: 1044878102599464ca6edfdd80612ffd, type: 3}
+      propertyPath: m_ProvidesContacts
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640269748692780483, guid: 1044878102599464ca6edfdd80612ffd, type: 3}
+      propertyPath: m_ProvidesContacts
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5981387157043658903, guid: 1044878102599464ca6edfdd80612ffd, type: 3}
       propertyPath: _player
       value: 
       objectReference: {fileID: 1227384230}
+    - target: {fileID: 5981387157043658903, guid: 1044878102599464ca6edfdd80612ffd, type: 3}
+      propertyPath: _carAnimator
+      value: 
+      objectReference: {fileID: 1332508148}
+    - target: {fileID: 6421791058564947158, guid: 1044878102599464ca6edfdd80612ffd, type: 3}
+      propertyPath: m_Size.x
+      value: 2.0997515
+      objectReference: {fileID: 0}
     - target: {fileID: 7309752685503164436, guid: 1044878102599464ca6edfdd80612ffd, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.83
@@ -2704,6 +2725,22 @@ PrefabInstance:
       propertyPath: _camera
       value: 
       objectReference: {fileID: 331635239}
+    - target: {fileID: 4597214056451604498, guid: 52771828de4ccf8449da19bf3cbf61fd, type: 3}
+      propertyPath: _arrowForce
+      value: 800
+      objectReference: {fileID: 0}
+    - target: {fileID: 4597214056451604498, guid: 52771828de4ccf8449da19bf3cbf61fd, type: 3}
+      propertyPath: _arrowPrefab
+      value: 
+      objectReference: {fileID: 8429959734490646772, guid: 53183b26790aca24abc9718c26d38b00, type: 3}
+    - target: {fileID: 4597214056451604498, guid: 52771828de4ccf8449da19bf3cbf61fd, type: 3}
+      propertyPath: _arrowSpawnPos.y
+      value: 0.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 4597214056451604498, guid: 52771828de4ccf8449da19bf3cbf61fd, type: 3}
+      propertyPath: _arrowSpawnPos.z
+      value: 0.84
+      objectReference: {fileID: 0}
     - target: {fileID: 9162892190836086928, guid: 52771828de4ccf8449da19bf3cbf61fd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.84
