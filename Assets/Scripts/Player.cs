@@ -21,7 +21,7 @@ public class Player : MonoBehaviour
     private Rigidbody _rb;
     private PlayerInventory _inventory;
     private Collectable _hoveredCollectible;
-    private Car _hoveredCar;
+    private CarPart _hoveredCarPart;
     private bool _dead;
     private bool _breaking;
     private float _timeBreaking;
@@ -46,7 +46,7 @@ public class Player : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))  {
             if (_hoveredCollectible != null) CollectableInteract();
-            if (_hoveredCar != null) CarInteract(); 
+            if (_hoveredCarPart != null) CarInteract(); 
         }
     }
 
@@ -70,14 +70,14 @@ public class Player : MonoBehaviour
 
     private void CarInteract()
     {
-        if (_hoveredCar.ReadyToGo) GetInCar();
-        else DepositRocks();
+        if (_hoveredCarPart.Part == CarPartType.DOOR) GetInCar();
+        if (_hoveredCarPart.Part == CarPartType.FUEL) DepositItems();
     }
 
     private void GetInCar()
     {
         _camera.FollowCar();
-        _hoveredCar.StartDriving();
+        _hoveredCarPart.Car.StartDriving();
         gameObject.SetActive(false);
         UIManager.i.Do(UIAction.DISPLAY_COLLECTABLE, "");
     }
@@ -87,16 +87,16 @@ public class Player : MonoBehaviour
         _dead = true;
     }
 
-    private void DepositRocks()
+    private void DepositItems()
     {
-        var requiredItems = _hoveredCar.GetRemainingRequiredItems();
+        var requiredItems = _hoveredCarPart.Car.GetRemainingRequiredItems();
         var ItemsToDeposit = _inventory.Inventory.GetOverlap(requiredItems);
 
-        _hoveredCar.DepositItems(ItemsToDeposit);
+        _hoveredCarPart.Car.DepositItems(ItemsToDeposit);
 
         _inventory.RemoveItems(ItemsToDeposit);
 
-        UIManager.i.Do(UIAction.DISPLAY_COLLECTABLE, _hoveredCar.GetDisplayString(_inventory.Inventory));
+        UIManager.i.Do(UIAction.DISPLAY_COLLECTABLE, _hoveredCarPart.Car.GetDisplayString(_inventory.Inventory));
     }
 
     private void CollectableInteract()
@@ -131,11 +131,14 @@ public class Player : MonoBehaviour
         }
 
         _hoveredCollectible = hitInfo.collider.GetComponent<Collectable>();
-        _hoveredCar = hitInfo.collider.GetComponent<Car>();
+        _hoveredCarPart = hitInfo.collider.GetComponent<CarPart>();
 
         if (_hoveredCollectible) UIManager.i.Do(UIAction.DISPLAY_COLLECTABLE, _hoveredCollectible.DisplayName);
-        else if (_hoveredCar) {
-            UIManager.i.Do(UIAction.DISPLAY_COLLECTABLE, _hoveredCar.GetDisplayString(_inventory.Inventory));
+        else if (_hoveredCarPart) {
+            if (_hoveredCarPart.Part == CarPartType.DOOR) UIManager.i.Do(UIAction.DISPLAY_COLLECTABLE, "Enter Car");
+            else if (_hoveredCarPart.Part == CarPartType.FUEL) {
+                UIManager.i.Do(UIAction.DISPLAY_COLLECTABLE, _hoveredCarPart.Car.GetDisplayString(_inventory.Inventory));
+            }
         }
         else UIManager.i.Do(UIAction.DISPLAY_COLLECTABLE, "");
     }

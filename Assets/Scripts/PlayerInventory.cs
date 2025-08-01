@@ -80,6 +80,13 @@ public class Inventory
         _items.Add(newItem);
     }
 
+    public void Subtract(Inventory other)
+    {
+        foreach (var item in other.Items) {
+            RemoveItems(item);
+        }
+    }
+
     public void RemoveItems(ItemType itemType, int quantityToRemove = 1)
     {
         foreach (var item in _items) {
@@ -89,6 +96,8 @@ public class Inventory
             }
         }
     }
+
+    public void RemoveItems(Item item) => RemoveItems(item.Data.Type, item.Quantity);
 
     public bool Contains(Inventory other)
     {

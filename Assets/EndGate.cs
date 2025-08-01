@@ -6,7 +6,7 @@ public class EndGate : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.GetComponent<Car>() != null) {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            GameManager.i.Transition();
         }
     }
 }

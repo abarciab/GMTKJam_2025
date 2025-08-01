@@ -10,6 +10,7 @@ public class pauseMenuController : UIController
     private void Toggle() => SetPaused(Time.timeScale > 0f);
     public void ToggleSettings() => _settings.SetActive(!_settings.activeInHierarchy);
 
+    public void Resume() => SetPaused(false);
     private void OnEnable()
     {
         _settings.SetActive(false);

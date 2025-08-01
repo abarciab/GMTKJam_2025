@@ -57,6 +57,11 @@ public class CameraController : MonoBehaviour
         _followCar = true;
     }
 
+    public void FollowPlayer()
+    {
+        _followCar = false;
+    }
+
     private void Turn()
     {
         var mouseDelta = -Input.mousePositionDelta.y;

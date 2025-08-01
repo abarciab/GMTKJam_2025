@@ -2,6 +2,7 @@ using MyBox;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(InputController))]
 public class GameManager : MonoBehaviour
@@ -11,6 +12,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float _totalTime;
     [SerializeField] private Player _player;
     [SerializeField] private List<ItemData> _allItems = new List<ItemData>();
+    [SerializeField] private GameObject _environment;
 
     private float _timeLeft;
 
@@ -41,6 +43,17 @@ public class GameManager : MonoBehaviour
         UIManager.i.Do(UIAction.UPDATE_TIMER, _timeLeft / _totalTime);
 
         if (_timeLeft <= 0) LoseGame();
+    }
+
+    public void EnterNewArea()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void Transition()
+    {
+        UIManager.i.Do(UIAction.SHOW_TRANSITION);
+        _environment.SetActive(false);
     }
 
     public void LoseGame()

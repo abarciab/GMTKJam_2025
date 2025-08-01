@@ -5,6 +5,7 @@ using TMPro;
 public class CarInventoryDisplay : UIController
 {
     [SerializeField] private List<TextMeshProUGUI> _texts = new List<TextMeshProUGUI>();
+    [SerializeField] private GameObject _headerObject;
 
     protected override void UpdateUI(UIAction action, object arg)
     {
@@ -19,5 +20,6 @@ public class CarInventoryDisplay : UIController
                 _texts[i].text = requiredItems[i].Data.DisplayName + ": " + requiredItems[i].Quantity;
             }
         }
+        _headerObject.SetActive(requiredItems.Count > 0);
     }
 }
