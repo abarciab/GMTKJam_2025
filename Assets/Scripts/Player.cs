@@ -27,14 +27,18 @@ public class Player : MonoBehaviour
 
     private Rigidbody _rb;
     private PlayerInventory _inventory;
-    private Collectable _hoveredCollectible;
-    private CarPart _hoveredCarPart;
     private bool _dead;
     private bool _breaking;
+    private bool _talking;
     private float _timeBreaking;
     private float _timeHoldingArrow;
 
+    private Collectable _hoveredCollectible;
+    private CarPart _hoveredCarPart;
+    private NPC _hoveredNPC;
+
     public bool Dead => _dead;
+    public void EndConversation() => _talking = false;
 
     private void Awake()
     {
@@ -46,19 +50,20 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        if (_dead) return;
+        if (_dead || _talking) return;
 
         if (Input.GetMouseButton(1)) _timeHoldingArrow += Time.deltaTime;
         if (Input.GetMouseButtonUp(1)) FireArrow();
 
         Move();
-        CollectableRaycast();
+        Raycast();
 
         if (_breaking) ProgressBreak();
 
         if (Input.GetMouseButtonDown(0))  {
             if (_hoveredCollectible != null) CollectableInteract();
             if (_hoveredCarPart != null) CarInteract(); 
+            if (_hoveredNPC != null) NPCInteract(); 
         }
     }
 
@@ -83,10 +88,12 @@ public class Player : MonoBehaviour
     {
         if (_hoveredCollectible == null || Input.GetMouseButtonUp(0)) {
             _breaking = false;
-            UIManager.i.Do(UIAction.SHOW_BREAK_PROGRESS, 0);
+            UIManager.i.Do(UIAction.SHOW_BREAK_PROGRESS, 0f);
+            if (_hoveredCollectible) _hoveredCollectible.SetBreakProgress(0);
             return;
         }
 
+        _hoveredCollectible.SetBreakProgress(_timeBreaking / _hoveredCollectible.BreakTime);
         _timeBreaking += Time.deltaTime;
         UIManager.i.Do(UIAction.SHOW_BREAK_PROGRESS, _timeBreaking / _hoveredCollectible.BreakTime);
 
@@ -95,6 +102,19 @@ public class Player : MonoBehaviour
             _breaking = false;
             UIManager.i.Do(UIAction.SHOW_BREAK_PROGRESS, 0);
         }
+    }
+
+    private void NPCInteract()
+    {
+        SpeakToNPC();
+    }
+
+    private void SpeakToNPC()
+    {
+        UIManager.i.Do(UIAction.DISPLAY_HOVERED, "");
+        _talking = true;
+        _camera.StartConversation();
+        _hoveredNPC.StartConversation();
     }
 
     private void CarInteract()
@@ -108,7 +128,7 @@ public class Player : MonoBehaviour
         _camera.FollowCar();
         _hoveredCarPart.Car.StartDriving();
         gameObject.SetActive(false);
-        UIManager.i.Do(UIAction.DISPLAY_COLLECTABLE, "");
+        UIManager.i.Do(UIAction.DISPLAY_HOVERED, "");
     }
 
     public void Die()
@@ -125,7 +145,7 @@ public class Player : MonoBehaviour
 
         _inventory.RemoveItems(ItemsToDeposit);
 
-        UIManager.i.Do(UIAction.DISPLAY_COLLECTABLE, _hoveredCarPart.Car.GetDisplayString(_inventory.Inventory));
+        UIManager.i.Do(UIAction.DISPLAY_HOVERED, _hoveredCarPart.Car.GetDisplayString(_inventory.Inventory));
     }
 
     private void CollectableInteract()
@@ -149,27 +169,29 @@ public class Player : MonoBehaviour
         _hoveredCollectible = null;
     }
 
-    private void CollectableRaycast()
+    private void Raycast()
     {
         var cam = Camera.main.transform;
         var didHit = Physics.Raycast(cam.position, cam.forward, out var hitInfo, _collectionRange);
         if (!didHit) {
-            UIManager.i.Do(UIAction.DISPLAY_COLLECTABLE, "");
+            UIManager.i.Do(UIAction.DISPLAY_HOVERED, "");
             _hoveredCollectible = null;
             return;
         }
 
         _hoveredCollectible = hitInfo.collider.GetComponent<Collectable>();
         _hoveredCarPart = hitInfo.collider.GetComponent<CarPart>();
+        _hoveredNPC = hitInfo.collider.GetComponent<NPC>();
 
-        if (_hoveredCollectible) UIManager.i.Do(UIAction.DISPLAY_COLLECTABLE, _hoveredCollectible.DisplayName);
+        if (_hoveredCollectible) UIManager.i.Do(UIAction.DISPLAY_HOVERED, _hoveredCollectible.DisplayName);
         else if (_hoveredCarPart) {
-            if (_hoveredCarPart.Part == CarPartType.DOOR) UIManager.i.Do(UIAction.DISPLAY_COLLECTABLE, "Enter Car");
+            if (_hoveredCarPart.Part == CarPartType.DOOR) UIManager.i.Do(UIAction.DISPLAY_HOVERED, "Enter Car");
             else if (_hoveredCarPart.Part == CarPartType.FUEL) {
-                UIManager.i.Do(UIAction.DISPLAY_COLLECTABLE, _hoveredCarPart.Car.GetDisplayString(_inventory.Inventory));
+                UIManager.i.Do(UIAction.DISPLAY_HOVERED, _hoveredCarPart.Car.GetDisplayString(_inventory.Inventory));
             }
         }
-        else UIManager.i.Do(UIAction.DISPLAY_COLLECTABLE, "");
+        if (_hoveredNPC) UIManager.i.Do(UIAction.DISPLAY_HOVERED, _hoveredNPC.Name);
+        else UIManager.i.Do(UIAction.DISPLAY_HOVERED, "");
     }
 
     private void Move()

@@ -8,6 +8,7 @@ using UnityEngine.EventSystems;
 using Unity.VisualScripting;
 using System.Runtime.ExceptionServices;
 using UnityEditor;
+using TMPro;
 
 public enum SelectableItemDataType { GRAPHIC, GAMEOBJECT, CANVASGROUP, SPRITE}
 public enum ButtonState { NORMAL, HOVERED, SELECTED, DISABLED }
@@ -199,6 +200,7 @@ public class SelectableItem : MonoBehaviour, IPointerEnterHandler, IPointerExitH
             _hovered = false;
             if (Selected) SetVisuals(ButtonState.SELECTED);
             else SetVisuals(ButtonState.NORMAL);
+            if (_scaleWhenHovered) transform.localScale = Vector3.one * _scaleDefaultHovered.x;
         }
     }
 

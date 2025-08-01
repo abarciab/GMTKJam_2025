@@ -5,10 +5,10 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class Car : MonoBehaviour
 {
-    [SerializeField] private float _fuelMax; 
+    [SerializeField] private float _maxFuel; 
     [SerializeField] private float _fuelUseFactor;
     [SerializeField] private Vector3 _playerDismountPosition;
-    [SerializeField] private GameObject _carWorldUI;
+    [SerializeField] private CarWorldUI _worldUI;
 
     [Header("Driving Mechanics")]
     [SerializeField] private Animator _carAnimator;
@@ -41,6 +41,10 @@ public class Car : MonoBehaviour
     private float _forwardSpeedPercent;
 
     public bool ReadyToGo => _currentInventory.Contains(_requiredInventory);
+    public void SetFuel(float fuel) => _currentFuel = fuel;
+    public void SetThrottle(float throttle) => _throttle = throttle;
+    public void setWheelAngle(float wheelAngle) => _wheelAngle = wheelAngle;
+    public void SetEndGate(Transform endGate) => _worldUI.EndGate = endGate;
 
     private void Awake()
     {
@@ -59,11 +63,14 @@ public class Car : MonoBehaviour
     private void Update()
     {
         _carAnimator.speed = _driving ? Mathf.Min(_currentFuel/2, 1) : 0;
-        _carWorldUI.gameObject.SetActive(_driving);
+        _worldUI.gameObject.SetActive(_driving);
 
         if (!_driving) {
             _engineLoop.SetPercentVolume(0, 2 * Time.deltaTime);
             return;
+        }
+        else {
+            if (Input.GetKeyDown(KeyCode.T)) _currentFuel = _maxFuel;
         }
 
         if (InputController.GetDown(Control.INTERACT)) {
@@ -72,7 +79,7 @@ public class Car : MonoBehaviour
         }
 
         _currentFuel -= Mathf.Max(_throttle, 2f) * _fuelUseFactor * Time.deltaTime;
-        UIManager.i.Do(UIAction.SHOW_CAR_FUEL, (_currentFuel / _fuelMax));
+        UIManager.i.Do(UIAction.SHOW_CAR_FUEL, (_currentFuel / _maxFuel));
 
         var forwardSpeed = Vector3.Dot(_rb.linearVelocity, transform.forward);
         _forwardSpeedPercent = forwardSpeed / _maxSpeed;
@@ -201,7 +208,7 @@ public class Car : MonoBehaviour
 
         _depositSound.Play();
 
-        if (GetRemainingRequiredItems().Count == 0) _currentFuel = _fuelMax;
+        if (GetRemainingRequiredItems().Count == 0) _currentFuel = _maxFuel;
 
         UpdateUI();
     }

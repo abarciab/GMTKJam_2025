@@ -9,12 +9,13 @@ public class TransitionScreenController : UIController
 
     private void OnEnable()
     {
-        Cursor.lockState = CursorLockMode.Confined;
-        Cursor.visible = true;
+        Utils.SetCursor(true); 
     }
 
     public void Continue()
     {
+        Utils.SetCursor(false);
+        gameObject.SetActive(false);
         GameManager.i.EnterNewArea();
     }
 }

@@ -184,10 +184,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _totalTime: 120
   _player: {fileID: 0}
+  _car: {fileID: 0}
+  _camera: {fileID: 0}
   _allItems:
   - {fileID: 11400000, guid: 1202a0ccc9c55974f99a44fdcc69af66, type: 2}
   - {fileID: 11400000, guid: 0f82e34ea8fc56344878435e9ec4c74b, type: 2}
   _environment: {fileID: 0}
+  _areaController: {fileID: 0}
+  _areaPrefabs:
+  - {fileID: 7290249319681797459, guid: dd73bc1d4f274c24e97a8d4a5b403dde, type: 3}
+  - {fileID: 7290249319681797459, guid: abc1d9e2f8246234fbffb45ca0e7d81a, type: 3}
 --- !u!114 &5122873462977973251
 MonoBehaviour:
   m_ObjectHideFlags: 0
