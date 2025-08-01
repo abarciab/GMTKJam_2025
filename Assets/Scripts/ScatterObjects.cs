@@ -82,7 +82,7 @@ public class ScatterObjects : MonoBehaviour
         }
     }
 
-    private void OnDrawGizmos()
+    private void OnDrawGizmosSelected()
     {
         Gizmos.DrawWireSphere(transform.position, _radius); 
     }

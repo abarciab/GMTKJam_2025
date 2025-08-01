@@ -1,6 +1,7 @@
 using UnityEngine;
 
 [RequireComponent (typeof(Collider))]
+[SelectionBase]
 public class Foot : MonoBehaviour
 {
     [SerializeField] private Transform _shadowCaster;
@@ -12,32 +13,50 @@ public class Foot : MonoBehaviour
     [SerializeField] private float _waitTime;
     [SerializeField] private LayerMask _floor;
     [SerializeField] private Sound _stepSound;
+    [SerializeField] private Sound _stepSoundLocal;
     [SerializeField] private float _forwardSpeed = 10;
+    public float InitialWaitTime = 5;
 
     private float _groundY = 0;
     private Collider _collider;
     private Vector3 _shadowOriginalScale;
     private float _waitTimeLeft;
 
+
     private void Start()
     {
         _collider = GetComponent<Collider>();
         _stepSound = Instantiate(_stepSound);
+        _stepSoundLocal = Instantiate(_stepSoundLocal);
         var didHit = Physics.Raycast(transform.position + Vector3.up * 2, Vector3.down, out var hitInfo, 1000);
         if (didHit) _groundY = hitInfo.point.y;
         _shadowOriginalScale = _shadowCaster.localScale;
+
+        var y = _maxY;
+        if (_rising) y = _groundY;
+        var pos = transform.position;
+        pos.y = y;
+        transform.position = pos;
+
+        if (_rising) _waitTimeLeft = _waitTime;
     }
 
     void Update()
     {
-        if (_waitTimeLeft > 0) {
+        _collider.isTrigger = !_rising;
+
+        if (InitialWaitTime <= 0 && _waitTimeLeft > 0) {
             _waitTimeLeft -= Time.deltaTime;
             return;
         }
 
-        _collider.isTrigger = !_rising;
         var progressUp = (transform.position.y - _groundY) / (_maxY - _groundY);
         if (progressUp > 0.1f) transform.position += transform.forward * _forwardSpeed * Time.deltaTime;
+
+        if (InitialWaitTime > 0) {
+            InitialWaitTime -= Time.deltaTime;
+            return;
+        }
 
         _shadowCaster.position = new Vector3(transform.position.x, _groundY + 1, transform.position.z);
         _shadowCaster.localScale = Vector3.Lerp(_shadowOriginalScale, Vector3.zero, progressUp);        
@@ -58,7 +77,9 @@ public class Foot : MonoBehaviour
         var progressUp = (transform.position.y - _groundY) / (_maxY - _groundY);
         var speed = _speedCurve.Evaluate(progressUp) * _riseSpeed;
         transform.position += Vector3.up * Mathf.Max(speed, 0.1f) * Time.deltaTime;
-        if (transform.position.y > _maxY) _rising = false;
+        if (transform.position.y > _maxY) {
+            _rising = false;
+        }
     }
 
     private void Fall()
@@ -69,6 +90,7 @@ public class Foot : MonoBehaviour
         if (transform.position.y <= _groundY) {
             FindFirstObjectByType<CameraShake>().ShakeDefault();
             _stepSound.Play();
+            _stepSoundLocal.Play(transform);
             _rising = true;
             _waitTimeLeft = _waitTime;
         }
