@@ -66,9 +66,9 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        if (InputController.GetDown(Control.INVENTORY)) UIManager.i.Do(UIAction.TOGGLE_INVENTORY, _inventory.Inventory);
-
         if (_dead || _talking || _frozen) return;
+
+        if (InputController.GetDown(Control.INVENTORY)) UIManager.i.Do(UIAction.TOGGLE_INVENTORY, _inventory.Inventory(InventoryType.PLAYER));
 
         HandleJump();
 
@@ -158,6 +158,12 @@ public class Player : MonoBehaviour
         if (_hoveredCarPart.Part == CarPartType.DOOR) GetInCar();
         if (_hoveredCarPart.Part == CarPartType.REPAIR_REFUL) OpenRepairMenu();
         if (_hoveredCarPart.Part == CarPartType.HOOD) OpenUpgradeMenu();
+        if (_hoveredCarPart.Part == CarPartType.BED) OpenCarInventory();
+    }
+
+    private void OpenCarInventory()
+    {
+        UIManager.i.Do(UIAction.TOGGLE_CAR_INVENTORY, _inventory.Inventory(InventoryType.CAR));
     }
 
     private void OpenUpgradeMenu()
@@ -182,18 +188,6 @@ public class Player : MonoBehaviour
     {
         UIManager.i.Do(UIAction.OPEN_REPAIR_MENU);
         UIManager.i.Do(UIAction.DISPLAY_HOVERED, "");
-
-        return;
-
-
-        var requiredItems = _hoveredCarPart.Car.GetRemainingRequiredItems();
-        var ItemsToDeposit = _inventory.Inventory.GetOverlap(requiredItems);
-
-        _hoveredCarPart.Car.DepositItems(ItemsToDeposit);
-
-        _inventory.RemoveItems(ItemsToDeposit);
-
-        UIManager.i.Do(UIAction.DISPLAY_HOVERED, _hoveredCarPart.Car.GetDisplayString(_inventory.Inventory));
     }
 
     private void CollectableInteract()
@@ -216,7 +210,7 @@ public class Player : MonoBehaviour
             GameManager.i.DiscoverItem(item.Data.Type);
         }
 
-        _inventory.Inventory.AddItems(drops);
+        _inventory.Inventory(InventoryType.PLAYER).AddItems(drops);
 
         Destroy(_hoveredCollectible.gameObject);
         _hoveredCollectible = null;
@@ -242,8 +236,9 @@ public class Player : MonoBehaviour
         else if (_hoveredCarPart) {
             if (_hoveredCarPart.Part == CarPartType.DOOR) UIManager.i.Do(UIAction.DISPLAY_HOVERED, "Enter Car");
             else if (_hoveredCarPart.Part == CarPartType.HOOD) UIManager.i.Do(UIAction.DISPLAY_HOVERED, "Upgrade Car");
+            else if (_hoveredCarPart.Part == CarPartType.BED) UIManager.i.Do(UIAction.DISPLAY_HOVERED, "Open Trunk");
             else if (_hoveredCarPart.Part == CarPartType.REPAIR_REFUL) {
-                UIManager.i.Do(UIAction.DISPLAY_HOVERED, _hoveredCarPart.Car.GetDisplayString(_inventory.Inventory));
+                UIManager.i.Do(UIAction.DISPLAY_HOVERED, "Repair and Refuel");
             }
         }
         else if (_hoveredNPC) UIManager.i.Do(UIAction.DISPLAY_HOVERED, _hoveredNPC.HoverName);

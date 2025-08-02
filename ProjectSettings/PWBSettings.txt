@@ -1,5 +1,5 @@
 {
-    "_dataDir": "C:\\Users\\bluej\\Documents\\Unity_Games\\MyGames\\GMTKJam_2025#\\Assets\\PluginMaster\\DesignTools\\Editor\\PrefabWorldBuilder\\Resources\\Data",
+    "_dataDir": "Assets/PluginMaster/DesignTools/Editor/PrefabWorldBuilder/Resources/Data",
     "_shortcutProfiles": [
         {
             "_profileName": "Default 1",

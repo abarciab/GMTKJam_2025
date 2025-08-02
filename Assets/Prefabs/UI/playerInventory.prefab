@@ -146,6 +146,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _tooltipParent: {fileID: 5796352065525310742}
   _tooltipText: {fileID: 34768890994407771}
+  _isCar: 0
 --- !u!1 &4132527654201658320
 GameObject:
   m_ObjectHideFlags: 0
@@ -988,6 +989,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 760132331560501828, guid: 8df08b8a2c2f3b84d96877a28574d88a, type: 3}
+      propertyPath: _allowDiscard
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1312312464695824537, guid: 8df08b8a2c2f3b84d96877a28574d88a, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1068,6 +1073,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1568854280606778572, guid: 8df08b8a2c2f3b84d96877a28574d88a, type: 3}
+      propertyPath: _allowDiscard
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1985355413603621661, guid: 8df08b8a2c2f3b84d96877a28574d88a, type: 3}
+      propertyPath: _allowDiscard
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2894688521650176156, guid: 8df08b8a2c2f3b84d96877a28574d88a, type: 3}
+      propertyPath: _allowDiscard
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3536250828773555455, guid: 8df08b8a2c2f3b84d96877a28574d88a, type: 3}
+      propertyPath: _allowDiscard
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5221942111479426281, guid: 8df08b8a2c2f3b84d96877a28574d88a, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1115,6 +1136,10 @@ PrefabInstance:
     - target: {fileID: 5854862128087044234, guid: 8df08b8a2c2f3b84d96877a28574d88a, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7212243617071341388, guid: 8df08b8a2c2f3b84d96877a28574d88a, type: 3}
+      propertyPath: _allowDiscard
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7700987297927949873, guid: 8df08b8a2c2f3b84d96877a28574d88a, type: 3}
       propertyPath: m_AnchorMax.y
