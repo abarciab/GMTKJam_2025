@@ -48,11 +48,19 @@ MonoBehaviour:
   _blockAnimator: {fileID: 3785337853826609319}
   _modelVariants:
   - {fileID: 9131766057659472183}
-  _displayname: Corrupted Tree
-  _drop:
-    Name: 
-    Data: {fileID: 11400000, guid: a2a0089db8c23cb4dae83efbe34e69dd, type: 2}
-    Quantity: 2
+  _displayname: Corrupted Hollow Pine
+  _drops:
+  - Item:
+      Name: 
+      Data: {fileID: 11400000, guid: a2a0089db8c23cb4dae83efbe34e69dd, type: 2}
+      Quantity: 1
+    Rarity: 0.831
+  - Item:
+      Name: 
+      Data: {fileID: 11400000, guid: 0f82e34ea8fc56344878435e9ec4c74b, type: 2}
+      Quantity: 1
+    Rarity: 0.875
+  _dropQuantityRange: {x: 2, y: 4}
   _breakable: 1
   _breakTime: 3
   _breakSound: {fileID: 0}

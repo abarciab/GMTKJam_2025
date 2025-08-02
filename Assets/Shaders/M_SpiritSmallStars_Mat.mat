@@ -55,8 +55,8 @@ Material:
     - _CastShadows: 1
     - _Cull: 2
     - _DstBlend: 10
-    - _FresnelIntensity: 0.14
-    - _FresnelPower: 1.89
+    - _FresnelIntensity: 0.64
+    - _FresnelPower: 2.3
     - _InnerFresnelAmount: 2
     - _InnerFresnelPower: 0.53
     - _QueueControl: 0

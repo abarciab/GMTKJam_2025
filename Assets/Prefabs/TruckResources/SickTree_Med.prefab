@@ -65,6 +65,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1600264956554110382}
   - component: {fileID: 5396815097910794611}
+  - component: {fileID: -4754891837807025410}
   m_Layer: 0
   m_Name: SickTree_Med
   m_TagString: Untagged
@@ -115,6 +116,36 @@ CapsuleCollider:
   m_Height: 10.030272
   m_Direction: 1
   m_Center: {x: 0, y: 4.515136, z: 0}
+--- !u!114 &-4754891837807025410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8006369601534355961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb58854e0cb819048beea9817fc5baf3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _blockAnimator: {fileID: 0}
+  _modelVariants: []
+  _displayname: Corrupted Hollow Pine
+  _drops:
+  - Item:
+      Name: 
+      Data: {fileID: 11400000, guid: a2a0089db8c23cb4dae83efbe34e69dd, type: 2}
+      Quantity: 1
+    Rarity: 0.81
+  - Item:
+      Name: 
+      Data: {fileID: 11400000, guid: 0f82e34ea8fc56344878435e9ec4c74b, type: 2}
+      Quantity: 1
+    Rarity: 0.92
+  _dropQuantityRange: {x: 2, y: 4}
+  _breakable: 0
+  _breakTime: 0
+  _breakSound: {fileID: 0}
 --- !u!1001 &709726345014268758
 PrefabInstance:
   m_ObjectHideFlags: 0
