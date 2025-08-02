@@ -10,22 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 93e0513045be1974d934eb6431407da8, type: 3}
-  m_Name: chopTree
+  m_Name: AnimalSpirit_Die
   m_EditorClassIdentifier: 
   Type: 0
   Unpauseable: 0
   _clips:
-  - Name: Axe Chopping A
-    Clip: {fileID: 8300000, guid: 547059268f0030548b05511816d538e3, type: 3}
+  - Name: Angel Dust 001
+    Clip: {fileID: 8300000, guid: 0232fb19fd4980740971c05729d021c9, type: 3}
     Looping: 0
-  - Name: Axe Chopping B
-    Clip: {fileID: 8300000, guid: 7caa3d2b32425eb439f8740fcec91f01, type: 3}
+  - Name: Angel Dust 002
+    Clip: {fileID: 8300000, guid: 924e6261c0255824e9bcb169fa12fb46, type: 3}
     Looping: 0
-  - Name: Axe Chopping C
-    Clip: {fileID: 8300000, guid: ddc8f51215be3bc4994b1e442b0481b3, type: 3}
+  - Name: Angel Dust 003
+    Clip: {fileID: 8300000, guid: 040a2f375718d694d810c9e21290077e, type: 3}
     Looping: 0
-  - Name: Axe Chopping D
-    Clip: {fileID: 8300000, guid: 8f5ada910fe60c1489b9362348b46b75, type: 3}
+  - Name: Angel Dust 004
+    Clip: {fileID: 8300000, guid: ece38478eae2796428cb1dbbf42b9de0, type: 3}
     Looping: 0
   _volume: 0.933
   _pitch: 1

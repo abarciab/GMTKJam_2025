@@ -10,22 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 93e0513045be1974d934eb6431407da8, type: 3}
-  m_Name: chopTree
+  m_Name: rockHit
   m_EditorClassIdentifier: 
   Type: 0
   Unpauseable: 0
   _clips:
-  - Name: Axe Chopping A
-    Clip: {fileID: 8300000, guid: 547059268f0030548b05511816d538e3, type: 3}
+  - Name: Black Smith Hammer A
+    Clip: {fileID: 8300000, guid: 545a5d78f6be4bd41b5d2cbca25b7d1f, type: 3}
     Looping: 0
-  - Name: Axe Chopping B
-    Clip: {fileID: 8300000, guid: 7caa3d2b32425eb439f8740fcec91f01, type: 3}
+  - Name: Black Smith Hammer B
+    Clip: {fileID: 8300000, guid: 37495f9b7e6a3f5448854f9593eac9d7, type: 3}
     Looping: 0
-  - Name: Axe Chopping C
-    Clip: {fileID: 8300000, guid: ddc8f51215be3bc4994b1e442b0481b3, type: 3}
+  - Name: Black Smith Hammer C
+    Clip: {fileID: 8300000, guid: 4de0a631aadc6be4595f07c393dbc6e3, type: 3}
     Looping: 0
-  - Name: Axe Chopping D
-    Clip: {fileID: 8300000, guid: 8f5ada910fe60c1489b9362348b46b75, type: 3}
+  - Name: Black Smith Hammer D
+    Clip: {fileID: 8300000, guid: b550d5715f364b64198395daef3e088f, type: 3}
     Looping: 0
   _volume: 0.933
   _pitch: 1
