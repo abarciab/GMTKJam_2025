@@ -1880,6 +1880,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3440730489683440187, guid: dd73bc1d4f274c24e97a8d4a5b403dde, type: 3}
+      propertyPath: m_Shadows.m_Strength
+      value: 0.27
+      objectReference: {fileID: 0}
     - target: {fileID: 3543617556807026753, guid: dd73bc1d4f274c24e97a8d4a5b403dde, type: 3}
       propertyPath: m_Layer
       value: 0
