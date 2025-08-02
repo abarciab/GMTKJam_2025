@@ -1709,7 +1709,7 @@
     "m_Title": "Star Noise",
     "m_Position": {
         "x": -3858.0,
-        "y": -408.9999084472656
+        "y": -409.0
     }
 }
 
@@ -2891,7 +2891,7 @@
     "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
     "m_ObjectId": "5ee28512455a4ee8ad065376a57e2bc2",
     "m_Id": 0,
-    "m_DisplayName": "Float",
+    "m_DisplayName": "WobbleNoiseScale",
     "m_SlotType": 1,
     "m_Hidden": false,
     "m_ShaderOutputName": "Out",
