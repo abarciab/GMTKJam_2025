@@ -247,9 +247,12 @@ public class Player : MonoBehaviour
 
     private void UpdatePosition()
     {
+        var encumbered = _inventory.Encumbered;
+
         if (InputController.Get(Control.MOVE_FORWARD)) {
 
             var targetSpeed = InputController.Get(Control.SPRINT) ? _runSpeed : _walkSpeed;
+            if (encumbered) targetSpeed = _encumberedSpeed;
 
             var forwardSpeed = Vector3.Dot(_rb.linearVelocity, transform.forward);
             if (forwardSpeed < targetSpeed) {
@@ -259,21 +262,21 @@ public class Player : MonoBehaviour
 
         if (InputController.Get(Control.MOVE_BACK)) {
             var backwardSpeed = Vector3.Dot(_rb.linearVelocity, transform.forward * -1);
-            if (backwardSpeed < _walkSpeed) {
+            if (backwardSpeed < (encumbered ? _encumberedSpeed : _walkSpeed) ) {
                 _rb.linearVelocity += transform.forward * -1 * _walkSpeed;
             }
         }
 
         if (InputController.Get(Control.MOVE_RIGHT)) {
             var strafeSpeedRight = Vector3.Dot(_rb.linearVelocity, transform.right);
-            if (strafeSpeedRight < _strafeSpeed) {
+            if (strafeSpeedRight < _strafeSpeed * (encumbered? 0.1f : 1)) {
                 _rb.linearVelocity += transform.right * _strafeSpeed;
             }
         }
 
         if (InputController.Get(Control.MOVE_LEFT)) {
             var strafeSpeedLeft = Vector3.Dot(_rb.linearVelocity, transform.right * -1);
-            if (strafeSpeedLeft < _strafeSpeed) {
+            if (strafeSpeedLeft < _strafeSpeed * (encumbered ? 0.1f : 1)) {
                 _rb.linearVelocity += transform.right * -1 * _strafeSpeed;
             }
         }

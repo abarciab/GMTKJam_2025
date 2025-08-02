@@ -56,33 +56,27 @@ MonoBehaviour:
   _stats:
   - Name: Acceleration
     Data: {fileID: 11400000, guid: 1bbbfc7040bf21d4c9ae9efbf7606827, type: 2}
-    Value: 0
     Level: 0
   - Name: Capactiy
     Data: {fileID: 11400000, guid: 4cc3f30891a28674eb77f2b1422ca570, type: 2}
-    Value: 0
     Level: 0
   - Name: Effeciency
     Data: {fileID: 11400000, guid: 54ea8c0fb43a8d6408b682afc6146097, type: 2}
-    Value: 0
     Level: 0
   - Name: handling
     Data: {fileID: 11400000, guid: 8247c44689fd0df4baa3f9fa1b76e139, type: 2}
-    Value: 0
     Level: 0
   - Name: Strength
     Data: {fileID: 11400000, guid: 38cbdc4feba316a4382b1a815ddc9886, type: 2}
-    Value: 0
     Level: 0
   - Name: Speed
     Data: {fileID: 11400000, guid: 6553f4175cdb25c4baae978f6017dd5b, type: 2}
-    Value: 0
     Level: 0
   _carAnimator: {fileID: 3537585820180574265}
   _gravity: 1.2
   _clampDownYPosThreshold: 0.1
   _uprightLerpFactor: 4
-  _maxSpeed: 80
+  _baseMaxSpeed: 10
   _forwardAccel: 10
   _wheelTurnSpeed: 10
   _carTurnSpeed: 10

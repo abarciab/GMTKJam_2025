@@ -187,8 +187,19 @@ MonoBehaviour:
   _car: {fileID: 0}
   _camera: {fileID: 0}
   _allItems:
-  - {fileID: 11400000, guid: 1202a0ccc9c55974f99a44fdcc69af66, type: 2}
+  - {fileID: 11400000, guid: ccbf7bad8a828a443aaf078e37b6589c, type: 2}
   - {fileID: 11400000, guid: 0f82e34ea8fc56344878435e9ec4c74b, type: 2}
+  - {fileID: 11400000, guid: 1202a0ccc9c55974f99a44fdcc69af66, type: 2}
+  - {fileID: 11400000, guid: a2a0089db8c23cb4dae83efbe34e69dd, type: 2}
+  - {fileID: 11400000, guid: f4798e7c0372d8a4ca1971765ba83d0e, type: 2}
+  - {fileID: 11400000, guid: 09890b301138cc244b2ecd81f7013375, type: 2}
+  - {fileID: 11400000, guid: bfab6573f99893040bdb3b37e7b6473a, type: 2}
+  - {fileID: 11400000, guid: 0beee07fad07fcf48bf99ef8c3d2600f, type: 2}
+  - {fileID: 11400000, guid: f4d8e1097c21f7e4a810888b572c096d, type: 2}
+  - {fileID: 11400000, guid: 80c0085093e4bff429c199b387ba9f4b, type: 2}
+  - {fileID: 11400000, guid: 70c337b6e83ed754784936557728b876, type: 2}
+  - {fileID: 11400000, guid: 479f994a4780476479ff882e4998e98a, type: 2}
+  _discoveredItems: 
   _environment: {fileID: 0}
   _areaController: {fileID: 0}
   _areaPrefabs:
