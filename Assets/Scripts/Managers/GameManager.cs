@@ -33,19 +33,20 @@ public class GameManager : MonoBehaviour
     public void ResumeTimer() => _timerPaused = false;
     public void PauseTimer() => _timerPaused = true;
 
+    private void Awake()
+    {
+        if (i != null) Destroy(i.gameObject);
+        i = this;
+    }
+
     private void Start()
     {
+
         Utils.SetCursor(false);
         _timeLeft = _totalTime;
 
         if (_areaController) _areaController.InitializeArea(_car);
         else EnterNewArea();
-    }
-
-    private void Awake()
-    {
-        if (i != null) Destroy(i.gameObject);
-        i = this;
     }
 
     private void Update()
@@ -59,6 +60,7 @@ public class GameManager : MonoBehaviour
     }
     public void DiscoverItem(ItemType type)
     {
+        //print("discovered "+ type);
         if (!_discoveredItems.Contains(type)) _discoveredItems.Add(type);
     }
 

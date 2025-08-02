@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
@@ -13,7 +14,6 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject _arrowPrefab;
     [SerializeField] private float _maxArrowHoldTime = 3;
     [SerializeField] private float _arrowForce = 10;
-    [SerializeField] private Vector3 _arrowSpawnPos;
     [SerializeField] private Sound _bowShotSound;
 
     [Header("Movement")]
@@ -22,6 +22,13 @@ public class Player : MonoBehaviour
     [SerializeField] private float _strafeSpeed = 5;
     [SerializeField] private float _spinSpeed = 5;
     [SerializeField] private float _gravity;
+    [SerializeField] private float _gravityLerpFactor = 0.5f;
+
+    [Header("Jump")]
+    [SerializeField] private float _jumpCheckRadius; 
+    [SerializeField] private float _jumpCheckYOffset;
+    [SerializeField] private float _jumpForce;
+    [SerializeField] private int _groundLayer;
 
     [Header("Collecting")]
     [SerializeField] private float _collectionRange = 10;
@@ -35,6 +42,8 @@ public class Player : MonoBehaviour
     private bool _talking;
     private float _timeBreaking;
     private float _timeHoldingArrow;
+    private bool _grounded;
+    private float _gravityDelta;
 
     private Collectable _hoveredCollectible;
     private CarPart _hoveredCarPart;
@@ -59,6 +68,8 @@ public class Player : MonoBehaviour
 
         if (_dead || _talking || _frozen) return;
 
+        HandleJump();
+
         HandleArrow();
 
         Move();
@@ -73,10 +84,20 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void OnDrawGizmos()
+    private void OnDrawGizmosSelected()
     {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.TransformPoint(_arrowSpawnPos), 0.25f);
+        Gizmos.DrawWireSphere(transform.position + Vector3.up * _jumpCheckYOffset, _jumpCheckRadius);
+    }
+
+    private void HandleJump()
+    {
+        var colliders = Physics.OverlapSphere(transform.position + Vector3.up * _jumpCheckYOffset, _jumpCheckRadius);
+        _grounded = colliders.Where(x => x.gameObject.layer == _groundLayer).Count() > 0;
+
+        if (InputController.GetDown(Control.JUMP) && _grounded) {
+            _rb.AddForce(Vector3.up * _jumpForce, ForceMode.VelocityChange);
+            _grounded = false;
+        }
     }
 
     private void HandleArrow()
@@ -121,15 +142,13 @@ public class Player : MonoBehaviour
 
     private void NPCInteract()
     {
-        SpeakToNPC();
-    }
-
-    private void SpeakToNPC()
-    {
         UIManager.i.Do(UIAction.DISPLAY_HOVERED, "");
-        _talking = true;
-        _camera.StartConversation();
-        _hoveredNPC.StartConversation();
+
+        if (!_hoveredNPC.Spoken) {
+            _talking = true;
+            _camera.StartConversation();
+        }
+        _hoveredNPC.StartInteraction();
     }
 
     private void CarInteract()
@@ -203,7 +222,7 @@ public class Player : MonoBehaviour
 
         _hoveredCollectible = hitInfo.collider.GetComponentInParent<Collectable>();
         _hoveredCarPart = hitInfo.collider.GetComponent<CarPart>();
-        _hoveredNPC = hitInfo.collider.GetComponent<NPC>();
+        _hoveredNPC = hitInfo.collider.GetComponentInParent<NPC>();
 
         if (_hoveredCollectible) UIManager.i.Do(UIAction.DISPLAY_HOVERED, _hoveredCollectible.DisplayName);
         else if (_hoveredCarPart) {
@@ -213,7 +232,7 @@ public class Player : MonoBehaviour
                 UIManager.i.Do(UIAction.DISPLAY_HOVERED, _hoveredCarPart.Car.GetDisplayString(_inventory.Inventory));
             }
         }
-        else if (_hoveredNPC) UIManager.i.Do(UIAction.DISPLAY_HOVERED, _hoveredNPC.Name);
+        else if (_hoveredNPC) UIManager.i.Do(UIAction.DISPLAY_HOVERED, _hoveredNPC.HoverName);
         else UIManager.i.Do(UIAction.DISPLAY_HOVERED, "");
     }
 
@@ -257,7 +276,8 @@ public class Player : MonoBehaviour
         }
 
         var speedDown = Vector3.Dot(_rb.linearVelocity, Vector3.down);
-        if (speedDown < _gravity) _rb.linearVelocity += Vector3.down * _gravity * Time.deltaTime;
+        _gravityDelta = Mathf.Lerp(_gravityDelta, speedDown < _gravity && speedDown >= 0.25f ? _gravity : 0, _gravityLerpFactor * Time.deltaTime);
+        _rb.linearVelocity += Vector3.down * _gravityDelta * Time.deltaTime;
     }
 
     private void Turn()

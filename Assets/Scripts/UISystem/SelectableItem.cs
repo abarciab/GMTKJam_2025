@@ -149,6 +149,7 @@ public class SelectableItem : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     [SerializeField] private bool _hasHoverCooldown;
     [SerializeField, ConditionalField(nameof(_hasHoverCooldown))] private float _hoverCooldown = 0.05f;
     [SerializeField] private bool _hoverWhenSelected = true;
+    [SerializeField] private bool _allowHoverEventWhenDisabled = false;
     [SerializeField] private bool _deHoverOnEnable = false; 
 
     [Header("Appearance")]
@@ -223,7 +224,10 @@ public class SelectableItem : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (_disabled) return;
+        if (_disabled) {
+            if (_allowHoverEventWhenDisabled) OnHover.Invoke();
+            return;
+        }
         if (Selected && !_hoverWhenSelected) return;
         if (_hasHoverCooldown && _hoverDisabledTimeLeft > 0)return;
         if (_clickBehavior == ClickBehavior.TOGGLE && Selected && !_canToggleOff) return;
@@ -235,7 +239,10 @@ public class SelectableItem : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        if (_disabled) return;
+        if (_disabled) {
+            if (_allowHoverEventWhenDisabled) OnEndHover.Invoke();
+            return;
+        }
         if (_hovered) EndHover();
     }
 

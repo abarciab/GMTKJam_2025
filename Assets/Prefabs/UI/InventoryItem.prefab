@@ -137,6 +137,7 @@ MonoBehaviour:
   _hasHoverCooldown: 0
   _hoverCooldown: 0.05
   _hoverWhenSelected: 1
+  _allowHoverEventWhenDisabled: 0
   _deHoverOnEnable: 1
   _data:
   - Name: backing
@@ -278,6 +279,8 @@ MonoBehaviour:
   _nameText: {fileID: 7490791069996955398}
   _quantityText: {fileID: 4346073909325080845}
   _quantityParent: {fileID: 4127488039161920242}
+  _redWhenUnaffordable: 0
+  _quantity: {fileID: 8731369386922519029}
 --- !u!1 &1839169956001423495
 GameObject:
   m_ObjectHideFlags: 0
@@ -456,6 +459,7 @@ GameObject:
   - component: {fileID: 8612065308510251820}
   - component: {fileID: 4114680858900299097}
   - component: {fileID: 7854789121564011295}
+  - component: {fileID: 8731369386922519029}
   m_Layer: 5
   m_Name: quantity
   m_TagString: Untagged
@@ -504,7 +508,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.03473657, g: 0.05660379, b: 0.03230688, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -536,6 +540,90 @@ MonoBehaviour:
   m_EffectColor: {r: 0.18039216, g: 0.27450982, b: 0.16862746, a: 1}
   m_EffectDistance: {x: 3, y: 3}
   m_UseGraphicAlpha: 1
+--- !u!114 &8731369386922519029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4127488039161920242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 898f698a9835d194c90dd0b423be4462, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _clickBehavior: 0
+  _selectOnMouseDown: 0
+  _canToggleOff: 1
+  _hoverBehavior: 0
+  _hasHoverCooldown: 0
+  _hoverCooldown: 0.05
+  _hoverWhenSelected: 1
+  _allowHoverEventWhenDisabled: 0
+  _deHoverOnEnable: 0
+  _data:
+  - Name: quantity
+    _type: 0
+    _graphic: {fileID: 4114680858900299097}
+    _useMaterials: 0
+    _colors:
+      _normal: {r: 0.076245606, g: 0.1509434, b: 0.06051976, a: 1}
+      _hovered: {r: 1, g: 1, b: 1, a: 1}
+      _selected: {r: 1, g: 1, b: 1, a: 1}
+      _disabled: {r: 0.6320754, g: 0.09838911, b: 0.09838911, a: 1}
+    _materials:
+      _normal: {fileID: 0}
+      _hovered: {fileID: 0}
+      _selected: {fileID: 0}
+      _disabled: {fileID: 0}
+    _gameObjectTarget: {fileID: 0}
+    _activeStates:
+      _normal: 0
+      _hovered: 0
+      _selected: 0
+      _disabled: 0
+    _canvasGroup: {fileID: 0}
+    _alphaValues:
+      _normal: 1
+      _hovered: 1
+      _selected: 1
+      _disabled: 1
+    _spriteTarget: {fileID: 0}
+    _sprites:
+      _normal: {fileID: 0}
+      _hovered: {fileID: 0}
+      _selected: {fileID: 0}
+      _disabled: {fileID: 0}
+    _showGraphicSettings: 1
+    _showGraphicColorSettings: 1
+    _showGOSettings: 0
+    _showGroupSettings: 0
+    _showSpriteSettings: 0
+  _scaleWhenHovered: 0
+  _scaleDefaultHovered: {x: 1, y: 1.1}
+  _hoverScaleLerp: 0.2
+  _hasAnimation: 0
+  _animator: {fileID: 0}
+  _animationSelectedBool: Selected
+  _animationHoveredBool: Hovered
+  _animationDisabledBool: Disabled
+  _hoverSound: {fileID: 0}
+  _mouseDownSound: {fileID: 0}
+  _selectSound: {fileID: 0}
+  _deselectSound: {fileID: 0}
+  OnSelect:
+    m_PersistentCalls:
+      m_Calls: []
+  OnHover:
+    m_PersistentCalls:
+      m_Calls: []
+  OnEndHover:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDeselect:
+    m_PersistentCalls:
+      m_Calls: []
+  _debugStateChange: 0
 --- !u!1 &5156645595480747145
 GameObject:
   m_ObjectHideFlags: 0
