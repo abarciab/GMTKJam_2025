@@ -56,7 +56,7 @@ Material:
     - _Cull: 2
     - _DstBlend: 10
     - _FresnelIntensity: 1.78
-    - _FresnelPower: 5.03
+    - _FresnelPower: 4.61
     - _InnerFresnelPower: 0.92
     - _QueueControl: 0
     - _QueueOffset: 0
@@ -70,13 +70,16 @@ Material:
     - _StarSpeed1: 0.01
     - _StarSpeed2: 0.03
     - _Surface: 1
+    - _WobbleMultoply: 0.001
+    - _WobbleNoiseScale: 10
     - _WorkflowMode: 1
     - _ZTest: 4
     - _ZWrite: 0
     - _ZWriteControl: 0
     m_Colors:
-    - _FresnelCol: {r: 0, g: 7.882019, b: 32, a: 0}
-    - _InnerCol: {r: 0.16765998, g: 0, b: 5.0684495, a: 0}
+    - _FresnelCol: {r: 0, g: 37.857346, b: 47.937256, a: 0}
+    - _InnerCol: {r: 0.13252792, g: 0, b: 2.812528, a: 0}
+    - _WobbleSpeed: {r: 0.01, g: -0.1, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &1722560030471622279

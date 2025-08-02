@@ -70,6 +70,8 @@ Material:
     - _StarSpeed1: 0.007
     - _StarSpeed2: 0.003
     - _Surface: 1
+    - _WobbleMultoply: 0.0011
+    - _WobbleNoiseScale: -1.4
     - _WorkflowMode: 1
     - _ZTest: 4
     - _ZWrite: 0
@@ -78,6 +80,7 @@ Material:
     - _FresnelCol: {r: 0, g: 7.882019, b: 32, a: 0}
     - _InnerCol: {r: 0.16765998, g: 0, b: 5.0684495, a: 0}
     - _StarColor: {r: 0.5235849, g: 0.8891277, b: 1, a: 0}
+    - _WobbleSpeed: {r: 0.3, g: -0.5, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &1722560030471622279
