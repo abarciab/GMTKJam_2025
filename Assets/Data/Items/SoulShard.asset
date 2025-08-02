@@ -14,3 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 6
   DisplayName: Soul Shard
+  Description: part of the remants of a slain spirit
+  UnknownDescription: Unknown Item. Find in grasslands
+  Icon: {fileID: 0}

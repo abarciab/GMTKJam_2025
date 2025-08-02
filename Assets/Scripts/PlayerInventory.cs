@@ -36,6 +36,17 @@ public class Inventory
         foreach (var item in _items) if (item.Data != null) item.Name = item.Data.DisplayName;
     }
 
+    public Item getItem(ItemType itemType)
+    {
+        foreach (var item in _items) {
+            if (item.Data.Type == itemType) {
+                return item;
+            }
+        }
+
+        return AddNewItem(itemType, 0);
+    }
+
     public int GetCount(ItemType itemType)
     {
         foreach (var item in _items) {
@@ -56,7 +67,9 @@ public class Inventory
                 return;
             }
         }
-        
+
+        if (quantityToAdd > 0) GameManager.i.DiscoverItem(itemType);
+
         AddNewItem(itemType, quantityToAdd);
     }
 
@@ -69,15 +82,21 @@ public class Inventory
             }
         }
 
+        if (newItem.Quantity > 0) GameManager.i.DiscoverItem(newItem.Data.Type);
+
         _items.Add(newItem);
     }
 
-    private void AddNewItem(ItemType type, int quantity)
+    private Item AddNewItem(ItemType itemType, int quantity)
     {
         var allItems = GameManager.i.AllItems;
-        var newItemData = allItems.Where(x => x.Type == type).First();
+        var newItemData = allItems.Where(x => x.Type == itemType).First();
         var newItem = new Item(newItemData, quantity);
         _items.Add(newItem);
+
+        if (quantity > 0) GameManager.i.DiscoverItem(itemType);
+
+        return newItem;
     }
 
     public void Subtract(Inventory other)

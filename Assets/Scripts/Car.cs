@@ -1,6 +1,16 @@
 using MyBox;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+
+public enum CarStatType { ACCEL, EFFICIENCY, TOP_SPEED, HANDLING, HP, CAPACITY}
+
+[System.Serializable]
+public class CarStat
+{
+    public CarStatData Data;
+    public float Value;    
+}
 
 [RequireComponent(typeof(Rigidbody))]
 public class Car : MonoBehaviour
@@ -11,6 +21,7 @@ public class Car : MonoBehaviour
     [SerializeField] private CarWorldUI _worldUI;
 
     [Header("Driving Mechanics")]
+    [SerializeField] private List<CarStat> _stats;
     [SerializeField] private Animator _carAnimator;
     [SerializeField] private float _gravity = 10;
     [SerializeField] private float _uprightLerpFactor = 4;
@@ -47,6 +58,7 @@ public class Car : MonoBehaviour
     public void SetThrottle(float throttle) => _throttle = throttle;
     public void setWheelAngle(float wheelAngle) => _wheelAngle = wheelAngle;
     public void SetEndGate(Transform endGate) => _worldUI.EndGate = endGate;
+    public CarStat GetStat(CarStatType type) => _stats.Where(x => x.Data.Type == type).First();  
 
     private void Awake()
     {

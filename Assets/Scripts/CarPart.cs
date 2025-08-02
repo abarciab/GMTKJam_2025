@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public enum CarPartType { DOOR, FUEL}
+public enum CarPartType { DOOR, FUEL, BED}
 
 public class CarPart : MonoBehaviour
 {

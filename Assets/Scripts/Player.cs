@@ -136,6 +136,12 @@ public class Player : MonoBehaviour
     {
         if (_hoveredCarPart.Part == CarPartType.DOOR) GetInCar();
         if (_hoveredCarPart.Part == CarPartType.FUEL) DepositItems();
+        if (_hoveredCarPart.Part == CarPartType.BED) OpenUpgradeMenu();
+    }
+
+    private void OpenUpgradeMenu()
+    {
+        UIManager.i.Do(UIAction.SHOW_CAR_UPGRADE);
     }
 
     private void GetInCar()
@@ -177,7 +183,8 @@ public class Player : MonoBehaviour
         if (_hoveredCollectible == null) return;
 
         _collectSound.Play();
-        
+
+        GameManager.i.DiscoverItem(_hoveredCollectible.Drop.Data.Type);
         _inventory.Additems(_hoveredCollectible.Drop);
 
         Destroy(_hoveredCollectible.gameObject);
@@ -194,13 +201,14 @@ public class Player : MonoBehaviour
             return;
         }
 
-        _hoveredCollectible = hitInfo.collider.GetComponent<Collectable>();
+        _hoveredCollectible = hitInfo.collider.GetComponentInParent<Collectable>();
         _hoveredCarPart = hitInfo.collider.GetComponent<CarPart>();
         _hoveredNPC = hitInfo.collider.GetComponent<NPC>();
 
         if (_hoveredCollectible) UIManager.i.Do(UIAction.DISPLAY_HOVERED, _hoveredCollectible.DisplayName);
         else if (_hoveredCarPart) {
             if (_hoveredCarPart.Part == CarPartType.DOOR) UIManager.i.Do(UIAction.DISPLAY_HOVERED, "Enter Car");
+            else if (_hoveredCarPart.Part == CarPartType.BED) UIManager.i.Do(UIAction.DISPLAY_HOVERED, "Upgrade Car");
             else if (_hoveredCarPart.Part == CarPartType.FUEL) {
                 UIManager.i.Do(UIAction.DISPLAY_HOVERED, _hoveredCarPart.Car.GetDisplayString(_inventory.Inventory));
             }

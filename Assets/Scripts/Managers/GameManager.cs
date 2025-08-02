@@ -1,6 +1,7 @@
 using MyBox;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -14,6 +15,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Car _car;
     [SerializeField] private CameraController _camera;
     [SerializeField] private List<ItemData> _allItems = new List<ItemData>();
+    [SerializeField] private List<ItemType> _discoveredItems = new List<ItemType>();
     [SerializeField] private GameObject _environment;
     [SerializeField] private AreaController _areaController;
     [SerializeField] private List<GameObject> _areaPrefabs = new List<GameObject>();
@@ -21,6 +23,8 @@ public class GameManager : MonoBehaviour
     private float _timeLeft;
     private bool _timerPaused;
 
+
+    public bool ItemDiscovered(ItemType type) => _discoveredItems.Contains(type);
     public List<ItemData> AllItems => _allItems;
     public void LoadMenu() => Utils.TransitionToScene(0);
     public void EndGame() => Utils.TransitionToScene(2);
@@ -52,6 +56,10 @@ public class GameManager : MonoBehaviour
         UIManager.i.Do(UIAction.UPDATE_TIMER, _timeLeft / _totalTime);
 
         if (_timeLeft <= 0) LoseGame();
+    }
+    public void DiscoverItem(ItemType type)
+    {
+        if (!_discoveredItems.Contains(type)) _discoveredItems.Add(type);
     }
 
     public void EnterNewArea()
