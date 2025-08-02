@@ -280,6 +280,7 @@ MonoBehaviour:
   _quantityText: {fileID: 4346073909325080845}
   _quantityParent: {fileID: 4127488039161920242}
   _redWhenUnaffordable: 0
+  _showUnknown: 0
   _quantity: {fileID: 8731369386922519029}
 --- !u!1 &1839169956001423495
 GameObject:
@@ -568,8 +569,8 @@ MonoBehaviour:
     _useMaterials: 0
     _colors:
       _normal: {r: 0.076245606, g: 0.1509434, b: 0.06051976, a: 1}
-      _hovered: {r: 1, g: 1, b: 1, a: 1}
-      _selected: {r: 1, g: 1, b: 1, a: 1}
+      _hovered: {r: 0.07450981, g: 0.14901961, b: 0.05882353, a: 1}
+      _selected: {r: 0.07450981, g: 0.14901961, b: 0.05882353, a: 1}
       _disabled: {r: 0.6320754, g: 0.09838911, b: 0.09838911, a: 1}
     _materials:
       _normal: {fileID: 0}

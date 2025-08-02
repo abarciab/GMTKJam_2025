@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [System.Serializable]
 public class RTransformLerpPositionData
@@ -19,6 +20,7 @@ public class RTransformLerpPositionData
 
 public class ArrowCrosshairController : UIController
 {
+    [SerializeField] private Image _mainCrosshair;
     [SerializeField] private List<RTransformLerpPositionData> _parts = new List<RTransformLerpPositionData>();
 
     private void OnValidate()
@@ -33,6 +35,8 @@ public class ArrowCrosshairController : UIController
 
     private void ShowProgress(float percent)
     {
+        _mainCrosshair.enabled = percent == 0;
+
         foreach (var point in _parts) {
             point.UpdatePosition(percent);
         }

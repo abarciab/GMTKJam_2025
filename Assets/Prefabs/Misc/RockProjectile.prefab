@@ -10,12 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 710875406132575667}
   - component: {fileID: 3205369282368989040}
-  - component: {fileID: 5511893514262526891}
   - component: {fileID: 6917261486025561796}
   - component: {fileID: 54099416153557683}
   - component: {fileID: 4236139159443304300}
   - component: {fileID: 5245493971822941610}
   - component: {fileID: 2184200854810654288}
+  - component: {fileID: 3370234867419960178}
   m_Layer: 0
   m_Name: RockProjectile
   m_TagString: Untagged
@@ -48,51 +48,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 995289171502119885}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &5511893514262526891
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 995289171502119885}
-  m_Enabled: 0
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!135 &6917261486025561796
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -188,6 +143,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28902e1c2dcc7d943969eb97bb8457e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3370234867419960178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 995289171502119885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47e1026e79caf784a929528eca1cd98d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damage: 2
 --- !u!1001 &331618910395349862
 PrefabInstance:
   m_ObjectHideFlags: 0

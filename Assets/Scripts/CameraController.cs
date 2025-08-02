@@ -24,6 +24,8 @@ public class CameraController : MonoBehaviour
     [SerializeField] private float _rotLerpFactor;
 
     [Header("Misc")]
+    [SerializeField] private Vector2 _fovLimits;
+    [SerializeField] private float _fovLerpFactor = 5;
     [SerializeField] private Transform _camera;
 
     private float _currentLook = 0;
@@ -39,6 +41,16 @@ public class CameraController : MonoBehaviour
 
     private void Update()
     {
+        var fovTarget = _fovLimits.x;
+        if (_followCar) {
+            if (_car.GetComponent<Car>().Boosting) fovTarget = _fovLimits.y;
+        }
+        else {
+            if (_player.Sprinting) fovTarget = _fovLimits.y;
+        }
+
+        Camera.main.fieldOfView = Mathf.Lerp(Camera.main.fieldOfView, fovTarget, _fovLerpFactor * Time.deltaTime);
+
         if (!_followCar && !_inConversation && !_player.Frozen) {
             Turn();
         }

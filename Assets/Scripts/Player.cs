@@ -54,6 +54,7 @@ public class Player : MonoBehaviour
     public void EndConversation() => _talking = false;
     public void SetFrozen(bool frozen) => _frozen = frozen;
     public bool Frozen => _frozen;
+    public bool Sprinting => InputController.Get(Control.SPRINT) && _rb.linearVelocity.magnitude > 0 && !_inventory.Encumbered;
 
     private void Awake()
     {
@@ -155,8 +156,8 @@ public class Player : MonoBehaviour
     private void CarInteract()
     {
         if (_hoveredCarPart.Part == CarPartType.DOOR) GetInCar();
-        if (_hoveredCarPart.Part == CarPartType.FUEL) DepositItems();
-        if (_hoveredCarPart.Part == CarPartType.BED) OpenUpgradeMenu();
+        if (_hoveredCarPart.Part == CarPartType.REPAIR_REFUL) OpenRepairMenu();
+        if (_hoveredCarPart.Part == CarPartType.HOOD) OpenUpgradeMenu();
     }
 
     private void OpenUpgradeMenu()
@@ -177,8 +178,14 @@ public class Player : MonoBehaviour
         _dead = true;
     }
 
-    private void DepositItems()
+    private void OpenRepairMenu()
     {
+        UIManager.i.Do(UIAction.OPEN_REPAIR_MENU);
+        UIManager.i.Do(UIAction.DISPLAY_HOVERED, "");
+
+        return;
+
+
         var requiredItems = _hoveredCarPart.Car.GetRemainingRequiredItems();
         var ItemsToDeposit = _inventory.Inventory.GetOverlap(requiredItems);
 
@@ -230,8 +237,8 @@ public class Player : MonoBehaviour
         if (_hoveredCollectible) UIManager.i.Do(UIAction.DISPLAY_HOVERED, _hoveredCollectible.DisplayName);
         else if (_hoveredCarPart) {
             if (_hoveredCarPart.Part == CarPartType.DOOR) UIManager.i.Do(UIAction.DISPLAY_HOVERED, "Enter Car");
-            else if (_hoveredCarPart.Part == CarPartType.BED) UIManager.i.Do(UIAction.DISPLAY_HOVERED, "Upgrade Car");
-            else if (_hoveredCarPart.Part == CarPartType.FUEL) {
+            else if (_hoveredCarPart.Part == CarPartType.HOOD) UIManager.i.Do(UIAction.DISPLAY_HOVERED, "Upgrade Car");
+            else if (_hoveredCarPart.Part == CarPartType.REPAIR_REFUL) {
                 UIManager.i.Do(UIAction.DISPLAY_HOVERED, _hoveredCarPart.Car.GetDisplayString(_inventory.Inventory));
             }
         }

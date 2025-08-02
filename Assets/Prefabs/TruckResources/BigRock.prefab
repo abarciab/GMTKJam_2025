@@ -66,6 +66,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1690646424772896193}
   - component: {fileID: 3880020399850957032}
+  - component: {fileID: 3260742202576626111}
   m_Layer: 0
   m_Name: BigRock
   m_TagString: Untagged
@@ -113,6 +114,19 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 2
   _breakSound: {fileID: 11400000, guid: e9bf096b264d6874ba1753b95d600428, type: 2}
+--- !u!114 &3260742202576626111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4292202211656116917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47e1026e79caf784a929528eca1cd98d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damage: 0.5
 --- !u!1001 &86244204642493764
 PrefabInstance:
   m_ObjectHideFlags: 0
