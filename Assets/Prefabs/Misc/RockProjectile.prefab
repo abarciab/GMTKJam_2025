@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 54099416153557683}
   - component: {fileID: 4236139159443304300}
   - component: {fileID: 5245493971822941610}
+  - component: {fileID: 6891594790681428178}
   m_Layer: 0
   m_Name: RockProjectile
   m_TagString: Untagged
@@ -175,6 +176,19 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.38989013
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6891594790681428178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 995289171502119885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47e1026e79caf784a929528eca1cd98d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damage: 1.5
 --- !u!1001 &331618910395349862
 PrefabInstance:
   m_ObjectHideFlags: 0

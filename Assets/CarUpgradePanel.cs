@@ -39,7 +39,7 @@ public class CarUpgradePanel : MonoBehaviour
         _maxLevelParent.SetActive(!_upgradeParent.activeInHierarchy);
 
         var upgradeAmountString = currentStat.Data.LevelUpgradeAmount + currentStat.Data.AmountSuffix;
-        _buttonText.text = "Upgrade (+" + upgradeAmountString + ")";
+       // _buttonText.text = "Upgrade (+" + upgradeAmountString + ")";
 
         _levelText.text = currentStat.Level + "-> " + (currentStat.Level + 1);
 

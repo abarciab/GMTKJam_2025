@@ -230,6 +230,12 @@ public class PlayerInventory : MonoBehaviour
         UpdateUI();
     }
 
+    private void Update()
+    {
+        if (Encumbered) UIManager.i.Do(UIAction.SHOW_STATUS, Status.ENCUMBERED);
+        else UIManager.i.Do(UIAction.HIDE_STATUS, Status.ENCUMBERED);
+    }
+
     public void Additems(ItemType itemType, int quantityToAdd = 1)
     {
         _inventory.AddItems(itemType, quantityToAdd);
