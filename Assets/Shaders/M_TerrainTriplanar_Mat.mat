@@ -96,21 +96,21 @@ Material:
     - _QueueOffset: 0
     - _Shades: 0.02
     - _ShadowIntensity: 0.667
-    - _Tiling0: 1
+    - _Tiling0: 6.8
     - _Tiling1: 1
     - _Tiling2: 1
     - _Tiling3: 1
     - _WallBlend: -0.04
-    - _WallEdge1: 0.43
-    - _WallEdge2: 0.88
+    - _WallEdge1: 0.64
+    - _WallEdge2: 0.96
     - _WallTile: 1
     m_Colors:
-    - _GroundColor: {r: 0.08530617, g: 0.254717, b: 0.13949803, a: 1}
+    - _GroundColor: {r: 0.1021271, g: 0.254717, b: 0.16080956, a: 1}
     - _Layer0Tint: {r: 1, g: 1, b: 1, a: 0}
     - _Layer1Tint: {r: 1, g: 1, b: 1, a: 0}
     - _Layer2Tint: {r: 1, g: 1, b: 1, a: 0}
     - _Layer3Tint: {r: 1, g: 1, b: 1, a: 0}
     - _ShadowTiling: {r: 5, g: 5, b: 0, a: 0}
-    - _WallColor: {r: 0.41211286, g: 0.5612074, b: 0.5943396, a: 1}
+    - _WallColor: {r: 0.30789426, g: 0.34117445, b: 0.3490566, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

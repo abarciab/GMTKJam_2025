@@ -3,7 +3,22 @@ guid: 80ee277ac3eebc6428de8396808cb023
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Brick
+    second: {fileID: 2100000, guid: 9dfe7a93eee6c9d4bbd7c931092e793e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CinderBlock
+    second: {fileID: 2100000, guid: f97c8241bad37e34eb2ee9e3f1be0687, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Rebar
+    second: {fileID: 2100000, guid: dd2aa2da43ca1634586cac60e7a4299a, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
