@@ -34,3 +34,6 @@ MonoBehaviour:
   - DisplayName: Sprint
     Control: 7
     Key: 304
+  - DisplayName: Toggle Inventory
+    Control: 8
+    Key: 9

@@ -13,7 +13,6 @@ public class DialogueController : UIController
     private int _currentLetterIndex;
     private float _currentLetterCooldown;
     
-
     private string _currentLine => _lines[_currentLineIndex];
 
     private void OnEnable()
@@ -28,7 +27,7 @@ public class DialogueController : UIController
 
     private void OnDisable()
     {
-        GameManager.i.ResumeTimer();
+        if (GameManager.i) GameManager.i.ResumeTimer();
         Utils.SetCursor(false);
     }
 
@@ -51,10 +50,10 @@ public class DialogueController : UIController
         if (action == UIAction.START_CONVERSATION && arg is List<string> lines) StartConversation(lines);
     }
 
-    private void StartConversation(List<string> lines)
+    public void StartConversation(List<string> lines)
     {
         _lines = lines;
-        GameManager.i.PauseTimer();
+        if (GameManager.i) GameManager.i.PauseTimer();
         gameObject.SetActive(true);
 
         _currentLineIndex = -1;
@@ -82,6 +81,8 @@ public class DialogueController : UIController
     private void EndConversation()
     {
         gameObject.SetActive(false);
+
+        if (!GameManager.i) return;
         FindFirstObjectByType<CameraController>().EndConversation();
         FindFirstObjectByType<Player>().EndConversation();
     }

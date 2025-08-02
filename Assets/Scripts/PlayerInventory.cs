@@ -197,6 +197,6 @@ public class PlayerInventory : MonoBehaviour
 
     private void UpdateUI()
     {
-        UIManager.i.Do(UIAction.DISPLAY_INVENTORY, _inventory.Items);
+        //UIManager.i.Do(UIAction.DISPLAY_INVENTORY, _inventory.Items);
     }
 }

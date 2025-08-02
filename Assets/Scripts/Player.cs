@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     [SerializeField] private CameraController _camera;
 
     [Header("Bow")]
+    [SerializeField] private BowController _bow;
     [SerializeField] private GameObject _arrowPrefab;
     [SerializeField] private float _maxArrowHoldTime = 3;
     [SerializeField] private float _arrowForce = 10;
@@ -20,6 +21,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float _runSpeed = 10;
     [SerializeField] private float _strafeSpeed = 5;
     [SerializeField] private float _spinSpeed = 5;
+    [SerializeField] private float _gravity;
 
     [Header("Collecting")]
     [SerializeField] private float _collectionRange = 10;
@@ -28,6 +30,7 @@ public class Player : MonoBehaviour
     private Rigidbody _rb;
     private PlayerInventory _inventory;
     private bool _dead;
+    private bool _frozen;
     private bool _breaking;
     private bool _talking;
     private float _timeBreaking;
@@ -39,6 +42,8 @@ public class Player : MonoBehaviour
 
     public bool Dead => _dead;
     public void EndConversation() => _talking = false;
+    public void SetFrozen(bool frozen) => _frozen = frozen;
+    public bool Frozen => _frozen;
 
     private void Awake()
     {
@@ -50,10 +55,11 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        if (_dead || _talking) return;
+        if (InputController.GetDown(Control.INVENTORY)) UIManager.i.Do(UIAction.TOGGLE_INVENTORY, _inventory.Inventory);
 
-        if (Input.GetMouseButton(1)) _timeHoldingArrow += Time.deltaTime;
-        if (Input.GetMouseButtonUp(1)) FireArrow();
+        if (_dead || _talking || _frozen) return;
+
+        HandleArrow();
 
         Move();
         Raycast();
@@ -67,6 +73,21 @@ public class Player : MonoBehaviour
         }
     }
 
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.TransformPoint(_arrowSpawnPos), 0.25f);
+    }
+
+    private void HandleArrow()
+    {
+        if (Input.GetMouseButton(1)) _timeHoldingArrow += Time.deltaTime;
+        if (Input.GetMouseButtonUp(1)) FireArrow();
+        var arrowPercent = _timeHoldingArrow / _maxArrowHoldTime;
+        UIManager.i.Do(UIAction.SHOW_ARROW_PROGRESS, arrowPercent);
+        _bow.UpdateArrow(arrowPercent);
+    }
+
     private void FireArrow()
     {
         _bowShotSound.Play();
@@ -76,12 +97,6 @@ public class Player : MonoBehaviour
         arrow.GetComponent<Rigidbody>().AddForce(arrow.transform.forward * force);
 
         _timeHoldingArrow = 0;
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.TransformPoint(_arrowSpawnPos), 0.25f);
     }
 
     private void ProgressBreak()
@@ -232,6 +247,9 @@ public class Player : MonoBehaviour
                 _rb.linearVelocity += transform.right * -1 * _strafeSpeed;
             }
         }
+
+        var speedDown = Vector3.Dot(_rb.linearVelocity, Vector3.down);
+        if (speedDown < _gravity) _rb.linearVelocity += Vector3.down * _gravity * Time.deltaTime;
     }
 
     private void Turn()

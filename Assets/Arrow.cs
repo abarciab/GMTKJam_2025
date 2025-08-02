@@ -7,16 +7,17 @@ public class Arrow : MonoBehaviour
     [SerializeField] private float _lifeTime;
     [SerializeField] private int _floorlayer;
     [SerializeField] private Sound _landSound;
+    [SerializeField] private Sound _hitSound;
     [SerializeField] private Animator _arrowAnimator;
+    [SerializeField] private Collider _collider;
 
-    private Collider _collider;
     private Rigidbody _rb;
 
     private void Start()
     {
-        _collider = GetComponent<Collider>();
         _rb = GetComponent<Rigidbody>();
         _landSound = Instantiate(_landSound);
+        _hitSound = Instantiate(_hitSound);
     }
 
     private void Update()
@@ -27,14 +28,21 @@ public class Arrow : MonoBehaviour
         _lifeTime -= Time.deltaTime;
         if (_lifeTime <= 0) Destroy(gameObject);
 
-        if (_rb) transform.forward = _rb.linearVelocity;
+        if (_rb && _rb.linearVelocity != Vector3.zero) transform.forward = _rb.linearVelocity;
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.GetComponent<Player>()) return;
 
-        _landSound.Play(transform);
+        var animal = other.GetComponent<Animal>();
+        if (animal) {
+            animal.Damage();
+            _hitSound.Play();
+        }
+        else _landSound.Play(transform);
+
+
         Destroy(this);
         Destroy(_rb);
         Destroy(_collider);

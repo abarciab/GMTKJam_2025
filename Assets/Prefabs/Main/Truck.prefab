@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7309752685503164436}
   - component: {fileID: 5981387157043658903}
-  - component: {fileID: 6421791058564947158}
   - component: {fileID: 5869452578377605572}
+  - component: {fileID: 7649404388661562985}
   m_Layer: 0
   m_Name: Truck
   m_TagString: Untagged
@@ -48,11 +48,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fea434122ba873f4791c61837d03021f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxFuel: 10
+  _maxFuel: 25
   _fuelUseFactor: 0.1
   _playerDismountPosition: {x: -1.92, y: 0.21, z: 2.12}
   _worldUI: {fileID: 206377996798546629}
   _carAnimator: {fileID: 3537585820180574265}
+  _gravity: 1.2
+  _uprightLerpFactor: 4
   _maxSpeed: 10
   _forwardAccel: 5
   _wheelTurnSpeed: 10
@@ -70,34 +72,13 @@ MonoBehaviour:
     _items:
     - Name: 
       Data: {fileID: 11400000, guid: 1202a0ccc9c55974f99a44fdcc69af66, type: 2}
-      Quantity: 3
+      Quantity: 0
     - Name: 
       Data: {fileID: 11400000, guid: 0f82e34ea8fc56344878435e9ec4c74b, type: 2}
-      Quantity: 8
+      Quantity: 4
   _depositSound: {fileID: 11400000, guid: e07f9e212d809ae4b8258fbd54ff686f, type: 2}
   _player: {fileID: 0}
   _currentFuel: 0
---- !u!65 &6421791058564947158
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 251331496198823978}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 2.0997515, y: 2.5242875, z: 5.133485}
-  m_Center: {x: 0, y: 1.4052092, z: 2.155023}
 --- !u!54 &5869452578377605572
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -123,8 +104,31 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 64
   m_CollisionDetection: 1
+--- !u!136 &7649404388661562985
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 251331496198823978}
+  m_Material: {fileID: 13400000, guid: 2bccf119a2640b44cada7f1e50412225, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.3948083
+  m_Height: 5.7418823
+  m_Direction: 2
+  m_Center: {x: 0.029647827, y: 1.3670869, z: 2.120758}
 --- !u!1 &260512260236767338
 GameObject:
   m_ObjectHideFlags: 0
@@ -232,8 +236,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 5.2899356, y: 1, z: 0.9999999}
+  m_Center: {x: -2.1449707, y: 0, z: -0.000000012797923}
 --- !u!114 &1124801959049035923
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -354,8 +358,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.6400695, y: 1, z: 1}
+  m_Center: {x: -0.32003576, y: 0, z: -1.4484226e-10}
 --- !u!114 &5704216892717860857
 MonoBehaviour:
   m_ObjectHideFlags: 0
