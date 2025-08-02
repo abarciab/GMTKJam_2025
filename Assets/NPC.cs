@@ -10,13 +10,15 @@ public class NPC : MonoBehaviour
     [SerializeField] private Vector2 _viewLimits;
     [SerializeField] private float _speechBubbleLerpFactor;
 
+    private Trade _trade;
     private List<string> _lines = null;
     private string _name;
     private Transform _camera;
     private Vector3 _originalScale;
     private bool _spoken;
 
-    public string Name => _name;
+    public bool Spoken => _spoken;
+    public string HoverName => (!_spoken ? "Talk to " : "Trade with ") + _name;
 
     private void Start()
     {
@@ -45,8 +47,9 @@ public class NPC : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, _viewLimits.y);
     }
 
-    public void SetData(List<string> lines)
+    public void SetData(List<string> lines, Trade trade)
     {
+        _trade = new Trade(trade);
         _name = lines[0];
         lines.RemoveAt(0);
         _lines = lines;
@@ -55,6 +58,20 @@ public class NPC : MonoBehaviour
     public void StartInteraction()
     {
         if (!_spoken) StartConversation();
+        else StartTrade();
+    }
+
+    private void StartTrade()
+    {
+        var requestedItems = _trade.Request.Items.Select(x => x.Data.Type).ToList();
+        var requestContainsUnknownItems = requestedItems.Where(x => !GameManager.i.ItemDiscovered(x)).Count() > 0;
+        if (requestContainsUnknownItems) {
+            var lines = new List<string>() { "I'm sorry, you don't even know about the resources I'm after. Come back later" };
+            UIManager.i.Do(UIAction.START_CONVERSATION, lines);
+            return;
+        }
+
+        UIManager.i.Do(UIAction.START_TRADE, _trade);
     }
 
     private void StartConversation()

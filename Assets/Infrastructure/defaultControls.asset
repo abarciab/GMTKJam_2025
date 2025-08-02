@@ -37,3 +37,6 @@ MonoBehaviour:
   - DisplayName: Toggle Inventory
     Control: 8
     Key: 9
+  - DisplayName: Jump
+    Control: 9
+    Key: 32

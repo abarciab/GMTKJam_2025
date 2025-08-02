@@ -8,15 +8,16 @@ public class InventoryItemDisplay : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _nameText;
     [SerializeField] private TextMeshProUGUI _quantityText;
     [SerializeField] private GameObject _quantityParent;
-    [SerializeField] private bool _redWhenunaffordable;
+    [SerializeField] private bool _redWhenUnaffordable;
+    [SerializeField] private bool _showUnknown;
     [SerializeField] private SelectableItem _quantity;
 
     private PlayerInventoryUIController _controller;
     private Item _item;
     private bool _discovered;
 
-    public void OnHover() => _controller.HoverItem(_discovered ? _item.Data.Description : _item.Data.UnknownDescription);
-    public void EndHover() => _controller.EndHover();
+    public void OnHover() => _controller?.HoverItem(_discovered ? _item.Data.Description : _item.Data.UnknownDescription);
+    public void EndHover() => _controller?.EndHover();
     public void Initialize(Item item, PlayerInventoryUIController controller)
     {
         _controller = controller;
@@ -28,7 +29,7 @@ public class InventoryItemDisplay : MonoBehaviour
         _item = item;
         _icon.sprite = item.Data.Icon;
 
-        _discovered = GameManager.i.ItemDiscovered(item.Data.Type);
+        _discovered = GameManager.i.ItemDiscovered(item.Data.Type) || _showUnknown;
         if (_discovered) _nameText.text = item.Data.DisplayName;
         else _nameText.text = "???";
 
@@ -37,7 +38,7 @@ public class InventoryItemDisplay : MonoBehaviour
 
         if (_quantity) {
             var player = GameManager.i.Player;
-            if (_redWhenunaffordable && player.GetComponent<PlayerInventory>().GetCount(item.Data.Type) < item.Quantity) {
+            if (_redWhenUnaffordable && player.GetComponent<PlayerInventory>().GetCount(item.Data.Type) < item.Quantity) {
                 _quantity.SetDisabled(true);
             }
             else {

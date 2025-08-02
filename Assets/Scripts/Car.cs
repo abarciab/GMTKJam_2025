@@ -236,7 +236,7 @@ public class Car : MonoBehaviour
     public void DepositItems(List<Item> toDeposit)
     {
         foreach (var i in toDeposit) {
-            _currentInventory.Additems(i);
+            _currentInventory.AddItems(i);
         }
 
         _depositSound.Play();
