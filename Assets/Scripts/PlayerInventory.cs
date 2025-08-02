@@ -27,6 +27,7 @@ public class Item
 [System.Serializable]
 public class Inventory
 {
+    [HideInInspector] public string Name;
     [SerializeField] private List<Item> _items;
 
     public List<Item> Items => new List<Item>(_items);
@@ -118,15 +119,15 @@ public class Inventory
 
     public void RemoveItems(Item item) => RemoveItems(item.Data.Type, item.Quantity);
 
-    public bool Contains(Inventory other)
+    public bool Contains(List<Item> items)
     {
-        var otherItems = other.Items;
-        foreach (var i in otherItems) {
+        foreach (var i in items) {
             if (GetCount(i.Data.Type) < i.Quantity) return false;
         }
-
         return true;
     }
+    public bool Contains(Inventory other) => Contains(other.Items);
+
 
     /// <summary>
     /// Returns the items in the other inventory that aren't in this inventory, and how many

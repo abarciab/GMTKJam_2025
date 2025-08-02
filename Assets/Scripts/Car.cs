@@ -8,8 +8,12 @@ public enum CarStatType { ACCEL, EFFICIENCY, TOP_SPEED, HANDLING, HP, CAPACITY}
 [System.Serializable]
 public class CarStat
 {
+    [HideInInspector] public string Name;
     public CarStatData Data;
-    public float Value;    
+    public float Value;
+    public int Level;
+
+    public List<Item> ItemsRequired => Data.CostForNextLevel(Level);
 }
 
 [RequireComponent(typeof(Rigidbody))]
@@ -58,7 +62,12 @@ public class Car : MonoBehaviour
     public void SetThrottle(float throttle) => _throttle = throttle;
     public void setWheelAngle(float wheelAngle) => _wheelAngle = wheelAngle;
     public void SetEndGate(Transform endGate) => _worldUI.EndGate = endGate;
-    public CarStat GetStat(CarStatType type) => _stats.Where(x => x.Data.Type == type).First();  
+    public CarStat GetStat(CarStatType type) => _stats.Where(x => x.Data.Type == type).First();
+
+    private void OnValidate()
+    {
+        foreach (var stat in _stats) if (stat.Data) stat.Name = stat.Data.DisplayName;
+    }
 
     private void Awake()
     {
@@ -151,13 +160,13 @@ public class Car : MonoBehaviour
     private void HandleTurning()
     {
         if (InputController.Get(Control.MOVE_RIGHT)) {
-            _wheelAngle += (_wheelAngle < 0 ? 2 : 1) * _wheelTurnSpeed * Time.deltaTime;
+            _wheelAngle += _wheelTurnSpeed * Time.deltaTime;
         }
         else if (InputController.Get(Control.MOVE_LEFT)) {
-            _wheelAngle -= (_wheelAngle > 0 ? 2 : 1) * _wheelTurnSpeed * Time.deltaTime;
+            _wheelAngle -= _wheelTurnSpeed * Time.deltaTime;
         }
         else {
-            _wheelAngle = Mathf.Lerp(_wheelAngle, 0, _forwardSpeedPercent * Time.deltaTime * _wheelStraightenLerpFactor);
+            _wheelAngle = Mathf.Lerp(_wheelAngle, 0, Time.deltaTime * _wheelStraightenLerpFactor);
         }
 
         _wheelAngle = Mathf.Clamp(_wheelAngle, -_wheelTurnLimit, _wheelTurnLimit);
@@ -191,7 +200,7 @@ public class Car : MonoBehaviour
         forwardDir.y = 0;
 
         _rb.linearVelocity = _throttle * _forwardAccel * 10 * Time.fixedDeltaTime * forwardDir;
-        _rb.angularVelocity = _forwardSpeedPercent * _carTurnSpeed * (_wheelAngle / _wheelTurnLimit) * Vector3.up;
+        _rb.angularVelocity = _carTurnSpeed * (_wheelAngle / _wheelTurnLimit) * Vector3.up;
 
         
         _rb.linearVelocity += Vector3.down * _gravity;
@@ -207,7 +216,6 @@ public class Car : MonoBehaviour
 
         _driving = true;
         _rb.isKinematic = false;
-        //_currentFuel = _fuelMax;
     }
 
     public List<Item> GetRemainingRequiredItems()

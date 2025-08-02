@@ -7,6 +7,11 @@ public class CarUpgradeMenuController : UIController
         if (action == UIAction.SHOW_CAR_UPGRADE) OpenMenu();
     }
 
+    private void Update()
+    {
+        if (InputController.GetDown(Control.INVENTORY)) CloseMenu();
+    }
+
     private void OpenMenu()
     {
         GameManager.i.Player.SetFrozen(true);
@@ -15,4 +20,12 @@ public class CarUpgradeMenuController : UIController
         Utils.SetCursor(true);
         gameObject.SetActive(true);
     }
+
+    private void CloseMenu()
+    {
+        GameManager.i.Player.SetFrozen(false);
+        Utils.SetCursor(false);
+        gameObject.SetActive(false);
+    }
+
 }

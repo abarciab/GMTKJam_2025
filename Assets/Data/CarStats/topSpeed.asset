@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dda07457e722f1045bc0df4fdc5a761d, type: 3}
+  m_Name: topSpeed
+  m_EditorClassIdentifier: 
+  Type: 2
+  DisplayName: Speed
+  Description: Higher max speed
+  MaxValue: 10
+  _upgradeCosts:
+  - Name: Level 1
+    _items:
+    - Name: 
+      Data: {fileID: 11400000, guid: 1202a0ccc9c55974f99a44fdcc69af66, type: 2}
+      Quantity: 2
+    - Name: 
+      Data: {fileID: 11400000, guid: 1202a0ccc9c55974f99a44fdcc69af66, type: 2}
+      Quantity: 2
+    - Name: 
+      Data: {fileID: 11400000, guid: 1202a0ccc9c55974f99a44fdcc69af66, type: 2}
+      Quantity: 2

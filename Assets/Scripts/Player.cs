@@ -129,7 +129,7 @@ public class Player : MonoBehaviour
         UIManager.i.Do(UIAction.DISPLAY_HOVERED, "");
         _talking = true;
         _camera.StartConversation();
-        _hoveredNPC.StartConversation();
+        _hoveredNPC.StartInteraction();
     }
 
     private void CarInteract()
@@ -203,7 +203,7 @@ public class Player : MonoBehaviour
 
         _hoveredCollectible = hitInfo.collider.GetComponentInParent<Collectable>();
         _hoveredCarPart = hitInfo.collider.GetComponent<CarPart>();
-        _hoveredNPC = hitInfo.collider.GetComponent<NPC>();
+        _hoveredNPC = hitInfo.collider.GetComponentInParent<NPC>();
 
         if (_hoveredCollectible) UIManager.i.Do(UIAction.DISPLAY_HOVERED, _hoveredCollectible.DisplayName);
         else if (_hoveredCarPart) {

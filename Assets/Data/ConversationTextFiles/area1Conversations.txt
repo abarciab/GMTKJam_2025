@@ -1,0 +1,27 @@
+[]
+John
+Hey
+My name is John
+AHHH
+How are you?
+
+[]
+Jenna
+Yooo
+I'm jenna
+
+[]
+Jeff
+I'm Jeff, the artist!
+
+[]
+Aidan
+I'm Aidan, the programmer!
+
+[]
+Ankie
+I'm ankie, a 2D artist
+
+[]
+Vince
+I'm vince!

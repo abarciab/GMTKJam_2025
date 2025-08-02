@@ -7,12 +7,33 @@ public class AreaController : MonoBehaviour
 {
     [SerializeField] private Transform _entrance;
     [SerializeField] private Transform _endGate;
+
+    [Header("NPCs")]
     [SerializeField] private TextAsset _textFile;
-    [SerializeField, ReadOnly] private List<List<string>> _conversations = new List<List<string>>();
+    [SerializeField] private Transform _npcParent;
+    [SerializeField] private int _numNPCS = 3;
+    private List<List<string>> _conversations = new List<List<string>>();
 
     private void Start()
     {
-        if (_textFile) ParseTextFile();
+        if (_textFile) SpawnNPCs(); 
+        else Destroy(_npcParent.gameObject);
+    }
+
+    private void SpawnNPCs()
+    {
+        ParseTextFile();
+
+        var allNpcs = _npcParent.GetComponentsInChildren<NPC>().ToList();
+
+        for (int i = 0; i < _numNPCS; i++) {
+            var selected = allNpcs[Random.Range(0, allNpcs.Count())];
+            selected.SetData(GetLines());
+            allNpcs.Remove(selected);
+            if (allNpcs.Count == 0) break;
+        }
+
+        foreach (var npc in allNpcs) Destroy(npc.gameObject);
     }
 
     private void ParseTextFile()
@@ -24,10 +45,6 @@ public class AreaController : MonoBehaviour
         foreach (var conversation in conversations) {
             var lines = conversation.Split("\n").Where(x => !string.IsNullOrWhiteSpace(x)).ToList();
             _conversations.Add(lines);
-        }
-
-        foreach  (var npc in GetComponentsInChildren<NPC>()) {
-            npc.SetData(GetLines());
         }
     }
 
