@@ -3,7 +3,22 @@ guid: 170341c604cb97146b090bcc07f3d523
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FireFlyGlow
+    second: {fileID: 2100000, guid: fffbc62e5cd2ca54987943d9afe5e2d3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FireflyBody
+    second: {fileID: 2100000, guid: 7073873d934219947bdb670162b25b73, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bugWings
+    second: {fileID: 2100000, guid: 1f1d2ea1a1bdcdf46a7284de2b40a6bc, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

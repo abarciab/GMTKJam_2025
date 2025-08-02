@@ -112,7 +112,7 @@ public class ScatterObjects : MonoBehaviour
         var pos = new Vector3(circlePos.x + transform.position.x, transform.position.y, circlePos.y + transform.position.z);
 
         var didHit = Physics.Raycast(pos, Vector3.down, out var hitInfo, 10000, _groundLayer);
-        if (didHit)
+        if (didHit && !hitInfo.collider.CompareTag("Road"))
         {
             var selectedObject = GetRandomPrefab();
             if (selectedObject != null)
