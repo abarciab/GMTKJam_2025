@@ -206,8 +206,9 @@ MonoBehaviour:
   _player: {fileID: 0}
   _positionOffset: {x: 0, y: 0.6, z: 0}
   _targetPosition: {x: 0, y: 0.6, z: 0.84}
-  _rotateSpeed: 2
+  _rotateSpeed: 1.1
   _lookLimits: {x: -50, y: 80}
+  _carLookLimits: {x: -30, y: 50}
   _driveCamParent: {fileID: 2893975272297349193}
   _car: {fileID: 0}
   _carPositionOffset: {x: 0, y: 6.96, z: -7.18}
@@ -569,6 +570,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 422f4bc5715c032418645e50ba531f8e, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 422f4bc5715c032418645e50ba531f8e, type: 3}
       propertyPath: m_Name
       value: Bow
@@ -680,6 +685,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a70dad83b8d5a59429d9f11dc33cbb33, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: a70dad83b8d5a59429d9f11dc33cbb33, type: 3}
+      propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: a70dad83b8d5a59429d9f11dc33cbb33, type: 3}

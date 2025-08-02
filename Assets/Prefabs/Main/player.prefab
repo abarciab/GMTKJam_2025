@@ -53,13 +53,18 @@ MonoBehaviour:
   _arrowPrefab: {fileID: 8429959734490646772, guid: 53183b26790aca24abc9718c26d38b00, type: 3}
   _maxArrowHoldTime: 0.8
   _arrowForce: 1800
-  _arrowSpawnPos: {x: 0, y: 0.18, z: 0.84}
   _bowShotSound: {fileID: 11400000, guid: 50d5aa5a003258546963210476f3a383, type: 2}
-  _walkSpeed: 4
+  _walkSpeed: 6
   _runSpeed: 10
+  _encumberedSpeed: 0.8
   _strafeSpeed: 5
-  _spinSpeed: 2
-  _gravity: 250
+  _spinSpeed: 1.2
+  _gravity: 200
+  _gravityLerpFactor: 10
+  _jumpCheckRadius: 0.31
+  _jumpCheckYOffset: -0.8
+  _jumpForce: 25
+  _groundLayer: 3
   _collectionRange: 3
   _collectSound: {fileID: 11400000, guid: b771eaf3cf634c94898e321e866cccc8, type: 2}
 --- !u!114 &8190692033324958079
@@ -74,8 +79,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81b9174b46d666749a976630eb066a48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _weightLimit: 11
   _inventory:
+    Name: 
     _items: []
+    Player: 1
 --- !u!136 &5570297979118100052
 CapsuleCollider:
   m_ObjectHideFlags: 0
