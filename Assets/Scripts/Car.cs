@@ -10,9 +10,9 @@ public class CarStat
 {
     [HideInInspector] public string Name;
     public CarStatData Data;
-    public float Value;
     public int Level;
 
+    public float Value => Data.LevelUpgradeAmount * Level;
     public List<Item> ItemsRequired => Data.CostForNextLevel(Level);
 }
 
@@ -32,7 +32,7 @@ public class Car : MonoBehaviour
     [SerializeField] private float _gravity = 10;
     [SerializeField] private float _clampDownYPosThreshold = 0.1f;
     [SerializeField] private float _uprightLerpFactor = 4;
-    [SerializeField] private float _maxSpeed = 20;
+    [SerializeField] private float _baseMaxSpeed = 20;
     [SerializeField] private float _forwardAccel = 1;
     [SerializeField] private float _wheelTurnSpeed = 25;
     [SerializeField] private float _carTurnSpeed = 8;
@@ -67,7 +67,9 @@ public class Car : MonoBehaviour
     public void setWheelAngle(float wheelAngle) => _wheelAngle = wheelAngle;
     public void SetEndGate(Transform endGate) => _worldUI.EndGate = endGate;
     public CarStat GetStat(CarStatType type) => _stats.Where(x => x.Data.Type == type).First();
-
+    private float GetValue(CarStatType type) => _stats.Where(x => x.Data.Type == type).First().Value;
+    private float _maxSpeed => _baseMaxSpeed + GetValue(CarStatType.TOP_SPEED);
+    
     private void OnValidate()
     {
         foreach (var stat in _stats) if (stat.Data) stat.Name = stat.Data.DisplayName;
@@ -89,7 +91,8 @@ public class Car : MonoBehaviour
 
     private void Update()
     {
-        _carAnimator.speed = _driving ? Mathf.Min(_currentFuel/2, 1) : 0;
+        
+        _carAnimator.speed = _driving ? Mathf.Clamp(_currentFuel/2, 0, 1) : 0;
         _worldUI.gameObject.SetActive(_driving);
 
         if (!_driving) {
@@ -97,6 +100,7 @@ public class Car : MonoBehaviour
             return;
         }
         else {
+            _player.transform.position = transform.position;
             if (Input.GetKeyDown(KeyCode.T)) _currentFuel = _maxFuel;
         }
 
@@ -109,6 +113,10 @@ public class Car : MonoBehaviour
         UIManager.i.Do(UIAction.SHOW_CAR_FUEL, (_currentFuel / _maxFuel));
 
         var forwardSpeed = Vector3.Dot(_rb.linearVelocity, transform.forward);
+
+        var actualmax = _throttleLimits.y * _maxSpeed *10 * Time.fixedDeltaTime;
+        UIManager.i.Do(UIAction.SHOW_CAR_SPEED, (forwardSpeed / actualmax) * _maxSpeed);
+
         _forwardSpeedPercent = forwardSpeed / _maxSpeed;
 
         
@@ -119,6 +127,11 @@ public class Car : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(transform.TransformPoint(_playerDismountPosition), 0.5f);
+    }
+
+    public void UpgradeStat(CarStatType type)
+    {
+        foreach (var s in _stats) if (s.Data.Type == type) s.Level += 1;
     }
 
     private void LeaveCar()
@@ -215,7 +228,7 @@ public class Car : MonoBehaviour
         var forwardDir = transform.forward;
         forwardDir.y = 0;
 
-        _rb.linearVelocity = _throttle * _forwardAccel * 10 * Time.fixedDeltaTime * forwardDir;
+        _rb.linearVelocity = _throttle * _maxSpeed * 10 * Time.fixedDeltaTime * forwardDir;
         _rb.angularVelocity = _carTurnSpeed * (_wheelAngle / _wheelTurnLimit) * Vector3.up;
 
         

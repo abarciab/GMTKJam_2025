@@ -1,4 +1,5 @@
 using TMPro;
+using TMPro.EditorUtilities;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -26,6 +27,8 @@ public class InventoryItemDisplay : MonoBehaviour
 
     public void Initialize(Item item)
     {
+        gameObject.SetActive(true);
+
         _item = item;
         _icon.sprite = item.Data.Icon;
 

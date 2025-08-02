@@ -31,7 +31,6 @@ public class RockProjectile : MonoBehaviour
 
         _active = false;
         _rb.isKinematic = true;
-        _rb.linearVelocity = Vector3.zero;
     }
 
 }

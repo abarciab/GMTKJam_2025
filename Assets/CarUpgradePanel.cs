@@ -13,28 +13,61 @@ public class CarUpgradePanel : MonoBehaviour
     [SerializeField] private SelectableItem _upgradeButton;
     [SerializeField] private List<InventoryItemDisplay> _requiredItemDisplay = new List<InventoryItemDisplay>();
     [SerializeField] private TextMeshProUGUI _buttonText;
+    [SerializeField] private TextMeshProUGUI _levelText;
+    [SerializeField] private GameObject _upgradeParent;
+    [SerializeField] private GameObject _maxLevelParent;
+
+    private Car _car;
 
     public void SetHover(bool hovered) => _requirements.SetActive(hovered);
 
     private void OnEnable()
     {
-        var car = FindFirstObjectByType<Car>();
+        if (!_car) _car = FindFirstObjectByType<Car>();
+        UpdateDisplay();
+    }
 
-        var currentStat = car.GetStat(_stat);
+    public void UpdateDisplay()
+    {
+        _requirements.SetActive(false);
+        var currentStat = _car.GetStat(_stat);
         _nameText.text = currentStat.Data.DisplayName;
         _descriptionText.text = currentStat.Data.Description;
         _slider.value = currentStat.Value / currentStat.Data.MaxValue;
 
+        _upgradeParent.SetActive(currentStat.Value != currentStat.Data.MaxValue);
+        _maxLevelParent.SetActive(!_upgradeParent.activeInHierarchy);
+
         var upgradeAmountString = currentStat.Data.LevelUpgradeAmount + currentStat.Data.AmountSuffix;
         _buttonText.text = "Upgrade (+" + upgradeAmountString + ")";
 
+        _levelText.text = currentStat.Level + "-> " + (currentStat.Level + 1);
+
         var items = currentStat.ItemsRequired;
-        for (int i = 0; i < items.Count; i++) {
-            _requiredItemDisplay[i].Initialize(items[i]);
+        for (int i = 0; i < _requiredItemDisplay.Count; i++) {
+            if (i < items.Count) {
+                _requiredItemDisplay[i].Initialize(items[i]);
+            }
+            else _requiredItemDisplay[i].gameObject.SetActive(false);
         }
 
         var affordable = (GameManager.i.Player.GetComponent<PlayerInventory>().Inventory.Contains(items));
         _upgradeButton.SetDisabled(!affordable);
 
+        //print(_nameText.text + " affordable: " + affordable);
     }
+
+    public void Upgrade()
+    {
+        var inventory = GameManager.i.Player.GetComponent<PlayerInventory>().Inventory;
+        var currentStat = _car.GetStat(_stat);
+        inventory.RemoveItems(currentStat.ItemsRequired);
+
+        _car.UpgradeStat(_stat);
+
+        foreach (var panel in transform.parent.GetComponentsInChildren<CarUpgradePanel>()) {
+            panel.UpdateDisplay();
+        } 
+    }
+
 }

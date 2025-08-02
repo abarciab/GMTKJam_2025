@@ -1,8 +1,9 @@
 using MyBox;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditorInternal.Profiling.Memory.Experimental;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Android;
 
 
 [System.Serializable]
@@ -37,6 +38,28 @@ public class Inventory
     public void OnValidate()
     {
         foreach (var item in _items) if (item.Data != null) item.Name = item.Data.DisplayName;
+    }
+
+    public int GetTotalItemCount()
+    {
+        int total = 0;
+        foreach (var item in _items) total += item.Quantity;
+        return total;
+    }
+
+    private void PlayerInventoryAdd(Item item)
+    {
+        if (!Player) return;
+        PlayerInventoryAdd(item.Data.Type, item.Quantity);
+    }
+
+    private void PlayerInventoryAdd(ItemType itemType, int quantity)
+    {
+        if (!Player) return;
+        if (quantity > 0) {
+            GameManager.i.DiscoverItem(itemType);
+            UIManager.i.Do(UIAction.SHOW_POPUP, "+ " +  quantity + " " + GameManager.i.GetDisplayName(itemType));
+        }
     }
 
     public Item getItem(ItemType itemType)
@@ -74,12 +97,10 @@ public class Inventory
         foreach (var item in _items) {
             if (item.Data.Type == itemType) {
                 item.Quantity += quantityToAdd;
-                if (Player && item.Quantity > 0) GameManager.i.DiscoverItem(item.Data.Type);
+                PlayerInventoryAdd(itemType, quantityToAdd);
                 return;
             }
         }
-
-        if (Player && quantityToAdd > 0) GameManager.i.DiscoverItem(itemType);
 
         AddNewItem(itemType, quantityToAdd);
     }
@@ -89,12 +110,12 @@ public class Inventory
         foreach (var item in _items) {
             if (item.Data.Type == newItem.Data.Type) {
                 item.Quantity += newItem.Quantity;
-                if (Player && newItem.Quantity > 0) GameManager.i.DiscoverItem(newItem.Data.Type);
+                PlayerInventoryAdd(newItem);
                 return;
             }
         }
 
-        if (Player && newItem.Quantity > 0) GameManager.i.DiscoverItem(newItem.Data.Type);
+        PlayerInventoryAdd(newItem);
 
         _items.Add(newItem);
     }
@@ -106,7 +127,7 @@ public class Inventory
         var newItem = new Item(newItemData, quantity);
         _items.Add(newItem);
 
-        if (Player && quantity > 0) GameManager.i.DiscoverItem(itemType);
+        PlayerInventoryAdd(newItem);
 
         return newItem;
     }
@@ -191,9 +212,11 @@ public class Inventory
 
 public class PlayerInventory : MonoBehaviour
 {
+    [SerializeField] private int _weightLimit = 15;
     [SerializeField] private Inventory _inventory;
-
+    
     public Inventory Inventory => _inventory;
+    public bool Encumbered => _inventory.GetTotalItemCount() > _weightLimit;
 
     public int GetCount(ItemType Item) => _inventory.GetCount(Item);
 

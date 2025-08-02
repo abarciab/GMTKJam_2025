@@ -19,6 +19,7 @@ public class Player : MonoBehaviour
     [Header("Movement")]
     [SerializeField] private float _walkSpeed = 5;
     [SerializeField] private float _runSpeed = 10;
+    [SerializeField] private float _encumberedSpeed = 10;
     [SerializeField] private float _strafeSpeed = 5;
     [SerializeField] private float _spinSpeed = 5;
     [SerializeField] private float _gravity;

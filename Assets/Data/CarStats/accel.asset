@@ -16,18 +16,14 @@ MonoBehaviour:
   DisplayName: Acceleration
   Description: Makes your car speed up more quickly
   MaxValue: 10
+  AmountSuffix: '%'
   _upgradeCosts:
   - Name: Level 1
     _items:
     - Name: 
       Data: {fileID: 11400000, guid: 1202a0ccc9c55974f99a44fdcc69af66, type: 2}
       Quantity: 2
-    - Name: 
-      Data: {fileID: 11400000, guid: 1202a0ccc9c55974f99a44fdcc69af66, type: 2}
-      Quantity: 2
-    - Name: 
-      Data: {fileID: 11400000, guid: 1202a0ccc9c55974f99a44fdcc69af66, type: 2}
-      Quantity: 2
+    Player: 0
   - Name: Level 2
     _items:
     - Name: 
@@ -39,6 +35,7 @@ MonoBehaviour:
     - Name: 
       Data: {fileID: 11400000, guid: 1202a0ccc9c55974f99a44fdcc69af66, type: 2}
       Quantity: 2
+    Player: 0
   - Name: Level 3
     _items:
     - Name: 
@@ -50,6 +47,7 @@ MonoBehaviour:
     - Name: 
       Data: {fileID: 11400000, guid: 1202a0ccc9c55974f99a44fdcc69af66, type: 2}
       Quantity: 2
+    Player: 0
   - Name: Level 4
     _items:
     - Name: 
@@ -61,6 +59,7 @@ MonoBehaviour:
     - Name: 
       Data: {fileID: 11400000, guid: 1202a0ccc9c55974f99a44fdcc69af66, type: 2}
       Quantity: 2
+    Player: 0
   - Name: Level 5
     _items:
     - Name: 
@@ -72,3 +71,4 @@ MonoBehaviour:
     - Name: 
       Data: {fileID: 11400000, guid: 1202a0ccc9c55974f99a44fdcc69af66, type: 2}
       Quantity: 2
+    Player: 0

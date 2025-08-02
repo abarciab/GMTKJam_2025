@@ -199,7 +199,8 @@ public class SelectableItem : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         ValidateAll();
         if (_deHoverOnEnable && _hovered) {
             _hovered = false;
-            if (Selected) SetVisuals(ButtonState.SELECTED);
+            if (_disabled) SetVisuals(ButtonState.DISABLED);
+            else if (Selected) SetVisuals(ButtonState.SELECTED);
             else SetVisuals(ButtonState.NORMAL);
             if (_scaleWhenHovered) transform.localScale = Vector3.one * _scaleDefaultHovered.x;
         }
@@ -276,7 +277,8 @@ public class SelectableItem : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         }
         else if (_clickBehavior == ClickBehavior.TOGGLE) ToggleSelected();
 
-        if (_hovered && _hoverWhenSelected) SetVisuals(ButtonState.HOVERED);
+        if (_disabled) SetVisuals(ButtonState.DISABLED);
+        else if (_hovered && _hoverWhenSelected) SetVisuals(ButtonState.HOVERED);
     }
 
     public void SetDisabled(bool disabled)

@@ -43,8 +43,9 @@ public class CameraController : MonoBehaviour
             Turn();
         }
 
-        if (_followCar) { 
-            _driveCamParent.SetPositionAndRotation(_car.position, _car.rotation * _carFreelookOffset);
+        if (_followCar) {
+            _driveCamParent.position = _car.position;
+            _driveCamParent.rotation = _car.rotation * _carFreelookOffset;
             DriveFreeLook();
         }
     }

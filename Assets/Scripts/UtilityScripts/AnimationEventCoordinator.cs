@@ -17,6 +17,7 @@ public class AnimationEventCoordinator : MonoBehaviour
 
     public void Disable() => gameObject.SetActive(false);
     public void Destroy() => Destroy(gameObject);
+    public void DestroyParent() => Destroy(transform.parent.gameObject);
     public void TriggerEvent1() => TriggerEvent(0);
     public void TriggerEvent2() => TriggerEvent(1);
     public void TriggerEvent3() => TriggerEvent(2);

@@ -1,6 +1,7 @@
 using MyBox;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -32,6 +33,7 @@ public class GameManager : MonoBehaviour
     public Transform Camera => _camera.transform;
     public void ResumeTimer() => _timerPaused = false;
     public void PauseTimer() => _timerPaused = true;
+    public string GetDisplayName(ItemType type) => AllItems.Where(x => x.Type == type).First().DisplayName;
 
     private void Awake()
     {
@@ -60,8 +62,11 @@ public class GameManager : MonoBehaviour
     }
     public void DiscoverItem(ItemType type)
     {
-        //print("discovered "+ type);
-        if (!_discoveredItems.Contains(type)) _discoveredItems.Add(type);
+        if (!_discoveredItems.Contains(type)) {
+            var itemName = GetDisplayName(type);
+            UIManager.i.Do(UIAction.SHOW_POPUP, "discovered " + itemName);
+            _discoveredItems.Add(type);
+        }
     }
 
     public void EnterNewArea()
