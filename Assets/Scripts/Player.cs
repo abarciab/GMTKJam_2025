@@ -211,8 +211,12 @@ public class Player : MonoBehaviour
 
         _collectSound.Play();
 
-        GameManager.i.DiscoverItem(_hoveredCollectible.Drop.Data.Type);
-        _inventory.Additems(_hoveredCollectible.Drop);
+        var drops = _hoveredCollectible.GetDrops();
+        foreach (var item in drops) {
+            GameManager.i.DiscoverItem(item.Data.Type);
+        }
+
+        _inventory.Inventory.AddItems(drops);
 
         Destroy(_hoveredCollectible.gameObject);
         _hoveredCollectible = null;

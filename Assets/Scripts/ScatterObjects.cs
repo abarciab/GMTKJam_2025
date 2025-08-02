@@ -4,6 +4,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
+
 public class ScatterObjects : MonoBehaviour
 {
     [SerializeField] private List<GameObject> _prefabs = new List<GameObject>();

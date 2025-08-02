@@ -10,7 +10,9 @@ public class InventoryItemDisplay : MonoBehaviour
     [SerializeField] private GameObject _quantityParent;
     [SerializeField] private bool _redWhenUnaffordable;
     [SerializeField] private bool _showUnknown;
+    [SerializeField] private bool _allowDiscard;
     [SerializeField] private SelectableItem _quantity;
+    [SerializeField] private GameObject _discardButton;
 
     private PlayerInventoryUIController _controller;
     private Item _item;
@@ -47,5 +49,15 @@ public class InventoryItemDisplay : MonoBehaviour
                 _quantity.SetDisabled(false);
             }
         }
+
+        if (_discovered) _discardButton.SetActive(_allowDiscard && _item.Quantity > 0);
     }
+
+    public void Discard()
+    {
+        GameManager.i.Player.GetComponent<PlayerInventory>().Inventory.RemoveItems(_item.Data.Type, 1);
+        //_item.Quantity -= 1;
+        Initialize(_item);
+    }
+
 }
