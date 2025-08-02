@@ -52,6 +52,9 @@ public class Foot : MonoBehaviour
 
     void Update()
     {
+        var didHit = Physics.Raycast(transform.position + Vector3.up * 2, Vector3.down, out var hitInfo, 1000);
+        if (didHit) _groundY = hitInfo.point.y;
+
         _collider.isTrigger = !_rising;
 
         transform.localRotation = Quaternion.Lerp(transform.localRotation, _targetRot, 2 * Time.deltaTime);

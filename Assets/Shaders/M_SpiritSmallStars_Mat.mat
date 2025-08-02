@@ -25,7 +25,7 @@ Material:
   disabledShaderPasses:
   - MOTIONVECTORS
   - DepthOnly
-  m_LockedProperties: 
+  m_LockedProperties: _FresnelIntensity
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -55,9 +55,10 @@ Material:
     - _CastShadows: 1
     - _Cull: 2
     - _DstBlend: 10
-    - _FresnelIntensity: 1.78
-    - _FresnelPower: 5.03
-    - _InnerFresnelPower: 0.92
+    - _FresnelIntensity: 0.14
+    - _FresnelPower: 1.89
+    - _InnerFresnelAmount: 2
+    - _InnerFresnelPower: 0.53
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 0
@@ -70,17 +71,17 @@ Material:
     - _StarSpeed1: 0.007
     - _StarSpeed2: 0.003
     - _Surface: 1
-    - _WobbleMultoply: 0.0011
-    - _WobbleNoiseScale: -1.4
+    - _WobbleMultoply: 0.001
+    - _WobbleNoiseScale: 27.17
     - _WorkflowMode: 1
     - _ZTest: 4
     - _ZWrite: 0
     - _ZWriteControl: 0
     m_Colors:
-    - _FresnelCol: {r: 0, g: 7.882019, b: 32, a: 0}
-    - _InnerCol: {r: 0.16765998, g: 0, b: 5.0684495, a: 0}
+    - _FresnelCol: {r: 0, g: 63.056152, b: 256, a: 0}
+    - _InnerCol: {r: 0.031334136, g: 0, b: 5.0684495, a: 0}
     - _StarColor: {r: 0.5235849, g: 0.8891277, b: 1, a: 0}
-    - _WobbleSpeed: {r: 0.3, g: -0.5, b: 0, a: 0}
+    - _WobbleSpeed: {r: -0.03, g: -0.01, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &1722560030471622279
