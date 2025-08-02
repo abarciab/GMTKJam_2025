@@ -38,6 +38,10 @@ public class CameraController : MonoBehaviour
         if (!_followCar && !_inConversation && !_player.Frozen) {
             Turn();
         }
+
+        _driveCamParent.position = _car.position;
+        _driveCamParent.rotation = _car.rotation;
+
     }
 
     private void FixedUpdate()
