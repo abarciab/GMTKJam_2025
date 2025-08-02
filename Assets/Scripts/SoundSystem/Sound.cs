@@ -35,6 +35,7 @@ public class Sound : ScriptableObject
     [Range(0, 2), DefaultValue(1.0f), SerializeField] private float _pitch = 1;
     [SerializeField] private bool _randomizePitch;
     [SerializeField, ConditionalField(nameof(_randomizePitch)), Range(0, 1)] private float _pitchRandomizeAmount;
+    public float MaxDistance = 150;
 
     [HideInInspector] public AudioSource AudioSource;
     [HideInInspector] public bool Instantialized;

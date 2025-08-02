@@ -10,6 +10,8 @@ public class SoundCoordinator : MonoBehaviour
     public void AddNewSound(Sound sound, bool restart, bool _3D = true)
     {
         var newSource = gameObject.AddComponent<AudioSource>();
+        newSource.rolloffMode = AudioRolloffMode.Linear;
+        newSource.maxDistance = sound.MaxDistance;
         newSource.outputAudioMixerGroup = AudioManager.i.GetMixer(sound.Type);
         newSource.playOnAwake = false;
         if (_3D) newSource.spatialBlend = 1;

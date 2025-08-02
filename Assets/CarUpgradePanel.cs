@@ -12,6 +12,7 @@ public class CarUpgradePanel : MonoBehaviour
     [SerializeField] private Slider _slider;
     [SerializeField] private SelectableItem _upgradeButton;
     [SerializeField] private List<InventoryItemDisplay> _requiredItemDisplay = new List<InventoryItemDisplay>();
+    [SerializeField] private TextMeshProUGUI _buttonText;
 
     public void SetHover(bool hovered) => _requirements.SetActive(hovered);
 
@@ -23,6 +24,9 @@ public class CarUpgradePanel : MonoBehaviour
         _nameText.text = currentStat.Data.DisplayName;
         _descriptionText.text = currentStat.Data.Description;
         _slider.value = currentStat.Value / currentStat.Data.MaxValue;
+
+        var upgradeAmountString = currentStat.Data.LevelUpgradeAmount + currentStat.Data.AmountSuffix;
+        _buttonText.text = "Upgrade (+" + upgradeAmountString + ")";
 
         var items = currentStat.ItemsRequired;
         for (int i = 0; i < items.Count; i++) {

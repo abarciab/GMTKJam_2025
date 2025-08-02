@@ -1,6 +1,7 @@
 using MyBox;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class CameraController : MonoBehaviour
@@ -13,6 +14,7 @@ public class CameraController : MonoBehaviour
     [SerializeField] private Vector2 _lookLimits = new Vector2(-80, 40);
 
     [Header("Car")]
+    [SerializeField] private Vector2 _carLookLimits = new Vector2(-80, 40);
     [SerializeField] private Transform _driveCamParent;
     [SerializeField] private Rigidbody _car;
     [SerializeField] private Vector3 _carPositionOffset;
@@ -25,8 +27,10 @@ public class CameraController : MonoBehaviour
     [SerializeField] private Transform _camera;
 
     private float _currentLook = 0;
+    private float _currentLookY = 0;
     private bool _followCar;
     private bool _inConversation;
+    private quaternion _carFreelookOffset;
 
     public void StartConversation() => _inConversation = true;
     public void EndConversation() => _inConversation = false;
@@ -39,10 +43,27 @@ public class CameraController : MonoBehaviour
             Turn();
         }
 
-        _driveCamParent.position = _car.position;
-        _driveCamParent.rotation = _car.rotation;
-
+        if (_followCar) { 
+            _driveCamParent.SetPositionAndRotation(_car.position, _car.rotation * _carFreelookOffset);
+            DriveFreeLook();
+        }
     }
+
+    private void DriveFreeLook()
+    {
+        var mouseDelta = -Input.mousePositionDelta.y;
+        var rotDelta = mouseDelta * _rotateSpeed * Time.deltaTime * 100;
+        if (rotDelta > 0) rotDelta = Mathf.Min(rotDelta, _carLookLimits.y - _currentLook);
+        if (rotDelta < 0) rotDelta = Mathf.Max(rotDelta, _carLookLimits.x - _currentLook);
+        _currentLook += rotDelta;
+
+        mouseDelta = Input.mousePositionDelta.x;
+        rotDelta = mouseDelta * _rotateSpeed * Time.deltaTime * 100;
+        _currentLookY += rotDelta;
+
+        _carFreelookOffset = Quaternion.Euler(_currentLook, _currentLookY, 0);
+    }
+
 
     private void FixedUpdate()
     {

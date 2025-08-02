@@ -22,5 +22,6 @@ MonoBehaviour:
   _pitch: 1
   _randomizePitch: 1
   _pitchRandomizeAmount: 0.085
+  MaxDistance: 20
   AudioSource: {fileID: 0}
   Instantialized: 0

@@ -5,6 +5,7 @@ using UnityEngine;
 [SelectionBase]
 public class Foot : MonoBehaviour
 {
+    [SerializeField] private RockExplosion _explosion;
     [SerializeField] private Transform _shadowCaster;
     [SerializeField] private AnimationCurve _speedCurve;
     [SerializeField] private Vector2 _xRotLimits;
@@ -96,7 +97,7 @@ public class Foot : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<Player>()){
+        if (other.GetComponent<Player>() || other.GetComponent<Car>()){
             GameManager.i.LoseGame();
         }
     }
@@ -134,7 +135,7 @@ public class Foot : MonoBehaviour
                 FindFirstObjectByType<CameraShake>().ShakeDefault();
             }
 
-            _stepSound.Play();
+            _explosion.SpawnRocks();
             _stepSoundLocal.Play(transform);
             _rising = true;
             _waitTimeLeft = _waitTime;

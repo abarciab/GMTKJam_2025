@@ -125,7 +125,7 @@ public class Car : MonoBehaviour
     {
         UpdateUI();
 
-        foreach (var part in GetComponentsInChildren<CarPart>()) {
+        foreach (var part in _model.GetComponentsInChildren<CarPart>()) {
             part.GetComponent<Collider>().enabled = true;
         }
 

@@ -7,8 +7,11 @@ public class CarStatData : ScriptableObject
     public CarStatType Type;
     public string DisplayName;
     [TextArea(3, 10)] public string Description;
+    [TextArea(3, 10)] public string AmountSuffix = "%";
     public float MaxValue;
     [SerializeField] private List<Inventory> _upgradeCosts = new List<Inventory>();
+
+    public float LevelUpgradeAmount => MaxValue / _upgradeCosts.Count;
 
     public List<Item> CostForNextLevel(int currentLevel)
     {
