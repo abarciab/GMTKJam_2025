@@ -182,7 +182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e44d7ef2bdf6f15448286ada8073beff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _totalTime: 120
+  _totalTime: 720
   _player: {fileID: 0}
   _car: {fileID: 0}
   _camera: {fileID: 0}

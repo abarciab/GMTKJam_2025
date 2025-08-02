@@ -184,12 +184,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97a7ab97520976443a6a69a6f91fefee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _limits: {x: 87.08, y: 95.24}
-  _yLimits: {x: 0, y: 0}
-  _scaleLimits: {x: 0, y: 0}
-  _cloudPrefab: {fileID: 0}
-  _speedDir: {x: 0, y: 0}
-  _numClouds: 20
+  _limits: {x: 800, y: 600}
+  _yLimits: {x: -20, y: 30}
+  _scaleLimits: {x: 5, y: 20}
+  _cloudPrefab: {fileID: 2346931279155787025, guid: d962fce1fe03f204996f2d115e98bd44, type: 3}
+  _speedDir: {x: 5, y: 2}
+  _numClouds: 600
 --- !u!1 &3176483536628325364
 GameObject:
   m_ObjectHideFlags: 0

@@ -49,15 +49,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _camera: {fileID: 0}
+  _bow: {fileID: 0}
   _arrowPrefab: {fileID: 8429959734490646772, guid: 53183b26790aca24abc9718c26d38b00, type: 3}
-  _maxArrowHoldTime: 1.5
-  _arrowForce: 800
+  _maxArrowHoldTime: 0.8
+  _arrowForce: 1800
   _arrowSpawnPos: {x: 0, y: 0.18, z: 0.84}
   _bowShotSound: {fileID: 11400000, guid: 50d5aa5a003258546963210476f3a383, type: 2}
   _walkSpeed: 4
   _runSpeed: 10
   _strafeSpeed: 5
   _spinSpeed: 2
+  _gravity: 250
   _collectionRange: 3
   _collectSound: {fileID: 11400000, guid: b771eaf3cf634c94898e321e866cccc8, type: 2}
 --- !u!114 &8190692033324958079

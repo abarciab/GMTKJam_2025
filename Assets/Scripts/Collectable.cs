@@ -51,7 +51,7 @@ public class Collectable : MonoBehaviour
 
     private void SetRandomModelVariantActive()
     {
-        if (_modelVariants == null || _modelVariants.Count == 1) return;
+        if (_modelVariants == null || _modelVariants.Count < 2) return;
 
         foreach (var variant in _modelVariants)
         {

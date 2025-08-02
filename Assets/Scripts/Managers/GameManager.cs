@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
     public List<ItemData> AllItems => _allItems;
     public void LoadMenu() => Utils.TransitionToScene(0);
     public void EndGame() => Utils.TransitionToScene(2);
-    public Transform Player => _player.transform;
+    public Player Player => _player;
     public Transform Camera => _camera.transform;
     public void ResumeTimer() => _timerPaused = false;
     public void PauseTimer() => _timerPaused = true;

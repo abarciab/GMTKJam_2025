@@ -77,7 +77,7 @@ public class Door : MonoBehaviour
 
     private void Start()
     {
-        _player = GameManager.i.Player;
+        _player = GameManager.i.Player.transform;
         if (_openSound) _openSound = Instantiate(_openSound);
     }
 

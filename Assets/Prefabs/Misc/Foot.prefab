@@ -160,6 +160,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   _xRotLimits: {x: -30, y: 20}
   _rising: 1
+  _shakeRadius: 100
   _riseSpeed: 150
   _fallSpeed: 80
   _maxY: 120

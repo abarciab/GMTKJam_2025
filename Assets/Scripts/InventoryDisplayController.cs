@@ -8,7 +8,7 @@ public class InventoryDisplayController : UIController
 
     protected override void UpdateUI(UIAction action, object arg)
     {
-        if (action == UIAction.DISPLAY_INVENTORY && arg is List<Item> items) DisplayInventory(items);
+        if (action == UIAction.TOGGLE_INVENTORY && arg is List<Item> items) DisplayInventory(items);
     }
 
     private void DisplayInventory(List<Item> items)

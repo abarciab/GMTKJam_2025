@@ -9,6 +9,7 @@ public class Foot : MonoBehaviour
     [SerializeField] private AnimationCurve _speedCurve;
     [SerializeField] private Vector2 _xRotLimits;
     [SerializeField] private bool _rising = true;
+    [SerializeField] private float _shakeRadius;
     [SerializeField] private float _riseSpeed;
     [SerializeField] private float _fallSpeed;
     [SerializeField] private float _maxY;
@@ -26,9 +27,12 @@ public class Foot : MonoBehaviour
     Quaternion _originalLocalRot;
     Quaternion _targetRot;
 
+    Transform _player;
 
     private void Start()
     {
+        _player = GameManager.i.Player.transform;
+
         _originalLocalRot = transform.localRotation;
         _collider = GetComponent<Collider>();
         _stepSound = Instantiate(_stepSound);
@@ -80,7 +84,7 @@ public class Foot : MonoBehaviour
             return;
         }
 
-        _shadowCaster.position = new Vector3(transform.position.x, _groundY + 1, transform.position.z);
+        _shadowCaster.position = new Vector3(transform.position.x, _groundY + 2.5f, transform.position.z);
         _shadowCaster.localScale = Vector3.Lerp(_shadowOriginalScale, Vector3.zero, progressUp);        
 
         if (_rising) Rise();
@@ -89,9 +93,21 @@ public class Foot : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<Player>() || other.GetComponent<Car>()) {
+        if (other.GetComponent<Player>()){
             GameManager.i.LoseGame();
         }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        var top = transform.position;
+        top.y = _maxY;
+        var bottom = transform.position;
+        if (Application.isPlaying) bottom.y = _groundY;
+        else bottom.y = 0;
+        Gizmos.DrawLine(bottom, top);
+
+        Gizmos.DrawWireSphere(transform.position, _shakeRadius);
     }
 
     private void Rise()
@@ -110,7 +126,11 @@ public class Foot : MonoBehaviour
         var speed = _speedCurve.Evaluate(progressDown) * _fallSpeed;
         transform.position += Vector3.down * Mathf.Max(speed, 0.1f) * Time.deltaTime;
         if (transform.position.y <= _groundY) {
-            FindFirstObjectByType<CameraShake>().ShakeDefault();
+
+            if (Vector3.Distance(_player.position, transform.position) < _shakeRadius) { 
+                FindFirstObjectByType<CameraShake>().ShakeDefault();
+            }
+
             _stepSound.Play();
             _stepSoundLocal.Play(transform);
             _rising = true;

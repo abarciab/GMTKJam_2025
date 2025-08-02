@@ -12,6 +12,8 @@ public class Car : MonoBehaviour
 
     [Header("Driving Mechanics")]
     [SerializeField] private Animator _carAnimator;
+    [SerializeField] private float _gravity = 10;
+    [SerializeField] private float _uprightLerpFactor = 4;
     [SerializeField] private float _maxSpeed = 20;
     [SerializeField] private float _forwardAccel = 1;
     [SerializeField] private float _wheelTurnSpeed = 25;
@@ -152,6 +154,11 @@ public class Car : MonoBehaviour
     private void FixedUpdate()
     {
         if (_driving) Drive();
+
+        var up = transform.localEulerAngles;
+        up.z = 0;
+        transform.localRotation = Quaternion.Lerp(transform.localRotation, Quaternion.Euler(up), _uprightLerpFactor * Time.fixedDeltaTime);
+
     }
 
     private void Drive()
@@ -168,8 +175,14 @@ public class Car : MonoBehaviour
 
     private void MoveCar()
     {
-        _rb.linearVelocity = _throttle * _forwardAccel * 10 * Time.deltaTime * transform.forward;
+        var forwardDir = transform.forward;
+        forwardDir.y = 0;
+
+        _rb.linearVelocity = _throttle * _forwardAccel * 10 * Time.fixedDeltaTime * forwardDir;
         _rb.angularVelocity = _forwardSpeedPercent * _carTurnSpeed * (_wheelAngle / _wheelTurnLimit) * Vector3.up;
+
+        
+        _rb.linearVelocity += Vector3.down * _gravity;
     }
 
     public void StartDriving()
