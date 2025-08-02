@@ -208,7 +208,7 @@ MonoBehaviour:
   _targetPosition: {x: 0, y: 0.6, z: 0.84}
   _rotateSpeed: 2
   _lookLimits: {x: -50, y: 80}
-  _driveCamParent: {fileID: 0}
+  _driveCamParent: {fileID: 2893975272297349193}
   _car: {fileID: 0}
   _carPositionOffset: {x: 0, y: 6.96, z: -7.18}
   _carTargetPosition: {x: 0, y: 1.66, z: 7.16}

@@ -130,11 +130,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a37876131b413546b5c0e01ccd95085, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &110903832 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2893975272297349193, guid: db5cf4980e9e39348bc93161d62c186d, type: 3}
-  m_PrefabInstance: {fileID: 3650137096639038407}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &224621324 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8918387026445223341, guid: f2a7c46a5f43f334eb49a11663c2dd76, type: 3}
@@ -523,10 +518,6 @@ PrefabInstance:
       propertyPath: _player
       value: 
       objectReference: {fileID: 1227384230}
-    - target: {fileID: 2879521643173331306, guid: db5cf4980e9e39348bc93161d62c186d, type: 3}
-      propertyPath: _driveCamParent
-      value: 
-      objectReference: {fileID: 110903832}
     - target: {fileID: 7116435428838831285, guid: db5cf4980e9e39348bc93161d62c186d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -260
