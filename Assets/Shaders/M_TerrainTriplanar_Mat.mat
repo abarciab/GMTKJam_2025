@@ -105,12 +105,12 @@ Material:
     - _WallEdge2: 0.96
     - _WallTile: 1
     m_Colors:
-    - _GroundColor: {r: 0.1021271, g: 0.254717, b: 0.16080956, a: 1}
+    - _GroundColor: {r: 0.117524035, g: 0.1792453, b: 0.13435711, a: 1}
     - _Layer0Tint: {r: 1, g: 1, b: 1, a: 0}
     - _Layer1Tint: {r: 1, g: 1, b: 1, a: 0}
-    - _Layer2Tint: {r: 1, g: 1, b: 1, a: 0}
+    - _Layer2Tint: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 0}
     - _Layer3Tint: {r: 1, g: 1, b: 1, a: 0}
     - _ShadowTiling: {r: 5, g: 5, b: 0, a: 0}
-    - _WallColor: {r: 0.30789426, g: 0.34117445, b: 0.3490566, a: 1}
+    - _WallColor: {r: 0.22098611, g: 0.24042362, b: 0.24528301, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
