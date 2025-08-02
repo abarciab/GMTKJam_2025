@@ -217,6 +217,8 @@ public class Player : MonoBehaviour
         if (!didHit) {
             UIManager.i.Do(UIAction.DISPLAY_HOVERED, "");
             _hoveredCollectible = null;
+            _hoveredCarPart = null;
+            _hoveredNPC = null;
             return;
         }
 

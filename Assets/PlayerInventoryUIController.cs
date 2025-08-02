@@ -43,7 +43,7 @@ public class PlayerInventoryUIController : UIController
 
         _tooltipParent.SetActive(false);
         var itemDisplays = GetComponentsInChildren<InventoryItemDisplay>().ToList();
-        var allItems = GameManager.i.AllItems;
+        var allItems = GameManager.i.AllItems.OrderBy(x => !GameManager.i.ItemDiscovered(x.Type)).ToList();
         for (int i = 0; i < itemDisplays.Count; i++) {
             var item = inventory.getItem(allItems[i].Type);
             itemDisplays[i].Initialize(item, this);

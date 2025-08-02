@@ -25,9 +25,12 @@ public class Car : MonoBehaviour
     [SerializeField] private CarWorldUI _worldUI;
 
     [Header("Driving Mechanics")]
+    [SerializeField] private Transform _model;
+    [SerializeField] private float _modelLerpFactor;
     [SerializeField] private List<CarStat> _stats;
     [SerializeField] private Animator _carAnimator;
     [SerializeField] private float _gravity = 10;
+    [SerializeField] private float _clampDownYPosThreshold = 0.1f;
     [SerializeField] private float _uprightLerpFactor = 4;
     [SerializeField] private float _maxSpeed = 20;
     [SerializeField] private float _forwardAccel = 1;
@@ -38,6 +41,7 @@ public class Car : MonoBehaviour
     [SerializeField] private float _wheelStraightenLerpFactor = 22;
     [SerializeField] private Transform _leftTire;
     [SerializeField] private Transform _rightTire;
+    [SerializeField] private LayerMask _floorLayerMask;
     [SerializeField, ReadOnly] private float _wheelAngle;
 
     [Header("Sounds")]
@@ -107,6 +111,7 @@ public class Car : MonoBehaviour
         var forwardSpeed = Vector3.Dot(_rb.linearVelocity, transform.forward);
         _forwardSpeedPercent = forwardSpeed / _maxSpeed;
 
+        
         HandleThrottle();
         HandleTurning();       
     }
@@ -179,6 +184,17 @@ public class Car : MonoBehaviour
         var up = transform.localEulerAngles;
         up.z = 0;
         transform.localRotation = Quaternion.Lerp(transform.localRotation, Quaternion.Euler(up), _uprightLerpFactor * Time.fixedDeltaTime);
+
+        if (_driving) {
+            _model.SetParent(null);
+            _model.position = Vector3.Lerp(_model.position, transform.position, _modelLerpFactor * Time.fixedDeltaTime);
+            _model.rotation = Quaternion.Lerp(_model.rotation, transform.rotation, _modelLerpFactor * Time.fixedDeltaTime);
+        }
+        else {
+            _model.SetParent(transform);
+            _model.localPosition = Vector3.zero;
+            _model.localRotation = Quaternion.identity;
+        }
 
     }
 

@@ -9,7 +9,6 @@ public class SetOnGround : MonoBehaviour
         var pos = transform.position;
         var didHit = Physics.Raycast(transform.position + Vector3.up * 2, Vector3.down, out var hitInfo, 1000, _floor);
         if (didHit) pos.y = hitInfo.point.y;
-        else print("didn't hit");
         transform.position = pos;
     }
 }

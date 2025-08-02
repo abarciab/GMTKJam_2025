@@ -6006,85 +6006,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Truck
       objectReference: {fileID: 0}
-    - target: {fileID: 251331496198823978, guid: 1044878102599464ca6edfdd80612ffd, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5981387157043658903, guid: 1044878102599464ca6edfdd80612ffd, type: 3}
       propertyPath: _player
       value: 
       objectReference: {fileID: 1227384230}
     - target: {fileID: 5981387157043658903, guid: 1044878102599464ca6edfdd80612ffd, type: 3}
-      propertyPath: _maxSpeed
-      value: 80
-      objectReference: {fileID: 0}
-    - target: {fileID: 5981387157043658903, guid: 1044878102599464ca6edfdd80612ffd, type: 3}
-      propertyPath: _carTurnSpeed
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 5981387157043658903, guid: 1044878102599464ca6edfdd80612ffd, type: 3}
-      propertyPath: _forwardAccel
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 5981387157043658903, guid: 1044878102599464ca6edfdd80612ffd, type: 3}
-      propertyPath: _wheelTurnSpeed
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 5981387157043658903, guid: 1044878102599464ca6edfdd80612ffd, type: 3}
-      propertyPath: _stats.Array.size
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 5981387157043658903, guid: 1044878102599464ca6edfdd80612ffd, type: 3}
-      propertyPath: _stats.Array.data[0].Data
-      value: 
-      objectReference: {fileID: 11400000, guid: 1bbbfc7040bf21d4c9ae9efbf7606827, type: 2}
-    - target: {fileID: 5981387157043658903, guid: 1044878102599464ca6edfdd80612ffd, type: 3}
-      propertyPath: _stats.Array.data[0].Name
-      value: Acceleration
-      objectReference: {fileID: 0}
-    - target: {fileID: 5981387157043658903, guid: 1044878102599464ca6edfdd80612ffd, type: 3}
-      propertyPath: _stats.Array.data[1].Data
-      value: 
-      objectReference: {fileID: 11400000, guid: 4cc3f30891a28674eb77f2b1422ca570, type: 2}
-    - target: {fileID: 5981387157043658903, guid: 1044878102599464ca6edfdd80612ffd, type: 3}
-      propertyPath: _stats.Array.data[1].Name
-      value: Capactiy
-      objectReference: {fileID: 0}
-    - target: {fileID: 5981387157043658903, guid: 1044878102599464ca6edfdd80612ffd, type: 3}
-      propertyPath: _stats.Array.data[2].Data
-      value: 
-      objectReference: {fileID: 11400000, guid: 54ea8c0fb43a8d6408b682afc6146097, type: 2}
-    - target: {fileID: 5981387157043658903, guid: 1044878102599464ca6edfdd80612ffd, type: 3}
-      propertyPath: _stats.Array.data[2].Name
-      value: Effeciency
-      objectReference: {fileID: 0}
-    - target: {fileID: 5981387157043658903, guid: 1044878102599464ca6edfdd80612ffd, type: 3}
-      propertyPath: _stats.Array.data[3].Data
-      value: 
-      objectReference: {fileID: 11400000, guid: 8247c44689fd0df4baa3f9fa1b76e139, type: 2}
-    - target: {fileID: 5981387157043658903, guid: 1044878102599464ca6edfdd80612ffd, type: 3}
-      propertyPath: _stats.Array.data[3].Name
-      value: handling
-      objectReference: {fileID: 0}
-    - target: {fileID: 5981387157043658903, guid: 1044878102599464ca6edfdd80612ffd, type: 3}
-      propertyPath: _stats.Array.data[4].Data
-      value: 
-      objectReference: {fileID: 11400000, guid: 38cbdc4feba316a4382b1a815ddc9886, type: 2}
-    - target: {fileID: 5981387157043658903, guid: 1044878102599464ca6edfdd80612ffd, type: 3}
-      propertyPath: _stats.Array.data[4].Name
-      value: Strength
-      objectReference: {fileID: 0}
-    - target: {fileID: 5981387157043658903, guid: 1044878102599464ca6edfdd80612ffd, type: 3}
-      propertyPath: _stats.Array.data[5].Data
-      value: 
-      objectReference: {fileID: 11400000, guid: 6553f4175cdb25c4baae978f6017dd5b, type: 2}
-    - target: {fileID: 5981387157043658903, guid: 1044878102599464ca6edfdd80612ffd, type: 3}
-      propertyPath: _stats.Array.data[5].Name
-      value: Speed
-      objectReference: {fileID: 0}
-    - target: {fileID: 5981387157043658903, guid: 1044878102599464ca6edfdd80612ffd, type: 3}
-      propertyPath: _wheelStraightenLerpFactor
-      value: 5
+      propertyPath: _modelLerpFactor
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 7309752685503164436, guid: 1044878102599464ca6edfdd80612ffd, type: 3}
       propertyPath: m_LocalPosition.x
