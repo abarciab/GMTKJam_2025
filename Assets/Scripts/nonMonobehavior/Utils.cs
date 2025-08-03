@@ -15,6 +15,8 @@ public static class Utils
 
     private static int numMenusOpen = 0;
 
+    public static bool Talking;
+
     public static void SetCursor(bool visible)
     {
         if (visible) numMenusOpen += 1;

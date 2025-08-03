@@ -171,10 +171,12 @@ public class Player : MonoBehaviour
         UIManager.i.Do(UIAction.SHOW_CAR_UPGRADE);
     }
 
-    private void GetInCar()
+    public void GetInCar()
     {
         _camera.FollowCar();
-        _hoveredCarPart.Car.StartDriving();
+        if (_hoveredCarPart) _hoveredCarPart.Car.StartDriving();
+        else FindFirstObjectByType<Car>().StartDriving();
+
         gameObject.SetActive(false);
         UIManager.i.Do(UIAction.DISPLAY_HOVERED, "");
     }

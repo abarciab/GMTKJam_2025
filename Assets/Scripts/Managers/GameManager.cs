@@ -43,11 +43,10 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-
         Utils.SetCursor(false);
         _timeLeft = _totalTime;
 
-        if (_areaController) _areaController.InitializeArea(_car);
+        if (_areaController) _areaController.EnterArea(_car, _camera);
         else EnterNewArea();
     }
 

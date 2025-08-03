@@ -101,13 +101,13 @@ public class AreaController : MonoBehaviour
     public void EnterArea(Car car, CameraController camera)
     {
         car.transform.SetPositionAndRotation(_entrance.position, _entrance.rotation);
-        
-        car.SetFuel(3);
+
+        camera.FollowCar();
+        car.SetFuel(12);
         car.SetThrottle(3);
         car.setWheelAngle(0);
         InitializeArea(car);
 
         camera.SnapToCar();
-
     }
 }

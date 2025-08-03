@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum Status { ENCUMBERED, LOW_FUEL, OUT_OF_FUEL, LOW_HEALTH}
+public enum Status { ENCUMBERED, LOW_FUEL, FUEL_EMPTY, LOW_HEALTH}
 
 [System.Serializable]
 public class StatusText

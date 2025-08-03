@@ -52,6 +52,8 @@ public class DialogueController : UIController
 
     public void StartConversation(List<string> lines)
     {
+        Utils.Talking = true;
+
         GameManager.i.Player.SetFrozen(true);
         _lines = lines;
         if (GameManager.i) GameManager.i.PauseTimer();
@@ -81,12 +83,14 @@ public class DialogueController : UIController
 
     private void EndConversation()
     {
+        Utils.Talking = false;
+
         gameObject.SetActive(false);
         GameManager.i.Player.SetFrozen(false);
 
         if (!GameManager.i) return;
         FindFirstObjectByType<CameraController>().EndConversation();
-        FindFirstObjectByType<Player>().EndConversation();
+        FindFirstObjectByType<Player>(FindObjectsInactive.Include).EndConversation();
     }
 
     

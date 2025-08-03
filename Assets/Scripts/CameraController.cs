@@ -58,7 +58,8 @@ public class CameraController : MonoBehaviour
         if (_followCar) {
             _driveCamParent.position = _car.position;
             _driveCamParent.rotation = _car.rotation * _carFreelookOffset;
-            DriveFreeLook();
+            if (!Cursor.visible) DriveFreeLook();
+            else _carFreelookOffset = quaternion.identity;
         }
     }
 
@@ -80,7 +81,6 @@ public class CameraController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (_inConversation) return;
 
         if (_followCar) {
             transform.position = Vector3.Lerp(transform.position, _driveCamParent.transform.TransformPoint(_carPositionOffset), _posLerpFactor * Time.deltaTime);
@@ -88,11 +88,10 @@ public class CameraController : MonoBehaviour
             transform.LookAt(_driveCamParent.transform.TransformPoint(_carTargetPosition));
             transform.localEulerAngles += Vector3.up * _car.angularVelocity.y * _turnLookAheadFactor;
             transform.rotation = Quaternion.Lerp(oldRot, transform.rotation, _rotLerpFactor * Time.deltaTime);
-            
 
             _camera.localRotation = Quaternion.Lerp(_camera.localRotation, Quaternion.identity, _rotLerpFactor * Time.deltaTime);
         }
-        else {
+        else if (!_inConversation) {
             transform.position = _player.transform.TransformPoint(_positionOffset);
             transform.LookAt(_player.transform.TransformPoint(_targetPosition));
         }

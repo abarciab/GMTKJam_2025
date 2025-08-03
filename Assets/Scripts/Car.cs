@@ -116,16 +116,16 @@ public class Car : MonoBehaviour
 
         if (_currentFuel < 5) {
             if (_currentFuel < 0.5f) {
-                UIManager.i.Do(UIAction.SHOW_STATUS, Status.OUT_OF_FUEL);
+                UIManager.i.Do(UIAction.SHOW_STATUS, Status.FUEL_EMPTY);
                 UIManager.i.Do(UIAction.HIDE_STATUS, Status.LOW_FUEL);
             }
             else {
                 UIManager.i.Do(UIAction.SHOW_STATUS, Status.LOW_FUEL);
-                UIManager.i.Do(UIAction.HIDE_STATUS, Status.OUT_OF_FUEL);
+                UIManager.i.Do(UIAction.HIDE_STATUS, Status.FUEL_EMPTY);
             }
         }
         else {
-            UIManager.i.Do(UIAction.HIDE_STATUS, Status.OUT_OF_FUEL);
+            UIManager.i.Do(UIAction.HIDE_STATUS, Status.FUEL_EMPTY);
             UIManager.i.Do(UIAction.HIDE_STATUS, Status.LOW_FUEL);
         }
 
@@ -303,8 +303,6 @@ public class Car : MonoBehaviour
         foreach (var part in GetComponentsInChildren<CarPart>()) {
             part.GetComponent<Collider>().enabled = false;
         }
-
-        _currentInventory.Subtract(_requiredInventory);
 
         _driving = true;
         _rb.isKinematic = false;
