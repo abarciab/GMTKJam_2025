@@ -49,7 +49,7 @@ public class Collectable : MonoBehaviour
     public List<Item> GetDrops()
     {
         var results = new List<Item>();
-        var numDrops = Random.Range(_dropQuantityRange.x, _dropQuantityRange.y);
+        var numDrops = Random.Range(_dropQuantityRange.x, _dropQuantityRange.y+1);
         for (int i = 0; i < numDrops; i++) {
             results.Add(new Item(GetDrop()));
         }

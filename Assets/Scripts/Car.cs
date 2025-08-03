@@ -291,6 +291,8 @@ public class Car : MonoBehaviour
         var forwardDir = transform.forward;
         forwardDir.y = 0;
 
+        if (_rb.isKinematic) _rb.isKinematic = false;
+
         _rb.linearVelocity = _throttle * _maxSpeed * 10 * Time.fixedDeltaTime * forwardDir;
         _rb.angularVelocity = _forwardSpeedPercent * _carTurnSpeed * (_wheelAngle / _wheelTurnLimit) * Vector3.up;
 

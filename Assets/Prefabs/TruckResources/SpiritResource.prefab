@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 237976936660450748}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.74, z: 0}
+  m_LocalPosition: {x: 0, y: 2.155, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4917,7 +4917,7 @@ Transform:
   m_GameObject: {fileID: 793317583815738018}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.265, z: 0}
+  m_LocalPosition: {x: 0, y: 1.68, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4933,7 +4933,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 793317583815738018}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 153f9de9b43cc364f8896f435cba6006, type: 2}
   m_CullingMode: 0
@@ -4974,7 +4974,7 @@ Transform:
   m_GameObject: {fileID: 1359036705208727735}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.74, z: 0}
+  m_LocalPosition: {x: 0, y: 2.155, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9831,10 +9831,18 @@ MonoBehaviour:
   _blockAnimator: {fileID: 5184018195473867483}
   _modelVariants: []
   _displayname: Soul
-  _drop:
-    Name: 
-    Data: {fileID: 11400000, guid: bfab6573f99893040bdb3b37e7b6473a, type: 2}
-    Quantity: 3
+  _drops:
+  - Item:
+      Name: 
+      Data: {fileID: 11400000, guid: bfab6573f99893040bdb3b37e7b6473a, type: 2}
+      Quantity: 1
+    Rarity: 1
+  - Item:
+      Name: 
+      Data: {fileID: 11400000, guid: 479f994a4780476479ff882e4998e98a, type: 2}
+      Quantity: 1
+    Rarity: 0.431
+  _dropQuantityRange: {x: 1, y: 2}
   _breakable: 1
   _breakTime: 1.2
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
@@ -9857,8 +9865,8 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.83684546
-  m_Center: {x: 0, y: 0.73430866, z: 0}
+  m_Radius: 0.88905764
+  m_Center: {x: 0, y: 1.8454525, z: 0}
 --- !u!1001 &4001042111622300770
 PrefabInstance:
   m_ObjectHideFlags: 0

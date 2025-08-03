@@ -10,6 +10,7 @@ public class Animal : MonoBehaviour
     [SerializeField] private Vector2 _waitTimeRange = new Vector2();
     [SerializeField] private Vector2 _directionChangeTimeRange = new Vector2();
     [SerializeField] private int _numDirectionAttemps = 4;
+    [SerializeField] private float _lifeTime;
 
     [Header("Misc")]
     [SerializeField] private GameObject _corpsePrefab;
@@ -17,6 +18,7 @@ public class Animal : MonoBehaviour
     [SerializeField] private float _moveSpeed = 10;
     [SerializeField] private float _lerpFactor = 2;
     [SerializeField] private float _accelFactor = 2;
+    [SerializeField] private float _scaleLerpFactor = 0.5f;
     [SerializeField] private LayerMask _groundLayer;
 
     [Header("scared")]
@@ -31,16 +33,32 @@ public class Animal : MonoBehaviour
     private float _timeScared;
     private Transform _player;
     private Vector3 _targetDirection;
+    private Vector3 _originalScale;
     private bool _moving;
 
     private void Start()
     {
         _player = GameManager.i.Player.transform;
         _targetDirection = Random.insideUnitSphere;
+
+        _originalScale = transform.localScale;
+        transform.localScale = Vector3.zero;
     }
 
     private void Update()
     {
+        _lifeTime -= Time.deltaTime;
+        if (_lifeTime <= 0) {
+            transform.localScale = Vector3.Lerp(transform.localScale, Vector3.zero, _scaleLerpFactor * Time.deltaTime);
+            if (transform.localScale.x < 0.1f) {
+                Destroy(gameObject);
+                return;
+            }
+        }
+        else {
+            transform.localScale = Vector3.Lerp(transform.localScale, _originalScale, _scaleLerpFactor * Time.deltaTime);
+        }
+
         Move();
 
         if (_scared) {
@@ -97,11 +115,12 @@ public class Animal : MonoBehaviour
         transform.position = hitInfo.point;
         _targetDirection.y = 0;
 
-        var rot = transform.localEulerAngles;
+        var originalRot = transform.rotation;
         transform.LookAt(transform.position + _targetDirection * 10);
+        var rot = transform.localEulerAngles;
         rot.x = transform.localEulerAngles.x;
         rot.z = transform.localEulerAngles.z;
-        transform.localRotation = Quaternion.Lerp(transform.localRotation, Quaternion.Euler(rot), _lerpFactor * Time.deltaTime);
+        transform.localRotation = Quaternion.Lerp(originalRot, Quaternion.Euler(rot), _lerpFactor * Time.deltaTime);
 
         _moveDelta = Vector3.Lerp(_moveDelta, transform.forward * _moveSpeed * Time.deltaTime, _accelFactor * Time.deltaTime);
     }

@@ -13,6 +13,8 @@ public class TutorialLine
 
 public class Tutorial : UIController
 {
+    [SerializeField] private bool _enabled = true;
+
     [Header("Lines")]
     [SerializeField] private TutorialLine _intro;
     [SerializeField] private TutorialLine _outOfFuel;
@@ -23,6 +25,14 @@ public class Tutorial : UIController
     [SerializeField] private Player _player;
 
     private float _timePassed;
+
+    private void Start()
+    {
+        if (!_enabled) {
+            _player.GetInCar();
+            enabled = false;
+        }
+    }
 
     protected override void UpdateUI(UIAction action, object arg)
     {

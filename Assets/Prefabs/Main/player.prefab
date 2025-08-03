@@ -80,10 +80,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _weightLimit: 11
-  _inventory:
+  _playerInventory:
     Name: 
     _items: []
     Player: 1
+  _carInventory:
+    Name: 
+    _items: []
+    Player: 0
 --- !u!136 &5570297979118100052
 CapsuleCollider:
   m_ObjectHideFlags: 0

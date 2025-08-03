@@ -216,6 +216,8 @@ MonoBehaviour:
   _turnLookAheadFactor: 2
   _posLerpFactor: 20
   _rotLerpFactor: 15
+  _fovLimits: {x: 60, y: 75}
+  _fovLerpFactor: 5
   _camera: {fileID: 5984626316939575175}
 --- !u!114 &8003725670782302108
 MonoBehaviour:
