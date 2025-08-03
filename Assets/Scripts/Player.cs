@@ -88,6 +88,7 @@ public class Player : MonoBehaviour
 
         if (Sprinting) {
             _staminaLeft -= Time.deltaTime;
+            if (_staminaLeft < 0) _sprintEnabled = false;
         }
         else {
             _staminaLeft += Time.deltaTime * _staminaRefilSpeed;

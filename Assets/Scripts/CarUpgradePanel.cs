@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor.Search;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -19,7 +20,22 @@ public class CarUpgradePanel : MonoBehaviour
 
     private Car _car;
 
-    public void SetHover(bool hovered) => _requirements.SetActive(hovered);
+    public void SetHover(bool hovered)
+    {
+        foreach (var item in _car.GetStat(_stat).ItemsRequired) {
+            GameManager.i.DiscoverItem(item.Data.Type);
+        }
+
+        var items = _car.GetStat(_stat).ItemsRequired;
+        for (int i = 0; i < _requiredItemDisplay.Count; i++) {
+            if (i < items.Count) {
+                _requiredItemDisplay[i].Initialize(items[i]);
+            }
+            else _requiredItemDisplay[i].gameObject.SetActive(false);
+        }
+
+        _requirements.SetActive(hovered);
+    }
 
     private void OnEnable()
     {

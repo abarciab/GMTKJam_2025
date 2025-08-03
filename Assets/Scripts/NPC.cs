@@ -64,12 +64,7 @@ public class NPC : MonoBehaviour
     private void StartTrade()
     {
         var requestedItems = _trade.Request.Items.Select(x => x.Data.Type).ToList();
-        var requestContainsUnknownItems = requestedItems.Where(x => !GameManager.i.ItemDiscovered(x)).Count() > 0;
-        if (requestContainsUnknownItems) {
-            var lines = new List<string>() { "I'm sorry, you don't even know about the resources I'm after. Come back later" };
-            UIManager.i.Do(UIAction.START_CONVERSATION, lines);
-            return;
-        }
+        foreach (var item in requestedItems) GameManager.i.DiscoverItem(item);
 
         UIManager.i.Do(UIAction.START_TRADE, _trade);
     }
