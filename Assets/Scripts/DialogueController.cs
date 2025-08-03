@@ -32,6 +32,8 @@ public class DialogueController : UIController
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.P)) EndConversation();
+
         if (_currentLetterIndex >= _currentLine.Length) return;
 
         _currentLetterCooldown -= Time.deltaTime;
