@@ -284,7 +284,8 @@ public class Player : MonoBehaviour
         CheckNewOutline();
 
         if (_hoveredCollectible) {
-            OnHoverOutline(_hoveredCollectible.ActiveModels);
+            if (!_hoveredCollectible.gameObject.name.ToLower().Contains("spirit"))
+                OnHoverOutline(_hoveredCollectible.ActiveModels);
             UIManager.i.Do(UIAction.DISPLAY_HOVERED, _hoveredCollectible.DisplayName);
         } else if (_hoveredCarPart) {
             OnHoverOutline(_hoveredCarPart.gameObject);
