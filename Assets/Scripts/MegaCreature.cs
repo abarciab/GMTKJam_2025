@@ -2,6 +2,7 @@ using MyBox;
 using System.Collections.Generic;
 using UnityEngine;
 
+[SelectionBase]
 public class MegaCreature : MonoBehaviour
 {
     [SerializeField] private List<Foot> _feet;
