@@ -16,5 +16,5 @@ MonoBehaviour:
   DisplayName: Lantern Spore
   Description: A small, strange creature that emits a gentle glow. Found everywhere,
     but only at night
-  UnknownDescription: Unknown Item. Find in grasslands
+  UnknownDescription: Unknown Item. Found at night.
   Icon: {fileID: 0}

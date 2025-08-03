@@ -16,5 +16,5 @@ MonoBehaviour:
   DisplayName: Sap
   Description: Sticky and messy, but good for attatching parts together. found rarely
     in trees
-  UnknownDescription: Unknown Item. Find in grasslands
+  UnknownDescription: Unknown Item. A Harrowed substance.
   Icon: {fileID: 0}

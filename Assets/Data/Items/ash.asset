@@ -15,5 +15,5 @@ MonoBehaviour:
   Type: 4
   DisplayName: Ash
   Description: burnt organic material. found everywhere
-  UnknownDescription: Unknown Item. Find in grasslands
+  UnknownDescription: Unknown Item. Comes from the Harrowed
   Icon: {fileID: 0}

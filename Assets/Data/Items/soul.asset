@@ -16,5 +16,5 @@ MonoBehaviour:
   DisplayName: Soul
   Description: The intact soul of a slain creature. Incredibly rare and incredibly
     useful
-  UnknownDescription: Unknown Item. Find in grasslands
+  UnknownDescription: Unknown Item. An ethereal substance.
   Icon: {fileID: 0}

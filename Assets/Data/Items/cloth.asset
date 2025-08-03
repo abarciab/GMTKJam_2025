@@ -16,5 +16,5 @@ MonoBehaviour:
   DisplayName: Cloth
   Description: Woven or knitted natural fibers. Found in ruins, especially in the
     desert
-  UnknownDescription: Unknown Item. Find in grasslands
+  UnknownDescription: Unknown Item. Something soft.
   Icon: {fileID: 0}

@@ -15,5 +15,5 @@ MonoBehaviour:
   Type: 0
   DisplayName: Fade Stone
   Description: Found in chunks, in large boulders, in grasslands
-  UnknownDescription: Unknown Item. Find in grasslands
+  UnknownDescription: Unknown Item. A type of stone.
   Icon: {fileID: 0}

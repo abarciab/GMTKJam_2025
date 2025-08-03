@@ -15,5 +15,5 @@ MonoBehaviour:
   Type: 11
   DisplayName: Glass
   Description: A sharp piece of glass. Found in ruins and debris
-  UnknownDescription: Unknown Item. Find in grasslands
+  UnknownDescription: Unknown Item. Found in rubble.
   Icon: {fileID: 0}

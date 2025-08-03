@@ -15,5 +15,5 @@ MonoBehaviour:
   Type: 3
   DisplayName: Flint
   Description: A common stone, useful for creating sparks. found everywhere
-  UnknownDescription: Unknown Item. Find in grasslands
+  UnknownDescription: Unknown Item. Something sharp.
   Icon: {fileID: 0}

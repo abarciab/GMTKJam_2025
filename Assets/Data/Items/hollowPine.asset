@@ -15,5 +15,5 @@ MonoBehaviour:
   Type: 1
   DisplayName: Hollow Pine
   Description: Dark and scary wood. found in grasslands and arctic areas
-  UnknownDescription: Unknown Item. Find in grasslands
+  UnknownDescription: Unknown Item. Common in the Grasslands.
   Icon: {fileID: 0}

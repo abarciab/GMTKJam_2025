@@ -15,5 +15,5 @@ MonoBehaviour:
   Type: 8
   DisplayName: Scrap
   Description: A piece of old rusty metal. still useful. Found in debris and wreckage
-  UnknownDescription: Unknown Item. Find in grasslands
+  UnknownDescription: Unknown Item. Found in Rubble.
   Icon: {fileID: 0}
