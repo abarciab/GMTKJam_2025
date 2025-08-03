@@ -3308,7 +3308,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _collectibleNameText: {fileID: 1993114893796155345}
   _breakSlider: {fileID: 6603928613942686781}
-  _staminaBar: {fileID: 0}
+  _staminaBar: {fileID: 5888886448911965885}
 --- !u!1 &6116433130547561124
 GameObject:
   m_ObjectHideFlags: 0
