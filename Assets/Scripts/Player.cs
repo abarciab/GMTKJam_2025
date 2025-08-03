@@ -307,7 +307,7 @@ public class Player : MonoBehaviour
     private void CheckNewOutline()
     {
         if(_currHoveredOutlines != null && _currHoveredOutlines.Count > 0) {
-            if (_currHoveredOutlines[0].gameObject != _hoveredCollectible?.ActiveModels[0]) {
+            if (_currHoveredOutlines[0] == null || _currHoveredOutlines[0].gameObject != _hoveredCollectible?.ActiveModels[0]) {
                 DisableOutline();
             }
         } 
