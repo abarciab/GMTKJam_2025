@@ -55,6 +55,7 @@ MonoBehaviour:
   - {fileID: 6524348052129151477}
   - {fileID: 2070446150976742195}
   _initialDelay: 0
+  _resetDistance: 0
   _body: {fileID: 5360443224560583474}
 --- !u!1001 &1712400232356866666
 PrefabInstance:
@@ -445,6 +446,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 70ed457ebfb0d8e458cfab73c16f903e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 70ed457ebfb0d8e458cfab73c16f903e, type: 3}
+      propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 70ed457ebfb0d8e458cfab73c16f903e, type: 3}
