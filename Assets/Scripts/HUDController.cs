@@ -12,7 +12,12 @@ public class HUDController : UIController
     {
         DisplayCollectible("");
         DisplayStaminaProgress(0);
-    }    
+    }
+
+    private void Update()
+    {
+        if (!GameManager.i.Player.gameObject.activeInHierarchy) _staminaBar.gameObject.SetActive(false);
+    }
 
     protected override void UpdateUI(UIAction action, object arg)
     {
@@ -29,6 +34,7 @@ public class HUDController : UIController
 
     private void DisplayStaminaProgress(float progress)
     {
+        if (!GameManager.i.Player.gameObject.activeInHierarchy) return;
         _staminaBar.gameObject.SetActive(progress > 0);
         _staminaBar.value = progress;
     }

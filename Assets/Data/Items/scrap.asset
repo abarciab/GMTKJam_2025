@@ -16,4 +16,4 @@ MonoBehaviour:
   DisplayName: Scrap
   Description: A piece of old rusty metal. still useful. Found in debris and wreckage
   UnknownDescription: Unknown Item. Find in grasslands
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: d3f2c72445067de4d9ff141e7009efe1, type: 3}

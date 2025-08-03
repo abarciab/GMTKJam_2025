@@ -17,4 +17,4 @@ MonoBehaviour:
   Description: Sticky and messy, but good for attatching parts together. found rarely
     in trees
   UnknownDescription: Unknown Item. Find in grasslands
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: a087c65656f61e343a30a9ad532e855c, type: 3}

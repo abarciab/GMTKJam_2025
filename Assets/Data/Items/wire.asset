@@ -17,4 +17,4 @@ MonoBehaviour:
   Description: A small spool of copper wire. Required for electronic repairs and
     upgrades. Found in old wrecks
   UnknownDescription: Unknown Item. Find in grasslands
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: ab8fe0689ca90b24d9701b44d8821035, type: 3}

@@ -16,4 +16,4 @@ MonoBehaviour:
   DisplayName: Soul Shard
   Description: part of the remants of a slain spirit
   UnknownDescription: Unknown Item. Find in grasslands
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: 0b4c797eb7521aa46ac3116a271ddc45, type: 3}

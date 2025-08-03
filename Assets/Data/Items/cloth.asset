@@ -17,4 +17,4 @@ MonoBehaviour:
   Description: Woven or knitted natural fibers. Found in ruins, especially in the
     desert
   UnknownDescription: Unknown Item. Find in grasslands
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: 0e91169dc135ea14e91104ebaa816060, type: 3}

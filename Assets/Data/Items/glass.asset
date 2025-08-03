@@ -16,4 +16,4 @@ MonoBehaviour:
   DisplayName: Glass
   Description: A sharp piece of glass. Found in ruins and debris
   UnknownDescription: Unknown Item. Find in grasslands
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: 5e1e2f7ac82d4bf40bd275e666d03d3d, type: 3}

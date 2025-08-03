@@ -16,4 +16,4 @@ MonoBehaviour:
   DisplayName: Ash
   Description: burnt organic material. found everywhere
   UnknownDescription: Unknown Item. Find in grasslands
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: 580dd9a4c94512a4a81ef153d6eb38a5, type: 3}

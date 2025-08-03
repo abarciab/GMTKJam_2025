@@ -17,4 +17,4 @@ MonoBehaviour:
   Description: The intact soul of a slain creature. Incredibly rare and incredibly
     useful
   UnknownDescription: Unknown Item. Find in grasslands
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: ddd46df35f4b4844cab610d2b818fdc7, type: 3}
