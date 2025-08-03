@@ -12,10 +12,17 @@ public class InventoryItemDisplay : MonoBehaviour
     [SerializeField] private bool _showUnknown;
     [SerializeField] private bool _allowDiscard;
     [SerializeField] private bool _trunk;
+    [SerializeField] private bool _combinedQuantityCheck;
     [SerializeField] private SelectableItem _quantity;
     [SerializeField] private GameObject _discardButton;
     [SerializeField] private GameObject _iconFrameParent;
     [SerializeField] private GameObject _trunkButtonParent;
+
+    [Header("Buttons")]
+    [SerializeField] private GameObject _takeButton;
+    [SerializeField] private GameObject _takeAllButton;
+    [SerializeField] private GameObject _giveButton;
+    [SerializeField] private GameObject _giveAllButton;
 
     private PlayerInventoryUIController _controller;
     private Item _item;
@@ -43,6 +50,19 @@ public class InventoryItemDisplay : MonoBehaviour
         if (_trunkButtonParent) {
             _trunkButtonParent.SetActive(_trunk && _discovered);
             _iconFrameParent.SetActive(!_trunkButtonParent.activeSelf);
+
+            if (_trunk) {
+                var carInv = GameManager.i.Player.GetComponent<PlayerInventory>().Inventory(InventoryType.CAR);
+                var playerInv = GameManager.i.Player.GetComponent<PlayerInventory>().Inventory(InventoryType.PLAYER);
+
+                var carCount = carInv.GetCount(item.Data.Type);
+                _takeButton.SetActive(carCount > 0);
+                _takeAllButton.SetActive(carCount > 1);
+
+                var playerCount = playerInv.GetCount(item.Data.Type);
+                _giveButton.SetActive(playerCount > 0);
+                _giveAllButton.SetActive(playerCount > 1);
+            }
         }
 
         _quantityParent.SetActive(_discovered);
@@ -50,7 +70,9 @@ public class InventoryItemDisplay : MonoBehaviour
 
         if (_quantity) {
             var player = GameManager.i.Player;
-            if (_redWhenUnaffordable && player.GetComponent<PlayerInventory>().GetCount(item.Data.Type) < item.Quantity) {
+            var playerInventory = player.GetComponent<PlayerInventory>();
+            var inventory = _combinedQuantityCheck ? playerInventory.Inventory(InventoryType.COMBINED) : playerInventory.Inventory(InventoryType.PLAYER);
+            if (_redWhenUnaffordable && inventory.GetCount(item.Data.Type) < item.Quantity) {
                 _quantity.SetDisabled(true);
             }
             else {
