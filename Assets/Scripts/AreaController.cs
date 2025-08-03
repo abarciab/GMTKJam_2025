@@ -36,6 +36,9 @@ public class AreaController : MonoBehaviour
     [SerializeField] private int _numNPCS = 3;
     private List<List<string>> _conversations = new List<List<string>>();
 
+    [Header("Player Truck")]
+    [SerializeField] private int _startingFuel = 5;
+
     private void Start()
     {
         if (_textFile) SpawnNPCs(); 
@@ -105,7 +108,7 @@ public class AreaController : MonoBehaviour
         car.transform.position = _entrance.position;
 
         camera.FollowCar();
-        car.SetFuel(12);
+        car.SetFuel(_startingFuel);
         car.SetThrottle(3);
         car.setWheelAngle(0);
         InitializeArea(car);

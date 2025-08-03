@@ -123,9 +123,9 @@ MonoBehaviour:
       Data: {fileID: 11400000, guid: 479f994a4780476479ff882e4998e98a, type: 2}
       Quantity: 1
     Rarity: 0.1
-  _dropQuantityRange: {x: 2, y: 7}
+  _dropQuantityRange: {x: 2, y: 4}
   _breakable: 1
-  _breakTime: 5
+  _breakTime: 3
   _breakSound: {fileID: 11400000, guid: e9bf096b264d6874ba1753b95d600428, type: 2}
 --- !u!114 &3260742202576626111
 MonoBehaviour:

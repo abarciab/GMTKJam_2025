@@ -58,25 +58,27 @@ MonoBehaviour:
   _baseFuelUseFactor: 0.2
   _baseTurnSpeed: 2
   _baseHpMax: 5
+  _baseItemCapacity: 25
   _stats:
+  - Name: Speed
+    Data: {fileID: 11400000, guid: 6553f4175cdb25c4baae978f6017dd5b, type: 2}
+    Level: 0
   - Name: Acceleration
     Data: {fileID: 11400000, guid: 1bbbfc7040bf21d4c9ae9efbf7606827, type: 2}
+    Level: 0
+  - Name: handling
+    Data: {fileID: 11400000, guid: 8247c44689fd0df4baa3f9fa1b76e139, type: 2}
     Level: 0
   - Name: Capactiy
     Data: {fileID: 11400000, guid: 4cc3f30891a28674eb77f2b1422ca570, type: 2}
     Level: 0
   - Name: Effeciency
     Data: {fileID: 11400000, guid: 54ea8c0fb43a8d6408b682afc6146097, type: 2}
-    Level: 0
-  - Name: handling
-    Data: {fileID: 11400000, guid: 8247c44689fd0df4baa3f9fa1b76e139, type: 2}
-    Level: 0
+    Level: 10
   - Name: Strength
     Data: {fileID: 11400000, guid: 38cbdc4feba316a4382b1a815ddc9886, type: 2}
     Level: 0
-  - Name: Speed
-    Data: {fileID: 11400000, guid: 6553f4175cdb25c4baae978f6017dd5b, type: 2}
-    Level: 0
+  _encumberedMaxSpeed: 3
   _model: {fileID: 821925626868044089}
   _modelLerpFactor: 15
   _carAnimator: {fileID: 3537585820180574265}
@@ -94,21 +96,6 @@ MonoBehaviour:
     m_Bits: 8
   _wheelAngle: 0
   _engineLoop: {fileID: 11400000, guid: 7622881fa5db1cd46a27cbd00577abeb, type: 2}
-  _currentInventory:
-    Name: 
-    _items: []
-    Player: 0
-  _requiredInventory:
-    Name: 
-    _items:
-    - Name: 
-      Data: {fileID: 11400000, guid: 1202a0ccc9c55974f99a44fdcc69af66, type: 2}
-      Quantity: 0
-    - Name: 
-      Data: {fileID: 11400000, guid: 0f82e34ea8fc56344878435e9ec4c74b, type: 2}
-      Quantity: 4
-    Player: 0
-  _depositSound: {fileID: 11400000, guid: e07f9e212d809ae4b8258fbd54ff686f, type: 2}
   _player: {fileID: 0}
   _currentFuel: 0
 --- !u!54 &5869452578377605572

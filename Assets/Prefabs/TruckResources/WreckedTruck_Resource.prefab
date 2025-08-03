@@ -87,9 +87,9 @@ MonoBehaviour:
       Data: {fileID: 11400000, guid: 479f994a4780476479ff882e4998e98a, type: 2}
       Quantity: 1
     Rarity: 0.1
-  _dropQuantityRange: {x: 5, y: 10}
+  _dropQuantityRange: {x: 3, y: 6}
   _breakable: 1
-  _breakTime: 10
+  _breakTime: 4
   _breakSound: {fileID: 11400000, guid: e07f9e212d809ae4b8258fbd54ff686f, type: 2}
 --- !u!1 &6480292770949032054
 GameObject:

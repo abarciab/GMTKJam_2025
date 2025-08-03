@@ -137,7 +137,7 @@ MonoBehaviour:
       Data: {fileID: 11400000, guid: a2a0089db8c23cb4dae83efbe34e69dd, type: 2}
       Quantity: 1
     Rarity: 0.3
-  _dropQuantityRange: {x: 2, y: 5}
+  _dropQuantityRange: {x: 2, y: 4}
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
