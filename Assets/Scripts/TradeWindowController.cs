@@ -6,12 +6,22 @@ public class TradeWindowController : UIController
     [SerializeField] private Transform _requestParent;
     [SerializeField] private Transform _offerParent;
     [SerializeField] private SelectableItem _confirmButton;
+    [SerializeField] private RectTransform _boxParent;
+    [SerializeField] private GameObject _dialogueParent;
+    [SerializeField] private Vector2 _windowPositions;
 
     private Trade _trade;
 
     protected override void UpdateUI(UIAction action, object arg)
     {
         if (action == UIAction.START_TRADE && arg is Trade trade) StartTrade(trade);
+    }
+
+    private void Update()
+    {
+        var pos = _boxParent.anchoredPosition;
+        pos.y = _dialogueParent.activeInHierarchy ? _windowPositions.y : _windowPositions.x;
+        _boxParent.anchoredPosition = pos;
     }
 
     private void StartTrade(Trade trade)
@@ -69,6 +79,8 @@ public class TradeWindowController : UIController
         gameObject.SetActive(false);
         GameManager.i.Player.SetFrozen(false);
         Utils.SetCursor(false);
+
+        UIManager.i.Do(UIAction.END_TRADE);
     }
 }
 

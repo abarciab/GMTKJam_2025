@@ -1,5 +1,6 @@
 using MyBox;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -24,13 +25,25 @@ public class Tutorial : UIController
     [SerializeField] private TutorialLine _flintPine;
     [SerializeField] private TutorialLine _readyToRefuel;
     [SerializeField] private TutorialLine _readyToLeave;
+    [SerializeField] private TutorialLine _npcIntro;
+    [SerializeField] private TutorialLine _npcTrade;
+    [SerializeField] private TutorialLine _rareItems;
+    [SerializeField] private TutorialLine _checkHood;
+    [SerializeField] private TutorialLine _carUpgrade;
+    [SerializeField] private TutorialLine _creature;
+
+    [Header("Parameters")]
+    [SerializeField] private float _npcDistance = 50;
+    [SerializeField] private float _creatureDistance = 50;
 
     [Header("References")]
     [SerializeField] private Car _car;
     [SerializeField] private Player _player;
+    [SerializeField] private CameraController _camera;
 
     private Inventory _playerInventory;
 
+    private bool _readyForTrade;
     private float _timePassed;
 
     private void Start()
@@ -50,7 +63,18 @@ public class Tutorial : UIController
         if (action == UIAction.OPEN_REPAIR_MENU) {
             Show(_refuel);
         }
-
+        if (action == UIAction.FINISH_NPC_CONVERSATION) {
+            _readyForTrade = true;
+        }
+        if (action == UIAction.START_TRADE) {
+            Show(_rareItems);
+        }
+        if (action == UIAction.END_TRADE) {
+            Show(_checkHood);
+        }
+        if (action == UIAction.SHOW_CAR_UPGRADE) {
+            Show(_carUpgrade);
+        }
     }
 
     private void Update()
@@ -59,17 +83,37 @@ public class Tutorial : UIController
 
         if (!_intro.Completed && _timePassed > 1.5f) {
             Show(_intro);
-            _player.GetInCar();
-            //_car.StartDriving();
         }
 
         if (_player.gameObject.activeInHierarchy && !Cursor.visible) {
             if (_outOfFuel.Completed && !_howToWalk.Completed) Show(_howToWalk);
             if (_refuel.Completed && !_flintPine.Completed) Show(_flintPine);
 
-            if (_playerInventory.GetCount(ItemType.FLINT) >= 1 && _playerInventory.GetCount(ItemType.HOLLOW_PINE) >= 2) Show(_readyToRefuel);
+            if (_playerInventory.GetCount(ItemType.FLINT) >= 1 && _playerInventory.GetCount(ItemType.HOLLOW_PINE) >= 2) {
+                Show(_readyToRefuel);
+                _flintPine.Completed = true;
+            }
         }
-        if (_car.FuelPercent > 0.2f && _readyToRefuel.Completed) Show(_readyToLeave);
+        if (_car.FuelPercent > 0.2f && _readyToRefuel.Completed) {
+            Show(_readyToLeave);
+            _flintPine.Completed = true;
+        }
+
+        if (!_npcIntro.Completed) {
+            var closest = FindObjectsByType<NPC>(FindObjectsSortMode.None).OrderBy(x => Vector3.Distance(x.transform.position, _player.transform.position)).First();
+            if (Vector3.Distance(closest.transform.position, _player.transform.position) < _npcDistance) {
+                Show(_npcIntro);
+            }
+        }
+
+        if (!Cursor.visible && !_creature.Completed && FindObjectsByType<Foot>(FindObjectsSortMode.None).Length > 0) {
+            var closest = FindObjectsByType<Foot>(FindObjectsSortMode.None).OrderBy(x => Vector3.Distance(x.transform.position, _player.transform.position)).First();
+            if (Vector3.Distance(closest.transform.position, _player.transform.position) < _creatureDistance) {
+                Show(_creature);
+                Camera.main.transform.LookAt(closest.transform.position + Vector3.up * 100);
+            }
+        }
+
     }
 
     private void Show(TutorialLine line)
