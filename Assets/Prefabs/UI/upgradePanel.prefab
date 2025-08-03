@@ -1847,11 +1847,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6875042125040462916, guid: 2a27225995a32214aa295a549ce24839, type: 3}
       propertyPath: m_text
-      value: Upgrade (+2%)
+      value: Upgrade
       objectReference: {fileID: 0}
     - target: {fileID: 6875042125040462916, guid: 2a27225995a32214aa295a549ce24839, type: 3}
       propertyPath: m_fontSize
-      value: 18.35
+      value: 19.6
       objectReference: {fileID: 0}
     - target: {fileID: 6875042125040462916, guid: 2a27225995a32214aa295a549ce24839, type: 3}
       propertyPath: m_sharedMaterial

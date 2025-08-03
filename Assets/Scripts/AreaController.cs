@@ -1,4 +1,5 @@
 using MyBox;
+using SplineMeshTools.Core;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
@@ -26,8 +27,11 @@ public class Trade
 
 public class AreaController : MonoBehaviour
 {
+    public string Name;
+    public int roadIndex;
     [SerializeField] private Transform _entrance;
     [SerializeField] private Transform _endGate;
+    [SerializeField] private SplineMesh _road;
 
     [Header("NPCs")]
     [SerializeField] private TextAsset _textFile;
@@ -104,6 +108,8 @@ public class AreaController : MonoBehaviour
     public void InitializeArea(Car car)
     {
         car.SetEndGate(_endGate);
+        //_road.gameObject.SetActive(false);
+        //_road.gameObject.SetActive(true);
     }
 
     public void EnterArea(Car car, CameraController camera)

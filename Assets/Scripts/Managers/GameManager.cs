@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     [SerializeField, Range(0, 1)] private List<float> _spawnTimes;
 
     [Header("Misc")]
+    [SerializeField] private Transform _roadParent;
     [SerializeField] private Player _player;
     [SerializeField] private Car _car;
     [SerializeField] private CameraController _camera;
@@ -98,11 +99,14 @@ public class GameManager : MonoBehaviour
         
         if (_areaController) Destroy(_areaController.gameObject);
 
-        var selectedArea = _areaPrefabs[Random.Range(0, _areaPrefabs.Count)];
+        var options = _areaPrefabs.Where(x => x.GetComponent<AreaController>().name != _areaController.name).ToList();
+        var selectedArea = options[Random.Range(0, options.Count)];
         _areaController = Instantiate(selectedArea, _environment.transform).GetComponent<AreaController>();
 
         _areaController.EnterArea(_car, _camera);
         _environment.SetActive(true);
+
+        foreach (Transform child in _roadParent) child.gameObject.SetActive(child.GetSiblingIndex() == _areaController.roadIndex);
 
         _timeLeft = _totalTime;
     }

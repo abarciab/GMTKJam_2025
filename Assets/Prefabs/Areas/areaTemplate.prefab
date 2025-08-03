@@ -404,8 +404,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a21bd63636ea6fd44bab87412a01bc27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Name: area
+  roadIndex: 0
   _entrance: {fileID: 6651330207313647855}
   _endGate: {fileID: 7716022378078587}
+  _road: {fileID: 6280241457795332845}
   _textFile: {fileID: 4900000, guid: cfe51a80ace42d64d89fe1ec701039a0, type: 3}
   _trades: []
   _npcParent: {fileID: 58807023524497548}
@@ -732,3 +735,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3581720223501839536, guid: d8d57ca16f5a41c42b41989b401329a0, type: 3}
   m_PrefabInstance: {fileID: 8733496260139501147}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6280241457795332845 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3320413822329765046, guid: d8d57ca16f5a41c42b41989b401329a0, type: 3}
+  m_PrefabInstance: {fileID: 8733496260139501147}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d156a660dda4414e87e7871a8d01f2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

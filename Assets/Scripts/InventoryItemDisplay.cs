@@ -49,7 +49,7 @@ public class InventoryItemDisplay : MonoBehaviour
 
         if (_trunkButtonParent) {
             _trunkButtonParent.SetActive(_trunk && _discovered);
-            _iconFrameParent.SetActive(!_trunkButtonParent.activeSelf);
+            //_iconFrameParent.SetActive(!_trunkButtonParent.activeSelf);
 
             if (_trunk) {
                 var carInv = GameManager.i.Player.GetComponent<PlayerInventory>().Inventory(InventoryType.CAR);
