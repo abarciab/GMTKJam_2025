@@ -54,8 +54,10 @@ MonoBehaviour:
   _maxArrowHoldTime: 0.8
   _arrowForce: 1800
   _bowShotSound: {fileID: 11400000, guid: 50d5aa5a003258546963210476f3a383, type: 2}
-  _walkSpeed: 6
+  _staminaMax: 5
   _runSpeed: 7.5
+  _staminaRefilSpeed: 0.25
+  _walkSpeed: 6
   _encumberedSpeed: 1.5
   _strafeSpeed: 5
   _spinSpeed: 1.2
@@ -79,7 +81,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81b9174b46d666749a976630eb066a48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _weightLimit: 11
+  _weightLimit: 18
   _playerInventory:
     Name: 
     _items: []

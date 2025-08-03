@@ -53,7 +53,7 @@ MonoBehaviour:
   _maxFuel: 40
   _playerDismountPosition: {x: -1.92, y: 0.21, z: 2.12}
   _worldUI: {fileID: 206377996798546629}
-  _baseMaxSpeed: 10
+  _baseMaxSpeed: 8
   _baseForwardAccel: 1.5
   _baseFuelUseFactor: 0.2
   _baseTurnSpeed: 2
@@ -74,7 +74,7 @@ MonoBehaviour:
     Level: 0
   - Name: Effeciency
     Data: {fileID: 11400000, guid: 54ea8c0fb43a8d6408b682afc6146097, type: 2}
-    Level: 10
+    Level: 0
   - Name: Strength
     Data: {fileID: 11400000, guid: 38cbdc4feba316a4382b1a815ddc9886, type: 2}
     Level: 0

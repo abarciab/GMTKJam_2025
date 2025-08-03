@@ -182,7 +182,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e44d7ef2bdf6f15448286ada8073beff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _totalTime: 720
+  _totalTime: 240
+  _creatureParent: {fileID: 0}
+  _spawnTimes:
+  - 0.644
+  - 0.403
+  - 0.209
+  - 0.088
+  - 0.046
+  - 0.023
+  - 0.019
   _player: {fileID: 0}
   _car: {fileID: 0}
   _camera: {fileID: 0}
@@ -204,7 +213,6 @@ MonoBehaviour:
   _areaController: {fileID: 0}
   _areaPrefabs:
   - {fileID: 7290249319681797459, guid: dd73bc1d4f274c24e97a8d4a5b403dde, type: 3}
-  - {fileID: 7290249319681797459, guid: abc1d9e2f8246234fbffb45ca0e7d81a, type: 3}
 --- !u!114 &5122873462977973251
 MonoBehaviour:
   m_ObjectHideFlags: 0
