@@ -1254,7 +1254,13 @@ MonoBehaviour:
   _quantityParent: {fileID: 7990881165022393225}
   _redWhenUnaffordable: 1
   _showUnknown: 0
+  _allowDiscard: 0
+  _trunk: 0
+  _combinedQuantityCheck: 1
   _quantity: {fileID: 3354784418611011726}
+  _discardButton: {fileID: 0}
+  _iconFrameParent: {fileID: 0}
+  _trunkButtonParent: {fileID: 0}
 --- !u!1 &5153926923460496539
 GameObject:
   m_ObjectHideFlags: 0
@@ -1955,7 +1961,13 @@ MonoBehaviour:
   _quantityParent: {fileID: 5153926923460496539}
   _redWhenUnaffordable: 1
   _showUnknown: 0
+  _allowDiscard: 0
+  _trunk: 0
+  _combinedQuantityCheck: 1
   _quantity: {fileID: 4759777107472727594}
+  _discardButton: {fileID: 0}
+  _iconFrameParent: {fileID: 0}
+  _trunkButtonParent: {fileID: 0}
 --- !u!1 &6407970739702755169
 GameObject:
   m_ObjectHideFlags: 0

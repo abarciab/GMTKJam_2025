@@ -234,15 +234,16 @@ public class PlayerInventory : MonoBehaviour
     public void RemoveCombinedItems(List<Item> items)
     {
         foreach (var i in items) {
+            var toRemove = i.Quantity;
             var playerCount = _playerInventory.GetCount(i.Data.Type);
             if (playerCount > 0) {
                 _playerInventory.RemoveItems(i);
-                i.Quantity -= playerCount;
+                toRemove -= Mathf.Min(playerCount, toRemove);
             }
             var carCount = _carInventory.GetCount(i.Data.Type);
             if (carCount > 0) {
                 _carInventory.RemoveItems(i);
-                i.Quantity -= carCount;
+                toRemove -= Mathf.Min(carCount, toRemove);
             }
         }
     }
