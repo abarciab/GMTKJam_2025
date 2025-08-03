@@ -45,7 +45,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animalPrefab: {fileID: 3003842530046410647, guid: f2a7c46a5f43f334eb49a11663c2dd76, type: 3}
-  _spawnRadius: 38.83
+  _spawnRadius: 35.2
   _targetPopulation: 3
   _spawnTimeRange: {x: 1, y: 60}
   _scaleRange: {x: 1, y: 4.5}
+  _spiritFirePrefab: {fileID: 5234512823001480933, guid: fb5c275e72007c84b97cb085fee12baa, type: 3}
+  _spiritFireRadius: 20.2
+  _groundLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  _numFires: 8

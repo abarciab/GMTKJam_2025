@@ -12,6 +12,7 @@ public class DialogueController : UIController
     private int _currentLineIndex = 0;
     private int _currentLetterIndex;
     private float _currentLetterCooldown;
+    private Car _car;
     
     private string _currentLine => _lines[_currentLineIndex];
 
@@ -22,6 +23,7 @@ public class DialogueController : UIController
 
     private void Start()
     {
+        _car = GameManager.i.Car;
         _letterTypeSound = Instantiate(_letterTypeSound);
     }
 
@@ -53,6 +55,8 @@ public class DialogueController : UIController
 
     public void StartConversation(List<string> lines)
     {
+        if (!_car) _car = GameManager.i.Car;
+        _car.Paused = true;
         Utils.Talking = true;
 
         GameManager.i.Player.SetFrozen(true);
@@ -84,6 +88,7 @@ public class DialogueController : UIController
 
     private void EndConversation()
     {
+        _car.Paused = false;
         Utils.Talking = false;
 
         gameObject.SetActive(false);

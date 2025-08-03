@@ -49,18 +49,18 @@ MonoBehaviour:
   _moveTimeRange: {x: 5, y: 20}
   _waitTimeRange: {x: 10, y: 60}
   _directionChangeTimeRange: {x: 2, y: 10}
-  _numDirectionAttemps: 4
+  _numDirectionAttemps: 8
   _lifeTime: 90
   _corpsePrefab: {fileID: 5234512823001480933, guid: 68dffe0215ca3064aa0a6e0a40b681ba, type: 3}
   _hp: 3
-  _moveSpeed: 5
+  _moveSpeed: 3
   _lerpFactor: 5
   _accelFactor: 2
   _scaleLerpFactor: 10
   _groundLayer:
     serializedVersion: 2
     m_Bits: 8
-  _scareTimeMax: 10
+  _scareTimeMax: 5
 --- !u!136 &6490837966257804823
 CapsuleCollider:
   m_ObjectHideFlags: 0

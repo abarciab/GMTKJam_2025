@@ -16,7 +16,11 @@ public class CarStatData : ScriptableObject
     public List<Item> CostForNextLevel(int currentLevel)
     {
         if (currentLevel == _upgradeCosts.Count) return new List<Item>();
-        return _upgradeCosts[currentLevel].Items;
+        var items = new List<Item>();
+        foreach (var item in _upgradeCosts[currentLevel].Items) {
+            items.Add(new Item(item));
+        }
+        return items;
     }
 
     private void OnValidate()
