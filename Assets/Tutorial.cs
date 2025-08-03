@@ -65,6 +65,10 @@ public class Tutorial : UIController
 
     private void Start()
     {
+#if !UNITY_EDITOR
+        _enabled = true;
+#endif
+
         if (!_enabled) {
             _player.GetInCar();
             enabled = false;

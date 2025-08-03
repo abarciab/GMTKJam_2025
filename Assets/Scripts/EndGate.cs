@@ -5,7 +5,9 @@ public class EndGate : MonoBehaviour
 {
     private void Update()
     {
-        //if (Input.GetKeyDown(KeyCode.U)) GameManager.i.Transition();
+#if unityEditor
+        if (Input.GetKeyDown(KeyCode.U)) GameManager.i.Transition();
+#endif
     }
 
     private void OnTriggerEnter(Collider other)

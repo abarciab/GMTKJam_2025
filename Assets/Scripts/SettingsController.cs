@@ -9,6 +9,8 @@ public class SettingsController : MonoBehaviour
     [SerializeField] private Slider _musicVolume;
     [SerializeField] private Slider _ambientVolume;
     [SerializeField] private Slider _sfxVolume;
+    [SerializeField] private Slider _mouseSensitivityX;
+    [SerializeField] private Slider _mouseSensitivityY;
 
     private void Start()
     {
@@ -16,11 +18,21 @@ public class SettingsController : MonoBehaviour
         _musicVolume.onValueChanged.AddListener((float value) => AudioManager.i.SetMusicVolume(value));
         _ambientVolume.onValueChanged.AddListener((float value) => AudioManager.i.SetAmbientVolume(value));
         _sfxVolume.onValueChanged.AddListener((float value) => AudioManager.i.SetSFXVolume(value));
+
+        _mouseSensitivityX.value = Utils.MouseSensitivity.x / 2;
+        _mouseSensitivityY.value = Utils.MouseSensitivity.y / 2;
     }
 
     private void OnEnable()
     {
         SetSliderValuesToAudioSettings();
+        _mouseSensitivityX.value = Utils.MouseSensitivity.x / 2;
+        _mouseSensitivityY.value = Utils.MouseSensitivity.y / 2;
+    }
+
+    public void ChangeSensitivitySliders()
+    {
+        Utils.MouseSensitivity = new Vector2(_mouseSensitivityX.value, _mouseSensitivityY.value) * 2;
     }
 
     void SetSliderValuesToAudioSettings()

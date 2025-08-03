@@ -17,6 +17,8 @@ public static class Utils
 
     public static bool Talking;
 
+    public static Vector2 MouseSensitivity = new Vector2(1, 1);
+
     public static void SetCursor(bool visible)
     {
         if (visible) numMenusOpen += 1;

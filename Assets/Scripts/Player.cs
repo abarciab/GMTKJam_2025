@@ -417,7 +417,7 @@ public class Player : MonoBehaviour
 
     private void Turn()
     {
-        var mouseDelta = Input.mousePositionDelta.x;
+        var mouseDelta = Input.mousePositionDelta.x * Utils.MouseSensitivity.y;
 
         transform.Rotate(Vector3.up, mouseDelta * _spinSpeed * Time.deltaTime * 100);
     }
