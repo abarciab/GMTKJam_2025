@@ -13,7 +13,7 @@ public static class Utils
 
     public static float Rand(Vector2 range) => Random.Range(range.x, range.y);
 
-    private static int numMenusOpen = 0;
+    public static int numMenusOpen = 0;
 
     public static bool Talking;
 
