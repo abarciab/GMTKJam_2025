@@ -31,6 +31,8 @@ public class Foot : MonoBehaviour
 
     Transform _player;
 
+    private float _realMaxY => _groundY + _maxY;
+
     private void Start()
     {
         _player = GameManager.i.Player.transform;
@@ -43,7 +45,7 @@ public class Foot : MonoBehaviour
         if (didHit) _groundY = hitInfo.point.y;
         _shadowOriginalScale = _shadowCaster.localScale;
 
-        var y = _maxY;
+        var y = _realMaxY;
         if (_rising) y = _groundY;
         var pos = transform.position;
         pos.y = y;
@@ -68,7 +70,7 @@ public class Foot : MonoBehaviour
             return;
         }
 
-        var progressUp = (transform.position.y - _groundY) / (_maxY - _groundY);
+        var progressUp = (transform.position.y - _groundY) / (_realMaxY - _groundY);
 
         
         if (_rising) {
@@ -106,7 +108,7 @@ public class Foot : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         var top = transform.position;
-        top.y = _maxY;
+        top.y = _realMaxY;
         var bottom = transform.position;
         if (Application.isPlaying) bottom.y = _groundY;
         else bottom.y = 0;
@@ -117,17 +119,17 @@ public class Foot : MonoBehaviour
 
     private void Rise()
     {
-        var progressUp = (transform.position.y - _groundY) / (_maxY - _groundY);
+        var progressUp = (transform.position.y - _groundY) / (_realMaxY - _groundY);
         var speed = _speedCurve.Evaluate(progressUp) * _riseSpeed;
         transform.position += Vector3.up * Mathf.Max(speed, 0.1f) * Time.deltaTime;
-        if (transform.position.y > _maxY) {
+        if (transform.position.y > _realMaxY) {
             _rising = false;
         }
     }
 
     private void Fall()
     {
-        var progressDown = 1 - ( (transform.position.y - _groundY) / (_maxY - _groundY));
+        var progressDown = 1 - ( (transform.position.y - _groundY) / (_realMaxY - _groundY));
         var speed = _speedCurve.Evaluate(progressDown) * _fallSpeed;
         transform.position += Vector3.down * Mathf.Max(speed, 0.1f) * Time.deltaTime;
         if (transform.position.y <= _groundY) {

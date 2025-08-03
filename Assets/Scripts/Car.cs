@@ -1,6 +1,7 @@
 using MyBox;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public enum CarStatType { ACCEL, EFFICIENCY, TOP_SPEED, HANDLING, HP, CAPACITY}
@@ -34,10 +35,11 @@ public class Car : MonoBehaviour
     [SerializeField] private float _baseFuelUseFactor = 0.1f;
     [SerializeField] private float _baseTurnSpeed = 2.5f;
     [SerializeField] private float _baseHpMax = 10;
+    [SerializeField] private int _baseItemCapacity = 25;
     [SerializeField] private List<CarStat> _stats;
-    //capacity
 
     [Header("Driving Mechanics")]
+    [SerializeField] private float _encumberedMaxSpeed = 3;
     [SerializeField] private Transform _model;
     [SerializeField] private float _modelLerpFactor;
     [SerializeField] private Animator _carAnimator;
@@ -56,11 +58,6 @@ public class Car : MonoBehaviour
     [Header("Sounds")]
     [SerializeField] private Sound _engineLoop;
 
-    [Header("Broken Behavior")]
-    [SerializeField] private Inventory _currentInventory;
-    [SerializeField] private Inventory _requiredInventory;
-    [SerializeField] private Sound _depositSound;
-
     [Header("Misc")]
     [SerializeField] private Player _player;
 
@@ -71,8 +68,8 @@ public class Car : MonoBehaviour
     private float _forwardSpeedPercent;
     private bool _boosting;
     private float _currentHp;
+    private bool _offRoad;
 
-    public bool ReadyToGo => _currentInventory.Contains(_requiredInventory);
     public void SetFuel(float fuel) => _currentFuel = fuel;
     public void SetThrottle(float throttle) => _throttle = throttle;
     public void setWheelAngle(float wheelAngle) => _wheelAngle = wheelAngle;
@@ -83,12 +80,13 @@ public class Car : MonoBehaviour
     public float FuelPercent => _currentFuel / _maxFuel;
     public float HpPercent => _currentHp / _maxHp;
 
-    private float _maxSpeed => _baseMaxSpeed + GetValue(CarStatType.TOP_SPEED) + (_boosting ? _boostSpeedAdd : 0);
+    private float _maxSpeed => (Encumbered || _offRoad) ? _encumberedMaxSpeed : _baseMaxSpeed + GetValue(CarStatType.TOP_SPEED) + (_boosting ? _boostSpeedAdd : 0);
     private float _forwardAccel => _baseForwardAccel + GetValue(CarStatType.ACCEL) + (_boosting ? _boostSpeedAdd : 0);
     private float _fuelUseFactor => Mathf.Max(0, _baseFuelUseFactor - GetValue(CarStatType.EFFICIENCY) + (_boosting ? _baseFuelUseFactor : 0));
     private float _carTurnSpeed => _baseTurnSpeed + GetValue(CarStatType.HANDLING);
     private float _maxHp => _baseHpMax + GetValue(CarStatType.HP);
-
+    public float ItemCapacity => _baseItemCapacity + GetValue(CarStatType.CAPACITY);
+    public bool Encumbered => _player.GetComponent<PlayerInventory>().Inventory(InventoryType.CAR).GetTotalItemCount() > ItemCapacity;
 
     private void OnValidate()
     {
@@ -97,7 +95,6 @@ public class Car : MonoBehaviour
 
     private void Awake()
     {
-        _depositSound = Instantiate(_depositSound);
         _engineLoop = Instantiate(_engineLoop);
         _rb = GetComponent<Rigidbody>();
     }
@@ -106,7 +103,6 @@ public class Car : MonoBehaviour
     {
         _currentHp = _maxHp;
         _engineLoop.PlaySilent();
-        UpdateUI();
         _rb.isKinematic = true;
     }
 
@@ -128,8 +124,16 @@ public class Car : MonoBehaviour
             UIManager.i.Do(UIAction.HIDE_STATUS, Status.FUEL_EMPTY);
             UIManager.i.Do(UIAction.HIDE_STATUS, Status.LOW_FUEL);
         }
+        if (Encumbered) UIManager.i.Do(UIAction.SHOW_STATUS, Status.TRUCK_OVERLOADED);
+        else UIManager.i.Do(UIAction.HIDE_STATUS, Status.TRUCK_OVERLOADED);
 
-        
+        var didHit = Physics.Raycast(transform.position + Vector3.up * 3, Vector3.down, out var hitInfo, 1000, _floorLayerMask);
+        if (didHit) {
+            _offRoad = !hitInfo.collider.CompareTag("Road");
+        }
+
+        if (_offRoad) UIManager.i.Do(UIAction.SHOW_STATUS, Status.OFF_ROAD);
+        else UIManager.i.Do(UIAction.HIDE_STATUS, Status.OFF_ROAD);
 
         _carAnimator.speed = _driving ? Mathf.Clamp(_currentFuel / 2, 0, 1) : 0;
         _worldUI.gameObject.SetActive(_driving);
@@ -178,7 +182,7 @@ public class Car : MonoBehaviour
             _currentHp -= crashable.Damage;
             if (crashable.Damage > 0) FindFirstObjectByType<CameraShake>().ShakeDefault();
         }   
-    }
+    }    
 
     public void AddFuel(float fuelDelta)
     {
@@ -197,9 +201,8 @@ public class Car : MonoBehaviour
         foreach (var s in _stats) if (s.Data.Type == type) s.Level += 1;
     }
 
-    private void LeaveCar()
+    public void LeaveCar()
     {
-        UpdateUI();
 
         foreach (var part in _model.GetComponentsInChildren<CarPart>()) {
             part.GetComponent<Collider>().enabled = true;
@@ -217,7 +220,14 @@ public class Car : MonoBehaviour
 
     private void OnDisable()
     {
+        //_model.SetParent(transform);
+        _model.gameObject.SetActive(false);
         _engineLoop.SetPercentVolume(0.1f);
+    }
+
+    private void OnEnable()
+    {
+        _model.gameObject.SetActive(true);
     }
 
     private void HandleThrottle()
@@ -308,38 +318,5 @@ public class Car : MonoBehaviour
 
         _driving = true;
         _rb.isKinematic = false;
-    }
-
-    public List<Item> GetRemainingRequiredItems()
-    {
-        return _currentInventory.GetDifference(_requiredInventory);
-    }
-
-    public string GetDisplayString(Inventory playerInventory)
-    {
-        if (ReadyToGo) return "Fuel Full";
-        else {
-            var readyToDeposit = playerInventory.GetOverlap(GetRemainingRequiredItems()).Count > 0;
-            if (readyToDeposit) return "Deposit Fuel";
-            else return "More fuel required";
-        }
-    }
-
-    public void DepositItems(List<Item> toDeposit)
-    {
-        foreach (var i in toDeposit) {
-            _currentInventory.AddItems(i);
-        }
-
-        _depositSound.Play();
-
-        if (GetRemainingRequiredItems().Count == 0) _currentFuel = _maxFuel;
-
-        UpdateUI();
-    }
-
-    private void UpdateUI()
-    {
-        UIManager.i.Do(UIAction.DISPLAY_CAR_INVENTORY, GetRemainingRequiredItems());
     }
 }

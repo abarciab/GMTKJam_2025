@@ -213,7 +213,7 @@ public class Inventory
 
 public class PlayerInventory : MonoBehaviour
 {
-    [SerializeField] private int _weightLimit = 15;
+    public int _weightLimit = 15;
     [SerializeField] private Inventory _playerInventory;
     [SerializeField] private Inventory _carInventory;
 

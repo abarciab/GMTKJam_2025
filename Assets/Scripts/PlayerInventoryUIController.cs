@@ -1,5 +1,6 @@
 using System.Linq;
 using TMPro;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,7 +10,6 @@ public class PlayerInventoryUIController : UIController
     [SerializeField] private TextMeshProUGUI _tooltipText;
     [SerializeField] private bool _isCar;
     [SerializeField] private Slider _weightLimitSlider;
-    [SerializeField] private float _weightLimit = 15;
 
     private Player _player;
     private Inventory _inventory;
@@ -33,7 +33,7 @@ public class PlayerInventoryUIController : UIController
         if (InputController.GetDown(Control.INVENTORY)) CloseInventory();
 
         var totalItems = _inventory.Items.Sum(x => x.Quantity);
-        var targetValue = totalItems / _weightLimit;
+        var targetValue = totalItems / (_isCar ? GameManager.i.Car.ItemCapacity : GameManager.i.Player.GetComponent<PlayerInventory>()._weightLimit);
         _weightLimitSlider.value = Mathf.Lerp(_weightLimitSlider.value, targetValue, 10 * Time.deltaTime);
     }
 
@@ -54,7 +54,7 @@ public class PlayerInventoryUIController : UIController
         _inventory = inventory;
 
         var totalItems = _inventory.Items.Sum(x => x.Quantity);
-        _weightLimitSlider.value = totalItems / _weightLimit;        
+        _weightLimitSlider.value = totalItems / (_isCar ? GameManager.i.Car.ItemCapacity : GameManager.i.Player.GetComponent<PlayerInventory>()._weightLimit);
 
         _player.SetFrozen(true);
         Utils.SetCursor(true);

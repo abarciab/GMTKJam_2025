@@ -175,7 +175,7 @@ public class Player : MonoBehaviour
     {
         _camera.FollowCar();
         if (_hoveredCarPart) _hoveredCarPart.Car.StartDriving();
-        else FindFirstObjectByType<Car>().StartDriving();
+        else FindFirstObjectByType<Car>(FindObjectsInactive.Include).StartDriving();
 
         gameObject.SetActive(false);
         UIManager.i.Do(UIAction.DISPLAY_HOVERED, "");

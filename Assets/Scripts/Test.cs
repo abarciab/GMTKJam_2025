@@ -7,9 +7,9 @@ using UnityEngine.UI;
 
 public class Test : MonoBehaviour
 {
-
-    private void Update()
+    [ButtonMethod]
+    public void MoveCar()
     {
-        if (Input.GetKeyDown(KeyCode.F)) GetComponent<Slider>().value -= 0.2f;
+        FindFirstObjectByType<Car>(FindObjectsInactive.Include).transform.position = transform.position;
     }
 }

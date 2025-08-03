@@ -1,6 +1,7 @@
 using MyBox;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 
 [System.Serializable]
@@ -101,12 +102,15 @@ public class AreaController : MonoBehaviour
     public void EnterArea(Car car, CameraController camera)
     {
         car.transform.SetPositionAndRotation(_entrance.position, _entrance.rotation);
+        car.transform.position = _entrance.position;
 
         camera.FollowCar();
         car.SetFuel(12);
         car.SetThrottle(3);
         car.setWheelAngle(0);
         InitializeArea(car);
+        FindFirstObjectByType<Player>(FindObjectsInactive.Include).GetInCar();
+        car.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
 
         camera.SnapToCar();
     }
