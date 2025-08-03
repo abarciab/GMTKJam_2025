@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3210807452304894032}
   m_Layer: 0
   m_Name: WreckedTruck_Resource
-  m_TagString: Untagged
+  m_TagString: Wreck
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -89,7 +89,7 @@ MonoBehaviour:
     Rarity: 0.1
   _dropQuantityRange: {x: 3, y: 6}
   _breakable: 1
-  _breakTime: 4
+  _breakTime: 3
   _breakSound: {fileID: 11400000, guid: e07f9e212d809ae4b8258fbd54ff686f, type: 2}
 --- !u!1 &6480292770949032054
 GameObject:

@@ -11,6 +11,7 @@ public class HUDController : UIController
     private void Start()
     {
         DisplayCollectible("");
+        DisplayStaminaProgress(0);
     }    
 
     protected override void UpdateUI(UIAction action, object arg)

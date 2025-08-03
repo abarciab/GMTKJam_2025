@@ -70,6 +70,8 @@ public class Car : MonoBehaviour
     private float _currentHp;
     private bool _offRoad;
 
+    [HideInInspector] public bool Paused;
+
     public void SetFuel(float fuel) => _currentFuel = fuel;
     public void SetThrottle(float throttle) => _throttle = throttle;
     public void setWheelAngle(float wheelAngle) => _wheelAngle = wheelAngle;
@@ -232,10 +234,10 @@ public class Car : MonoBehaviour
 
     private void HandleThrottle()
     {
-        if (InputController.Get(Control.MOVE_FORWARD) && _currentFuel > 0) {
+        if (!Paused && InputController.Get(Control.MOVE_FORWARD) && _currentFuel > 0) {
             _throttle += _forwardAccel * Time.deltaTime;
         }
-        else if (InputController.Get(Control.MOVE_BACK) && _currentFuel > 0) {
+        else if (!Paused && InputController.Get(Control.MOVE_BACK) && _currentFuel > 0) {
                 _throttle -= _forwardAccel * Time.deltaTime;
         }
         else {
@@ -250,10 +252,10 @@ public class Car : MonoBehaviour
 
     private void HandleTurning()
     {
-        if (InputController.Get(Control.MOVE_RIGHT)) {
+        if (!Paused && InputController.Get(Control.MOVE_RIGHT)) {
             _wheelAngle += _wheelTurnSpeed * Time.deltaTime;
         }
-        else if (InputController.Get(Control.MOVE_LEFT)) {
+        else if (!Paused && InputController.Get(Control.MOVE_LEFT)) {
             _wheelAngle -= _wheelTurnSpeed * Time.deltaTime;
         }
         else {

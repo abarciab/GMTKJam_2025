@@ -1,0 +1,101 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8139706974214076366
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 9
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: M_SoulFire_Red_Mat
+  m_Shader: {fileID: -6465566751694194690, guid: 37d7a110764d1fa45866dc76d88fcd07, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords:
+  - _ALPHATEST_ON
+  - _RECEIVE_SHADOWS_OFF
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 2450
+  stringTagMap:
+    RenderType: TransparentCutout
+  disabledShaderPasses:
+  - MOTIONVECTORS
+  - SHADOWCASTER
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Triplanar_4ae5904429294923827f89972e357cad_Texture_1_Texture2D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _AlphaButtomGradient: 0.89
+    - _AlphaClip: 1
+    - _AlphaClipThreshold: 0.42
+    - _AlphaMultiplier: 1.78
+    - _AlphaToMask: 1
+    - _AlphaTopGradientPower: 5.4
+    - _Blend: 0
+    - _BlendModePreserveSpecular: 1
+    - _CastShadows: 0
+    - _CellDensity: 2.13
+    - _CellSharpness: 0.37
+    - _Cull: 0
+    - _DstBlend: 0
+    - _EmisiveTopGradientSharpness: 0.26
+    - _EmissivePower: 1.27
+    - _EmissiveSharpness: 2.74
+    - _EmissiveTopGradient: 3.31
+    - _FireScrollSpeed: -0.28
+    - _FresnalPower: 1
+    - _NoiseScale: 8
+    - _Power: 11
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _ReceiveShadows: 0
+    - _SrcBlend: 1
+    - _Surface: 0
+    - _VoronoiFireSpeed: 3
+    - _VoronoiFireStrength: 1.2
+    - _VoronoiFire_CellDensity: 0.27
+    - _WorkflowMode: 1
+    - _ZTest: 4
+    - _ZWrite: 1
+    - _ZWriteControl: 0
+    m_Colors:
+    - _EmissiveColor: {r: 225.70378, g: 28.861603, b: 0, a: 0}
+    - _FireScrollSpeedXY: {r: 0.26, g: -0.4, b: 0, a: 0}
+    - _MainColor: {r: 14.344054, g: 0, b: 1.7301219, a: 0}
+    - _WobbleSpeed: {r: 0.49, g: -0.2, b: 0, a: 0}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1

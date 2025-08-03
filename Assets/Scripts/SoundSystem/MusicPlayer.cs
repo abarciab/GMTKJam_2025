@@ -14,6 +14,7 @@ public class AmbientSound
 
     public void Play()
     {
+        if (cooldown > 0) return;
         transform.localPosition = Random.insideUnitSphere * distanceFromCamera;
         sound.Play(transform);
         cooldown = Random.Range(waitTimeRange.x, waitTimeRange.y);
@@ -104,7 +105,9 @@ public class MusicPlayer : MonoBehaviour
 
         foreach (var a in ambientSounds) {
             a.cooldown -= Time.deltaTime;
-            if (a.cooldown <= 0) a.Play();
+            if (a.cooldown <= 0) {
+                a.Play();
+            }
         }
 
         float pausedMod = Time.timeScale == 0 ? 0 : 1;
