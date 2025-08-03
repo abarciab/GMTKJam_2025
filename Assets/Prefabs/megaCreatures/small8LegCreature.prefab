@@ -505,6 +505,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1400839820539451462, guid: 385360f0f37098d4496fe77bf0e2497d, type: 3}
+      propertyPath: _appearSound
+      value: 
+      objectReference: {fileID: 11400000, guid: ac533919553776749812116433a96d7b, type: 2}
+    - target: {fileID: 1400839820539451462, guid: 385360f0f37098d4496fe77bf0e2497d, type: 3}
       propertyPath: _feet.Array.size
       value: 8
       objectReference: {fileID: 0}

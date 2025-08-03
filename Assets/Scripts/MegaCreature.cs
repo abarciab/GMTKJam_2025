@@ -9,10 +9,17 @@ public class MegaCreature : MonoBehaviour
     [SerializeField] private float _initialDelay;
     [SerializeField] private float _resetDistance;
     [SerializeField] private Transform _body;
+    [SerializeField] private Sound _appearSound;
 
     private List<Vector3> _footStartingPositions = new List<Vector3>();
     private Vector3 _startingPosition;
 
+
+    private void OnEnable()
+    {
+        if (!_appearSound.Instantialized) _appearSound = Instantiate(_appearSound);
+        _appearSound.Play();
+    }
     private void Start()
     {
         UpdateBodyPosition();
