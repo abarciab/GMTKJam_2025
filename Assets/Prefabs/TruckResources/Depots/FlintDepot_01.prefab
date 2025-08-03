@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 99740638009950681}
   - component: {fileID: 5380728187393285800}
   m_Layer: 0
-  m_Name: FlintDepot_01
+  m_Name: fuel depot
   m_TagString: Untagged
   m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -55,6 +55,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d1db6206e5406947a70d210f947be66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _type: 0
 --- !u!1001 &85500486644793122
 PrefabInstance:
   m_ObjectHideFlags: 0
