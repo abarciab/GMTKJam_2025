@@ -16,9 +16,13 @@ public class Player : MonoBehaviour
     [SerializeField] private float _arrowForce = 10;
     [SerializeField] private Sound _bowShotSound;
 
+    [Header("Sprinting")]
+    [SerializeField] private float _staminaMax = 5;
+    [SerializeField] private float _runSpeed = 10;
+    [SerializeField] private float _staminaRefilSpeed = 0.25f;
+
     [Header("Movement")]
     [SerializeField] private float _walkSpeed = 5;
-    [SerializeField] private float _runSpeed = 10;
     [SerializeField] private float _encumberedSpeed = 10;
     [SerializeField] private float _strafeSpeed = 5;
     [SerializeField] private float _spinSpeed = 5;
@@ -41,10 +45,12 @@ public class Player : MonoBehaviour
     private bool _frozen;
     private bool _breaking;
     private bool _talking;
+    private bool _sprintEnabled;
     private float _timeBreaking;
     private float _timeHoldingArrow;
     private bool _grounded;
     private float _gravityDelta;
+    private float _staminaLeft;
 
     private Collectable _hoveredCollectible;
     private CarPart _hoveredCarPart;
@@ -54,7 +60,12 @@ public class Player : MonoBehaviour
     public void EndConversation() => _talking = false;
     public void SetFrozen(bool frozen) => _frozen = frozen;
     public bool Frozen => _frozen;
-    public bool Sprinting => InputController.Get(Control.SPRINT) && _rb.linearVelocity.magnitude > 0 && !_inventory.Encumbered;
+    public bool Sprinting => InputController.Get(Control.SPRINT) && _rb.linearVelocity.magnitude > 0 && !_inventory.Encumbered && _staminaLeft > 0 && _sprintEnabled;
+
+    private void OnEnable()
+    {
+        _staminaLeft = _staminaMax;
+    }
 
     private void Awake()
     {
@@ -64,8 +75,27 @@ public class Player : MonoBehaviour
         _bowShotSound = Instantiate(_bowShotSound);
     }
 
+    private void OnDisable()
+    {
+        UIManager.i.Do(UIAction.SHOW_STAMINA, 0);
+    }
+
     void Update()
     {
+        if (InputController.GetUp(Control.SPRINT)) {
+            if (_staminaLeft < _staminaMax / 2) _sprintEnabled = false;
+        }
+
+        if (Sprinting) {
+            _staminaLeft -= Time.deltaTime;
+        }
+        else {
+            _staminaLeft += Time.deltaTime * _staminaRefilSpeed;
+            if (!_sprintEnabled && _staminaLeft > _staminaMax / 2) _sprintEnabled = true;
+        }
+        _staminaLeft = Mathf.Clamp(_staminaLeft, 0, _staminaMax);
+        UIManager.i.Do(UIAction.SHOW_STAMINA, _staminaLeft / _staminaMax);
+
         if (_dead || _talking || _frozen) return;
 
         if (InputController.GetDown(Control.INVENTORY)) UIManager.i.Do(UIAction.TOGGLE_INVENTORY, _inventory.Inventory(InventoryType.PLAYER));
@@ -259,7 +289,7 @@ public class Player : MonoBehaviour
 
         if (InputController.Get(Control.MOVE_FORWARD)) {
 
-            var targetSpeed = InputController.Get(Control.SPRINT) ? _runSpeed : _walkSpeed;
+            var targetSpeed = Sprinting ? _runSpeed : _walkSpeed;
             if (encumbered) targetSpeed = _encumberedSpeed;
 
             var forwardSpeed = Vector3.Dot(_rb.linearVelocity, transform.forward);

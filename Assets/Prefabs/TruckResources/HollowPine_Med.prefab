@@ -136,7 +136,7 @@ MonoBehaviour:
       Name: 
       Data: {fileID: 11400000, guid: a2a0089db8c23cb4dae83efbe34e69dd, type: 2}
       Quantity: 1
-    Rarity: 0.3
+    Rarity: 0.11
   _dropQuantityRange: {x: 2, y: 4}
   _breakable: 1
   _breakTime: 3.5
