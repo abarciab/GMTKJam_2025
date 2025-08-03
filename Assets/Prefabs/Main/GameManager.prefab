@@ -127,14 +127,68 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4a03c4e32066fe4d975a943ec7f7434, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainMusic: {fileID: 11400000, guid: ffa2817c886bfef4fbed5061af9c81d9, type: 2}
+  mainMusic: {fileID: 11400000, guid: 5499306c3454f7f4889effb2be8d3054, type: 2}
   altMusic: {fileID: 0}
   pauseMusic: {fileID: 0}
   ambientLoop: {fileID: 0}
   silenceWaitRange: {x: 1, y: 10}
   fadeIn: 1
   playAltMusic: 0
-  ambientSounds: []
+  ambientSounds:
+  - name: AmbientLoop
+    sound: {fileID: 11400000, guid: 0571276f56b5f6440b169547da1eab38, type: 2}
+    waitTimeRange: {x: 0, y: 0}
+    distanceFromCamera: 0
+    cooldown: 0
+    transform: {fileID: 0}
+--- !u!1 &7451735605759854500
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5879066826446954281}
+  - component: {fileID: 7059011478581842295}
+  m_Layer: 0
+  m_Name: WindManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5879066826446954281
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7451735605759854500}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3822787722222924825}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7059011478581842295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7451735605759854500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34afc54c83b0126429baf03c9b65550d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  windDirection: {x: 1.84, y: 0.33}
+  windSize: 1.5
+  windStrength: 1.5
+  windSpeed: 3.45
 --- !u!1 &7456010668587249705
 GameObject:
   m_ObjectHideFlags: 0
@@ -168,6 +222,7 @@ Transform:
   m_Children:
   - {fileID: 6059746725399832286}
   - {fileID: 5048238786432794984}
+  - {fileID: 5879066826446954281}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4977898134054305865
@@ -185,13 +240,20 @@ MonoBehaviour:
   _totalTime: 240
   _creatureParent: {fileID: 0}
   _spawnTimes:
-  - 0.644
-  - 0.403
-  - 0.209
-  - 0.088
-  - 0.046
-  - 0.023
-  - 0.019
+  - 0.924
+  - 0.84
+  - 0.742
+  - 0.633
+  - 0.527
+  - 0.374
+  - 0.272
+  - 0.214
+  - 0.156
+  - 0.083
+  - 0.051
+  - 0.054
+  - 0.018
+  - 0.025
   _player: {fileID: 0}
   _car: {fileID: 0}
   _camera: {fileID: 0}
