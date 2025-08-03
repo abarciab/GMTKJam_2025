@@ -60,6 +60,7 @@ public class Car : MonoBehaviour
 
     [Header("Misc")]
     [SerializeField] private Player _player;
+    [SerializeField] private GameObject _repairMenuParent;
 
     [SerializeField, ReadOnly] private float _currentFuel;
     private Rigidbody _rb;
@@ -78,9 +79,10 @@ public class Car : MonoBehaviour
     public void SetEndGate(Transform endGate) => _worldUI.EndGate = endGate;
     public CarStat GetStat(CarStatType type) => _stats.Where(x => x.Data.Type == type).First();
     private float GetValue(CarStatType type) => _stats.Where(x => x.Data.Type == type).First().Value;
-    public bool Boosting => _boosting && _rb.linearVelocity.magnitude > 0;
+    public bool Boosting => _boosting && _rb.linearVelocity.magnitude > 0 && !_anyPause;
     public float FuelPercent => _currentFuel / _maxFuel;
     public float HpPercent => _currentHp / _maxHp;
+    private bool _anyPause => Paused || _repairMenuParent.activeInHierarchy;
 
     private float _maxSpeed => (Encumbered || _offRoad) ? _encumberedMaxSpeed : _baseMaxSpeed + GetValue(CarStatType.TOP_SPEED) + (_boosting ? _boostSpeedAdd : 0);
     private float _forwardAccel => _baseForwardAccel + GetValue(CarStatType.ACCEL) + (_boosting ? _boostSpeedAdd : 0);
@@ -145,6 +147,11 @@ public class Car : MonoBehaviour
             return;
         }
         else {
+
+            if (InputController.GetDown(Control.INVENTORY)) {
+                UIManager.i.Do(UIAction.OPEN_REPAIR_MENU);
+            }
+
             UIManager.i.Do(UIAction.SHOW_CAR_HP, _currentHp / _maxHp);
             _player.transform.position = transform.position;
             if (Input.GetKeyDown(KeyCode.T)) _currentFuel = _maxFuel;
@@ -234,10 +241,10 @@ public class Car : MonoBehaviour
 
     private void HandleThrottle()
     {
-        if (!Paused && InputController.Get(Control.MOVE_FORWARD) && _currentFuel > 0) {
+        if (!_anyPause && InputController.Get(Control.MOVE_FORWARD) && _currentFuel > 0) {
             _throttle += _forwardAccel * Time.deltaTime;
         }
-        else if (!Paused && InputController.Get(Control.MOVE_BACK) && _currentFuel > 0) {
+        else if (!_anyPause && InputController.Get(Control.MOVE_BACK) && _currentFuel > 0) {
                 _throttle -= _forwardAccel * Time.deltaTime;
         }
         else {
@@ -252,10 +259,10 @@ public class Car : MonoBehaviour
 
     private void HandleTurning()
     {
-        if (!Paused && InputController.Get(Control.MOVE_RIGHT)) {
+        if (!_anyPause && InputController.Get(Control.MOVE_RIGHT)) {
             _wheelAngle += _wheelTurnSpeed * Time.deltaTime;
         }
-        else if (!Paused && InputController.Get(Control.MOVE_LEFT)) {
+        else if (!_anyPause && InputController.Get(Control.MOVE_LEFT)) {
             _wheelAngle -= _wheelTurnSpeed * Time.deltaTime;
         }
         else {

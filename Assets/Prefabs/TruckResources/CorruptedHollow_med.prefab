@@ -141,7 +141,7 @@ MonoBehaviour:
       Name: 
       Data: {fileID: 11400000, guid: 0f82e34ea8fc56344878435e9ec4c74b, type: 2}
       Quantity: 1
-    Rarity: 1
+    Rarity: 0.79
   - Item:
       Name: 
       Data: {fileID: 11400000, guid: 09890b301138cc244b2ecd81f7013375, type: 2}
@@ -151,6 +151,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 4.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
+  ActiveModels: []
 --- !u!1001 &709726345014268758
 PrefabInstance:
   m_ObjectHideFlags: 0

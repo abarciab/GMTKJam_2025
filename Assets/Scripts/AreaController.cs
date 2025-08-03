@@ -35,6 +35,7 @@ public class AreaController : MonoBehaviour
     [SerializeField] private Transform _npcParent;
     [SerializeField] private int _numNPCS = 3;
     private List<List<string>> _conversations = new List<List<string>>();
+    [ReadOnly, SerializeField] private int _numConversations;
 
     [Header("Player Truck")]
     [SerializeField] private int _startingFuel = 5;
@@ -61,6 +62,7 @@ public class AreaController : MonoBehaviour
         foreach (var npc in allNpcs) Destroy(npc.gameObject);
     }
 
+    [ButtonMethod]
     private void ParseTextFile()
     {
         _conversations.Clear();
@@ -71,6 +73,8 @@ public class AreaController : MonoBehaviour
             var lines = conversation.Split("\n").Where(x => !string.IsNullOrWhiteSpace(x)).ToList();
             _conversations.Add(lines);
         }
+
+        _numConversations = _conversations.Count;
     }
 
     public List<string> GetLines()

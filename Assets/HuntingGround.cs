@@ -20,6 +20,11 @@ public class HuntingGround : MonoBehaviour
     private List<GameObject> _spawnedAnimals = new List<GameObject>();
     private float _waitTime;
 
+    private void OnValidate()
+    {
+        gameObject.name = "hunting ground";
+    }
+
     private void Start()
     {
         for (int i = 0; i < _numFires; i++) {

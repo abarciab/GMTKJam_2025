@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5066053959247969570}
   m_Layer: 0
-  m_Name: ScrapDepot_01
+  m_Name: zScrapDepot_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
