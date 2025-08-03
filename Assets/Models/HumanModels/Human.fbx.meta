@@ -1,9 +1,29 @@
 fileFormatVersion: 2
-guid: 3ee5b1ada24408041b706f0080fcc969
+guid: a411ef85f1a8e7f47bf91b9172d8216d
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Human
+    second: {fileID: 2100000, guid: 0fd8772f7ef30ba44acb5971df43aba8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pants
+    second: {fileID: 2100000, guid: c0658cb7680798a4ba45db31c5094fec, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Shoes
+    second: {fileID: 2100000, guid: fd2eae1460eb20f4bab3cc62c1858393, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SweaterShirt
+    second: {fileID: 2100000, guid: e06fe0a64ca3b8543af5ae592cd8a77d, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
