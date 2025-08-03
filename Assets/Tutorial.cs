@@ -2,6 +2,7 @@ using MyBox;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
+using TMPro.EditorUtilities;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -17,7 +18,7 @@ public class Tutorial : UIController
 {
     [SerializeField] private bool _enabled = true;
 
-    [Header("Lines")]
+    [Header("Main")]
     [SerializeField] private TutorialLine _intro;
     [SerializeField] private TutorialLine _outOfFuel;
     [SerializeField] private TutorialLine _howToWalk;
@@ -37,6 +38,15 @@ public class Tutorial : UIController
     [SerializeField] private TutorialLine _spirit;
     [SerializeField] private TutorialLine _postSpirit;
 
+    [Header("Misc")]
+    [SerializeField] private TutorialLine _inventory;
+    [SerializeField] private TutorialLine _carInventory;
+    [SerializeField] private TutorialLine _crash;
+    [SerializeField] private TutorialLine _stampede;
+    [SerializeField] private TutorialLine _encumbered;
+    [SerializeField] private TutorialLine _overloaded;
+    [SerializeField] private TutorialLine _lowHp;
+
     [Header("Parameters")]
     [SerializeField] private float _npcDistance = 50;
     [SerializeField] private float _huntingGroundDistance = 65;
@@ -53,6 +63,7 @@ public class Tutorial : UIController
 
     private bool _readyForTrade;
     private float _timePassed;
+    private bool _spiritKilled;
 
     private void Start()
     {
@@ -65,11 +76,17 @@ public class Tutorial : UIController
 
     protected override void UpdateUI(UIAction action, object arg)
     {
-        if (action == UIAction.SHOW_STATUS && arg is Status status && status == Status.FUEL_EMPTY) {
-            Show(_outOfFuel);
+        if (action == UIAction.SHOW_STATUS && arg is Status status) {
+            if (status == Status.FUEL_EMPTY) Show(_outOfFuel);
+            if (status == Status.ENCUMBERED) Show(_encumbered);
+            if (status == Status.TRUCK_OVERLOADED) Show(_overloaded);
+            if (status == Status.LOW_HEALTH) Show(_lowHp);
         }
         if (action == UIAction.OPEN_REPAIR_MENU) {
             Show(_refuel);
+        }
+        if (action == UIAction.SPIRIT_DIE) {
+            _spiritKilled = true;
         }
         if (action == UIAction.FINISH_NPC_CONVERSATION) {
             _readyForTrade = true;
@@ -82,6 +99,18 @@ public class Tutorial : UIController
         }
         if (action == UIAction.SHOW_CAR_UPGRADE) {
             Show(_carUpgrade);
+        }
+        if (action == UIAction.OPEN_PLAYER_INVENTORY_CONFIRM) {
+            Show(_inventory);
+        }
+        if (action == UIAction.OPEN_CAR_INVENTORY_CONFIRM) {
+            Show(_carInventory);
+        }
+        if (action == UIAction.SHOW_CAR_HP && arg is float hpPercent && hpPercent > 0 && hpPercent < 1) {
+            Show(_crash);
+        }
+        if (action == UIAction.UPDATE_TIMER && arg is float timerPercent && timerPercent < 0.1f) {
+            Show(_stampede);
         }
     }
 
@@ -153,9 +182,8 @@ public class Tutorial : UIController
                 Show(_huntingGroundInitial);
             }
         }
-        
 
-        if (_playerInventory.GetCount(ItemType.SOUL_SHARD) > 0 || _playerInventory.GetCount(ItemType.SOUL) > 0) {
+        if (_huntingGroundInitial.Completed && _spiritKilled && (_playerInventory.GetCount(ItemType.SOUL_SHARD) > 0 || _playerInventory.GetCount(ItemType.SOUL) > 0)) {
             Show(_postSpirit);
         }
     }

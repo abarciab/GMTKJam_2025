@@ -146,6 +146,7 @@ public class Animal : MonoBehaviour
 
     private void Die()
     {
+        UIManager.i.Do(UIAction.SPIRIT_DIE);
         Instantiate(_corpsePrefab, transform.position, transform.rotation);
         Destroy(gameObject);
     }

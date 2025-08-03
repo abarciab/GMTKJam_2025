@@ -70,6 +70,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
+  ActiveModelVariant: {fileID: 0}
 --- !u!136 &1153565353712127257
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -89,10 +90,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 1
+  m_Radius: 1.568325
+  m_Height: 3.13665
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: -0.33882138, y: -0.67, z: 0.72949874}
 --- !u!114 &4332673123004262510
 MonoBehaviour:
   m_ObjectHideFlags: 0

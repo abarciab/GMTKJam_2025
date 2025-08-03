@@ -66,6 +66,8 @@ public class PlayerInventoryUIController : UIController
             var item = inventory.getItem(allItems[i].Type);
             itemDisplays[i].Initialize(item, this);
         }
+        if (!_isCar)UIManager.i.Do(UIAction.OPEN_PLAYER_INVENTORY_CONFIRM);
+        else UIManager.i.Do(UIAction.OPEN_CAR_INVENTORY_CONFIRM);
     }
 
     private void CloseInventory()
