@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _inertTime: 0.05
-  _lifeTime: 8
+  _lifeTime: 4
   _floorlayer: 3
   _landSound: {fileID: 11400000, guid: 6ed3c92f129b7634cac8ba468a1213cc, type: 2}
   _hitSound: {fileID: 11400000, guid: c9802a89045c25644a00f92b99f87205, type: 2}
