@@ -79,7 +79,7 @@ public class Collectable : MonoBehaviour
             _breakSound.Play(restart: false);
         }
 
-        _blockAnimator.SetBool("Breaking", progress > 0);
+        if (_blockAnimator) _blockAnimator.SetBool("Breaking", progress > 0);
     }
 
     private void SetRandomModelVariantActive()

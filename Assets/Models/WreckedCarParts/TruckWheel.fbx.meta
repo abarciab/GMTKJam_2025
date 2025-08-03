@@ -3,7 +3,17 @@ guid: 3ba2a17381557314aa79af43d00e40f9
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TireMetal
+    second: {fileID: 2100000, guid: 8d149ac5146bfc54bbae24bb53bb1243, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TireRubber
+    second: {fileID: 2100000, guid: 02ff6425f37b7844a89ec59d266da36d, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

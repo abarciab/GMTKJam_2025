@@ -48,12 +48,25 @@ MonoBehaviour:
   _blockAnimator: {fileID: 4080597179073270844}
   _modelVariants: []
   _displayname: Scrap Pile
-  _drop:
-    Name: 
-    Data: {fileID: 11400000, guid: f4798e7c0372d8a4ca1971765ba83d0e, type: 2}
-    Quantity: 4
+  _drops:
+  - Item:
+      Name: 
+      Data: {fileID: 11400000, guid: f4798e7c0372d8a4ca1971765ba83d0e, type: 2}
+      Quantity: 1
+    Rarity: 1
+  - Item:
+      Name: 
+      Data: {fileID: 11400000, guid: 80c0085093e4bff429c199b387ba9f4b, type: 2}
+      Quantity: 1
+    Rarity: 1
+  - Item:
+      Name: 
+      Data: {fileID: 11400000, guid: 09890b301138cc244b2ecd81f7013375, type: 2}
+      Quantity: 1
+    Rarity: 0.3
+  _dropQuantityRange: {x: 2, y: 4}
   _breakable: 1
-  _breakTime: 2
+  _breakTime: 2.5
   _breakSound: {fileID: 0}
 --- !u!1 &4568156589336391341
 GameObject:

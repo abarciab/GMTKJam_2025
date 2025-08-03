@@ -5,6 +5,7 @@ using UnityEngine;
 [SelectionBase]
 public class Foot : MonoBehaviour
 {
+    [SerializeField] private ParticleSystemsPlayer _groundImpactVfx;
     [SerializeField] private RockExplosion _explosion;
     [SerializeField] private Transform _shadowCaster;
     [SerializeField] private AnimationCurve _speedCurve;
@@ -134,7 +135,7 @@ public class Foot : MonoBehaviour
             if (Vector3.Distance(_player.position, transform.position) < _shakeRadius) { 
                 FindFirstObjectByType<CameraShake>().ShakeDefault();
             }
-
+            if (_groundImpactVfx) { _groundImpactVfx.PlayAll(); }
             _explosion.SpawnRocks();
             _stepSoundLocal.Play(transform);
             _rising = true;
