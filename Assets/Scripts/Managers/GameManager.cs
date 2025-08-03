@@ -27,6 +27,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private AreaController _areaController;
     [SerializeField] private List<GameObject> _areaPrefabs = new List<GameObject>();
 
+    [SerializeField] private List<GameObject> _usedAreas = new List<GameObject>();
+
     private float _timeLeft;
     private bool _timerPaused;
     private List<float> _originalSpawnTimes;
@@ -102,6 +104,11 @@ public class GameManager : MonoBehaviour
         var options = _areaPrefabs.Where(x => x.GetComponent<AreaController>().name != _areaController.name).ToList();
         var selectedArea = options[Random.Range(0, options.Count)];
         _areaController = Instantiate(selectedArea, _environment.transform).GetComponent<AreaController>();
+
+        _areaPrefabs.Remove(selectedArea);
+        _usedAreas.Add(selectedArea);
+
+        if (_areaPrefabs.Count == 0) _areaPrefabs = _usedAreas;
 
         _areaController.EnterArea(_car, _camera);
         _environment.SetActive(true);

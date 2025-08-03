@@ -2898,7 +2898,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7716022378078587, guid: 43a6abaf048885d4196500ea0cd9bd38, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -55.7
+      value: -176
       objectReference: {fileID: 0}
     - target: {fileID: 7716022378078587, guid: 43a6abaf048885d4196500ea0cd9bd38, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2906,7 +2906,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7716022378078587, guid: 43a6abaf048885d4196500ea0cd9bd38, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 581.8
+      value: 51
       objectReference: {fileID: 0}
     - target: {fileID: 134131261759186561, guid: 43a6abaf048885d4196500ea0cd9bd38, type: 3}
       propertyPath: m_Color.b
@@ -2958,7 +2958,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4370684093011777546, guid: 43a6abaf048885d4196500ea0cd9bd38, type: 3}
       propertyPath: Name
-      value: areaSnow
+      value: areaSnow 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 4370684093011777546, guid: 43a6abaf048885d4196500ea0cd9bd38, type: 3}
       propertyPath: _numNPCS
@@ -3210,7 +3210,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5426629382249331177, guid: 43a6abaf048885d4196500ea0cd9bd38, type: 3}
       propertyPath: m_Name
-      value: area2Snow
+      value: area2.5 Snow
       objectReference: {fileID: 0}
     - target: {fileID: 6251590077610574347, guid: 43a6abaf048885d4196500ea0cd9bd38, type: 3}
       propertyPath: m_LocalScale.x
@@ -3230,27 +3230,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6651330207313647855, guid: 43a6abaf048885d4196500ea0cd9bd38, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -241.45
+      value: -111.629135
       objectReference: {fileID: 0}
     - target: {fileID: 6651330207313647855, guid: 43a6abaf048885d4196500ea0cd9bd38, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 12.03
+      value: 10.25
       objectReference: {fileID: 0}
     - target: {fileID: 6651330207313647855, guid: 43a6abaf048885d4196500ea0cd9bd38, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 132.19
+      value: 619.7048
       objectReference: {fileID: 0}
     - target: {fileID: 6651330207313647855, guid: 43a6abaf048885d4196500ea0cd9bd38, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.32465982
+      value: -0.78693944
       objectReference: {fileID: 0}
     - target: {fileID: 6651330207313647855, guid: 43a6abaf048885d4196500ea0cd9bd38, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.9458308
+      value: -0.61703026
       objectReference: {fileID: 0}
     - target: {fileID: 6651330207313647855, guid: 43a6abaf048885d4196500ea0cd9bd38, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 502.11
+      value: 436.199
       objectReference: {fileID: 0}
     - target: {fileID: 8391462759455172596, guid: 43a6abaf048885d4196500ea0cd9bd38, type: 3}
       propertyPath: m_Enabled
