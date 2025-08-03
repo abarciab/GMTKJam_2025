@@ -39,6 +39,8 @@ public class Car : MonoBehaviour
     [SerializeField] private List<CarStat> _stats;
 
     [Header("Driving Mechanics")]
+    [SerializeField] private List<Transform> _spinWheels;
+    [SerializeField] private float _maxWheelSpin = 10;
     [SerializeField] private float _encumberedMaxSpeed = 3;
     [SerializeField] private Transform _model;
     [SerializeField] private float _modelLerpFactor;
@@ -112,6 +114,9 @@ public class Car : MonoBehaviour
 
     private void Update()
     {
+        var forwardSpeed = Vector3.Dot(_rb.linearVelocity, transform.forward);
+        var actualmax = _throttleLimits.y * _maxSpeed * 10 * Time.fixedDeltaTime;
+
         _boosting = InputController.Get(Control.SPRINT) && _currentFuel > 0;
 
         if (_currentFuel < 5) {
@@ -148,13 +153,17 @@ public class Car : MonoBehaviour
         }
         else {
 
+            foreach (var wheel in _spinWheels) {
+                wheel.localEulerAngles += Vector3.right * (forwardSpeed / actualmax) * _maxWheelSpin * Time.deltaTime;
+            }
+
             if (InputController.GetDown(Control.INVENTORY)) {
                 UIManager.i.Do(UIAction.OPEN_REPAIR_MENU);
             }
 
             UIManager.i.Do(UIAction.SHOW_CAR_HP, _currentHp / _maxHp);
             _player.transform.position = transform.position;
-            if (Input.GetKeyDown(KeyCode.T)) _currentFuel = _maxFuel;
+            //if (Input.GetKeyDown(KeyCode.T)) _currentFuel = _maxFuel;
         }
 
         if (InputController.GetDown(Control.INTERACT)) {
@@ -164,10 +173,6 @@ public class Car : MonoBehaviour
 
         _currentFuel -= Mathf.Max(_throttle, 2f) * _fuelUseFactor * Time.deltaTime;
         UIManager.i.Do(UIAction.SHOW_CAR_FUEL, (_currentFuel / _maxFuel));
-
-        var forwardSpeed = Vector3.Dot(_rb.linearVelocity, transform.forward);
-
-        var actualmax = _throttleLimits.y * _maxSpeed *10 * Time.fixedDeltaTime;
         UIManager.i.Do(UIAction.SHOW_CAR_SPEED, (forwardSpeed / actualmax) * _maxSpeed);
 
         _forwardSpeedPercent = forwardSpeed / _maxSpeed;
@@ -190,6 +195,7 @@ public class Car : MonoBehaviour
             Destroy(crashable.gameObject);
             _currentHp -= crashable.Damage;
             if (crashable.Damage > 0) FindFirstObjectByType<CameraShake>().ShakeDefault();
+            if (_currentHp <= 0) GameManager.i.LoseGame();
         }   
     }    
 

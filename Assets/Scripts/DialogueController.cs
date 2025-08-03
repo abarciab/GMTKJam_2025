@@ -23,7 +23,7 @@ public class DialogueController : UIController
 
     private void Start()
     {
-        _car = GameManager.i.Car;
+        if (GameManager.i) _car = GameManager.i.Car;
         _letterTypeSound = Instantiate(_letterTypeSound);
     }
 
@@ -34,7 +34,7 @@ public class DialogueController : UIController
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P)) EndConversation();
+        //if (Input.GetKeyDown(KeyCode.P)) EndConversation();
 
         if (_currentLetterIndex >= _currentLine.Length) return;
 
@@ -55,13 +55,15 @@ public class DialogueController : UIController
 
     public void StartConversation(List<string> lines)
     {
-        if (!_car) _car = GameManager.i.Car;
-        _car.Paused = true;
+        if (GameManager.i) {
+            if (!_car) _car = GameManager.i.Car;
+            _car.Paused = true;
+            GameManager.i.Player.SetFrozen(true);
+            GameManager.i.PauseTimer();
+        }
         Utils.Talking = true;
 
-        GameManager.i.Player.SetFrozen(true);
         _lines = lines;
-        if (GameManager.i) GameManager.i.PauseTimer();
         gameObject.SetActive(true);
 
         _currentLineIndex = -1;
@@ -88,17 +90,16 @@ public class DialogueController : UIController
 
     private void EndConversation()
     {
-        _car.Paused = false;
         Utils.Talking = false;
 
         gameObject.SetActive(false);
         Utils.SetCursor(false);
-        if (Utils.numMenusOpen == 0) GameManager.i.Player.SetFrozen(false);
 
-        if (!GameManager.i) return;
-        FindFirstObjectByType<CameraController>().EndConversation();
-        FindFirstObjectByType<Player>(FindObjectsInactive.Include).EndConversation();
-    }
-
-    
+        if (GameManager.i) {
+            _car.Paused = false;
+            if (Utils.numMenusOpen == 0) GameManager.i.Player.SetFrozen(false);
+            FindFirstObjectByType<CameraController>().EndConversation();
+            FindFirstObjectByType<Player>(FindObjectsInactive.Include).EndConversation();
+        }
+    }    
 }

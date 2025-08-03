@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2713141057008346478}
   - component: {fileID: 3210807452304894032}
+  - component: {fileID: -5763662183589757021}
   m_Layer: 0
   m_Name: WreckedTruck_Resource
   m_TagString: Wreck
@@ -91,6 +92,20 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3
   _breakSound: {fileID: 11400000, guid: e07f9e212d809ae4b8258fbd54ff686f, type: 2}
+  ActiveModels: []
+--- !u!114 &-5763662183589757021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2370472884081961437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47e1026e79caf784a929528eca1cd98d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damage: 2
 --- !u!1 &6480292770949032054
 GameObject:
   m_ObjectHideFlags: 0

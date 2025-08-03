@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3221510651065250494}
   - component: {fileID: 4529584159125862871}
+  - component: {fileID: -5781635915535192755}
   m_Layer: 0
   m_Name: CorruptedHollow_small
   m_TagString: Untagged
@@ -69,6 +70,19 @@ MonoBehaviour:
   _breakTime: 3
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
   ActiveModels: []
+--- !u!114 &-5781635915535192755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6611132532557166890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47e1026e79caf784a929528eca1cd98d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damage: 0.5
 --- !u!1 &9079904355871083108
 GameObject:
   m_ObjectHideFlags: 0

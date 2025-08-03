@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4342131079011881468}
   - component: {fileID: -1709490130996840915}
   - component: {fileID: 272945562067580138}
+  - component: {fileID: 7470825033743836266}
   m_Layer: 0
   m_Name: LargeScrapPile
   m_TagString: Untagged
@@ -93,6 +94,19 @@ CapsuleCollider:
   m_Height: 3.032765
   m_Direction: 1
   m_Center: {x: 0.326566, y: -0.57, z: 0.2114915}
+--- !u!114 &7470825033743836266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4188776198524374454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47e1026e79caf784a929528eca1cd98d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damage: 1
 --- !u!1 &4568156589336391341
 GameObject:
   m_ObjectHideFlags: 0

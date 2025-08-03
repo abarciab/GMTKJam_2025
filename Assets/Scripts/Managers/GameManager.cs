@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Timer")]
     [SerializeField] private float _totalTime;
+    [SerializeField] private float _timePercentMod = 0.9f;
     [SerializeField] private Transform _creatureParent;
     [SerializeField, Range(0, 1)] private List<float> _spawnTimes;
 
@@ -115,6 +116,7 @@ public class GameManager : MonoBehaviour
 
         foreach (Transform child in _roadParent) child.gameObject.SetActive(child.GetSiblingIndex() == _areaController.roadIndex);
 
+        _totalTime *= _timePercentMod;
         _timeLeft = _totalTime;
     }
 

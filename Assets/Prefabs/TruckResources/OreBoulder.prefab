@@ -127,6 +127,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3
   _breakSound: {fileID: 11400000, guid: e9bf096b264d6874ba1753b95d600428, type: 2}
+  ActiveModels: []
 --- !u!114 &3260742202576626111
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -139,7 +140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47e1026e79caf784a929528eca1cd98d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 0.5
+  Damage: 1
 --- !u!1001 &86244204642493764
 PrefabInstance:
   m_ObjectHideFlags: 0
