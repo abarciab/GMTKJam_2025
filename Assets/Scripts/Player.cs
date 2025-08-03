@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using UnityEngine.UIElements;
 
 [RequireComponent (typeof(Rigidbody), typeof(PlayerInventory))]
@@ -117,11 +118,15 @@ public class Player : MonoBehaviour
             if (_hoveredNPC != null) NPCInteract(); 
         }
 
-        if (_currHoveredOutline == null) { return; }
-        if (!_hoveredCarPart && !_hoveredCarPart && !_hoveredNPC) {
-            _currHoveredOutline.enabled = false;
-            _currHoveredOutline = null;
-        }
+        //GameObject currObj  = _currHoveredOutline?.gameObject;
+        //if (currObj == null) { return; }
+        //if (currObj != _hoveredCarPart?.gameObject &&
+        //    currObj != _hoveredCollectible?.gameObject &&
+        //    currObj != _hoveredNPC?.gameObject) 
+        //{
+        //    _currHoveredOutline.enabled = false;
+        //    _currHoveredOutline = null;
+        //}
     }
 
     private void OnDrawGizmosSelected()
@@ -265,6 +270,7 @@ public class Player : MonoBehaviour
             _hoveredCollectible = null;
             _hoveredCarPart = null;
             _hoveredNPC = null;
+            DisableOutline();
             return;
         }
 
@@ -272,30 +278,54 @@ public class Player : MonoBehaviour
         _hoveredCarPart = hitInfo.collider.GetComponent<CarPart>();
         _hoveredNPC = hitInfo.collider.GetComponentInParent<NPC>();
 
+        CheckNewOutline();
+
         if (_hoveredCollectible) {
+            OnHoverOutline(_hoveredCollectible.ActiveModelVariant);
             UIManager.i.Do(UIAction.DISPLAY_HOVERED, _hoveredCollectible.DisplayName);
         } else if (_hoveredCarPart) {
+            OnHoverOutline(_hoveredCarPart.gameObject);
             if (_hoveredCarPart.Part == CarPartType.DOOR) UIManager.i.Do(UIAction.DISPLAY_HOVERED, "Enter Car");
             else if (_hoveredCarPart.Part == CarPartType.HOOD) UIManager.i.Do(UIAction.DISPLAY_HOVERED, "Upgrade Car");
             else if (_hoveredCarPart.Part == CarPartType.BED) UIManager.i.Do(UIAction.DISPLAY_HOVERED, "Open Trunk");
             else if (_hoveredCarPart.Part == CarPartType.REPAIR_REFUL) {
                 UIManager.i.Do(UIAction.DISPLAY_HOVERED, "Repair and Refuel");
             }
-        } else if (_hoveredNPC) UIManager.i.Do(UIAction.DISPLAY_HOVERED, _hoveredNPC.HoverName);
-        else {
+        } else if (_hoveredNPC) {
+            UIManager.i.Do(UIAction.DISPLAY_HOVERED, _hoveredNPC.HoverName);
+            OnHoverOutline(_hoveredNPC.gameObject);
+        } else {
             UIManager.i.Do(UIAction.DISPLAY_HOVERED, "");
             return;
         }
 
-        Outline outline = hitInfo.collider.gameObject.GetComponent<Outline>();
+    }
+
+    private void CheckNewOutline()
+    {
+        if (_currHoveredOutline == null) return; 
+
+        if (_currHoveredOutline.gameObject != _hoveredCollectible?.ActiveModelVariant &&
+            _currHoveredOutline.gameObject != _hoveredCarPart?.gameObject &&
+            _currHoveredOutline.gameObject != _hoveredNPC?.gameObject) 
+            { DisableOutline(); }
+    }
+    private void OnHoverOutline(GameObject outlineObj)
+    {
+        Outline outline = outlineObj.GetComponent<Outline>();
         if (!outline) {
-            outline = hitInfo.collider.gameObject.AddComponent<Outline>();
+            outline = outlineObj.AddComponent<Outline>();
+            outline.OutlineWidth = 10f;
         }
-        outline.OutlineWidth = 5;
         outline.enabled = true;
         _currHoveredOutline = outline;
     }
-
+    private void DisableOutline()
+    {
+        if(_currHoveredOutline == null) return;
+        _currHoveredOutline.enabled = false;
+        _currHoveredOutline = null;
+    }
     private void Move()
     {
         UpdatePosition();
