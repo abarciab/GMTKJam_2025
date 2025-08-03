@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Road
   - Wreck
+  - Selectable
   layers:
   - Default
   - TransparentFX

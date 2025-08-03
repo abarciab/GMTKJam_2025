@@ -52,6 +52,7 @@ public class Player : MonoBehaviour
     private float _gravityDelta;
     private float _staminaLeft;
 
+    private Outline _currHoveredOutline;
     private Collectable _hoveredCollectible;
     private CarPart _hoveredCarPart;
     private NPC _hoveredNPC;
@@ -114,6 +115,12 @@ public class Player : MonoBehaviour
             if (_hoveredCollectible != null) CollectableInteract();
             if (_hoveredCarPart != null) CarInteract(); 
             if (_hoveredNPC != null) NPCInteract(); 
+        }
+
+        if (_currHoveredOutline == null) { return; }
+        if (!_hoveredCarPart && !_hoveredCarPart && !_hoveredNPC) {
+            _currHoveredOutline.enabled = false;
+            _currHoveredOutline = null;
         }
     }
 
@@ -265,17 +272,28 @@ public class Player : MonoBehaviour
         _hoveredCarPart = hitInfo.collider.GetComponent<CarPart>();
         _hoveredNPC = hitInfo.collider.GetComponentInParent<NPC>();
 
-        if (_hoveredCollectible) UIManager.i.Do(UIAction.DISPLAY_HOVERED, _hoveredCollectible.DisplayName);
-        else if (_hoveredCarPart) {
+        if (_hoveredCollectible) {
+            UIManager.i.Do(UIAction.DISPLAY_HOVERED, _hoveredCollectible.DisplayName);
+        } else if (_hoveredCarPart) {
             if (_hoveredCarPart.Part == CarPartType.DOOR) UIManager.i.Do(UIAction.DISPLAY_HOVERED, "Enter Car");
             else if (_hoveredCarPart.Part == CarPartType.HOOD) UIManager.i.Do(UIAction.DISPLAY_HOVERED, "Upgrade Car");
             else if (_hoveredCarPart.Part == CarPartType.BED) UIManager.i.Do(UIAction.DISPLAY_HOVERED, "Open Trunk");
             else if (_hoveredCarPart.Part == CarPartType.REPAIR_REFUL) {
                 UIManager.i.Do(UIAction.DISPLAY_HOVERED, "Repair and Refuel");
             }
+        } else if (_hoveredNPC) UIManager.i.Do(UIAction.DISPLAY_HOVERED, _hoveredNPC.HoverName);
+        else {
+            UIManager.i.Do(UIAction.DISPLAY_HOVERED, "");
+            return;
         }
-        else if (_hoveredNPC) UIManager.i.Do(UIAction.DISPLAY_HOVERED, _hoveredNPC.HoverName);
-        else UIManager.i.Do(UIAction.DISPLAY_HOVERED, "");
+
+        Outline outline = hitInfo.collider.gameObject.GetComponent<Outline>();
+        if (!outline) {
+            outline = hitInfo.collider.gameObject.AddComponent<Outline>();
+        }
+        outline.OutlineWidth = 5;
+        outline.enabled = true;
+        _currHoveredOutline = outline;
     }
 
     private void Move()
