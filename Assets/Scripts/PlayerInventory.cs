@@ -5,6 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Android;
 
+public enum InventoryType { PLAYER, CAR, COMBINED}
 
 [System.Serializable]
 public class Item
@@ -213,16 +214,46 @@ public class Inventory
 public class PlayerInventory : MonoBehaviour
 {
     [SerializeField] private int _weightLimit = 15;
-    [SerializeField] private Inventory _inventory;
-    
-    public Inventory Inventory => _inventory;
-    public bool Encumbered => _inventory.GetTotalItemCount() > _weightLimit;
+    [SerializeField] private Inventory _playerInventory;
+    [SerializeField] private Inventory _carInventory;
 
-    public int GetCount(ItemType Item) => _inventory.GetCount(Item);
+    public Inventory Inventory(InventoryType type)
+    {
+        if (type == InventoryType.PLAYER) return _playerInventory;
+        else if (type == InventoryType.CAR) return _carInventory;
+
+        var combined = new Inventory();
+        var items = new List<Item>();
+        foreach (var item in _carInventory.Items) items.Add(new Item(item));
+        foreach (var item in _playerInventory.Items) items.Add(new Item(item));
+
+        combined.AddItems(items);
+        return combined;
+    }
+
+    public void RemoveCombinedItems(List<Item> items)
+    {
+        foreach (var i in items) {
+            var playerCount = _playerInventory.GetCount(i.Data.Type);
+            if (playerCount > 0) {
+                _playerInventory.RemoveItems(i);
+                i.Quantity -= playerCount;
+            }
+            var carCount = _carInventory.GetCount(i.Data.Type);
+            if (carCount > 0) {
+                _carInventory.RemoveItems(i);
+                i.Quantity -= carCount;
+            }
+        }
+    }
+
+    public bool Encumbered => _playerInventory.GetTotalItemCount() > _weightLimit;
+
+    public int GetCount(ItemType Item) => _playerInventory.GetCount(Item);
 
     private void OnValidate()
     {
-        _inventory.OnValidate();   
+        _playerInventory.OnValidate();   
     }
 
     private void Start()
@@ -238,13 +269,13 @@ public class PlayerInventory : MonoBehaviour
 
     public void Additems(ItemType itemType, int quantityToAdd = 1)
     {
-        _inventory.AddItems(itemType, quantityToAdd);
+        _playerInventory.AddItems(itemType, quantityToAdd);
         UpdateUI();
     }
 
     public void Additems(Item newItem)
     {
-        _inventory.AddItems(newItem);
+        _playerInventory.AddItems(newItem);
         UpdateUI();
     }
 
@@ -258,7 +289,7 @@ public class PlayerInventory : MonoBehaviour
 
     public void RemoveItems(ItemType itemType, int quantityToRemove = 1)
     {
-        _inventory.RemoveItems(itemType, quantityToRemove);
+        _playerInventory.RemoveItems(itemType, quantityToRemove);
         UpdateUI();
     }
 
