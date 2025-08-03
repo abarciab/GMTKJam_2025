@@ -176,7 +176,7 @@ public class Car : MonoBehaviour
         if (crashable) {
             Destroy(crashable.gameObject);
             _currentHp -= crashable.Damage;
-            FindFirstObjectByType<CameraShake>().ShakeDefault();
+            if (crashable.Damage > 0) FindFirstObjectByType<CameraShake>().ShakeDefault();
         }   
     }
 

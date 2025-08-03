@@ -47,12 +47,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fea434122ba873f4791c61837d03021f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _boostUseFactorAdd: 0.1
+  _boostSpeedAdd: 1.2
   _maxFuel: 25
-  _fuelUseFactor: 0.1
   _playerDismountPosition: {x: -1.92, y: 0.21, z: 2.12}
   _worldUI: {fileID: 206377996798546629}
-  _model: {fileID: 821925626868044089}
-  _modelLerpFactor: 15
+  _baseMaxSpeed: 10
+  _baseForwardAccel: 10
+  _baseFuelUseFactor: 0.1
+  _baseTurnSpeed: 2.5
+  _baseHpMax: 10
   _stats:
   - Name: Acceleration
     Data: {fileID: 11400000, guid: 1bbbfc7040bf21d4c9ae9efbf7606827, type: 2}
@@ -72,15 +76,14 @@ MonoBehaviour:
   - Name: Speed
     Data: {fileID: 11400000, guid: 6553f4175cdb25c4baae978f6017dd5b, type: 2}
     Level: 0
+  _model: {fileID: 821925626868044089}
+  _modelLerpFactor: 15
   _carAnimator: {fileID: 3537585820180574265}
   _gravity: 1.2
   _clampDownYPosThreshold: 0.1
   _uprightLerpFactor: 4
-  _baseMaxSpeed: 10
-  _forwardAccel: 10
-  _wheelTurnSpeed: 10
-  _carTurnSpeed: 10
   _wheelTurnLimit: 22
+  _wheelTurnSpeed: 10
   _throttleLimits: {x: -3, y: 8}
   _wheelStraightenLerpFactor: 5
   _leftTire: {fileID: 4357457905701058727}
@@ -878,6 +881,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 821925626868044089}
     m_Modifications:
+    - target: {fileID: -9073563351527848586, guid: 1314bd4b058b0524f9f5af7a0f1edcea, type: 3}
+      propertyPath: 'm_Materials.Array.data[5]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 99d7a5b4b1c84e547b313cc441bf8311, type: 2}
     - target: {fileID: -8679921383154817045, guid: 1314bd4b058b0524f9f5af7a0f1edcea, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.96999997

@@ -96,6 +96,6 @@ Material:
     - _EmissiveColor: {r: 0, g: 24.45663, b: 225.70383, a: 0}
     - _FireScrollSpeedXY: {r: 0.26, g: -0.4, b: 0, a: 0}
     - _MainColor: {r: 0, g: 2.0276933, b: 14.344053, a: 0}
-    - _WobbleSpeed: {r: -0.2, g: -0.2, b: 0, a: 0}
+    - _WobbleSpeed: {r: 0.49, g: -0.2, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
