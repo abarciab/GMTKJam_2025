@@ -28,7 +28,6 @@ public class DialogueController : UIController
     private void OnDisable()
     {
         if (GameManager.i) GameManager.i.ResumeTimer();
-        Utils.SetCursor(false);
     }
 
     private void Update()
@@ -86,7 +85,8 @@ public class DialogueController : UIController
         Utils.Talking = false;
 
         gameObject.SetActive(false);
-        GameManager.i.Player.SetFrozen(false);
+        Utils.SetCursor(false);
+        if (Utils.numMenusOpen == 0) GameManager.i.Player.SetFrozen(false);
 
         if (!GameManager.i) return;
         FindFirstObjectByType<CameraController>().EndConversation();
