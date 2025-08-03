@@ -53,6 +53,8 @@ public class Player : MonoBehaviour
     private float _gravityDelta;
     private float _staminaLeft;
 
+
+    private List<Outline> _currHoveredOutlines = new List<Outline>();
     private Outline _currHoveredOutline;
     private Collectable _hoveredCollectible;
     private CarPart _hoveredCarPart;
@@ -71,6 +73,7 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
+
         _rb = GetComponent<Rigidbody>();
         _inventory = GetComponent<PlayerInventory>();
         _collectSound = Instantiate(_collectSound);
@@ -281,7 +284,7 @@ public class Player : MonoBehaviour
         CheckNewOutline();
 
         if (_hoveredCollectible) {
-            OnHoverOutline(_hoveredCollectible.ActiveModelVariant);
+            OnHoverOutline(_hoveredCollectible.ActiveModels);
             UIManager.i.Do(UIAction.DISPLAY_HOVERED, _hoveredCollectible.DisplayName);
         } else if (_hoveredCarPart) {
             OnHoverOutline(_hoveredCarPart.gameObject);
@@ -303,12 +306,18 @@ public class Player : MonoBehaviour
 
     private void CheckNewOutline()
     {
-        if (_currHoveredOutline == null) return; 
-
-        if (_currHoveredOutline.gameObject != _hoveredCollectible?.ActiveModelVariant &&
-            _currHoveredOutline.gameObject != _hoveredCarPart?.gameObject &&
-            _currHoveredOutline.gameObject != _hoveredNPC?.gameObject) 
-            { DisableOutline(); }
+        if(_currHoveredOutlines != null && _currHoveredOutlines.Count > 0) {
+            if (_currHoveredOutlines[0].gameObject != _hoveredCollectible?.ActiveModels[0]) {
+                DisableOutline();
+            }
+        } 
+        if(_currHoveredOutline != null) {
+            if (_currHoveredOutline.gameObject != _hoveredCarPart?.gameObject &&
+                _currHoveredOutline.gameObject != _hoveredNPC?.gameObject) 
+            {
+                DisableOutline();
+            }
+        }
     }
     private void OnHoverOutline(GameObject outlineObj)
     {
@@ -318,13 +327,45 @@ public class Player : MonoBehaviour
             outline.OutlineWidth = 10f;
         }
         outline.enabled = true;
+
         _currHoveredOutline = outline;
+    }
+    private void OnHoverOutline(List<GameObject> outlineObjs)
+    {
+        foreach  (var obj in outlineObjs) {
+            Outline outline = obj.GetComponent<Outline>();
+            if (!outline) {
+                outline = obj.AddComponent<Outline>();
+                outline.OutlineWidth = 10f;
+            }
+            outline.enabled = true;
+        }
+
+        //check if the list is the same as the current list
+        if (_currHoveredOutlines == null) _currHoveredOutlines = new List<Outline>();
+        foreach (var obj in outlineObjs) {
+            Outline outline = obj.GetComponent<Outline>();
+            if (outline != null) _currHoveredOutlines.Add(outline);
+        }
     }
     private void DisableOutline()
     {
-        if(_currHoveredOutline == null) return;
-        _currHoveredOutline.enabled = false;
-        _currHoveredOutline = null;
+        //handle single
+        if (_currHoveredOutline != null) {
+            _currHoveredOutline.enabled = false;
+            _currHoveredOutline = null;
+        }
+
+        //handle list
+        if (_currHoveredOutlines == null || _currHoveredOutlines.Count < 0) return;
+
+        foreach (var outline in _currHoveredOutlines) {
+            if (outline != null) {
+                outline.enabled = false;
+            }
+        }
+
+        _currHoveredOutlines.Clear();
     }
     private void Move()
     {

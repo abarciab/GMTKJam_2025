@@ -65,7 +65,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &8298733984582196603
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -253,7 +253,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &4068594949009558180
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -509,7 +509,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &874228616534877221
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -783,7 +783,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &2225530686427481018
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1795,7 +1795,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &8755610050195677308
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2137,7 +2137,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &7869835825135332973
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2547,7 +2547,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &4705771961725178698
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2858,7 +2858,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &3442752661204731341
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -3067,7 +3067,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &1517814585574763834
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3730,7 +3730,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &2202778905975850890
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -4351,7 +4351,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &7523236065200246773
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4430,7 +4430,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &1883633724331102702
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -4532,7 +4532,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &3046004962384207033
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -5479,7 +5479,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &3659513287121615706
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5866,7 +5866,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &6329983226203000063
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -6075,7 +6075,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &8276318304985246717
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6295,7 +6295,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &3429448816459374430
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -6397,7 +6397,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &4386325756842677096
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -6567,7 +6567,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &8423908113204209016
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -6669,7 +6669,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &2641596871089228091
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -6839,7 +6839,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &3888075380578821911
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -7027,7 +7027,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &5873077163928268183
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -7150,7 +7150,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &3867312577006941375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7404,7 +7404,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &5416844338214218957
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7483,7 +7483,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &3426021853223679649
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -8467,7 +8467,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &6251221556117229931
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8614,7 +8614,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &1518483596394246686
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -9165,7 +9165,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &8195628191566498359
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -9489,7 +9489,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &2042154614471216874
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -9698,7 +9698,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &1839622661642983558
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10813,7 +10813,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &571551035738222616
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11054,7 +11054,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &8364698829084721853
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11582,7 +11582,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &4935380074997646640
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -11770,7 +11770,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &4694289655966022967
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -12292,7 +12292,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &3584129385348147850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12958,7 +12958,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &8875878240075541705
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13449,7 +13449,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &352903059563414758
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -13551,7 +13551,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &7885357943392579894
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -13807,7 +13807,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &4805631115600314630
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -14392,7 +14392,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &6640972944091048918
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14539,7 +14539,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &1102477031034647398
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -14727,7 +14727,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &2079218222796792189
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -15825,7 +15825,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &483541149475205250
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -15927,7 +15927,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &8436772931118671384
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -16251,7 +16251,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &1964935219193023268
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -16614,7 +16614,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &8857820619838709210
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17040,7 +17040,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &3846122629678470894
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17398,7 +17398,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &5195873714411410639
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17477,7 +17477,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &2192824721903603732
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -18218,7 +18218,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &3754613157599546468
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -18740,7 +18740,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &7963524284239602418
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18905,7 +18905,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &8875250249505651533
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -19388,7 +19388,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &6515629355831768053
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -19490,7 +19490,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &249236563540480285
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -19592,7 +19592,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &3903036745182581253
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -20310,7 +20310,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &8422688591309451468
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -20634,7 +20634,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &8790748809167882968
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -20822,7 +20822,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &4965648648295791194
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -21078,7 +21078,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &6678169864844330233
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -21402,7 +21402,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &2379229637123272549
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -21984,7 +21984,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &2484043360618679400
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -23260,7 +23260,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &4541369327814443611
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -24019,7 +24019,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &2249273352194413345
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -24296,7 +24296,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &3828739267967743329
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25085,7 +25085,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &5159131684219286936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26092,7 +26092,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &842027784816341256
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -26215,7 +26215,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &2901583777368829194
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26928,7 +26928,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &6176569090977163450
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -27106,7 +27106,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &8489740782724969134
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27597,7 +27597,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &6288696354720041360
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -27785,7 +27785,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &896391679564869540
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -27908,7 +27908,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &7576892874115134149
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28775,7 +28775,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &3965398650065112883
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -28963,7 +28963,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &2983517473436204996
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -29086,7 +29086,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &2738228587722071305
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29165,7 +29165,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &4623763296415659607
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -29531,7 +29531,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &3827636739762017743
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -29977,7 +29977,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &8975082627467519926
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -30770,7 +30770,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &4313096642542453174
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31193,7 +31193,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &3295005022925859711
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -31295,7 +31295,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &1746206393172636293
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -31809,7 +31809,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &4427274284260856472
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -32460,7 +32460,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &6417376621724800520
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -33392,7 +33392,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &6041557310832685845
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -34467,7 +34467,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &2785280240194026532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34546,7 +34546,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &8379561402453632783
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -34974,7 +34974,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &3108041039785899874
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -35165,7 +35165,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &1437938256624383980
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35244,7 +35244,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &5406361310204405628
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -35367,7 +35367,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &5691854313922542844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35858,7 +35858,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &972492696658195160
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -35960,7 +35960,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &2979547531793152563
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -36370,7 +36370,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &6885416111913844058
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -36634,7 +36634,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &322856715488359655
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36943,7 +36943,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &943914901065196573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38313,7 +38313,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &8234045582146677115
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -38415,7 +38415,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &3680266032267497371
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -38538,7 +38538,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &2943137893154728606
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38881,7 +38881,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &6877744906616511008
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -39069,7 +39069,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &3749031581861256484
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -39325,7 +39325,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &2228225966836578601
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -39448,7 +39448,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &960378357414474785
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39872,7 +39872,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &6775635091944654318
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -40804,7 +40804,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &2113839518040412462
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -41840,7 +41840,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &9205157986481466789
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -41942,7 +41942,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &946509947231860207
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -42284,7 +42284,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &5256237927684414921
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -42733,7 +42733,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &8151154969000900317
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43626,7 +43626,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &6537958279563455334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43773,7 +43773,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &7214703412311213310
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -43896,7 +43896,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &3560846743950709009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44338,7 +44338,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &2584349928562539599
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -44775,7 +44775,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &4068064220176511221
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45665,7 +45665,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &7179425783819358102
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -46385,7 +46385,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &311981930418692765
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -46947,7 +46947,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &1817697899994663543
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -47307,7 +47307,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &8822961587852253042
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -47657,7 +47657,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &3243873062360880593
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48243,7 +48243,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &3207144516659504800
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -49123,7 +49123,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &3401213409769498209
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -49288,7 +49288,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &7347445982791312539
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -49648,7 +49648,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &2737652002133800552
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -49857,7 +49857,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &6339266937932044370
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50004,7 +50004,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &8912059510456157494
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -50834,7 +50834,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &2229289238526448983
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51153,7 +51153,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &2814722909017160764
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -51688,7 +51688,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &9168001251431069440
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51921,7 +51921,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &1838207232891424494
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -52164,7 +52164,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &109211599187946978
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -52882,7 +52882,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &5491879780471473128
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -53125,7 +53125,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &3455821224511186339
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -53436,7 +53436,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &5120697707540361851
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -54039,7 +54039,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &7979926548791778066
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54118,7 +54118,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &7805366585642997508
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -54220,7 +54220,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &6256408431000304713
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -54463,7 +54463,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &3621206878682482024
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -54878,7 +54878,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &6394872814037292324
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -55374,7 +55374,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &5337222441766881144
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -55562,7 +55562,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &2201649390018236844
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -55886,7 +55886,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &7045014175074854887
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -56095,7 +56095,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &767948174845455914
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57194,7 +57194,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &1038966479189146878
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -57296,7 +57296,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &6381679266580737884
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -58275,7 +58275,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &6698467048891145004
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58545,7 +58545,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &2050484029803568511
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -58840,7 +58840,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &3366378321168417771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59091,7 +59091,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &8184205184816407360
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -59347,7 +59347,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &2928276339067528063
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -59707,7 +59707,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &6987940970643690272
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -59877,7 +59877,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &3949764557032962110
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -60305,7 +60305,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &7634425215554843990
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -61480,7 +61480,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &4973678070102005640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61580,7 +61580,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &8580232360660406605
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61659,7 +61659,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &607121980432265645
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -61761,7 +61761,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &90297375097993605
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -61863,7 +61863,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &2553783244025819535
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -62192,7 +62192,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &280576145532413966
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -63067,7 +63067,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &1362734292963813849
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64167,7 +64167,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &4479863341743838776
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -64355,7 +64355,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &1611864902212905068
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -64911,7 +64911,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &6263448794922973194
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -65089,7 +65089,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &3236727856533315555
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65367,7 +65367,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &2258243138468767332
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65707,7 +65707,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &5320793862296671509
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65807,7 +65807,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &5114151943105670722
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66571,7 +66571,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &8006627080462053384
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -66694,7 +66694,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &89999126568371416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66945,7 +66945,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &7061748234909978446
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -67222,7 +67222,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &325251841797756467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67301,7 +67301,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &480847931674936359
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -67560,7 +67560,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &7463155233340775787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67725,7 +67725,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &1630933700830126393
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -67827,7 +67827,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &7215031803335565586
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -68015,7 +68015,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &4152152339545178635
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -68467,7 +68467,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &8732908109852535969
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -68971,7 +68971,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &1404246714690246318
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69587,7 +69587,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &8305364360044165413
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69734,7 +69734,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &7460481241216369982
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -70094,7 +70094,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &6053780001381652620
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -70264,7 +70264,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &5503298025495957821
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -70366,7 +70366,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &7236668297539049374
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -70776,7 +70776,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &3519151908381011806
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -71280,7 +71280,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &7859173009720898755
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72207,7 +72207,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &975085728246035626
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -72416,7 +72416,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &729246290894205293
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72756,7 +72756,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &8678886218272180273
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72903,7 +72903,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &959200102470457040
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -73177,7 +73177,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &3581289364427209954
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -74090,7 +74090,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &7739248607882775143
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -74385,7 +74385,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &8472326996693508827
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -75265,7 +75265,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &5329992654586386296
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -75451,7 +75451,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &2179459780713274648
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -75606,7 +75606,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &726831302626130955
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -75685,7 +75685,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &4822880336802783256
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -75787,7 +75787,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &1938026880471456455
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -76283,7 +76283,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &6766533959181210064
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -76526,7 +76526,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &716575043786075356
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -76696,7 +76696,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &8156743002945008910
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -77385,7 +77385,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &3680516083362385548
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77845,7 +77845,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &2013579099685128442
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -78780,7 +78780,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &997069970750188620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78859,7 +78859,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &1964530101471367007
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -78982,7 +78982,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &2127081669973177665
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -79082,7 +79082,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &7072619896748837120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -80090,7 +80090,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &8118114476534465994
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -80247,7 +80247,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &574646354855589864
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -80370,7 +80370,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &8428154734068683757
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -80869,7 +80869,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &1711448392039732282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81102,7 +81102,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &7243852001211882820
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -82326,7 +82326,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &1401175857934981688
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -82645,7 +82645,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &7234045078502115580
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -82969,7 +82969,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &8591776876889407927
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -83415,7 +83415,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &6876289201489831833
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -83517,7 +83517,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &238361690648907294
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -84221,7 +84221,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &3928892699526797452
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -84516,7 +84516,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &6761578414819633240
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -84681,7 +84681,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &6455017703541630878
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -84804,7 +84804,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &8586973402252918890
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -85314,7 +85314,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &161565174689828255
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -86279,7 +86279,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &5427962697120117135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -86413,7 +86413,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &8111925263605996540
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -87084,7 +87084,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &6086824712767839514
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88186,7 +88186,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &2370763335958853281
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88628,7 +88628,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &6052317617692237882
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -88988,7 +88988,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &6022056228514586422
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -89111,7 +89111,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &2532003108458948733
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -89279,7 +89279,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &8369425482368924587
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -89358,7 +89358,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &4327385602374606698
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -89460,7 +89460,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &8916285461218156804
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -89716,7 +89716,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &7687444229309485318
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -91140,7 +91140,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &7779194712673516276
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -91242,7 +91242,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &6591323986979595114
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -91691,7 +91691,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &3433768064679790857
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -92662,7 +92662,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &1986617893723708398
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -92785,7 +92785,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &6808004330501769745
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -93266,7 +93266,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &3816649598247801054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -93517,7 +93517,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &7732700952498164448
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -93619,7 +93619,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &6408112225270693763
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -93721,7 +93721,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &2994148270543611751
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -94170,7 +94170,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &877745559190684540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -94390,7 +94390,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &1104980059021665131
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -94560,7 +94560,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &5504905000411890449
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -94683,7 +94683,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &7266878472277982963
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -94783,7 +94783,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &9025677834539915073
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -95515,7 +95515,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &8193252041239100563
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -95617,7 +95617,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &8099549554257567254
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -95719,7 +95719,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &4520186693047801367
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -95928,7 +95928,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &3659810390098333699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96229,7 +96229,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &270002663800408738
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -96592,7 +96592,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &5444366268442715576
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96778,7 +96778,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &2378612220559943058
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -97165,7 +97165,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &1325252331495040898
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -97679,7 +97679,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &736981069665171693
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -98021,7 +98021,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &2575326438253244820
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -98123,7 +98123,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &8925310992712160774
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -98927,7 +98927,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &2024858313391352293
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -99222,7 +99222,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &7295414330255857510
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -99559,7 +99559,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &3388504352808289555
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -100037,7 +100037,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &8642132768405656564
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -100139,7 +100139,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &6585472128427770139
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -100262,7 +100262,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &1001621878358130850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -100685,7 +100685,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &3850321256304229537
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -100923,7 +100923,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &2124962598602040286
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -101025,7 +101025,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &707319696565363023
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -101815,7 +101815,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &6857265263671810973
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -102504,7 +102504,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &5299393005878850976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102604,7 +102604,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &5079159739512118355
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -103883,7 +103883,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &3055139134704873782
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -104332,7 +104332,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &8967304869807249210
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -104669,7 +104669,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &7997779544419392813
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -105104,7 +105104,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &3262640294799841748
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -105378,7 +105378,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &7718629547088858732
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -105895,7 +105895,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &998359991652288930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -105995,7 +105995,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &6913582219925996327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106074,7 +106074,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &7479685915110097844
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -106692,7 +106692,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &1619015513249562478
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -107483,7 +107483,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &4601508055682057673
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -107825,7 +107825,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &2768798619195016792
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -108530,7 +108530,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &9028935076762800899
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -108804,7 +108804,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &6336947301101480242
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -110021,7 +110021,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &4818062697862103347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110304,7 +110304,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &7999366333626942415
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -110427,7 +110427,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &2929498815490317126
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111148,7 +111148,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &6949515522599246365
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111402,7 +111402,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &3338472809640659887
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111875,7 +111875,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &4363104009655927935
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -112410,7 +112410,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &3549760371542580882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112575,7 +112575,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &2575359827261959392
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -112763,7 +112763,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &2207744643088218036
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -112865,7 +112865,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &918478290394064667
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -113366,7 +113366,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &362461337756820837
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -113468,7 +113468,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &6992807608206209719
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -114283,7 +114283,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &6051836345409279472
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -114918,7 +114918,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &5963734718090674825
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115305,7 +115305,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &73705550258113413
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -115754,7 +115754,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &55455041234684054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115922,7 +115922,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &4143009818692481552
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116087,7 +116087,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &15475762426717388
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -116265,7 +116265,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &2526890383310760828
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116344,7 +116344,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &8683361353820390152
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -116804,7 +116804,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &2272766641802997623
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -117146,7 +117146,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &8189854221871202052
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -117337,7 +117337,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &1315642906014438178
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -117787,7 +117787,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &8178111625331508372
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -117866,7 +117866,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &6925943874141280397
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -118140,7 +118140,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &7686578325606241558
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -118555,7 +118555,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &9209146244921006981
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -119244,7 +119244,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &413732750277375752
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119775,7 +119775,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &6389517374767118367
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119854,7 +119854,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &7546232686502227463
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -120024,7 +120024,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &5396284751421680046
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -120870,7 +120870,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &3490584566827429311
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -121976,7 +121976,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &3707136812014103776
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122277,7 +122277,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &7233258659012132318
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -122541,7 +122541,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &1828888687311655336
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122688,7 +122688,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &3715054098287689293
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -123393,7 +123393,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &5643145870589250363
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -123495,7 +123495,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &9016834625252658085
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -123686,7 +123686,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &1950556163893487255
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123765,7 +123765,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &3950473902568807382
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -124193,7 +124193,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &8009490706895956536
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -124507,7 +124507,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &5743406215594979372
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124933,7 +124933,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &71134641756499578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125033,7 +125033,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &6604874995852073438
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125198,7 +125198,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &4779983223028615322
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -125300,7 +125300,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &5668471405221531994
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -125457,7 +125457,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &3429723455407397834
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -125648,7 +125648,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &405630140071578732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125727,7 +125727,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &7490083464255647894
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -126001,7 +126001,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &8695662060772086219
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -126343,7 +126343,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &2693175747815717372
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -126667,7 +126667,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &7470518835139537955
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -126769,7 +126769,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &1267780275457879367
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -127169,7 +127169,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &8232662313593807426
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128477,7 +128477,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &5501602130354722018
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -129630,7 +129630,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &4294794695859195630
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -129904,7 +129904,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &2447836184732603596
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -130353,7 +130353,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &6295546718240986997
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130604,7 +130604,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &6057851057441171465
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -131361,7 +131361,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &4161007245025660269
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -131440,7 +131440,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &8287368146809888879
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -131803,7 +131803,7 @@ MonoBehaviour:
   _breakable: 1
   _breakTime: 3.5
   _breakSound: {fileID: 11400000, guid: 14e309da1ca2dd54ca22b7496b0d4cbe, type: 2}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!114 &6607993264280449828
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132435,7 +132435,7 @@ MonoBehaviour:
   _breakable: 0
   _breakTime: 0
   _breakSound: {fileID: 0}
-  ActiveModelVariant: {fileID: 0}
+  ActiveModels: []
 --- !u!136 &2909530731216450830
 CapsuleCollider:
   m_ObjectHideFlags: 0

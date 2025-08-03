@@ -23,7 +23,7 @@ public class Collectable : MonoBehaviour
     private float _idleTimer = 0.1f;
     private float _idleTimerLeft;
 
-    [HideInInspector] public GameObject ActiveModelVariant;
+    [HideInInspector] public List<GameObject> ActiveModels;
 
     public bool Breakable => _breakable;   
     public float BreakTime => _breakTime;
@@ -86,8 +86,15 @@ public class Collectable : MonoBehaviour
 
     private void SetRandomModelVariantActive()
     {
+        ActiveModels.Clear();
+        Renderer[] renderers;
         if (_modelVariants == null || _modelVariants.Count < 2) {
-            ActiveModelVariant = GetComponentInChildren<Renderer>().gameObject;
+            renderers = GetComponentsInChildren<Renderer>();
+            foreach (var renderer in renderers)
+            {
+                renderer.gameObject.SetActive(true);
+                ActiveModels.Add(renderer.gameObject);
+            }
             return;
         }
 
@@ -98,6 +105,10 @@ public class Collectable : MonoBehaviour
 
         int randomIndex = Random.Range(0, _modelVariants.Count);
         _modelVariants[randomIndex].SetActive(true);
-        ActiveModelVariant = _modelVariants[randomIndex];
+        
+        renderers = _modelVariants[randomIndex].GetComponentsInChildren<Renderer>();
+        foreach (var renderer in renderers) {
+            ActiveModels.Add(renderer.gameObject);
+        }
     }
 }
