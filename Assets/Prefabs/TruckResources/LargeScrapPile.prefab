@@ -69,7 +69,7 @@ MonoBehaviour:
   _dropQuantityRange: {x: 2, y: 4}
   _breakable: 1
   _breakTime: 2.5
-  _breakSound: {fileID: 0}
+  _breakSound: {fileID: 11400000, guid: e9bf096b264d6874ba1753b95d600428, type: 2}
   ActiveModels: []
 --- !u!136 &272945562067580138
 CapsuleCollider:

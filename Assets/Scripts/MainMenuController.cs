@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -23,7 +24,7 @@ public class MainMenuController : MonoBehaviour
         Utils.SetCursor(false);
     }
 
-    public void Quit()
+    public async void Quit()
     {
         _music.FadeOutCurrent(Utils.fadeTime);
         UIManager.i.Do(UIAction.FADE_TO_BLACK);
@@ -31,5 +32,8 @@ public class MainMenuController : MonoBehaviour
 #if !UNITY_EDITOR
         Invoke(nameof(Application.Quit), Utils.fadeTime);
 #endif
+        await Task.Delay(Mathf.RoundToInt(1000 * Utils.fadeTime));
+        Application.Quit();
+
     }
 }

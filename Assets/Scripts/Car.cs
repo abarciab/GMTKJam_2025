@@ -171,7 +171,7 @@ public class Car : MonoBehaviour
             return;
         }
 
-        _currentFuel -= Mathf.Max(_throttle, 2f) * _fuelUseFactor * Time.deltaTime;
+        _currentFuel -= Mathf.Max(_throttle, 1f) * _fuelUseFactor * Time.deltaTime;
         UIManager.i.Do(UIAction.SHOW_CAR_FUEL, (_currentFuel / _maxFuel));
         UIManager.i.Do(UIAction.SHOW_CAR_SPEED, (forwardSpeed / actualmax) * _maxSpeed);
 
