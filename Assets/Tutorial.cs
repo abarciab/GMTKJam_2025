@@ -94,7 +94,10 @@ public class Tutorial : UIController
         }
 
         if (_player.gameObject.activeInHierarchy && !Cursor.visible) {
-            if (_outOfFuel.Completed && !_howToWalk.Completed) Show(_howToWalk);
+            if (_outOfFuel.Completed && !_howToWalk.Completed) {
+                _camera.SnapToPlayer();
+                Show(_howToWalk);
+            }
             if (_refuel.Completed && !_flintPine.Completed) Show(_flintPine);
 
             if (_playerInventory.GetCount(ItemType.FLINT) >= 1 && _playerInventory.GetCount(ItemType.HOLLOW_PINE) >= 2) {
