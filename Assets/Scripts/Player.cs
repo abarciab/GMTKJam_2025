@@ -35,6 +35,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float _jumpCheckYOffset;
     [SerializeField] private float _jumpForce;
     [SerializeField] private int _groundLayer;
+    [SerializeField] private LayerMask _groundLayerMask;
 
     [Header("Collecting")]
     [SerializeField] private float _collectionRange = 10;
@@ -52,6 +53,7 @@ public class Player : MonoBehaviour
     private bool _grounded;
     private float _gravityDelta;
     private float _staminaLeft;
+    private Vector3 _lastValidPos; 
 
 
     private List<Outline> _currHoveredOutlines = new List<Outline>();
@@ -87,6 +89,10 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        var didHit = Physics.Raycast(transform.position, Vector3.down, out var hitInfo, 1000, _groundLayerMask);
+        if (didHit) _lastValidPos = transform.position;
+        else transform.position = _lastValidPos;
+
         if (InputController.GetUp(Control.SPRINT)) {
             if (_staminaLeft < _staminaMax / 2) _sprintEnabled = false;
         }
@@ -120,16 +126,6 @@ public class Player : MonoBehaviour
             if (_hoveredCarPart != null) CarInteract(); 
             if (_hoveredNPC != null) NPCInteract(); 
         }
-
-        //GameObject currObj  = _currHoveredOutline?.gameObject;
-        //if (currObj == null) { return; }
-        //if (currObj != _hoveredCarPart?.gameObject &&
-        //    currObj != _hoveredCollectible?.gameObject &&
-        //    currObj != _hoveredNPC?.gameObject) 
-        //{
-        //    _currHoveredOutline.enabled = false;
-        //    _currHoveredOutline = null;
-        //}
     }
 
     private void OnDrawGizmosSelected()
