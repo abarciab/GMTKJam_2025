@@ -51,10 +51,11 @@ MonoBehaviour:
   _boostUseFactorAdd: 0.15
   _boostSpeedAdd: 2
   _maxFuel: 40
-  _playerDismountPosition: {x: -1.92, y: 0.21, z: 2.12}
-  _worldUI: {fileID: 206377996798546629}
+  _encumberedMaxSpeed: 3
+  _gravity: 1.2
+  _throttleLimits: {x: -3, y: 8}
   _baseMaxSpeed: 6
-  _baseForwardAccel: 1
+  _baseForwardAccel: 1.8
   _baseFuelUseFactor: 0.2
   _baseTurnSpeed: 2
   _baseHpMax: 5
@@ -78,26 +79,30 @@ MonoBehaviour:
   - Name: Strength
     Data: {fileID: 11400000, guid: 38cbdc4feba316a4382b1a815ddc9886, type: 2}
     Level: 0
-  _encumberedMaxSpeed: 3
+  _spinWheels:
+  - {fileID: 3847281948779833452}
+  - {fileID: 7309659437479422479}
+  _maxWheelSpin: 250
   _model: {fileID: 821925626868044089}
+  _modelOffsetPosition: {x: 0, y: 0.2, z: 0}
   _modelLerpFactor: 15
-  _carAnimator: {fileID: 3537585820180574265}
-  _gravity: 1.2
-  _clampDownYPosThreshold: 0.1
-  _uprightLerpFactor: 4
-  _wheelTurnLimit: 10
-  _wheelTurnSpeed: 10
-  _throttleLimits: {x: -3, y: 8}
-  _wheelStraightenLerpFactor: 5
   _leftTire: {fileID: 4357457905701058727}
   _rightTire: {fileID: 3565785544339166195}
+  _wheelTurnLimit: 10
+  _wheelTurnSpeed: 10
+  _wheelStraightenLerpFactor: 5
+  _clampDownYPosThreshold: 0.1
+  _uprightLerpFactor: 4
   _floorLayerMask:
     serializedVersion: 2
     m_Bits: 8
-  _wheelAngle: 0
   _engineLoop: {fileID: 11400000, guid: 7622881fa5db1cd46a27cbd00577abeb, type: 2}
+  _carAnimator: {fileID: 3537585820180574265}
   _player: {fileID: 0}
-  _currentFuel: 0
+  _repairMenuParent: {fileID: 0}
+  _playerDismountPosition: {x: -1.92, y: 0.52, z: 2.12}
+  _worldUI: {fileID: 206377996798546629}
+  Paused: 0
 --- !u!54 &5869452578377605572
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1106,6 +1111,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -5606367816595922587, guid: 1314bd4b058b0524f9f5af7a0f1edcea, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -5606367816595922587, guid: 1314bd4b058b0524f9f5af7a0f1edcea, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 1314bd4b058b0524f9f5af7a0f1edcea, type: 3}
       propertyPath: m_Name
       value: Model
@@ -1143,7 +1156,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 183393169572127891}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: e96ce166fb198d940a70cd8bdba496fc, type: 2}
   m_CullingMode: 0
@@ -1167,8 +1180,18 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4555063107584936497, guid: 1314bd4b058b0524f9f5af7a0f1edcea, type: 3}
   m_PrefabInstance: {fileID: 1029884831994567106}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &3847281948779833452 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4264530890556846510, guid: 1314bd4b058b0524f9f5af7a0f1edcea, type: 3}
+  m_PrefabInstance: {fileID: 1029884831994567106}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4357457905701058727 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -5606367816595922587, guid: 1314bd4b058b0524f9f5af7a0f1edcea, type: 3}
+  m_PrefabInstance: {fileID: 1029884831994567106}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7309659437479422479 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -1496388819856673843, guid: 1314bd4b058b0524f9f5af7a0f1edcea, type: 3}
   m_PrefabInstance: {fileID: 1029884831994567106}
   m_PrefabAsset: {fileID: 0}

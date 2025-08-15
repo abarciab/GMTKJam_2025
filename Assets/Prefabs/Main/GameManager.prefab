@@ -130,17 +130,71 @@ MonoBehaviour:
   mainMusic: {fileID: 11400000, guid: 5499306c3454f7f4889effb2be8d3054, type: 2}
   altMusic: {fileID: 0}
   pauseMusic: {fileID: 0}
-  ambientLoop: {fileID: 0}
+  ambientLoop: {fileID: 11400000, guid: 0571276f56b5f6440b169547da1eab38, type: 2}
   silenceWaitRange: {x: 1, y: 10}
   fadeIn: 1
   playAltMusic: 0
-  ambientSounds:
-  - name: AmbientLoop
-    sound: {fileID: 11400000, guid: 0571276f56b5f6440b169547da1eab38, type: 2}
-    waitTimeRange: {x: 0, y: 0}
-    distanceFromCamera: 0
-    cooldown: 0
-    transform: {fileID: 0}
+  ambientSounds: []
+--- !u!1 &6960747326968415873
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2263863718840298201}
+  - component: {fileID: 7006816692803728320}
+  m_Layer: 0
+  m_Name: InventoryManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2263863718840298201
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6960747326968415873}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3822787722222924825}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7006816692803728320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6960747326968415873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3793b27ec21b6fd4d9c84a50f7a06b85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerInventory:
+    Name: 
+    Player: 1
+    _weightLimit: 20
+    _percent: 0
+    _items: []
+  _carInventory:
+    Name: 
+    Player: 0
+    _weightLimit: 15
+    _percent: 0.46666667
+    _items:
+    - Name: FADE_STONE
+      Type: 0
+      Quantity: 7
+  AllItems: []
 --- !u!1 &7451735605759854500
 GameObject:
   m_ObjectHideFlags: 0
@@ -220,6 +274,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 2263863718840298201}
   - {fileID: 6059746725399832286}
   - {fileID: 5048238786432794984}
   - {fileID: 5879066826446954281}
@@ -237,44 +292,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e44d7ef2bdf6f15448286ada8073beff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _totalTime: 240
-  _creatureParent: {fileID: 0}
-  _spawnTimes:
-  - 0.924
-  - 0.84
-  - 0.742
-  - 0.633
-  - 0.527
-  - 0.374
-  - 0.272
-  - 0.214
-  - 0.156
-  - 0.083
-  - 0.051
-  - 0.054
-  - 0.018
-  - 0.025
+  _totalTime: 900
+  _timePercentMod: 0.9
   _player: {fileID: 0}
   _car: {fileID: 0}
   _camera: {fileID: 0}
-  _allItems:
-  - {fileID: 11400000, guid: ccbf7bad8a828a443aaf078e37b6589c, type: 2}
-  - {fileID: 11400000, guid: 0f82e34ea8fc56344878435e9ec4c74b, type: 2}
-  - {fileID: 11400000, guid: 1202a0ccc9c55974f99a44fdcc69af66, type: 2}
-  - {fileID: 11400000, guid: a2a0089db8c23cb4dae83efbe34e69dd, type: 2}
-  - {fileID: 11400000, guid: f4798e7c0372d8a4ca1971765ba83d0e, type: 2}
-  - {fileID: 11400000, guid: 09890b301138cc244b2ecd81f7013375, type: 2}
-  - {fileID: 11400000, guid: bfab6573f99893040bdb3b37e7b6473a, type: 2}
-  - {fileID: 11400000, guid: 0beee07fad07fcf48bf99ef8c3d2600f, type: 2}
-  - {fileID: 11400000, guid: f4d8e1097c21f7e4a810888b572c096d, type: 2}
-  - {fileID: 11400000, guid: 80c0085093e4bff429c199b387ba9f4b, type: 2}
-  - {fileID: 11400000, guid: 70c337b6e83ed754784936557728b876, type: 2}
-  - {fileID: 11400000, guid: 479f994a4780476479ff882e4998e98a, type: 2}
-  _discoveredItems: 
   _environment: {fileID: 0}
-  _areaController: {fileID: 0}
-  _areaPrefabs:
-  - {fileID: 7290249319681797459, guid: dd73bc1d4f274c24e97a8d4a5b403dde, type: 3}
+  _spawner: {fileID: 0}
 --- !u!114 &5122873462977973251
 MonoBehaviour:
   m_ObjectHideFlags: 0

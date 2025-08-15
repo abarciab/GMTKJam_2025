@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
 
-[RequireComponent (typeof(Rigidbody), typeof(PlayerInventory))]
+[RequireComponent (typeof(Rigidbody))]
 public class Player : MonoBehaviour
 {
     [SerializeField] private CameraController _camera;
@@ -42,7 +42,6 @@ public class Player : MonoBehaviour
     [SerializeField] private Sound _collectSound;
 
     private Rigidbody _rb;
-    private PlayerInventory _inventory;
     private bool _dead;
     private bool _frozen;
     private bool _breaking;
@@ -66,7 +65,7 @@ public class Player : MonoBehaviour
     public void EndConversation() => _talking = false;
     public void SetFrozen(bool frozen) => _frozen = frozen;
     public bool Frozen => _frozen;
-    public bool Sprinting => InputController.Get(Control.SPRINT) && _rb.linearVelocity.magnitude > 0 && !_inventory.Encumbered && _staminaLeft > 0 && _sprintEnabled;
+    public bool Sprinting => InputController.Get(Control.SPRINT) && _rb.linearVelocity.magnitude > 0 && !InventoryManager.i.Encumbered && _staminaLeft > 0 && _sprintEnabled;
 
     private void OnEnable()
     {
@@ -75,9 +74,7 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
-
         _rb = GetComponent<Rigidbody>();
-        _inventory = GetComponent<PlayerInventory>();
         _collectSound = Instantiate(_collectSound);
         _bowShotSound = Instantiate(_bowShotSound);
     }
@@ -110,7 +107,7 @@ public class Player : MonoBehaviour
 
         if (_dead || _talking || _frozen) return;
 
-        if (InputController.GetDown(Control.INVENTORY)) UIManager.i.Do(UIAction.TOGGLE_INVENTORY, _inventory.Inventory(InventoryType.PLAYER));
+        if (InputController.GetDown(Control.INVENTORY)) UIManager.i.Do(UIAction.TOGGLE_INVENTORY, InventoryManager.i.Inventory(InventoryType.PLAYER));
 
         HandleJump();
 
@@ -205,7 +202,7 @@ public class Player : MonoBehaviour
 
     private void OpenCarInventory()
     {
-        UIManager.i.Do(UIAction.TOGGLE_CAR_INVENTORY, _inventory.Inventory(InventoryType.CAR));
+        UIManager.i.Do(UIAction.TOGGLE_CAR_INVENTORY, InventoryManager.i.Inventory(InventoryType.CAR));
     }
 
     private void OpenUpgradeMenu()
@@ -251,10 +248,10 @@ public class Player : MonoBehaviour
 
         var drops = _hoveredCollectible.GetDrops();
         foreach (var item in drops) {
-            GameManager.i.DiscoverItem(item.Data.Type);
+            InventoryManager.i.DiscoverItem(item.Type);
         }
 
-        _inventory.Inventory(InventoryType.PLAYER).AddItems(drops);
+        InventoryManager.i.Inventory(InventoryType.PLAYER).Add(drops);
 
         Destroy(_hoveredCollectible.gameObject);
         _hoveredCollectible = null;
@@ -372,7 +369,7 @@ public class Player : MonoBehaviour
 
     private void UpdatePosition()
     {
-        var encumbered = _inventory.Encumbered;
+        var encumbered = InventoryManager.i.Encumbered;
 
         if (InputController.Get(Control.MOVE_FORWARD)) {
 

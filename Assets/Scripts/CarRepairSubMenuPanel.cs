@@ -29,7 +29,7 @@ public class CarRepairSubMenuPanel : MonoBehaviour
             }
         }
 
-        var inventory = GameManager.i.Player.GetComponent<PlayerInventory>().Inventory(InventoryType.COMBINED);
+        var inventory = InventoryManager.i.Inventory(InventoryType.COMBINED);
         
         _button.SetDisabled(!inventory.Contains(requiredItems));
     }
@@ -42,8 +42,7 @@ public class CarRepairSubMenuPanel : MonoBehaviour
 
     public void ClickButton()
     {
-        var inventory = GameManager.i.Player.GetComponent<PlayerInventory>();
-        inventory.RemoveCombinedItems(_requiredItems.Items);
+        InventoryManager.i.RemoveCombinedItems(_requiredItems.Items);
 
         _controller.Purchase(this);
     }

@@ -12,69 +12,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dda07457e722f1045bc0df4fdc5a761d, type: 3}
   m_Name: topSpeed
   m_EditorClassIdentifier: 
-  Type: 2
   DisplayName: Speed
+  Type: 2
   Description: Higher max speed
   MaxValue: 10
-  AmountSuffix: ' mph'
+  _maxLevel: 5
   _upgradeCosts:
-  - Name: Level 1
-    _items:
+  - Name: level 1
+    Items:
     - Name: 
-      Data: {fileID: 11400000, guid: bfab6573f99893040bdb3b37e7b6473a, type: 2}
-      Quantity: 1
+      Type: 0
+      Quantity: 0
+  - Name: level 2
+    Items:
     - Name: 
-      Data: {fileID: 11400000, guid: 0f82e34ea8fc56344878435e9ec4c74b, type: 2}
-      Quantity: 1
+      Type: 0
+      Quantity: 0
+  - Name: level 3
+    Items:
     - Name: 
-      Data: {fileID: 11400000, guid: 09890b301138cc244b2ecd81f7013375, type: 2}
-      Quantity: 1
-    Player: 0
-  - Name: Level 2
-    _items:
+      Type: 0
+      Quantity: 0
+  - Name: level 4
+    Items:
     - Name: 
-      Data: {fileID: 11400000, guid: 1202a0ccc9c55974f99a44fdcc69af66, type: 2}
-      Quantity: 1
+      Type: 0
+      Quantity: 0
+  - Name: level 5
+    Items:
     - Name: 
-      Data: {fileID: 11400000, guid: bfab6573f99893040bdb3b37e7b6473a, type: 2}
-      Quantity: 1
-    - Name: 
-      Data: {fileID: 11400000, guid: a2a0089db8c23cb4dae83efbe34e69dd, type: 2}
-      Quantity: 1
-    Player: 0
-  - Name: Level 3
-    _items:
-    - Name: 
-      Data: {fileID: 11400000, guid: bfab6573f99893040bdb3b37e7b6473a, type: 2}
-      Quantity: 1
-    - Name: 
-      Data: {fileID: 11400000, guid: ccbf7bad8a828a443aaf078e37b6589c, type: 2}
-      Quantity: 1
-    - Name: 
-      Data: {fileID: 11400000, guid: 80c0085093e4bff429c199b387ba9f4b, type: 2}
-      Quantity: 1
-    Player: 0
-  - Name: Level 4
-    _items:
-    - Name: 
-      Data: {fileID: 11400000, guid: 479f994a4780476479ff882e4998e98a, type: 2}
-      Quantity: 1
-    - Name: 
-      Data: {fileID: 11400000, guid: f4798e7c0372d8a4ca1971765ba83d0e, type: 2}
-      Quantity: 2
-    - Name: 
-      Data: {fileID: 11400000, guid: a2a0089db8c23cb4dae83efbe34e69dd, type: 2}
-      Quantity: 2
-    Player: 0
-  - Name: Level 5
-    _items:
-    - Name: 
-      Data: {fileID: 11400000, guid: 479f994a4780476479ff882e4998e98a, type: 2}
-      Quantity: 1
-    - Name: 
-      Data: {fileID: 11400000, guid: 0beee07fad07fcf48bf99ef8c3d2600f, type: 2}
-      Quantity: 2
-    - Name: 
-      Data: {fileID: 11400000, guid: 80c0085093e4bff429c199b387ba9f4b, type: 2}
-      Quantity: 2
-    Player: 0
+      Type: 0
+      Quantity: 0

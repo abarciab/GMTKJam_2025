@@ -24,12 +24,13 @@ public class Car : MonoBehaviour
     [SerializeField] private float _boostUseFactorAdd = 0.1f;
     [SerializeField] private float _boostSpeedAdd = 1.2f;
 
-    [Header("Misc")]
-    [SerializeField] private float _maxFuel; 
-    [SerializeField] private Vector3 _playerDismountPosition;
-    [SerializeField] private CarWorldUI _worldUI;
 
-    [Header("stats")]
+    [Header("Stats")]
+    [SerializeField] private float _maxFuel;
+    [SerializeField] private float _encumberedMaxSpeed = 3;
+    [SerializeField] private float _gravity = 10;
+    [SerializeField] private Vector2 _throttleLimits = new Vector2(-3, 3);
+    [Space(10)]
     [SerializeField] private float _baseMaxSpeed = 10;
     [SerializeField] private float _baseForwardAccel = 10;
     [SerializeField] private float _baseFuelUseFactor = 0.1f;
@@ -38,40 +39,48 @@ public class Car : MonoBehaviour
     [SerializeField] private int _baseItemCapacity = 25;
     [SerializeField] private List<CarStat> _stats;
 
-    [Header("Driving Mechanics")]
+    [Header("Spinning wheels")]
     [SerializeField] private List<Transform> _spinWheels;
     [SerializeField] private float _maxWheelSpin = 10;
-    [SerializeField] private float _encumberedMaxSpeed = 3;
+
+    [Header("Model")]
     [SerializeField] private Transform _model;
+    [SerializeField] private Vector3 _modelOffsetPosition;
     [SerializeField] private float _modelLerpFactor;
-    [SerializeField] private Animator _carAnimator;
-    [SerializeField] private float _gravity = 10;
-    [SerializeField] private float _clampDownYPosThreshold = 0.1f;
-    [SerializeField] private float _uprightLerpFactor = 4;
-    [SerializeField] private float _wheelTurnLimit = 22;
-    [SerializeField] private float _wheelTurnSpeed = 25;
-    [SerializeField] private Vector2 _throttleLimits = new Vector2(-3, 3);
-    [SerializeField] private float _wheelStraightenLerpFactor = 22;
+
+    [Header("Wheels")]
     [SerializeField] private Transform _leftTire;
     [SerializeField] private Transform _rightTire;
+    [SerializeField] private float _wheelTurnLimit = 22;
+    [SerializeField] private float _wheelTurnSpeed = 25;
+    [SerializeField] private float _wheelStraightenLerpFactor = 22;
+
+    [Header("clamp and rotation fixes")]
+    [SerializeField] private float _clampDownYPosThreshold = 0.1f;
+    [SerializeField] private float _uprightLerpFactor = 4;
     [SerializeField] private LayerMask _floorLayerMask;
-    [SerializeField, ReadOnly] private float _wheelAngle;
 
     [Header("Sounds")]
     [SerializeField] private Sound _engineLoop;
 
     [Header("Misc")]
+    [SerializeField] private Animator _carAnimator;
     [SerializeField] private Player _player;
     [SerializeField] private GameObject _repairMenuParent;
+    [SerializeField] private Vector3 _playerDismountPosition;
+    [SerializeField] private CarWorldUI _worldUI;
 
-    [SerializeField, ReadOnly] private float _currentFuel;
     private Rigidbody _rb;
     private bool _driving;
-    private float _throttle;
-    private float _forwardSpeedPercent;
     private bool _boosting;
-    private float _currentHp;
     private bool _offRoad;
+    private float _currentFuel;
+    private float _throttle;
+    private float _forwardSpeed;
+    private float _actualMax;
+    private float _forwardSpeedPercent;
+    private float _currentHp;
+    private float _wheelAngle;
 
     [HideInInspector] public bool Paused;
 
@@ -85,14 +94,13 @@ public class Car : MonoBehaviour
     public float FuelPercent => _currentFuel / _maxFuel;
     public float HpPercent => _currentHp / _maxHp;
     private bool _anyPause => Paused || _repairMenuParent.activeInHierarchy;
-
     private float _maxSpeed => (Encumbered || _offRoad) ? _encumberedMaxSpeed : _baseMaxSpeed + GetValue(CarStatType.TOP_SPEED) + (_boosting ? _boostSpeedAdd : 0);
     private float _forwardAccel => _baseForwardAccel + GetValue(CarStatType.ACCEL) + (_boosting ? _boostSpeedAdd : 0);
     private float _fuelUseFactor => Mathf.Max(0, _baseFuelUseFactor - GetValue(CarStatType.EFFICIENCY) + (_boosting ? _baseFuelUseFactor : 0));
     private float _carTurnSpeed => _baseTurnSpeed + GetValue(CarStatType.HANDLING);
     private float _maxHp => _baseHpMax + GetValue(CarStatType.HP);
     public float ItemCapacity => _baseItemCapacity + GetValue(CarStatType.CAPACITY);
-    public bool Encumbered => _player.GetComponent<PlayerInventory>().Inventory(InventoryType.CAR).GetTotalItemCount() > ItemCapacity;
+    public bool Encumbered => InventoryManager.i.Inventory(InventoryType.CAR).GetWeight() > ItemCapacity;
 
     private void OnValidate()
     {
@@ -114,11 +122,64 @@ public class Car : MonoBehaviour
 
     private void Update()
     {
-        var forwardSpeed = Vector3.Dot(_rb.linearVelocity, transform.forward);
-        var actualmax = _throttleLimits.y * _maxSpeed * 10 * Time.fixedDeltaTime;
+        SetStatuses();
 
+        _carAnimator.speed = _driving ? Mathf.Clamp(_currentFuel / 2, 0, 1) : 0;
+        _worldUI.gameObject.SetActive(_driving);
         _boosting = InputController.Get(Control.SPRINT) && _currentFuel > 0;
 
+        if (_driving) ControlCar();
+        if (InputController.GetDown(Control.INTERACT)) LeaveCar();
+    }
+
+    private void ControlCar()
+    {
+        _forwardSpeed = Vector3.Dot(_rb.linearVelocity, transform.forward);
+        _actualMax = _throttleLimits.y * _maxSpeed * 10 * Time.fixedDeltaTime;
+        _forwardSpeedPercent = _forwardSpeed / _maxSpeed;
+        _player.transform.position = transform.position;
+
+        foreach (var wheel in _spinWheels) {
+            var wheelSpinSpeed = (_forwardSpeed / _maxSpeed) * _maxWheelSpin * Time.deltaTime * 2;
+            wheel.Rotate(wheelSpinSpeed * Vector3.right);
+        }
+
+        UpdateUI();
+        HandleThrottle();
+        HandleTurning();
+        TurnTires();
+
+#if UNITY_EDITOR
+        if (Input.GetKeyDown(KeyCode.T)) _currentFuel = _maxFuel;
+#endif
+    }
+
+    private void UpdateUI()
+    {
+        _currentFuel -= Mathf.Max(_throttle, 1f) * _fuelUseFactor * Time.deltaTime;
+        UIManager.i.Do(UIAction.SHOW_CAR_FUEL, (_currentFuel / _maxFuel));
+        UIManager.i.Do(UIAction.SHOW_CAR_SPEED, (_forwardSpeed / _actualMax) * _maxSpeed);
+        UIManager.i.Do(UIAction.SHOW_CAR_HP, _currentHp / _maxHp);
+        if (InputController.GetDown(Control.INVENTORY)) {
+            UIManager.i.Do(UIAction.OPEN_REPAIR_MENU);
+        }
+    }
+
+    private void SetStatuses()
+    {
+        SetOffRoadStatus();
+        SetFuelStatus();
+        SetEncumberedStatus();
+    }
+
+    private void SetEncumberedStatus()
+    {
+        if (Encumbered) UIManager.i.Do(UIAction.SHOW_STATUS, Status.TRUCK_OVERLOADED);
+        else UIManager.i.Do(UIAction.HIDE_STATUS, Status.TRUCK_OVERLOADED);
+    }
+
+    private void SetFuelStatus()
+    {
         if (_currentFuel < 5) {
             if (_currentFuel < 0.5f) {
                 UIManager.i.Do(UIAction.SHOW_STATUS, Status.FUEL_EMPTY);
@@ -133,9 +194,10 @@ public class Car : MonoBehaviour
             UIManager.i.Do(UIAction.HIDE_STATUS, Status.FUEL_EMPTY);
             UIManager.i.Do(UIAction.HIDE_STATUS, Status.LOW_FUEL);
         }
-        if (Encumbered) UIManager.i.Do(UIAction.SHOW_STATUS, Status.TRUCK_OVERLOADED);
-        else UIManager.i.Do(UIAction.HIDE_STATUS, Status.TRUCK_OVERLOADED);
+    }
 
+    private void SetOffRoadStatus()
+    {
         var didHit = Physics.Raycast(transform.position + Vector3.up * 3, Vector3.down, out var hitInfo, 1000, _floorLayerMask);
         if (didHit) {
             _offRoad = !hitInfo.collider.CompareTag("Road");
@@ -143,44 +205,8 @@ public class Car : MonoBehaviour
 
         if (_offRoad) UIManager.i.Do(UIAction.SHOW_STATUS, Status.OFF_ROAD);
         else UIManager.i.Do(UIAction.HIDE_STATUS, Status.OFF_ROAD);
-
-        _carAnimator.speed = _driving ? Mathf.Clamp(_currentFuel / 2, 0, 1) : 0;
-        _worldUI.gameObject.SetActive(_driving);
-
-        if (!_driving) {
-            _engineLoop.SetPercentVolume(0, 0.5f * Time.deltaTime);
-            return;
-        }
-        else {
-
-            foreach (var wheel in _spinWheels) {
-                wheel.localEulerAngles += Vector3.right * (forwardSpeed / actualmax) * _maxWheelSpin * Time.deltaTime;
-            }
-
-            if (InputController.GetDown(Control.INVENTORY)) {
-                UIManager.i.Do(UIAction.OPEN_REPAIR_MENU);
-            }
-
-            UIManager.i.Do(UIAction.SHOW_CAR_HP, _currentHp / _maxHp);
-            _player.transform.position = transform.position;
-            //if (Input.GetKeyDown(KeyCode.T)) _currentFuel = _maxFuel;
-        }
-
-        if (InputController.GetDown(Control.INTERACT)) {
-            LeaveCar();
-            return;
-        }
-
-        _currentFuel -= Mathf.Max(_throttle, 1f) * _fuelUseFactor * Time.deltaTime;
-        UIManager.i.Do(UIAction.SHOW_CAR_FUEL, (_currentFuel / _maxFuel));
-        UIManager.i.Do(UIAction.SHOW_CAR_SPEED, (forwardSpeed / actualmax) * _maxSpeed);
-
-        _forwardSpeedPercent = forwardSpeed / _maxSpeed;
-
-        
-        HandleThrottle();
-        HandleTurning();
     }
+
 
     private void OnDrawGizmos()
     {
@@ -218,6 +244,7 @@ public class Car : MonoBehaviour
 
     public void LeaveCar()
     {
+        _engineLoop.SetPercentVolume(0, 0.5f * Time.deltaTime);
 
         foreach (var part in _model.GetComponentsInChildren<CarPart>()) {
             part.GetComponent<Collider>().enabled = true;
@@ -235,9 +262,8 @@ public class Car : MonoBehaviour
 
     private void OnDisable()
     {
-        //_model.SetParent(transform);
-        _model.gameObject.SetActive(false);
-        _engineLoop.SetPercentVolume(0.1f);
+        if (_model) _model.gameObject.SetActive(false);
+        if (_engineLoop) _engineLoop.SetPercentVolume(0.1f);
     }
 
     private void OnEnable()
@@ -280,7 +306,7 @@ public class Car : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (_driving) Drive();
+        MoveCar();
 
         var up = transform.localEulerAngles;
         up.z = 0;
@@ -288,7 +314,7 @@ public class Car : MonoBehaviour
 
         if (_driving) {
             _model.SetParent(null);
-            _model.position = Vector3.Lerp(_model.position, transform.position, _modelLerpFactor * Time.fixedDeltaTime);
+            _model.position = Vector3.Lerp(_model.position, transform.TransformPoint(_modelOffsetPosition), _modelLerpFactor * Time.fixedDeltaTime);
             _model.rotation = Quaternion.Lerp(_model.rotation, transform.rotation, _modelLerpFactor * Time.fixedDeltaTime);
         }
         else {
@@ -296,19 +322,19 @@ public class Car : MonoBehaviour
             _model.localPosition = Vector3.zero;
             _model.localRotation = Quaternion.identity;
         }
-
-    }
-
-    private void Drive()
-    {
-        MoveCar();
-        TurnTires();
     }
 
     private void TurnTires()
     {
-        _leftTire.transform.localEulerAngles = new Vector3(0, 0, _wheelAngle);
-        _rightTire.transform.localEulerAngles = new Vector3(0, 0, _wheelAngle);
+        //SetZAngle(_leftTire, _wheelAngle);
+        //SetZAngle(_leftTire, _wheelAngle);
+    }
+
+    private void SetZAngle(Transform trans, float z)
+    {
+        var eulers = trans.localEulerAngles;
+        eulers.z = z;
+        trans.localEulerAngles = eulers;
     }
 
     private void MoveCar()

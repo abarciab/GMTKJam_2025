@@ -8,20 +8,14 @@ using UnityEngine;
 [System.Serializable]
 public class Trade
 {
-    public Inventory Request = new Inventory();
-    public Inventory Offer = new Inventory();
+    public List<Item> Request;
+    public List<Item> Offer;
     
     public Trade() {}
     public Trade(Trade other)
     {
-        Request = new Inventory();
-        foreach (var item in other.Request.Items) {
-            Request.AddItems(new Item(item));
-        }
-        Offer = new Inventory();
-        foreach (var item in other.Offer.Items) {
-            Offer.AddItems(new Item(item));
-        }
+        Request = new List<Item>(other.Request);
+        Offer = new List<Item>(other.Offer);
     }
 }
 
@@ -108,12 +102,13 @@ public class AreaController : MonoBehaviour
     public void InitializeArea(Car car)
     {
         car.SetEndGate(_endGate);
-        //_road.gameObject.SetActive(false);
-        //_road.gameObject.SetActive(true);
     }
 
-    public void EnterArea(Car car, CameraController camera)
+    public void EnterArea()
     {
+        var car = GameManager.i.Car;
+        var camera = GameManager.i.Camera;
+
         car.transform.SetPositionAndRotation(_entrance.position, _entrance.rotation);
         car.transform.position = _entrance.position;
 

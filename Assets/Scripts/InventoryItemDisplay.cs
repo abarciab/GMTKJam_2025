@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEditor.Progress;
 
 public class InventoryItemDisplay : MonoBehaviour
 {
@@ -28,7 +29,6 @@ public class InventoryItemDisplay : MonoBehaviour
     private Item _item;
     private bool _discovered;
 
-    public void OnHover() => _controller?.HoverItem(_discovered ? _item.Data.Description : _item.Data.UnknownDescription);
     public void EndHover() => _controller?.EndHover();
     public void Initialize(Item item, PlayerInventoryUIController controller)
     {
@@ -40,26 +40,27 @@ public class InventoryItemDisplay : MonoBehaviour
     {
         gameObject.SetActive(true);
 
-        _item = item;
-        _icon.sprite = item.Data.Icon;
+        var itemData = InventoryManager.GetData(item.Type);
 
-        _discovered = GameManager.i.ItemDiscovered(item.Data.Type) || _showUnknown;
-        if (_discovered) _nameText.text = item.Data.DisplayName;
+        _item = item;
+        _icon.sprite = itemData.Icon;
+
+        _discovered = InventoryManager.i.ItemDiscovered(itemData.Type) || _showUnknown;
+        if (_discovered) _nameText.text = itemData.DisplayName;
         else _nameText.text = "???";
 
         if (_trunkButtonParent) {
             _trunkButtonParent.SetActive(_trunk && _discovered);
-            //_iconFrameParent.SetActive(!_trunkButtonParent.activeSelf);
 
             if (_trunk) {
-                var carInv = GameManager.i.Player.GetComponent<PlayerInventory>().Inventory(InventoryType.CAR);
-                var playerInv = GameManager.i.Player.GetComponent<PlayerInventory>().Inventory(InventoryType.PLAYER);
+                var carInv = InventoryManager.i.Inventory(InventoryType.CAR);
+                var playerInv = InventoryManager.i.Inventory(InventoryType.PLAYER);
 
-                var carCount = carInv.GetCount(item.Data.Type);
+                var carCount = carInv.GetCount(itemData.Type);
                 _takeButton.SetActive(carCount > 0);
                 _takeAllButton.SetActive(carCount > 1);
 
-                var playerCount = playerInv.GetCount(item.Data.Type);
+                var playerCount = playerInv.GetCount(itemData.Type);
                 _giveButton.SetActive(playerCount > 0);
                 _giveAllButton.SetActive(playerCount > 1);
             }
@@ -70,9 +71,8 @@ public class InventoryItemDisplay : MonoBehaviour
 
         if (_quantity) {
             var player = GameManager.i.Player;
-            var playerInventory = player.GetComponent<PlayerInventory>();
-            var inventory = _combinedQuantityCheck ? playerInventory.Inventory(InventoryType.COMBINED) : playerInventory.Inventory(InventoryType.PLAYER);
-            if (_redWhenUnaffordable && inventory.GetCount(item.Data.Type) < item.Quantity) {
+            var inventory = _combinedQuantityCheck ? InventoryManager.i.Inventory(InventoryType.COMBINED) : InventoryManager.i.Inventory(InventoryType.PLAYER);
+            if (_redWhenUnaffordable && inventory.GetCount(item.Type) < item.Quantity) {
                 _quantity.SetDisabled(true);
             }
             else {
@@ -83,71 +83,77 @@ public class InventoryItemDisplay : MonoBehaviour
         if (_discardButton) _discardButton.SetActive(_allowDiscard && _item.Quantity > 0);
     }
 
+    public void OnHover()
+    {
+        if (!_controller) return;
+
+        var itemData = InventoryManager.GetData(_item.Type);
+        _controller.HoverItem(_discovered ? itemData.Description : itemData.UnknownDescription);
+    }
+
     public void Discard()
     {
         if (_trunk) {
-            GameManager.i.Player.GetComponent<PlayerInventory>().Inventory(InventoryType.CAR).RemoveItems(_item.Data.Type, 1);
+            InventoryManager.i.Inventory(InventoryType.CAR).Remove(_item.Type, 1);
         }
         else {
-            GameManager.i.Player.GetComponent<PlayerInventory>().Inventory(InventoryType.PLAYER).RemoveItems(_item.Data.Type, 1);
+            InventoryManager.i.Inventory(InventoryType.PLAYER).Remove(_item.Type, 1);
         }
-        //_item.Quantity -= 1;
         Initialize(_item);
     }
 
     public void Take()
     {
-        var carInv = GameManager.i.Player.GetComponent<PlayerInventory>().Inventory(InventoryType.CAR);
-        var playerInv = GameManager.i.Player.GetComponent<PlayerInventory>().Inventory(InventoryType.PLAYER);
+        var carInv = InventoryManager.i.Inventory(InventoryType.CAR);
+        var playerInv = InventoryManager.i.Inventory(InventoryType.PLAYER);
 
-        if (carInv.GetCount(_item.Data.Type) == 0) return;
+        if (carInv.GetCount(_item.Type) == 0) return;
         
-        carInv.RemoveItems(_item.Data.Type, 1);
-        playerInv.AddItems(_item.Data.Type, 1);
+        carInv.Remove(_item.Type, 1);
+        playerInv.Add(_item.Type, 1);
 
         Initialize(_item);
     }
 
     public void TakeAll()
     {
-        var carInv = GameManager.i.Player.GetComponent<PlayerInventory>().Inventory(InventoryType.CAR);
-        var playerInv = GameManager.i.Player.GetComponent<PlayerInventory>().Inventory(InventoryType.PLAYER);
+        var carInv = InventoryManager.i.Inventory(InventoryType.CAR);
+        var playerInv = InventoryManager.i.Inventory(InventoryType.PLAYER);
 
-        var carCount = carInv.GetCount(_item.Data.Type);
+        var carCount = carInv.GetCount(_item.Type);
 
         if (carCount == 0) return;
 
-        carInv.RemoveItems(_item.Data.Type, carCount);
-        playerInv.AddItems(_item.Data.Type, carCount);
+        carInv.Remove(_item.Type, carCount);
+        playerInv.Add(_item.Type, carCount);
 
         Initialize(_item);
     }
 
     public void Store()
     {
-        var carInv = GameManager.i.Player.GetComponent<PlayerInventory>().Inventory(InventoryType.CAR);
-        var playerInv = GameManager.i.Player.GetComponent<PlayerInventory>().Inventory(InventoryType.PLAYER);
+        var carInv = InventoryManager.i.Inventory(InventoryType.CAR);
+        var playerInv = InventoryManager.i.Inventory(InventoryType.PLAYER);
 
-        if (playerInv.GetCount(_item.Data.Type) == 0) return;
+        if (playerInv.GetCount(_item.Type) == 0) return;
 
-        carInv.AddItems(_item.Data.Type, 1);
-        playerInv.RemoveItems(_item.Data.Type, 1);
+        carInv.Add(_item.Type, 1);
+        playerInv.Remove(_item.Type, 1);
 
         Initialize(_item);
     }
 
     public void StoreAll()
     {
-        var carInv = GameManager.i.Player.GetComponent<PlayerInventory>().Inventory(InventoryType.CAR);
-        var playerInv = GameManager.i.Player.GetComponent<PlayerInventory>().Inventory(InventoryType.PLAYER);
+        var carInv = InventoryManager.i.Inventory(InventoryType.CAR);
+        var playerInv = InventoryManager.i.Inventory(InventoryType.PLAYER);
 
-        var PlayerCount = playerInv.GetCount(_item.Data.Type);
-        //print("storing all " + _item.Data.Type + ". player count: " + PlayerCount);
+        var PlayerCount = playerInv.GetCount(_item.Type);
 
         if (PlayerCount == 0) return;
 
-        playerInv.RemoveItems(_item.Data.Type, PlayerCount);
-        carInv.AddItems(_item.Data.Type, PlayerCount);
+        playerInv.Remove(_item.Type, PlayerCount);
+        carInv.Add(_item.Type, PlayerCount);
 
         Initialize(_item);
     }

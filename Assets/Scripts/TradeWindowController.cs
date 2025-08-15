@@ -33,7 +33,7 @@ public class TradeWindowController : UIController
         GameManager.i.Player.SetFrozen(true);
         Utils.SetCursor(true);
 
-        var requestitems = trade.Request.Items;
+        var requestitems = trade.Request;
         var requestDisplays = _requestParent.GetComponentsInChildren<InventoryItemDisplay>(true).ToList();
         for (int i = 0; i < requestDisplays.Count; i++) {
             requestDisplays[i].gameObject.SetActive(i < requestitems.Count);
@@ -42,7 +42,7 @@ public class TradeWindowController : UIController
             }
         }
 
-        var offerItems = trade.Offer.Items;
+        var offerItems = trade.Offer;
         var offerDisplays = _offerParent.GetComponentsInChildren<InventoryItemDisplay>(true).ToList();
         for (int i = 0; i < offerDisplays.Count; i++) {
             offerDisplays[i].gameObject.SetActive(i < offerItems.Count);
@@ -51,7 +51,7 @@ public class TradeWindowController : UIController
             }
         }
 
-        var inventory = GameManager.i.Player.GetComponent<PlayerInventory>().Inventory(InventoryType.PLAYER);
+        var inventory = InventoryManager.i.Inventory(InventoryType.PLAYER);
         var canAfford = inventory.Contains(requestitems);
         _confirmButton.SetDisabled(!canAfford);
     }
@@ -63,13 +63,13 @@ public class TradeWindowController : UIController
 
     public void Confirm()
     {
-        var requestitems = _trade.Request.Items;
-        var offerItems = _trade.Offer.Items;
+        var requestitems = _trade.Request;
+        var offerItems = _trade.Offer;
 
-        var inventory = GameManager.i.Player.GetComponent<PlayerInventory>().Inventory(InventoryType.PLAYER);
+        var inventory = InventoryManager.i.Inventory(InventoryType.PLAYER);
 
-        inventory.AddItems(offerItems);
-        inventory.RemoveItems(requestitems);
+        inventory.Add(offerItems);
+        inventory.Remove(requestitems);
 
         CloseWindow();
     }

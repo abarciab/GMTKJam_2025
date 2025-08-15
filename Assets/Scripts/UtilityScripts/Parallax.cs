@@ -11,7 +11,7 @@ public class Parallax : MonoBehaviour
 
     private void Start()
     {
-        _cam = GameManager.i.Camera;
+        _cam = GameManager.i.Camera.transform;
         Invoke(nameof(SetPos), 0.01f);
     }
 

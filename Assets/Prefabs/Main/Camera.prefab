@@ -167,6 +167,7 @@ GameObject:
   - component: {fileID: 7116435428838831285}
   - component: {fileID: 2879521643173331306}
   - component: {fileID: 8003725670782302108}
+  - component: {fileID: 7280891311182300485}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -208,14 +209,6 @@ MonoBehaviour:
   _targetPosition: {x: 0, y: 0.6, z: 0.84}
   _rotateSpeed: 1.1
   _lookLimits: {x: -50, y: 80}
-  _carLookLimits: {x: -30, y: 50}
-  _driveCamParent: {fileID: 2893975272297349193}
-  _car: {fileID: 0}
-  _carPositionOffset: {x: 0, y: 6.96, z: -7.18}
-  _carTargetPosition: {x: 0, y: 1.66, z: 7.16}
-  _turnLookAheadFactor: 2
-  _posLerpFactor: 20
-  _rotLerpFactor: 15
   _fovLimits: {x: 60, y: 75}
   _fovLerpFactor: 5
   _camera: {fileID: 5984626316939575175}
@@ -237,6 +230,27 @@ MonoBehaviour:
   _defaultspeed: 4
   _defaultAmplitude: 1
   _defaultDuration: 0.5
+--- !u!114 &7280891311182300485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2503419649963199709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0d429c6798aef54baf50bce25d9eb90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _lookLimits: {x: -30, y: 50}
+  _camParent: {fileID: 2893975272297349193}
+  _carRb: {fileID: 0}
+  _carPositionOffset: {x: 0, y: 6.96, z: 6.96}
+  _carTargetPosition: {x: 0, y: 6.96, z: 7.16}
+  _turnLookAheadFactor: 2
+  _posLerpFactor: 20
+  _rotLerpFactor: 15
+  _rotateSpeed: 1.1
 --- !u!1 &4102417180106362100
 GameObject:
   m_ObjectHideFlags: 0
@@ -264,7 +278,7 @@ Transform:
   m_GameObject: {fileID: 4102417180106362100}
   serializedVersion: 2
   m_LocalRotation: {x: -0.06824954, y: -0.99607366, z: 0.015856413, w: 0.054110765}
-  m_LocalPosition: {x: 0.249, y: -0.19, z: 0.91}
+  m_LocalPosition: {x: 2.32, y: 3.18, z: 0.6}
   m_LocalScale: {x: 1.3094, y: 1.3093998, z: 1.3093998}
   m_ConstrainProportionsScale: 0
   m_Children:

@@ -63,8 +63,8 @@ public class NPC : MonoBehaviour
 
     private void StartTrade()
     {
-        var requestedItems = _trade.Request.Items.Select(x => x.Data.Type).ToList();
-        foreach (var item in requestedItems) GameManager.i.DiscoverItem(item);
+        var requestedItems = _trade.Request.Select(x => x.Type).ToList();
+        foreach (var item in requestedItems) InventoryManager.i.DiscoverItem(item);
 
         UIManager.i.Do(UIAction.START_TRADE, _trade);
     }

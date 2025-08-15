@@ -8,10 +8,8 @@ public class CarHudController : UIController
 {
     [SerializeField] private Slider _fuelSlider;
     [SerializeField] private Slider _hpSlider;
-    [SerializeField] private TextMeshProUGUI _speedText;
-    [SerializeField] private float _speedLerp = 2;
-
-    private float _speed;
+    [SerializeField] private RadialGagueController _speedController;
+    [SerializeField] private float _maxSpeed = 40;
 
     private void Start()
     {
@@ -32,10 +30,7 @@ public class CarHudController : UIController
 
     private void ShowSpeed(float speed)
     {
-        _speed = Mathf.Lerp(_speed, speed, _speedLerp * Time.deltaTime);
-        var rounded = Mathf.Round(speed);
-        if (_speed % 1 > 0.5f) rounded += 0.5f;
-        _speedText.text = rounded.ToString();
+        _speedController.SetValue(speed / _maxSpeed);
     }
 
     private void ShowFuel(float fuelPercent)

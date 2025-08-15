@@ -33,7 +33,7 @@ public class PlayerInventoryUIController : UIController
         if (InputController.GetDown(Control.INVENTORY)) CloseInventory();
 
         var totalItems = _inventory.Items.Sum(x => x.Quantity);
-        var targetValue = totalItems / (_isCar ? GameManager.i.Car.ItemCapacity : GameManager.i.Player.GetComponent<PlayerInventory>()._weightLimit);
+        var targetValue = totalItems / (_isCar ? GameManager.i.Car.ItemCapacity : InventoryManager.i.WeightLimit);
         _weightLimitSlider.value = Mathf.Lerp(_weightLimitSlider.value, targetValue, 10 * Time.deltaTime);
     }
 
@@ -54,16 +54,16 @@ public class PlayerInventoryUIController : UIController
         _inventory = inventory;
 
         var totalItems = _inventory.Items.Sum(x => x.Quantity);
-        _weightLimitSlider.value = totalItems / (_isCar ? GameManager.i.Car.ItemCapacity : GameManager.i.Player.GetComponent<PlayerInventory>()._weightLimit);
+        _weightLimitSlider.value = totalItems / (_isCar ? GameManager.i.Car.ItemCapacity : InventoryManager.i.WeightLimit);
 
         _player.SetFrozen(true);
         Utils.SetCursor(true);
 
         _tooltipParent.SetActive(false);
         var itemDisplays = GetComponentsInChildren<InventoryItemDisplay>().ToList();
-        var allItems = GameManager.i.AllItems.OrderBy(x => !GameManager.i.ItemDiscovered(x.Type)).ToList();
+        var allItems = InventoryManager.i.AllItems().OrderBy(x => !InventoryManager.i.ItemDiscovered(x.Type)).ToList();
         for (int i = 0; i < itemDisplays.Count; i++) {
-            var item = inventory.getItem(allItems[i].Type);
+            var item = inventory.Get(allItems[i].Type);
             itemDisplays[i].Initialize(item, this);
         }
         if (!_isCar)UIManager.i.Do(UIAction.OPEN_PLAYER_INVENTORY_CONFIRM);

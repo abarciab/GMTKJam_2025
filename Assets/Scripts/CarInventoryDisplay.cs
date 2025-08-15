@@ -17,7 +17,8 @@ public class CarInventoryDisplay : UIController
         for (int i = 0; i < _texts.Count; i++) {
             _texts[i].gameObject.SetActive(requiredItems.Count > i);
             if (_texts[i].gameObject.activeInHierarchy) {
-                _texts[i].text = requiredItems[i].Data.DisplayName + ": " + requiredItems[i].Quantity;
+                var itemData = InventoryManager.GetData(requiredItems[i].Type);
+                _texts[i].text = itemData.DisplayName + ": " + requiredItems[i].Quantity;
             }
         }
         _headerObject.SetActive(requiredItems.Count > 0);

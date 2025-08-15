@@ -22,7 +22,7 @@ public class CarUpgradePanel : MonoBehaviour
     public void SetHover(bool hovered)
     {
         foreach (var item in _car.GetStat(_stat).ItemsRequired) {
-            GameManager.i.DiscoverItem(item.Data.Type);
+            InventoryManager.i.DiscoverItem(item.Type);
         }
 
         var items = _car.GetStat(_stat).ItemsRequired;
@@ -53,9 +53,6 @@ public class CarUpgradePanel : MonoBehaviour
         _upgradeParent.SetActive(currentStat.Value != currentStat.Data.MaxValue);
         _maxLevelParent.SetActive(!_upgradeParent.activeInHierarchy);
 
-        var upgradeAmountString = currentStat.Data.LevelUpgradeAmount + currentStat.Data.AmountSuffix;
-       // _buttonText.text = "Upgrade (+" + upgradeAmountString + ")";
-
         _levelText.text = currentStat.Level + "-> " + (currentStat.Level + 1);
 
         var items = currentStat.ItemsRequired;
@@ -66,19 +63,16 @@ public class CarUpgradePanel : MonoBehaviour
             else _requiredItemDisplay[i].gameObject.SetActive(false);
         }
 
-        var inventory = GameManager.i.Player.GetComponent<PlayerInventory>().Inventory(InventoryType.COMBINED);
+        var inventory = InventoryManager.i.Inventory(InventoryType.COMBINED);
         var affordable = inventory.Contains(items);
         _upgradeButton.SetDisabled(!affordable);
-
-        //print(_nameText.text + " affordable: " + affordable);
     }
 
     public void Upgrade()
     {
         var currentStat = _car.GetStat(_stat);
 
-        var inventory = GameManager.i.Player.GetComponent<PlayerInventory>();
-        inventory.RemoveCombinedItems(currentStat.ItemsRequired);
+        InventoryManager.i.RemoveCombinedItems(currentStat.ItemsRequired);
 
         _car.UpgradeStat(_stat);
 
