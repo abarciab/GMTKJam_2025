@@ -17,7 +17,6 @@ public class CarCamera : MonoBehaviour
     private Car _car;
     private float _currentLook = 0;
     private float _currentLookY = 0;
-    private Transform _cam;
     private Quaternion _targetCameraLocalRotation;
     private Quaternion _targetRotation;
     private Vector3 _targetPosition;
@@ -31,7 +30,6 @@ public class CarCamera : MonoBehaviour
     private void Start()
     {
         _car = _carRb.GetComponent<Car>();
-        _cam = Camera.main.transform;
     }
 
     private void Update()
@@ -54,18 +52,17 @@ public class CarCamera : MonoBehaviour
         //transform.LookAt(_camParent.transform);
         transform.LookAt(_targetLookPosition);
         //transform.LookAt(_camParent.transform.TransformPoint(_carTargetPosition));
-        transform.localEulerAngles +=  _carRb.angularVelocity.y * _turnLookAheadFactor * Vector3.up;
+        //transform.localEulerAngles +=  _carRb.angularVelocity.y * _turnLookAheadFactor * Vector3.up;
         transform.rotation = Quaternion.Lerp(oldRot, transform.rotation, _rotLerpFactor * Time.deltaTime);
         
         _targetRotation = transform.localRotation;
         transform.rotation = oldRot;
 
-        _targetCameraLocalRotation = Quaternion.Lerp(_cam.localRotation, Quaternion.identity, _rotLerpFactor * Time.deltaTime);
     }
 
     private void DriveFreeLook()
     {
-        var mouseDelta = -Input.mousePositionDelta.y * Utils.MouseSensitivity.y;
+        var mouseDelta = Input.mousePositionDelta.y * Utils.MouseSensitivity.y;
         var rotDelta = mouseDelta * _rotateSpeed * Time.deltaTime * 100;
         if (rotDelta > 0) rotDelta = Mathf.Min(rotDelta, _lookLimits.y - _currentLook);
         if (rotDelta < 0) rotDelta = Mathf.Max(rotDelta, _lookLimits.x - _currentLook);
@@ -83,7 +80,7 @@ public class CarCamera : MonoBehaviour
         transform.position = _carRb.transform.TransformPoint(_positionOffset);
         transform.LookAt(_carRb.transform.TransformPoint(_targetOffset));
         transform.localEulerAngles += Vector3.up * _carRb.angularVelocity.y * _turnLookAheadFactor;
-        _cam.localRotation = Quaternion.identity;
+        Camera.main.transform.localRotation = Quaternion.identity;
     }
 
     private void OnDrawGizmosSelected()

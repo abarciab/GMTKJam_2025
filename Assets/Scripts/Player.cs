@@ -62,11 +62,14 @@ public class Player : MonoBehaviour
     private NPC _hoveredNPC;
 
     public bool Dead => _dead;
-    public void EndConversation() => _talking = false;
-    public void SetFrozen(bool frozen) => _frozen = frozen;
     public bool Frozen => _frozen;
     public bool Sprinting => InputController.Get(Control.SPRINT) && _rb.linearVelocity.magnitude > 0 && !InventoryManager.i.Encumbered && _staminaLeft > 0 && _sprintEnabled;
-
+    private bool _encumbered => InventoryManager.i.Encumbered;
+    private float _currentStrafeSpeed => _strafeSpeed * (_encumbered ? 0.1f : 1);
+    private float _currentForwardSpeed => _encumbered ? _encumberedSpeed : (Sprinting ? _runSpeed : _walkSpeed); 
+    public void EndConversation() => _talking = false;
+    public void SetFrozen(bool frozen) => _frozen = frozen;
+    private void ToggleInventory() => UIManager.i.Do(UIAction.TOGGLE_INVENTORY, InventoryManager.i.Inventory(InventoryType.PLAYER));
     private void OnEnable()
     {
         _staminaLeft = _staminaMax;
@@ -86,10 +89,42 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        InvalidPositionCheck();
+        HandleSprint();
+
+        if (!_dead && !_talking && !_frozen) DoNormalBehvaior();
+    }
+
+    private void DoNormalBehvaior()
+    {
+        if (InputController.GetDown(Control.INVENTORY)) ToggleInventory(); 
+        Move();
+        HandleArrow();
+        HandleInteract();        
+    }
+
+    private void HandleInteract()
+    {
+        HandleHover();
+
+        if (_breaking) ProgressBreak();
+
+        if (Input.GetMouseButtonDown(0)) {
+            if (_hoveredCollectible != null) CollectableInteract();
+            if (_hoveredCarPart != null) CarInteract();
+            if (_hoveredNPC != null) NPCInteract();
+        }
+    }
+
+    private void InvalidPositionCheck()
+    {
         var didHit = Physics.Raycast(transform.position, Vector3.down, out var hitInfo, 1000, _groundLayerMask);
         if (didHit) _lastValidPos = transform.position;
         else transform.position = _lastValidPos;
+    }
 
+    private void HandleSprint()
+    {
         if (InputController.GetUp(Control.SPRINT)) {
             if (_staminaLeft < _staminaMax / 2) _sprintEnabled = false;
         }
@@ -104,25 +139,6 @@ public class Player : MonoBehaviour
         }
         _staminaLeft = Mathf.Clamp(_staminaLeft, 0, _staminaMax);
         UIManager.i.Do(UIAction.SHOW_STAMINA, _staminaLeft / _staminaMax);
-
-        if (_dead || _talking || _frozen) return;
-
-        if (InputController.GetDown(Control.INVENTORY)) UIManager.i.Do(UIAction.TOGGLE_INVENTORY, InventoryManager.i.Inventory(InventoryType.PLAYER));
-
-        HandleJump();
-
-        HandleArrow();
-
-        Move();
-        Raycast();
-
-        if (_breaking) ProgressBreak();
-
-        if (Input.GetMouseButtonDown(0))  {
-            if (_hoveredCollectible != null) CollectableInteract();
-            if (_hoveredCarPart != null) CarInteract(); 
-            if (_hoveredNPC != null) NPCInteract(); 
-        }
     }
 
     private void OnDrawGizmosSelected()
@@ -257,7 +273,7 @@ public class Player : MonoBehaviour
         _hoveredCollectible = null;
     }
 
-    private void Raycast()
+    private void HandleHover()
     {
         var cam = Camera.main.transform;
         var didHit = Physics.Raycast(cam.position, cam.forward, out var hitInfo, _collectionRange);
@@ -295,7 +311,6 @@ public class Player : MonoBehaviour
             UIManager.i.Do(UIAction.DISPLAY_HOVERED, "");
             return;
         }
-
     }
 
     private void CheckNewOutline()
@@ -363,46 +378,31 @@ public class Player : MonoBehaviour
     }
     private void Move()
     {
+        HandleJump();
         UpdatePosition();
         Turn();
     }
 
     private void UpdatePosition()
     {
-        var encumbered = InventoryManager.i.Encumbered;
+        if (InputController.Get(Control.MOVE_FORWARD)) ApplyDirectionalForce(transform.forward, _currentForwardSpeed);
+        if (InputController.Get(Control.MOVE_BACK)) ApplyDirectionalForce(transform.forward * -1, _currentForwardSpeed);
+        if (InputController.Get(Control.MOVE_RIGHT)) ApplyDirectionalForce(transform.right, _currentStrafeSpeed);
+        if (InputController.Get(Control.MOVE_LEFT)) ApplyDirectionalForce(transform.right * -1, _currentStrafeSpeed);
 
-        if (InputController.Get(Control.MOVE_FORWARD)) {
+        ApplyGravity();
+    }
 
-            var targetSpeed = Sprinting ? _runSpeed : _walkSpeed;
-            if (encumbered) targetSpeed = _encumberedSpeed;
-
-            var forwardSpeed = Vector3.Dot(_rb.linearVelocity, transform.forward);
-            if (forwardSpeed < targetSpeed) {
-                _rb.linearVelocity += transform.forward * _walkSpeed;
-            }
+    private void ApplyDirectionalForce(Vector3 axis, float speed)
+    {
+        var currentSpeed = Vector3.Dot(_rb.linearVelocity, axis);
+        if (currentSpeed < speed) {
+            _rb.linearVelocity += axis * speed;
         }
+    }
 
-        if (InputController.Get(Control.MOVE_BACK)) {
-            var backwardSpeed = Vector3.Dot(_rb.linearVelocity, transform.forward * -1);
-            if (backwardSpeed < (encumbered ? _encumberedSpeed : _walkSpeed) ) {
-                _rb.linearVelocity += transform.forward * -1 * _walkSpeed;
-            }
-        }
-
-        if (InputController.Get(Control.MOVE_RIGHT)) {
-            var strafeSpeedRight = Vector3.Dot(_rb.linearVelocity, transform.right);
-            if (strafeSpeedRight < _strafeSpeed * (encumbered? 0.1f : 1)) {
-                _rb.linearVelocity += transform.right * _strafeSpeed;
-            }
-        }
-
-        if (InputController.Get(Control.MOVE_LEFT)) {
-            var strafeSpeedLeft = Vector3.Dot(_rb.linearVelocity, transform.right * -1);
-            if (strafeSpeedLeft < _strafeSpeed * (encumbered ? 0.1f : 1)) {
-                _rb.linearVelocity += transform.right * -1 * _strafeSpeed;
-            }
-        }
-
+    private void ApplyGravity()
+    {
         var speedDown = Vector3.Dot(_rb.linearVelocity, Vector3.down);
         _gravityDelta = Mathf.Lerp(_gravityDelta, speedDown < _gravity && speedDown >= 0.25f ? _gravity : 0, _gravityLerpFactor * Time.deltaTime);
         _rb.linearVelocity += Vector3.down * _gravityDelta * Time.deltaTime;
