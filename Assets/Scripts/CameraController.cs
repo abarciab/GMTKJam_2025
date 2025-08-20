@@ -52,7 +52,7 @@ public class CameraController : MonoBehaviour
         Camera.main.fieldOfView = Mathf.Lerp(Camera.main.fieldOfView, fovTarget, _fovLerpFactor * Time.deltaTime);
     }
 
-    private void LateUpdate()
+    private void FixedUpdate()
     {
         if (_followCar) {
             _camera.localRotation = Quaternion.Lerp(_camera.localRotation, Quaternion.identity, _rotLerpFactor * Time.deltaTime);

@@ -19,12 +19,57 @@ MonoBehaviour:
   _maxLevel: 5
   _upgradeCosts:
   - Name: level 1
-    Items: []
+    Items:
+    - Name: 
+      Type: 6
+      Quantity: 1
+    - Name: 
+      Type: 3
+      Quantity: 1
+    - Name: 
+      Type: 2
+      Quantity: 1
   - Name: level 2
-    Items: []
+    Items:
+    - Name: 
+      Type: 6
+      Quantity: 1
+    - Name: 
+      Type: 3
+      Quantity: 1
+    - Name: 
+      Type: 4
+      Quantity: 1
   - Name: level 3
-    Items: []
+    Items:
+    - Name: 
+      Type: 6
+      Quantity: 1
+    - Name: 
+      Type: 0
+      Quantity: 1
+    - Name: 
+      Type: 11
+      Quantity: 1
   - Name: level 4
-    Items: []
+    Items:
+    - Name: 
+      Type: 7
+      Quantity: 1
+    - Name: 
+      Type: 9
+      Quantity: 1
+    - Name: 
+      Type: 6
+      Quantity: 1
   - Name: level 5
-    Items: []
+    Items:
+    - Name: 
+      Type: 7
+      Quantity: 1
+    - Name: 
+      Type: 11
+      Quantity: 1
+    - Name: 
+      Type: 2
+      Quantity: 1

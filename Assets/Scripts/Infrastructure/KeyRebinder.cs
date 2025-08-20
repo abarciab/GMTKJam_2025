@@ -1,4 +1,3 @@
-using JetBrains.Annotations;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -23,6 +22,14 @@ public class KeyRebinder : MonoBehaviour
         _listening = false;
     }
 
+    public void Update()
+    {
+        if (!_listening) return;
+
+        var key = CheckForKey();
+        if (key != KeyCode.None) SetNewKey(key);
+    }
+
     private void OnDisable()
     {
         _listening = false;
@@ -42,7 +49,6 @@ public class KeyRebinder : MonoBehaviour
         for (int i = 0; i < current.Count; i++) {
             SpawnButton(current[i], i);
         }
-        
     }
 
     private void SpawnButton(MappedKeyData data, int index)
@@ -55,14 +61,6 @@ public class KeyRebinder : MonoBehaviour
         newButton.GetComponentInChildren<Image>().enabled = !even;
         newButton.transform.SetSiblingIndex(index + 1);
         newButton.GetComponentInChildren<Button>().onClick.AddListener(() => StartListening(data.Control, textComponents[1]));
-    }
-
-    public void Update()
-    {
-        if (!_listening) return;
-
-        var key = CheckForKey();
-        if (key != KeyCode.None) SetNewKey(key);
     }
 
     private void SetNewKey(KeyCode key)

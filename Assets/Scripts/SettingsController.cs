@@ -5,10 +5,16 @@ using UnityEngine.UI;
 
 public class SettingsController : MonoBehaviour
 {
+    [SerializeField] private List<GameObject> _tabs = new List<GameObject>();
+
+
+    [Header("volume")]
     [SerializeField] private Slider _masterVolume;
     [SerializeField] private Slider _musicVolume;
     [SerializeField] private Slider _ambientVolume;
     [SerializeField] private Slider _sfxVolume;
+
+    [Header("gameplay")]
     [SerializeField] private Slider _mouseSensitivityX;
     [SerializeField] private Slider _mouseSensitivityY;
 
@@ -28,6 +34,11 @@ public class SettingsController : MonoBehaviour
         SetSliderValuesToAudioSettings();
         _mouseSensitivityX.value = Utils.MouseSensitivity.x / 2;
         _mouseSensitivityY.value = Utils.MouseSensitivity.y / 2;
+    }
+
+    public void SelectTab(int index)
+    {
+        for (int i = 0; i < _tabs.Count; i++) _tabs[i].SetActive(i == index);
     }
 
     public void ChangeSensitivitySliders()

@@ -1,11 +1,7 @@
 using MyBox;
 using Sirenix.OdinInspector;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(InputController))]
 public class GameManager : MonoBehaviour

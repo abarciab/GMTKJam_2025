@@ -5,7 +5,7 @@ public class WalkCamera : MonoBehaviour
 {
     [SerializeField] private Player _player;
     [SerializeField] private Vector3 _positionOffset;
-    [SerializeField] private Vector3 _targetPosition;
+    [SerializeField] private Vector3 _lookTargetOffset;
     [SerializeField] private float _rotateSpeed;
     [SerializeField] private Vector2 _lookLimits = new Vector2(-50, 80);
 
@@ -14,17 +14,19 @@ public class WalkCamera : MonoBehaviour
     public Vector3 TargetPosition { get; private set; }
     public Quaternion TargetRotation { get; private set; }
     public Quaternion TargetCamLocalRotation { get; private set; }
+
     public void UpdatePositionAndRotation()
     {
         if (!_player.Frozen) {
             Turn();
         }
 
-        Vector3 targetPos = _player.transform.TransformPoint(_targetPosition);
-        Vector3 direction = targetPos - transform.position;
+        TargetPosition = _player.transform.TransformPoint(_positionOffset);
+
+        Vector3 targetPos = _player.transform.TransformPoint(_lookTargetOffset);
+        Vector3 direction = targetPos - TargetPosition;
         TargetRotation = Quaternion.LookRotation(direction, Vector3.up);
 
-        TargetPosition = _player.transform.TransformPoint(_positionOffset);
     }
     private void Turn()
     {
@@ -41,7 +43,7 @@ public class WalkCamera : MonoBehaviour
     {
         if (!_player) _player = FindFirstObjectByType<Player>();
         transform.position = _player.transform.TransformPoint(_positionOffset);
-        transform.LookAt(_player.transform.TransformPoint(_targetPosition));
+        transform.LookAt(_player.transform.TransformPoint(_lookTargetOffset));
         Utils.SetDirty(transform);
     }
     

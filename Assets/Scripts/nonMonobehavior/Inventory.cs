@@ -34,7 +34,6 @@ public class ItemList
 [System.Serializable]
 public class Inventory
 {
-
     [HideInInspector] public string Name;
     public bool Player;
     [SerializeField, MyBox.MinValue(0), HorizontalGroup(PaddingRight = 0.1f)] private int _weightLimit = 15;

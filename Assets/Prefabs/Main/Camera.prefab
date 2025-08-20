@@ -206,10 +206,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _player: {fileID: 0}
-  _positionOffset: {x: 0, y: 0.6, z: 0}
-  _targetPosition: {x: 0, y: 0.6, z: 0.84}
-  _rotateSpeed: 1.1
-  _lookLimits: {x: -50, y: 80}
   _rotLerpFactor: 10
   _fovLimits: {x: 60, y: 75}
   _fovLerpFactor: 5
@@ -244,15 +240,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0d429c6798aef54baf50bce25d9eb90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _lookLimits: {x: -30, y: 50}
+  _lookLimits: {x: -60, y: -10}
   _camParent: {fileID: 2893975272297349193}
   _carRb: {fileID: 0}
-  _positionOffset: {x: 0, y: 0, z: 0}
-  _targetOffset: {x: 0, y: 0, z: 0}
+  _positionOffset: {x: 0, y: 0.09, z: 10}
+  _targetOffset: {x: 0, y: 1.3, z: 2.4}
   _turnLookAheadFactor: 2
   _posLerpFactor: 20
-  _rotLerpFactor: 15
-  _rotateSpeed: 1.1
+  _rotLerpFactor: 50
+  _rotateSpeed: 0.3
 --- !u!114 &466848055868749969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -265,6 +261,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce7dd5ebf569adc46929d51df896a868, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _player: {fileID: 0}
+  _positionOffset: {x: 0, y: 0.6, z: 0}
+  _targetPosition: {x: 0, y: 0.6, z: 0.84}
+  _rotateSpeed: 0.6
+  _lookLimits: {x: -50, y: 80}
 --- !u!1 &4102417180106362100
 GameObject:
   m_ObjectHideFlags: 0
