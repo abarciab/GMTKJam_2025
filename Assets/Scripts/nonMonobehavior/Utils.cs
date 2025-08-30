@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using System.IO;
 using System.Linq;
+using UnityEngine.Video;
 
 public static class Utils
 {
@@ -16,8 +17,6 @@ public static class Utils
     public static int numMenusOpen = 0;
 
     public static bool Talking;
-
-    public static Vector2 MouseSensitivity = new Vector2(1, 1);
 
     public static void SetCursor(bool visible)
     {
@@ -38,6 +37,27 @@ public static class Utils
         var list = new List<T>();
         foreach (var item in array) list.Add((T)item);
         return list;
+    }
+
+    public static Vector2 StringToVector2(string inputString)
+    {
+        inputString = inputString.Replace("(", "").Replace(")", "").Replace(" ", "");
+        var parts = inputString.Split(",");
+        var x = float.Parse(parts[0]);
+        var y = float.Parse(parts[1]);
+        return new Vector2(x, y);
+
+    }
+
+    public static Vector3 StringToVector3(string inputString)
+    {
+        inputString = inputString.Replace("(", "").Replace(")", "").Replace(" ", "");
+        var parts = inputString.Split(",");
+        var x = float.Parse(parts[0]);
+        var y = float.Parse(parts[1]);
+        var z = float.Parse(parts[1]);
+        return new Vector3(x, y, z);
+
     }
 
     public static void SaveToFile(string fileName, string text)

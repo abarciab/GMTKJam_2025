@@ -9,6 +9,8 @@ public class SingleButtonSelector : MonoBehaviour
     List<SelectableItem> _buttons = new List<SelectableItem>();
     [SerializeField] private bool _selectOnEnable = false;
     [SerializeField, ConditionalField(nameof(_selectOnEnable))] private int _onEnableChildIndex = 0;
+    [SerializeField] private bool _selectOnStart = false;
+    [SerializeField, ConditionalField(nameof(_selectOnStart))] private int _onStartChildIndex = 0;
 
     bool initialized = false;
 
@@ -21,6 +23,7 @@ public class SingleButtonSelector : MonoBehaviour
     private void Start()
     {
         Initialize();
+        if (_selectOnStart && _buttons.Count > 0) _buttons[_onStartChildIndex].Select(true, true);
     }
 
     private void Initialize()

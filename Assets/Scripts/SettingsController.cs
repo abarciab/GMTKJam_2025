@@ -14,10 +14,6 @@ public class SettingsController : MonoBehaviour
     [SerializeField] private Slider _ambientVolume;
     [SerializeField] private Slider _sfxVolume;
 
-    [Header("gameplay")]
-    [SerializeField] private Slider _mouseSensitivityX;
-    [SerializeField] private Slider _mouseSensitivityY;
-
     private void Start()
     {
         _masterVolume.onValueChanged.AddListener((float value) => AudioManager.i.SetMasterVolume(value));
@@ -25,15 +21,12 @@ public class SettingsController : MonoBehaviour
         _ambientVolume.onValueChanged.AddListener((float value) => AudioManager.i.SetAmbientVolume(value));
         _sfxVolume.onValueChanged.AddListener((float value) => AudioManager.i.SetSFXVolume(value));
 
-        _mouseSensitivityX.value = Utils.MouseSensitivity.x / 2;
-        _mouseSensitivityY.value = Utils.MouseSensitivity.y / 2;
+        
     }
 
     private void OnEnable()
     {
         SetSliderValuesToAudioSettings();
-        _mouseSensitivityX.value = Utils.MouseSensitivity.x / 2;
-        _mouseSensitivityY.value = Utils.MouseSensitivity.y / 2;
     }
 
     public void SelectTab(int index)
@@ -41,10 +34,6 @@ public class SettingsController : MonoBehaviour
         for (int i = 0; i < _tabs.Count; i++) _tabs[i].SetActive(i == index);
     }
 
-    public void ChangeSensitivitySliders()
-    {
-        Utils.MouseSensitivity = new Vector2(_mouseSensitivityX.value, _mouseSensitivityY.value) * 2;
-    }
 
     void SetSliderValuesToAudioSettings()
     {

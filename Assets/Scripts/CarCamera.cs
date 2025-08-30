@@ -62,13 +62,13 @@ public class CarCamera : MonoBehaviour
 
     private void DriveFreeLook()
     {
-        var mouseDelta = Input.mousePositionDelta.y * Utils.MouseSensitivity.y;
+        var mouseDelta = Input.mousePositionDelta.y * Settings.MouseSensitivity.y;
         var rotDelta = mouseDelta * _rotateSpeed * Time.deltaTime * 100;
         if (rotDelta > 0) rotDelta = Mathf.Min(rotDelta, _lookLimits.y - _currentLook);
         if (rotDelta < 0) rotDelta = Mathf.Max(rotDelta, _lookLimits.x - _currentLook);
         _currentLook += rotDelta;
 
-        mouseDelta = Input.mousePositionDelta.x * Utils.MouseSensitivity.x;
+        mouseDelta = Input.mousePositionDelta.x * Settings.MouseSensitivity.x;
         rotDelta = mouseDelta * _rotateSpeed * Time.deltaTime * 100;
         _currentLookY += rotDelta;
 

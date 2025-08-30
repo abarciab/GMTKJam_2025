@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
     {
         if (i != null) Destroy(i.gameObject);
         i = this;
+        Settings.Load();
     }
 
     private void Start()
