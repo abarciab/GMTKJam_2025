@@ -63,21 +63,21 @@ public class Inventory
     public Item Get(ItemType itemType)
     {
         var selected = _items.Where(x => x.Type == itemType);
-        if (selected.Count() == 0) Add(itemType);
+        if (selected.Count() == 0) Add(itemType, 0);
         return _items.Where(x => x.Type == itemType).FirstOrDefault();
     }
 
     public void Add(List<Item> items) => items.ForEach(item => Add(item.Type, item.Quantity));
     public void Add(ItemType itemType, int quantity = 1)
     {
-        PlayerInventoryAdd(itemType);
-
         foreach (var item in _items.Where(x => x.Type == itemType)) {
             item.Quantity += quantity;
+            if (item.Quantity > 0) PlayerInventoryAdd(itemType);
             return;
         }
 
         _items.Add(new Item(itemType, quantity));
+        if (quantity > 0) PlayerInventoryAdd(itemType);
     }
 
     public void Remove(List<Item> items) => items.ForEach(item => Remove(item.Type, item.Quantity));

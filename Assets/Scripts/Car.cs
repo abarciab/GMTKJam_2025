@@ -129,6 +129,7 @@ public class Car : MonoBehaviour
         _boosting = InputController.Get(Control.SPRINT) && _currentFuel > 0;
 
         if (_driving) ControlCar();
+        else _engineLoop.SetPercentVolume(0, 5 * Time.deltaTime);
         if (InputController.GetDown(Control.INTERACT)) LeaveCar();
     }
 
@@ -207,7 +208,6 @@ public class Car : MonoBehaviour
         else UIManager.i.Do(UIAction.HIDE_STATUS, Status.OFF_ROAD);
     }
 
-
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(transform.TransformPoint(_playerDismountPosition), 0.5f);
@@ -244,7 +244,6 @@ public class Car : MonoBehaviour
 
     public void LeaveCar()
     {
-        _engineLoop.SetPercentVolume(0, 0.5f * Time.deltaTime);
 
         foreach (var part in _model.GetComponentsInChildren<CarPart>()) {
             part.GetComponent<Collider>().enabled = true;

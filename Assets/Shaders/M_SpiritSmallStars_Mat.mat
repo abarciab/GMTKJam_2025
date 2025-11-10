@@ -55,6 +55,7 @@ Material:
     - _CastShadows: 1
     - _Cull: 2
     - _DstBlend: 10
+    - _DstBlendAlpha: 10
     - _FresnelIntensity: 0.64
     - _FresnelPower: 2.3
     - _InnerFresnelAmount: 2
@@ -64,6 +65,7 @@ Material:
     - _ReceiveShadows: 0
     - _Smooth: 0
     - _SrcBlend: 1
+    - _SrcBlendAlpha: 1
     - _StarFresnelPower: 10.25
     - _StarNoiseAmount: 8.9
     - _StarNoiseScale1: 200
@@ -96,4 +98,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  version: 9
+  version: 10
